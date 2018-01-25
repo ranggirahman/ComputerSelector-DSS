@@ -31,7 +31,7 @@
   		<div class="fixed-bg"></div>
 	    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
 	      	<div class="container">
-	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 3%; and height: auto">	&nbsp; Decision Support System</a>
+	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 3%; and height: auto">&nbsp; Decision Support System</a>
 	      	</div>
 	    </div>
 
@@ -39,10 +39,10 @@
 	    	<div class="container">	    	
 			   	<div class="row">
 			   		<div class="col-md-2">
-			   			<img src="img/desktop.png" style="padding-top: 20px; max-width: 150%; and height: auto">
+			   			<img src="img/desktop.png" style="padding-top: 18px; max-width: 115%; and height: auto">
 			   		</div>
 		          	<div class="col-md-10">
-		            	<h1 class="display-3" style="padding-left: 130px;">Pemilihan Spesifikasi Hardware Komputer</h1>
+		            	<h1 class="display-4" style="padding-left: 50px;">Pemilihan Spesifikasi Hardware Komputer</h1>
 		            </div>
 		      	</div>
 		      	<hr>
@@ -105,16 +105,58 @@
 
 	   	<!-- Processor Modal -->
 	    <div class="modal fade" id="processormodal" tabindex="-1" role="dialog" aria-hidden="true">
-		  	<div class="modal-dialog modal-dialog-centered" role="document">
+		  	<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
 		    	<div class="modal-content">
 		      		<div class="modal-header">
-		        		<h5 class="modal-title" id="exampleModalLongTitle">Processor List</h5>
+		        		<img src="img/processor.png" style="max-width: 3%; and height: auto"><h5 class="modal-title" id="exampleModalLongTitle">&nbsp; Processor List</h5>
 		        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          			<span aria-hidden="true">&times;</span>
 		        		</button>
 		      		</div>
 			      	<div class="modal-body">
-			        ...
+			        	<table class="table table-striped">
+			        		<thead class="thead-light">
+				      			<tr>
+				      				<th width="30%">CPU Name</th>
+				      				<th>Performance</th>
+				      				<th>Single-Core Performance</th>
+				      				<th>Integrated Graphics</th>
+				      				<th>Integrated Graphics (OpenCL)</th>
+				      				<th>Performance Per Watt</th>
+				      				<th>Value</th>
+				      				<th width="10%">Total Score</th>
+				      			</tr>
+			      			</thead>
+			      			<?php
+			      				$result = mysqli_query($koneksi,"select *from cpu");
+
+			      				if($result == TRUE){
+									while($key = mysqli_fetch_array($result,MYSQLI_BOTH)){
+										$cpuname = $key['cpuname'];
+										$performance = $key['performance'];
+										$single = $key['single'];
+										$intg = $key['intg'];
+										$intgocl = $key['intgocl'];
+										$ppw = $key['ppw'];
+										$value = $key['value'];
+										$cpuscore = $key['cpuscore'];
+										?>
+										<tr>
+						      				<td><b><i><?php echo $cpuname ?><i></b></td>
+						      				<td><?php echo $performance ?></td>
+						      				<td><?php echo $single ?></td>
+						      				<td><?php echo $intg ?></td>
+						      				<td><?php echo $intgocl ?></td>
+						      				<td><?php echo $ppw ?></td>
+						      				<td><?php echo $value ?></td>
+						      				<td><b><?php echo $cpuscore ?></b></td>
+						      			</tr>
+
+						      			<?php
+									}
+								}
+			      			?>
+						</table>
 			      	</div>
 			      	<div class="modal-footer">
 			        	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

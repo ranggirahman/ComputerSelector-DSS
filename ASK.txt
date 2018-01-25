@@ -1,3 +1,13 @@
 - Kalau data nya banyak yang nol di satu kriteria gmn ?
 
-DATA CPUBOSS 54
+
+
+--------- CPU ----------------
+2014 -2015
+DATA CPUBOSS SAMPAI 54
+
+Belum di pake datanya:
+Intel Pentium G3440
+Intel Celeron G1820
+
+--------- GPU ----------------

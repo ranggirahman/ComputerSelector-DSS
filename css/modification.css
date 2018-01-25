@@ -12,3 +12,7 @@
     display: inline-flex;
     vertical-align: middle;
 }
+
+.modal-lg {
+    max-width: 60% !important;
+}
