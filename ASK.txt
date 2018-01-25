@@ -1,0 +1,3 @@
+- Kalau data nya banyak yang nol di satu kriteria gmn ?
+
+DATA CPUBOSS 54
