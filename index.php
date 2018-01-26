@@ -97,12 +97,6 @@
 	      	</footer>
 		</div>
 
-
-	    <script src="js/jquery.min.js"></script>
-	    <script src="js/popper.min.js"></script>
-	    <script src="js/bootstrap.js"></script>
-	    <script src="js/custom.js"></script>
-
 	   	<!-- Processor Modal -->
 	    <div class="modal fade" id="processormodal" tabindex="-1" role="dialog" aria-hidden="true">
 		  	<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -120,18 +114,18 @@
 		        		</button>
 		      		</div>
 			      	<div class="modal-body">
-			        	<table class="table table-striped">
+			        	<table class="table table-bordered table-striped">
 			        		<thead class="thead-light">
 				      			<tr>
-				      				<th>No</th>
-				      				<th width="20%">CPU Name</th>
-				      				<th>Performance</th>
-				      				<th>Single-Core Performance</th>
-				      				<th>Integrated Graphics</th>
-				      				<th>Integrated Graphics (OpenCL)</th>
-				      				<th>Performance Per Watt</th>
-				      				<th>Value</th>
-				      				<th width="10%">Total Score</th>
+				      				<th ><button type="button" class="btn btn-light">No</button></th>
+				      				<th width="15%"><button type="button" class="btn btn-light">CPU Name</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Benchmark Performance Using All Cores" data-placement="bottom" data-content="PCMark Accelerated, PassMark, Geekbench Multi-Core">Performance</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Individual Core Benchmark Performance" data-placement="bottom" data-content="PassMark Single-Core, Geekbench Single-Core, AES Single-Core">Single-Core</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Integrated GPU Performance for Graphics" data-placement="bottom" data-content="Sky Driver, Cloud Gate">Graphics</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Integrated GPU Performance for Parallel Computing" data-placement="bottom" data-content="Bitcoin Minning, Face Detection, Ocean Simulation, CompuBench T-Rex, Video Composition">OpenCL</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Performance Per Watt" data-placement="bottom" data-content="Sky Driver, Cloud Gate, CompuBench, PCMark, PassMark, Geekbench, TDP">Perf / Watt</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Paying for Performance" data-placement="bottom" data-content="Sky Driver, Cloud Gate, CompuBench, PCMark, PassMark, Geekbench, TDP">Value</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Combination of All Six Facets" data-placement="bottom" data-content="Performance, Single-Core Performance, Integrated Graphics, Performance Per Watt, Value">Total Score</button></th>
 				      				<th></th>
 				      			</tr>
 			      			</thead>
@@ -153,13 +147,13 @@
 										<tr>
 											<td><?php echo $i ?></td>
 						      				<td><b><i><?php echo $cpuname ?><i></b></td>
-						      				<td><?php echo $performance ?></td>
-						      				<td><?php echo $single ?></td>
-						      				<td><?php echo $intg ?></td>
-						      				<td><?php echo $intgocl ?></td>
-						      				<td><?php echo $ppw ?></td>
-						      				<td><?php echo $value ?></td>
-						      				<td><b><?php echo $cpuscore ?></b></td>
+						      				<td class="table-center"><?php echo $performance ?></td>
+						      				<td class="table-center"><?php echo $single ?></td>
+						      				<td class="table-center"><?php echo $intg ?></td>
+						      				<td class="table-center"><?php echo $intgocl ?></td>
+						      				<td class="table-center"><?php echo $ppw ?></td>
+						      				<td class="table-center"><?php echo $value ?></td>
+						      				<td class="table-center"><b><?php echo $cpuscore ?></b></td>
 						      				<td></td>
 						      			</tr>
 
@@ -400,7 +394,20 @@
 				    echo "<meta http-equiv='refresh' content='0'>";						   
 			  	}
 			?>
-		</div>  
+		</div> 
+
+
+
+
+	    <script src="js/jquery.min.js"></script>
+	    <script src="js/popper.min.js"></script>
+	    <script src="js/bootstrap.js"></script>
+	    <script src="js/custom.js"></script> 
+	    <script type="text/javascript">
+	    	$(function () {
+			  	$('[data-toggle="popover"]').popover()
+			})
+	    </script>
 
 	</body>
 </html>

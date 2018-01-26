@@ -16,3 +16,7 @@
 .modal-lg {
     max-width: 80% !important;
 }
+
+.table-center{
+   text-align: center;
+}
