@@ -19,7 +19,7 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
-	    <link rel="stylesheet" href="css/custom.min.css">
+	    <link rel="stylesheet" href="css/material-icons.css">
 	    <link rel="stylesheet" href="css/modification.css">
 	    <link href="css/jumbotron.css" rel="stylesheet">
 	    <link rel="icon" href="img/favicon.ico">	   
@@ -32,6 +32,10 @@
 	    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
 	      	<div class="container">
 	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 3%; and height: auto">&nbsp; Decision Support System</a>
+
+	        	<ul class="nav navbar-nav ml-auto">
+		            <button type="button" class="btn btn-light">Primary</button>
+		        </ul>
 	      	</div>
 	    </div>
 
@@ -108,7 +112,7 @@
 		      				$rcpu = mysqli_num_rows($cpu);
 						?>		
 
-		        		<img src="img/processor.png" style="max-width: 3%; and height: auto"><h5 class="modal-title" id="exampleModalLongTitle">&nbsp; Processor List (<?php echo $rcpu; ?> Product)</h5>
+		        		<img src="img/processor.png" style="max-width: 2%; and height: auto"><h5 class="modal-title" id="exampleModalLongTitle">&nbsp; Processor List (<?php echo $rcpu; ?> Product)</h5>
 		        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          			<span aria-hidden="true">&times;</span>
 		        		</button>
@@ -117,7 +121,7 @@
 			        	<table class="table table-bordered table-striped">
 			        		<thead class="thead-light">
 				      			<tr>
-				      				<th ><button type="button" class="btn btn-light">No</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-light">No</button></th>
 				      				<th width="15%"><button type="button" class="btn btn-light">CPU Name</button></th>
 				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Benchmark Performance Using All Cores" data-placement="bottom" data-content="PCMark Accelerated, PassMark, Geekbench Multi-Core">Performance</button></th>
 				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Individual Core Benchmark Performance" data-placement="bottom" data-content="PassMark Single-Core, Geekbench Single-Core, AES Single-Core">Single-Core</button></th>
@@ -145,7 +149,7 @@
 										$cpuscore = $key['cpuscore'];
 										?>
 										<tr>
-											<td><?php echo $i ?></td>
+											<td class="table-center"><?php echo $i ?></td>
 						      				<td><b><i><?php echo $cpuname ?><i></b></td>
 						      				<td class="table-center"><?php echo $performance ?></td>
 						      				<td class="table-center"><?php echo $single ?></td>
@@ -154,9 +158,8 @@
 						      				<td class="table-center"><?php echo $ppw ?></td>
 						      				<td class="table-center"><?php echo $value ?></td>
 						      				<td class="table-center"><b><?php echo $cpuscore ?></b></td>
-						      				<td></td>
+						      				<td class="table-center"><a class="btn btn-primary" href="https://www.google.com/search?q=<?php echo $cpuname ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">search</i></span></a></td>
 						      			</tr>
-
 						      			<?php
 									}
 								}
@@ -174,7 +177,7 @@
 				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="ppw" placeholder="Performance Per Watt" maxlength="5" required></td>
 				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="value" placeholder="Value" maxlength="5" required></td>
 				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="cpuscore" placeholder="Score" maxlength="5" required></td>
-				      				<td><input class="btn btn-success" type="submit" name="cpuadd" value="Add"></td>
+				      				<td class="table-center"><input class="btn btn-success" type="submit" name="cpuadd" value="Add"></td>
 				      			</tr>
 				      		</form>
 						</table>
@@ -211,24 +214,24 @@
 		      				$rvga = mysqli_num_rows($vga);
 						?>		      			
 
-		        		<img src="img/vga.png" style="max-width: 4%; and height: auto"><h5 class="modal-title" id="exampleModalLongTitle">&nbsp; Video Graphic Array List (<?php echo $rvga; ?> Product)</h5>
+		        		<img src="img/vga.png" style="max-width: 3%; and height: auto"><h5 class="modal-title" id="exampleModalLongTitle">&nbsp; Video Graphic Array List (<?php echo $rvga; ?> Product)</h5>
 		        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          			<span aria-hidden="true">&times;</span>
 		        		</button>
 		      		</div>
 			      	<div class="modal-body">
-			        	<table class="table table-striped">
+			        	<table class="table table-bordered table-striped">
 			        		<thead class="thead-light">
 				      			<tr>
-				      				<th>No</th>
-				      				<th width="20%">VGA Name</th>
-				      				<th>Gaming</th>
-				      				<th>Graphics</th>
-				      				<th>Computing</th>
-				      				<th>Performance Per Watt</th>
-				      				<th>Value</th>
-				      				<th>Noise and Power</th>
-				      				<th width="10%">Total Score</th>
+				      				<th class="table-center"><button type="button" class="btn btn-light">No</button></th>
+				      				<th width="20%"><button type="button" class="btn btn-light">VGA Name</button></th>				      				
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Gaming Performance Benchmark" data-placement="bottom" data-content="Battlefield 4, Bioshock Infinite, Crysis 3, Dirt 3, Farcry 3, CSGO, Diablo III, Fifa 16, GTA 5, The Witcher 3">Gaming</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Graphic Benchmark" data-placement="bottom" data-content="T-Rex, Manhattan, Gate Factor">Graphics</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Benchmark Performance Using All Cores" data-placement="bottom" data-content="Face Detection, Ocean Surface Simulation, Particle Simulation, Video Composition, Bitcoin Minning">Computing</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Performance Per Watt" data-placement="bottom" data-content="Battlefield 4, Bioshock Infinite, Crysis 3, Dirt 3, Farcry 3, CSGO, Diablo III, Fifa 16, GTA 5, The Witcher 3, T-Rex, Manhattan, Gate Factor, Face Detection, Ocean Surface Simulation, Particle Simulation, Video Composition, Bitcoin Minning">Perf / Watt</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Paying for Performance" data-placement="bottom" data-content="Battlefield 4, Bioshock Infinite, Crysis 3, Dirt 3, Farcry 3, CSGO, Diablo III, Fifa 16, GTA 5, The Witcher 3, T-Rex, Manhattan, Gate Factor, Face Detection, Ocean Surface Simulation, Particle Simulation, Video Composition, Bitcoin Minning">Value</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Noise and Power" data-placement="bottom" data-content="TDP, Idle Power Consumtion, Load Power Consumtion, Idle Noise Level, Load Noise Level">Noise Power</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Combination of All Six Facets" data-placement="bottom" data-content="Gaming, Graphic, Computing, Performance Per Watt, Value, Noise and Power">Total Score</button></th>
 				      				<th></th>
 				      			</tr>
 			      			</thead>
@@ -248,16 +251,16 @@
 										$vgascore = $key['vgascore'];
 										?>
 										<tr>
-											<td><?php echo $i ?></td>
+											<td class="table-center"><?php echo $i ?></td>
 						      				<td><b><i><?php echo $vganame ?><i></b></td>
-						      				<td><?php echo $gaming ?></td>
-						      				<td><?php echo $graphics ?></td>
-						      				<td><?php echo $computing ?></td>
-						      				<td><?php echo $ppw ?></td>
-						      				<td><?php echo $value ?></td>
-						      				<td><?php echo $nap ?></td>
-						      				<td><b><?php echo $vgascore ?></b></td>
-						      				<td></td>
+						      				<td class="table-center"><?php echo $gaming ?></td>
+						      				<td class="table-center"><?php echo $graphics ?></td>
+						      				<td class="table-center"><?php echo $computing ?></td>
+						      				<td class="table-center"><?php echo $ppw ?></td>
+						      				<td class="table-center"><?php echo $value ?></td>
+						      				<td class="table-center"><?php echo $nap ?></td>
+						      				<td class="table-center"><b><?php echo $vgascore ?></b></td>
+						      				<td class="table-center"><a class="btn btn-primary" href="https://www.google.com/search?q=<?php echo $vganame ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">search</i></span></a></td>
 						      			</tr>
 
 						      			<?php
@@ -277,7 +280,7 @@
 				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="value" placeholder="Value" maxlength="5" required></td>
 				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="nap" placeholder="Noise and Power" maxlength="5" required></td>
 				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="vgascore" placeholder="Score" maxlength="5" required></td>
-				      				<td><input class="btn btn-success" type="submit" name="vgaadd" value="Add"></td>
+				      				<td class="table-center"><input class="btn btn-success" type="submit" name="vgaadd" value="Add"></td>
 				      			</tr>
 				      		</form>
 						</table>
@@ -314,22 +317,22 @@
 		      				$rssd = mysqli_num_rows($ssd);
 						?>		      			
 
-		        		<img src="img/ssd.png" style="max-width: 3%; and height: auto"><h5 class="modal-title" id="exampleModalLongTitle">&nbsp; Solid State Disk List (<?php echo $rssd; ?> Product)</h5></h5>
+		        		<img src="img/ssd.png" style="max-width: 2%; and height: auto"><h5 class="modal-title" id="exampleModalLongTitle">&nbsp; Solid State Disk List (<?php echo $rssd; ?> Product)</h5></h5>
 		        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          			<span aria-hidden="true">&times;</span>
 		        		</button>
 		      		</div>
 			      	<div class="modal-body">
-			        	<table class="table table-striped">
+			        	<table class="table table-bordered table-striped">
 			        		<thead class="thead-light">
 				      			<tr>
-				      				<th>No</th>
-				      				<th width="20%">SSD Name</th>
-				      				<th>Read Performance</th>
-				      				<th>Write Performance</th>
-				      				<th>Real World Benchmarks</th>
-				      				<th>Benchmarks</th>
-				      				<th width="10%">Total Score</th>
+				      				<th class="table-center"><button type="button" class="btn btn-light">No</button></th>
+				      				<th width="20%"><button type="button" class="btn btn-light">SSD Name</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="How Quickly Data Is Read From The Drive" data-placement="bottom" data-content="4K Random Read, 4K Random Read Access Time, 512K Squential Read">Read Perf</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="How Quickly Data Is Written To The Drive" data-placement="bottom" data-content="4K Random Write, 4K Random Write Access Time, 512K Squential Write">Write Perf</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Real World Benchmarks, How Well The Drive Performs Common Task" data-placement="bottom" data-content="Photoshop Lens Filter, AS SSD ISO Copy">Real World</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="How Well The Drive Performs On Common Benchmarks" data-placement="bottom" data-content="PCMark Vantage, AS SSD Score">Benchmarks</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Combination of All Four Facets" data-placement="bottom" data-content="Read Performance, Write Performance, Real World Benchmarks, Benchmarks">Total Score</button></th>
 				      				<th></th>
 				      			</tr>
 			      			</thead>
@@ -347,14 +350,14 @@
 										$ssdscore = $key['ssdscore'];
 										?>
 										<tr>
-											<td><?php echo $i ?></td>
+											<td class="table-center"><?php echo $i ?></td>
 						      				<td><b><i><?php echo $ssdname ?><i></b></td>
-						      				<td><?php echo $readp ?></td>
-						      				<td><?php echo $writep ?></td>
-						      				<td><?php echo $realwb ?></td>
-						      				<td><?php echo $bench ?></td>
-						      				<td><b><?php echo $ssdscore ?></b></td>
-						      				<td></td>
+						      				<td class="table-center"><?php echo $readp ?></td>
+						      				<td class="table-center"><?php echo $writep ?></td>
+						      				<td class="table-center"><?php echo $realwb ?></td>
+						      				<td class="table-center"><?php echo $bench ?></td>
+						      				<td class="table-center"><b><?php echo $ssdscore ?></b></td>
+						      				<td class="table-center"><a class="btn btn-primary" href="https://www.google.com/search?q=<?php echo $ssdname ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">search</i></span></a></td>
 						      			</tr>
 
 						      			<?php
@@ -372,7 +375,7 @@
 				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="realwb" placeholder="Real World Benchmarks" maxlength="5" required></td>
 				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="bench" placeholder="Benchmarks" maxlength="5" required></td>				      				
 				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="ssdscore" placeholder="Score" maxlength="5" required></td>
-				      				<td><input class="btn btn-success" type="submit" name="ssdadd" value="Add"></td>
+				      				<td class="table-center"><input class="btn btn-success" type="submit" name="ssdadd" value="Add"></td>
 				      			</tr>
 				      		</form>
 						</table>
