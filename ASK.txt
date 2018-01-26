@@ -2,6 +2,10 @@
 
 
 
+- Semua data diambil yang tidak mengadung n.d
+- kecuali cpu yg integrated graphic
+- semua untuk desktop
+
 --------- CPU ----------------
 2014 -2015
 DATA CPUBOSS SAMPAI 54
@@ -11,3 +15,9 @@ Intel Pentium G3440
 Intel Celeron G1820
 
 --------- GPU ----------------
+2014 -2017
+DATA CPUBOSS SAMPAI 66
+
+--------- SSD ----------------
+2014 -2017
+DATA CPUBOSS SAMPAI 65

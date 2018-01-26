@@ -117,6 +117,7 @@
 			        	<table class="table table-striped">
 			        		<thead class="thead-light">
 				      			<tr>
+				      				<th>No</th>
 				      				<th width="30%">CPU Name</th>
 				      				<th>Performance</th>
 				      				<th>Single-Core Performance</th>
@@ -128,10 +129,12 @@
 				      			</tr>
 			      			</thead>
 			      			<?php
-			      				$result = mysqli_query($koneksi,"select *from cpu");
+			      				$cpu = mysqli_query($koneksi,"select *from cpu");			      				
+								$i = 0;
 
-			      				if($result == TRUE){
-									while($key = mysqli_fetch_array($result,MYSQLI_BOTH)){
+			      				if($cpu == TRUE){
+									while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
+										$i++;
 										$cpuname = $key['cpuname'];
 										$performance = $key['performance'];
 										$single = $key['single'];
@@ -142,6 +145,7 @@
 										$cpuscore = $key['cpuscore'];
 										?>
 										<tr>
+											<td><?php echo $i ?></td>
 						      				<td><b><i><?php echo $cpuname ?><i></b></td>
 						      				<td><?php echo $performance ?></td>
 						      				<td><?php echo $single ?></td>
@@ -166,18 +170,64 @@
 		  	</div>
 		</div>  
 
-		<!-- Processor Modal -->
+		<!-- VGA Modal -->
 	    <div class="modal fade" id="vgamodal" tabindex="-1" role="dialog" aria-hidden="true">
-		  	<div class="modal-dialog modal-dialog-centered" role="document">
+		  	<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
 		    	<div class="modal-content">
 		      		<div class="modal-header">
-		        		<h5 class="modal-title" id="exampleModalLongTitle">VGA List</h5>
+		        		<img src="img/vga.png" style="max-width: 4%; and height: auto"><h5 class="modal-title" id="exampleModalLongTitle">&nbsp; Video Graphic Array List</h5>
 		        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          			<span aria-hidden="true">&times;</span>
 		        		</button>
 		      		</div>
 			      	<div class="modal-body">
-			        ...
+			        	<table class="table table-striped">
+			        		<thead class="thead-light">
+				      			<tr>
+				      				<th>No</th>
+				      				<th width="30%">VGA Name</th>
+				      				<th>Gaming</th>
+				      				<th>Graphics</th>
+				      				<th>Computing</th>
+				      				<th>Performance Per Watt</th>
+				      				<th>Value</th>
+				      				<th>Noise and Power</th>
+				      				<th width="10%">Total Score</th>
+				      			</tr>
+			      			</thead>
+			      			<?php
+			      				$vga = mysqli_query($koneksi,"select *from vga");			      				
+								$i = 0;
+
+			      				if($vga == TRUE){
+									while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
+										$i++;
+										$vganame = $key['vganame'];
+										$gaming = $key['gaming'];
+										$graphics = $key['graphics'];
+										$computing = $key['computing'];
+										$ppw = $key['ppw'];
+										$value= $key['value'];
+										$nap = $key['nap'];
+										$vgascore = $key['vgascore'];
+										?>
+										<tr>
+											<td><?php echo $i ?></td>
+						      				<td><b><i><?php echo $vganame ?><i></b></td>
+						      				<td><?php echo $gaming ?></td>
+						      				<td><?php echo $graphics ?></td>
+						      				<td><?php echo $computing ?></td>
+						      				<td><?php echo $ppw ?></td>
+						      				<td><?php echo $value ?></td>
+						      				<td><?php echo $nap ?></td>
+						      				<td><b><?php echo $vgascore ?></b></td>
+						      			</tr>
+
+						      			<?php
+									}
+								}
+			      			?>
+						</table>
 			      	</div>
 			      	<div class="modal-footer">
 			        	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -185,20 +235,60 @@
 			      	</div>
 		    	</div>
 		  	</div>
-		</div>  
+		</div>    
 
-		<!-- Processor Modal -->
-	    <div class="modal fade" id="ssdmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-		  	<div class="modal-dialog modal-dialog-centered" role="document">
+		<!-- SSD Modal -->
+	    <div class="modal fade" id="ssdmodal" tabindex="-1" role="dialog" aria-hidden="true">
+		  	<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
 		    	<div class="modal-content">
 		      		<div class="modal-header">
-		        		<h5 class="modal-title" id="exampleModalLongTitle">SSD List</h5>
+		        		<img src="img/ssd.png" style="max-width: 3%; and height: auto"><h5 class="modal-title" id="exampleModalLongTitle">&nbsp; Solid State Disk List</h5>
 		        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          			<span aria-hidden="true">&times;</span>
 		        		</button>
 		      		</div>
 			      	<div class="modal-body">
-			        ...
+			        	<table class="table table-striped">
+			        		<thead class="thead-light">
+				      			<tr>
+				      				<th>No</th>
+				      				<th width="30%">SSD Name</th>
+				      				<th>Read Performance</th>
+				      				<th>Write Performance</th>
+				      				<th>Real World Benchmarks</th>
+				      				<th>Benchmarks</th>
+				      				<th width="10%">Total Score</th>
+				      			</tr>
+			      			</thead>
+			      			<?php
+			      				$ssd = mysqli_query($koneksi,"select *from ssd");			      				
+								$i = 0;
+
+			      				if($ssd == TRUE){
+									while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
+										$i++;
+										$ssdname = $key['ssdname'];
+										$readp = $key['readp'];
+										$writep = $key['writep'];
+										$realwb = $key['realwb'];
+										$bench = $key['bench'];
+										$ssdscore = $key['ssdscore'];
+										?>
+										<tr>
+											<td><?php echo $i ?></td>
+						      				<td><b><i><?php echo $ssdname ?><i></b></td>
+						      				<td><?php echo $readp ?></td>
+						      				<td><?php echo $writep ?></td>
+						      				<td><?php echo $realwb ?></td>
+						      				<td><?php echo $bench ?></td>
+						      				<td><b><?php echo $ssdscore ?></b></td>
+						      			</tr>
+
+						      			<?php
+									}
+								}
+			      			?>
+						</table>
 			      	</div>
 			      	<div class="modal-footer">
 			        	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
