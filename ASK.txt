@@ -1,6 +1,8 @@
 - Kalau data nya banyak yang nol di satu score (kriteria ?) gmn ?
 - Kalau kriteria didapat dari internet karena semua orang tau mau menggunakan ini untuk ini ini ini
 
+- Desain penelitian pengujian...
+
 
 - Semua data diambil yang tidak mengadung n.d
 - kecuali cpu yg integrated graphic
