@@ -31,11 +31,12 @@
   		<div class="fixed-bg"></div>
 	    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
 	      	<div class="container">
-	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 3%; and height: auto">&nbsp; Decision Support System</a>
+	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 5%; and height: auto">&nbsp; Decision Support System</a>
 
-	        	<ul class="nav navbar-nav ml-auto">
-		            <button type="button" class="btn btn-light">Primary</button>
-		        </ul>
+	        	<form  class="col-lg-5" action="search.php" method="GET">
+				  	<input class="form-control" name="search" placeholder="Product Search">
+				  	<input type="submit" name="searchsubmit" style="display:none"/>
+		        </form>
 	      	</div>
 	    </div>
 
@@ -118,7 +119,7 @@
 		        		</button>
 		      		</div>
 			      	<div class="modal-body">
-			        	<table class="table table-bordered table-striped">
+			        	<table class="table table-hover table-bordered table-striped">
 			        		<thead class="thead-light">
 				      			<tr>
 				      				<th class="table-center"><button type="button" class="btn btn-light">No</button></th>
@@ -138,27 +139,19 @@
 
 			      				if($cpu == TRUE){
 									while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
-										$i++;
-										$cpuname = $key['cpuname'];
-										$performance = $key['performance'];
-										$single = $key['single'];
-										$intg = $key['intg'];
-										$intgocl = $key['intgocl'];
-										$ppw = $key['ppw'];
-										$value = $key['value'];
-										$cpuscore = $key['cpuscore'];
+										$i++;										
 										?>
 										<tr>
 											<td class="table-center"><?php echo $i ?></td>
-						      				<td><b><i><?php echo $cpuname ?><i></b></td>
-						      				<td class="table-center"><?php echo $performance ?></td>
-						      				<td class="table-center"><?php echo $single ?></td>
-						      				<td class="table-center"><?php echo $intg ?></td>
-						      				<td class="table-center"><?php echo $intgocl ?></td>
-						      				<td class="table-center"><?php echo $ppw ?></td>
-						      				<td class="table-center"><?php echo $value ?></td>
-						      				<td class="table-center"><b><?php echo $cpuscore ?></b></td>
-						      				<td class="table-center"><a class="btn btn-primary" href="https://www.google.com/search?q=<?php echo $cpuname ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">search</i></span></a></td>
+						      				<td><b><i><?php echo $key['cpuname'] ?><i></b></td>
+						      				<td class="table-center"><?php echo $key['performance'] ?></td>
+						      				<td class="table-center"><?php echo $key['single'] ?></td>
+						      				<td class="table-center"><?php echo $key['intg'] ?></td>
+						      				<td class="table-center"><?php echo $key['intgocl'] ?></td>
+						      				<td class="table-center"><?php echo $key['ppw'] ?></td>
+						      				<td class="table-center"><?php echo $key['value']; ?></td>
+						      				<td class="table-center"><b><?php echo $key['cpuscore']; ?></b></td>
+						      				<td class="table-center"><a class="btn btn-primary" href="https://www.google.com/search?q=<?php echo $key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
 						      			</tr>
 						      			<?php
 									}
@@ -220,7 +213,7 @@
 		        		</button>
 		      		</div>
 			      	<div class="modal-body">
-			        	<table class="table table-bordered table-striped">
+			        	<table class="table table-hover table-bordered table-striped">
 			        		<thead class="thead-light">
 				      			<tr>
 				      				<th class="table-center"><button type="button" class="btn btn-light">No</button></th>
@@ -241,26 +234,18 @@
 			      				if($vga == TRUE){
 									while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
 										$i++;
-										$vganame = $key['vganame'];
-										$gaming = $key['gaming'];
-										$graphics = $key['graphics'];
-										$computing = $key['computing'];
-										$ppw = $key['ppw'];
-										$value= $key['value'];
-										$nap = $key['nap'];
-										$vgascore = $key['vgascore'];
 										?>
 										<tr>
 											<td class="table-center"><?php echo $i ?></td>
-						      				<td><b><i><?php echo $vganame ?><i></b></td>
-						      				<td class="table-center"><?php echo $gaming ?></td>
-						      				<td class="table-center"><?php echo $graphics ?></td>
-						      				<td class="table-center"><?php echo $computing ?></td>
-						      				<td class="table-center"><?php echo $ppw ?></td>
-						      				<td class="table-center"><?php echo $value ?></td>
-						      				<td class="table-center"><?php echo $nap ?></td>
-						      				<td class="table-center"><b><?php echo $vgascore ?></b></td>
-						      				<td class="table-center"><a class="btn btn-primary" href="https://www.google.com/search?q=<?php echo $vganame ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">search</i></span></a></td>
+						      				<td><b><i><?php echo $key['vganame'] ?><i></b></td>
+						      				<td class="table-center"><?php echo $key['gaming'] ?></td>
+						      				<td class="table-center"><?php echo $key['graphics'] ?></td>
+						      				<td class="table-center"><?php echo $key['computing'] ?></td>
+						      				<td class="table-center"><?php echo $key['ppw'] ?></td>
+						      				<td class="table-center"><?php echo $key['value'] ?></td>
+						      				<td class="table-center"><?php echo $key['nap'] ?></td>
+						      				<td class="table-center"><b><?php echo $key['vgascore']; ?></b></td>
+						      				<td class="table-center"><a class="btn btn-primary" href="https://www.google.com/search?q=<?php echo $key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
 						      			</tr>
 
 						      			<?php
@@ -323,7 +308,7 @@
 		        		</button>
 		      		</div>
 			      	<div class="modal-body">
-			        	<table class="table table-bordered table-striped">
+			        	<table class="table table-hover table-bordered table-striped">
 			        		<thead class="thead-light">
 				      			<tr>
 				      				<th class="table-center"><button type="button" class="btn btn-light">No</button></th>
@@ -351,13 +336,13 @@
 										?>
 										<tr>
 											<td class="table-center"><?php echo $i ?></td>
-						      				<td><b><i><?php echo $ssdname ?><i></b></td>
-						      				<td class="table-center"><?php echo $readp ?></td>
-						      				<td class="table-center"><?php echo $writep ?></td>
-						      				<td class="table-center"><?php echo $realwb ?></td>
-						      				<td class="table-center"><?php echo $bench ?></td>
-						      				<td class="table-center"><b><?php echo $ssdscore ?></b></td>
-						      				<td class="table-center"><a class="btn btn-primary" href="https://www.google.com/search?q=<?php echo $ssdname ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">search</i></span></a></td>
+						      				<td><b><i><?php echo $key['ssdname'] ?><i></b></td>
+						      				<td class="table-center"><?php echo $key['readp'] ?></td>
+						      				<td class="table-center"><?php echo $key['writep'] ?></td>
+						      				<td class="table-center"><?php echo $key['realwb'] ?></td>
+						      				<td class="table-center"><?php echo $key['bench'] ?></td>
+						      				<td class="table-center"><b><?php echo $key['ssdscore'] ?></b></td>
+						      				<td class="table-center"><a class="btn btn-primary" href="https://www.google.com/search?q=<?php echo $key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
 						      			</tr>
 
 						      			<?php
