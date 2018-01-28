@@ -27,13 +27,14 @@
   	</head>
 
   	<body>
+  		<?php $search = $_GET['search']; ?>
 
 	    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
 	      	<div class="container">
 	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 5%; and height: auto">&nbsp; Decision Support System</a>
 
 	        	<form class="col-lg-5" action="search.php" method="GET" class="form-inline">
-				  	<input class="form-control" name="search" placeholder="Product Search">
+				  	<input class="form-control" name="search" placeholder="Product Search" value="<?php echo $search ?>">
 				  	<input type="submit" name="searchsubmit" style="display:none"/>
 		        </form>
 	      	</div>
@@ -44,9 +45,7 @@
 		<div class="container" style="padding-top: 60px;">
 	      	<div class="row">
 	      		<div class="col-md-12">
-	      		<?php
-	      			$search = $_GET['search'];
-   					  				
+	      		<?php  					  				
 					// cpu
    					$result = mysqli_query($koneksi,"select *from cpu where cpuname like'%$search%'");
 					while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
@@ -139,9 +138,9 @@
 						    echo "</tr>";
 						    echo "<tr>";						    	
 						    	echo "<td>&nbsp;</td>";
-						    	echo "<td>&nbsp;</td>";	
-						    	echo "<td>&nbsp;</td>";
-						    	echo "<td>&nbsp;</td>";						    	
+						    	echo "<td></td>";	
+						    	echo "<td></td>";
+						    	echo "<td></td>";						    	
 						    echo "</tr>";
 						echo "</table><br><br>";						    
 					}
