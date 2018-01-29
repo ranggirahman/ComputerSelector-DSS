@@ -2,7 +2,7 @@
 /*************************************************
 * Filename    : search.php
 * Programmer  : Ranggi Rahman
-* Date        : 2017 - 12 - 20
+* Date        : 2018 - 1 - 14
 * Email       : ranggirahman@gmail.com
 * Website     : 1400707.blog.upi.edu
 * Deskripsi   : Search Result Page
@@ -27,13 +27,13 @@
   	</head>
 
   	<body>
-  		<?php $search = $_GET['search']; ?>
+  		<?php $search = $_POST['search']; ?>
 
 	    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
 	      	<div class="container">
 	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 5%; and height: auto">&nbsp; Decision Support System</a>
 
-	        	<form class="col-lg-5" action="search.php" method="GET" class="form-inline">
+	        	<form class="col-lg-5" action="search.php" method="POST" class="form-inline">
 				  	<input class="form-control" name="search" placeholder="Product Search" value="<?php echo $search ?>">
 				  	<input type="submit" name="searchsubmit" style="display:none"/>
 		        </form>
@@ -56,10 +56,10 @@
 						    echo "</tr>";
 						    echo "<tr>";
 						    	echo "<td width='200'>Perfomance</td>";
-						    	echo "<td>".$row['performance']."</td>";
+						    	echo "<td width='30'>".$row['performance']."</td>";
 						    	echo "<td width='25' rowspan='4'></td>";
 						    	echo "<td width='250'>Single-Core Perfomance</td>";
-						    	echo "<td>".$row['single']."</td>";
+						    	echo "<td width='30'>".$row['single']."</td>";
 						    	echo "<td width='30' rowspan='4'></td>";
 						    	echo "<td width='250'>Total Score</td>";
 						    echo "</tr>";
@@ -89,10 +89,10 @@
 						    echo "</tr>";
 						    echo "<tr>";
 						    	echo "<td width='200'>Gaming</td>";
-						    	echo "<td>".$row['gaming']."</td>";
+						    	echo "<td width='30'>".$row['gaming']."</td>";
 						    	echo "<td width='25' rowspan='4'></td>";
 						    	echo "<td width='250'>Graphic</td>";
-						    	echo "<td>".$row['graphics']."</td>";
+						    	echo "<td width='30'>".$row['graphics']."</td>";
 						    	echo "<td width='30' rowspan='4'></td>";
 						    	echo "<td width='250'>Total Score</td>";
 						    echo "</tr>";
@@ -122,10 +122,10 @@
 						    echo "</tr>";
 						    echo "<tr>";
 						    	echo "<td width='200'>Read Performance</td>";
-						    	echo "<td>".$row['readp']."</td>";
+						    	echo "<td width='30'>".$row['readp']."</td>";
 						    	echo "<td width='25' rowspan='3'></td>";
 						    	echo "<td width='250'>Write Performance</td>";
-						    	echo "<td>".$row['writep']."</td>";
+						    	echo "<td width='30'>".$row['writep']."</td>";
 						    	echo "<td width='30' rowspan='3'></td>";
 						    	echo "<td width='250'>Total Score</td>";
 						    echo "</tr>";

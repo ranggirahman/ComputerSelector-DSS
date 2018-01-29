@@ -33,7 +33,7 @@
 	      	<div class="container">
 	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 5%; and height: auto">&nbsp; Decision Support System</a>
 
-	        	<form  class="col-lg-5" action="search.php" method="GET">
+	        	<form  class="col-lg-5" action="search.php" method="POST">
 				  	<input class="form-control" name="search" placeholder="Product Search">
 				  	<input type="submit" name="searchsubmit" style="display:none"/>
 		        </form>
@@ -55,6 +55,11 @@
 		      		<div class="col-md-12">
 		      			<p class="lead">Sistem pendukung keputusan untuk membantu pengguna melakukan pemilihan spesifikasi hardware komputer dengan metode Utility Additive (UTA) yang digunakan untuk menentukan setiap perangkat khususnya seperti processor, vga, storage dan perangkat pendukung lainnya agar sesuai dengan kebutuhan sehingga keputusan yang diambil pengguna akan tepat.</p>
 		      		</div> 
+		      	</div>
+		      	<div class="row">
+		      		<div class="col-md-4">
+						<a class="btn btn-secondary" href="selector.php" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">touch_app</i></span> Pick Your Own Computer</a>
+					</div>
 		      	</div>
 	    	</div>
 		</div>
@@ -189,7 +194,7 @@
 				    $value = $_POST['value'];
 				    $cpuscore = $_POST['cpuscore'];
 
-				    $cpuadd = mysqli_query($koneksi,"insert into cpu(cpuname,performance,single,intg,intgocl,ppw,value) values ('$cpuname','$performance','$single','$intg','$intgocl','$ppw','$value','$cpuscore')");
+				    $cpuadd = mysqli_query($koneksi,"insert into cpu(cpuname,performance,single,intg,intgocl,ppw,value,cpuscore) values ('$cpuname','$performance','$single','$intg','$intgocl','$ppw','$value','$cpuscore')");
 
 				    echo "<meta http-equiv='refresh' content='0'>";						   
 			  	}
