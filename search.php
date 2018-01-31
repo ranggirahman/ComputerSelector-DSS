@@ -45,10 +45,13 @@
 		<div class="container" style="padding-top: 60px;">
 	      	<div class="row">
 	      		<div class="col-md-12">
-	      		<?php  					  				
+	      		<?php  					
+	      			$found = 0;
+
 					// cpu
    					$result = mysqli_query($koneksi,"select *from cpu where cpuname like'%$search%'");
 					while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
+						$found = 1;
 						echo "<table border=0>"; 
 							echo "<tr>";
 						    	echo "<td rowspan='4' width='130'><img src='img/processor.png' style='max-width: 75%; and height: auto'></td>";
@@ -82,6 +85,7 @@
 					// vga					
    					$result = mysqli_query($koneksi,"select *from vga where vganame like'%$search%'");
 					while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
+						$found = 1;
 						echo "<table border=0>"; 
 							echo "<tr>";
 						    	echo "<td rowspan='4' width='130'><img src='img/vga.png' style='max-width: 80%; and height: auto'></td>";
@@ -115,6 +119,7 @@
 					// ssd					
    					$result = mysqli_query($koneksi,"select *from ssd where ssdname like'%$search%'");
 					while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
+						$found = 1;
 						echo "<table border=0>"; 
 							echo "<tr>";
 						    	echo "<td rowspan='4' width='130'><img src='img/ssd.png' style='max-width: 70%; and height: auto'></td>";
@@ -143,6 +148,23 @@
 						    	echo "<td></td>";						    	
 						    echo "</tr>";
 						echo "</table><br><br>";						    
+					}
+
+					if($found == 0){
+						echo "
+							<div class='row' style='padding-bottom: 40px;'>
+						   		<div class='col-md-1'>
+						   		</div>
+						   		<div class='col-md-2'>
+						   			<i class='material-icons' style='font-size: 150px; color:lightgray;'>search</i>
+						   		</div>
+					          	<div class='col-md-8'>
+					            	<h4 class='display-4'>sorry we can't find what you're looking for</h4>
+					            </div>
+					            <div class='col-md-1'>
+						   		</div>
+					        </div>
+						";
 					}
 				?>
 				</div>	        	
