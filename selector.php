@@ -210,7 +210,7 @@
 	     		<div class="col-md-12">
 	     			<div class="card">
 					  	<div class="card-body">
-					  		<div class="card-title display-4" style="font-size: 20px;">Result For Office Task</div>
+					  		<div class="card-title display-4" style="font-size: 24px;">Result For Office Task</div>
 					  		<br>
 					  		<div class="row">
 					  			<div class="col-md-4">
@@ -324,7 +324,7 @@
 	     		<div class="col-md-12">
 	     			<div class="card">
 					  	<div class="card-body">
-					  		<div class="card-title display-4" style="font-size: 20px;">Result For Home Usage</div>
+					  		<div class="card-title display-4" style="font-size: 24px;">Result For Home Usage</div>
 					  		<br>
 					  		<div class="row">
 					  			<div class="col-md-4">
@@ -438,7 +438,7 @@
 	     		<div class="col-md-12">
 	     			<div class="card">
 					  	<div class="card-body">
-					  		<div class="card-title display-4" style="font-size: 20px;">Result For Gaming</div>
+					  		<div class="card-title display-4" style="font-size: 24px;">Result For Gaming</div>
 					  		<br>
 					  		<div class="row">
 					  			<div class="col-md-4">
@@ -552,7 +552,7 @@
 	     		<div class="col-md-12">
 	     			<div class="card">
 					  	<div class="card-body">
-					  		<div class="card-title display-4" style="font-size: 20px;">Result For Graphic Rendering</div>
+					  		<div class="card-title display-4" style="font-size: 24px;">Result For Graphic Rendering</div>
 					  		<br>
 					  		<div class="row">
 					  			<div class="col-md-4">
@@ -666,7 +666,7 @@
 	     		<div class="col-md-12">
 	     			<div class="card">
 					  	<div class="card-body">
-					  		<div class="card-title display-4" style="font-size: 20px;">Result For Computing, Simulation</div>
+					  		<div class="card-title display-4" style="font-size: 24px;">Result For Computing, Simulation</div>
 					  		<br>
 					  		<div class="row">
 					  			<div class="col-md-4">
