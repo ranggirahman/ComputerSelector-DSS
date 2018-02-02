@@ -164,7 +164,7 @@
 						      				<td class="table-center"><?php echo $key['ppw'] ?></td>
 						      				<td class="table-center"><?php echo $key['value']; ?></td>
 						      				<td class="table-center"><b><?php echo $key['cpuscore']; ?></b></td>
-						      				<td class="table-center"><a class="btn btn-primary" href="https://www.google.com/search?q=<?php echo $key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
+						      				<td class="table-center"><a class="btn btn-light" href="https://www.google.com/search?q=<?php echo $key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
 						      			</tr>
 						      			<?php
 									}
@@ -258,7 +258,7 @@
 						      				<td class="table-center"><?php echo $key['value'] ?></td>
 						      				<td class="table-center"><?php echo $key['nap'] ?></td>
 						      				<td class="table-center"><b><?php echo $key['vgascore']; ?></b></td>
-						      				<td class="table-center"><a class="btn btn-primary" href="https://www.google.com/search?q=<?php echo $key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
+						      				<td class="table-center"><a class="btn btn-light" href="https://www.google.com/search?q=<?php echo $key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
 						      			</tr>
 
 						      			<?php
@@ -355,7 +355,7 @@
 						      				<td class="table-center"><?php echo $key['realwb'] ?></td>
 						      				<td class="table-center"><?php echo $key['bench'] ?></td>
 						      				<td class="table-center"><b><?php echo $key['ssdscore'] ?></b></td>
-						      				<td class="table-center"><a class="btn btn-primary" href="https://www.google.com/search?q=<?php echo $key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
+						      				<td class="table-center"><a class="btn btn-light" href="https://www.google.com/search?q=<?php echo $key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
 						      			</tr>
 
 						      			<?php

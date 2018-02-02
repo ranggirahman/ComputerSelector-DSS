@@ -180,19 +180,19 @@
 						  			<div class="col-md-12 text-center">
 						  				<div class="btn-group btn-group-toggle" data-toggle="buttons" style="width: 100%">
 						  					<label class="btn btn-light" style="width: 20%">
-											    <input type="radio" name="options" id="options" value="1" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">work</i><br><br>Office Task
+											    <input type="radio" name="options" id="options" value="1" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">work</i><br>Office Task<br><br>
 											</label>
 											<label class="btn btn-light" style="width: 20%">
-											    <input type="radio" name="options" id="options" value="2" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">supervisor_account</i><br><br>Home Usage
+											    <input type="radio" name="options" id="options" value="2" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">supervisor_account</i><br>Home Usage<br><br>
 											</label>
 											<label class="btn btn-light" style="width: 20%">
-											    <input type="radio" name="options" id="options" value="3" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">games</i><br><br>Gaming
+											    <input type="radio" name="options" id="options" value="3" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">games</i><br>Gaming<br><br>
 											</label>
 											<label class="btn btn-light" style="width: 20%">
-											    <input type="radio" name="options" id="options" value="4" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">terrain</i><br><br>Graphic Rendering
+											    <input type="radio" name="options" id="options" value="4" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">terrain</i><br>Graphic Rendering<br><br>
 											</label>
 											<label class="btn btn-light" style="width: 20%">
-											    <input type="radio" name="options" id="options" value="5" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">gradient</i><br><br>Computing, Simulation
+											    <input type="radio" name="options" id="options" value="5" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">gradient</i><br>Computing, Simulation<br><br>
 											</label>										  
 										</div>
 						  			</div>
