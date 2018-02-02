@@ -210,7 +210,7 @@
 	     		<div class="col-md-12">
 	     			<div class="card">
 					  	<div class="card-body">
-					  		<div class="card-title display-4" style="font-size: 20px;">Result For Office</div>
+					  		<div class="card-title display-4" style="font-size: 20px;">Result For Office Task</div>
 					  		<br>
 					  		<div class="row">
 					  			<div class="col-md-4">
@@ -223,7 +223,7 @@
 			    							</tr>
 		    							</thead>
 		    							<?php
-							    			$cpu = mysqli_query($koneksi,"select *from cpu order by performance desc limit 5");
+							    			$cpu = mysqli_query($koneksi,"select *from cpu order by performance asc limit 5");
 								      		$i = 0;
 
 								      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
@@ -291,6 +291,30 @@
 					    				?>
 		    						</table>
 					  			</div>					  			
+					  		</div>
+					  		<div class="row">
+					  			<div class="col-md-12 text-center">					  				
+					  				<hr>
+					  				<?php
+					  					$s1 = mysqli_query($koneksi,"select *from feedback where spesification='1'");
+					  					$r1 = mysqli_fetch_array($s1,MYSQLI_BOTH)
+					  				?>
+					  				<form action="" method="post">
+					  					<div class="btn-group" role="group" style="width: 60%;">
+											<button type="submit" name="r1" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_up</i><h4 class="display-4" style="font-size: 20px;">Recommended (<?php echo $r1['r'] ?>)</h4></button>
+											<button type="submit" name="nr1" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_down</i><h4 class="display-4" style="font-size: 20px;">Not Recommended (<?php echo $r1['nr'] ?>)</h4></button>
+										</div>
+					  				</form>
+					  				<?php
+									  	if(isset($_POST['r1'])){
+										   	$r = mysqli_query($koneksi,"update feedback set r=r+1 where spesification='1'"); 
+										   	echo "<meta http-equiv='refresh' content='0'>";	  
+									  	}else if(isset($_POST['nr1'])){
+									  		$nr = mysqli_query($koneksi,"update feedback set nr=nr+1 where spesification='1'");
+									  		echo "<meta http-equiv='refresh' content='0'>";	
+									  	}
+									?>					  				
+					  			</div>
 					  		</div>				    
 					  	</div>
 					</div>
@@ -381,7 +405,31 @@
 					    				?>
 		    						</table>
 					  			</div>					  			
-					  		</div>				    
+					  		</div>
+					  		<div class="row">
+					  			<div class="col-md-12 text-center">					  				
+					  				<hr>
+					  				<?php
+					  					$s2 = mysqli_query($koneksi,"select *from feedback where spesification='2'");
+					  					$r2 = mysqli_fetch_array($s2,MYSQLI_BOTH)
+					  				?>
+					  				<form action="" method="post">
+					  					<div class="btn-group" role="group" style="width: 60%;">
+											<button type="submit" name="r2" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_up</i><h4 class="display-4" style="font-size: 20px;">Recommended (<?php echo $r2['r'] ?>)</h4></button>
+											<button type="submit" name="nr2" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_down</i><h4 class="display-4" style="font-size: 20px;">Not Recommended (<?php echo $r2['nr'] ?>)</h4></button>
+										</div>
+					  				</form>
+					  				<?php
+									  	if(isset($_POST['r2'])){
+										   	$r = mysqli_query($koneksi,"update feedback set r=r+1 where spesification='2'"); 
+										   	echo "<meta http-equiv='refresh' content='0'>";	  
+									  	}else if(isset($_POST['nr2'])){
+									  		$nr = mysqli_query($koneksi,"update feedback set nr=nr+1 where spesification='2'");
+									  		echo "<meta http-equiv='refresh' content='0'>";	
+									  	}
+									?>					  				
+					  			</div>
+					  		</div>						    
 					  	</div>
 					</div>
 	     		</div>     		
@@ -471,7 +519,31 @@
 					    				?>
 		    						</table>
 					  			</div>					  			
-					  		</div>				    
+					  		</div>
+					  		<div class="row">
+					  			<div class="col-md-12 text-center">					  				
+					  				<hr>
+					  				<?php
+					  					$s3 = mysqli_query($koneksi,"select *from feedback where spesification='3'");
+					  					$r3 = mysqli_fetch_array($s3,MYSQLI_BOTH)
+					  				?>
+					  				<form action="" method="post">
+					  					<div class="btn-group" role="group" style="width: 60%;">
+											<button type="submit" name="r3" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_up</i><h4 class="display-4" style="font-size: 20px;">Recommended (<?php echo $r3['r'] ?>)</h4></button>
+											<button type="submit" name="nr3" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_down</i><h4 class="display-4" style="font-size: 20px;">Not Recommended (<?php echo $r3['nr'] ?>)</h4></button>
+										</div>
+					  				</form>
+					  				<?php
+									  	if(isset($_POST['r3'])){
+										   	$r = mysqli_query($koneksi,"update feedback set r=r+1 where spesification='3'"); 
+										   	echo "<meta http-equiv='refresh' content='0'>";	  
+									  	}else if(isset($_POST['nr3'])){
+									  		$nr = mysqli_query($koneksi,"update feedback set nr=nr+1 where spesification='3'");
+									  		echo "<meta http-equiv='refresh' content='0'>";	
+									  	}
+									?>					  				
+					  			</div>
+					  		</div>						    
 					  	</div>
 					</div>
 	     		</div>     		
@@ -561,7 +633,31 @@
 					    				?>
 		    						</table>
 					  			</div>					  			
-					  		</div>				    
+					  		</div>
+					  		<div class="row">
+					  			<div class="col-md-12 text-center">					  				
+					  				<hr>
+					  				<?php
+					  					$s4 = mysqli_query($koneksi,"select *from feedback where spesification='4'");
+					  					$r4 = mysqli_fetch_array($s4,MYSQLI_BOTH)
+					  				?>
+					  				<form action="" method="post">
+					  					<div class="btn-group" role="group" style="width: 60%;">
+											<button type="submit" name="r4" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_up</i><h4 class="display-4" style="font-size: 20px;">Recommended (<?php echo $r4['r'] ?>)</h4></button>
+											<button type="submit" name="nr4" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_down</i><h4 class="display-4" style="font-size: 20px;">Not Recommended (<?php echo $r4['nr'] ?>)</h4></button>
+										</div>
+					  				</form>
+					  				<?php
+									  	if(isset($_POST['r4'])){
+										   	$r = mysqli_query($koneksi,"update feedback set r=r+1 where spesification='4'"); 
+										   	echo "<meta http-equiv='refresh' content='0'>";	  
+									  	}else if(isset($_POST['nr4'])){
+									  		$nr = mysqli_query($koneksi,"update feedback set nr=nr+1 where spesification='4'");
+									  		echo "<meta http-equiv='refresh' content='0'>";	
+									  	}
+									?>					  				
+					  			</div>
+					  		</div>						    
 					  	</div>
 					</div>
 	     		</div>     		
@@ -651,7 +747,31 @@
 					    				?>
 		    						</table>
 					  			</div>					  			
-					  		</div>				    
+					  		</div>
+					  		<div class="row">
+					  			<div class="col-md-12 text-center">					  				
+					  				<hr>
+					  				<?php
+					  					$s5 = mysqli_query($koneksi,"select *from feedback where spesification='5'");
+					  					$r5 = mysqli_fetch_array($s5,MYSQLI_BOTH)
+					  				?>
+					  				<form action="" method="post">
+					  					<div class="btn-group" role="group" style="width: 60%;">
+											<button type="submit" name="r5" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_up</i><h4 class="display-4" style="font-size: 20px;">Recommended (<?php echo $r5['r'] ?>)</h4></button>
+											<button type="submit" name="nr5" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_down</i><h4 class="display-4" style="font-size: 20px;">Not Recommended (<?php echo $r5['nr'] ?>)</h4></button>
+										</div>
+					  				</form>
+					  				<?php
+									  	if(isset($_POST['r5'])){
+										   	$r = mysqli_query($koneksi,"update feedback set r=r+1 where spesification='5'"); 
+										   	echo "<meta http-equiv='refresh' content='0'>";	  
+									  	}else if(isset($_POST['nr5'])){
+									  		$nr = mysqli_query($koneksi,"update feedback set nr=nr+1 where spesification='5'");
+									  		echo "<meta http-equiv='refresh' content='0'>";	
+									  	}
+									?>					  				
+					  			</div>
+					  		</div>						    
 					  	</div>
 					</div>
 	     		</div>     		
