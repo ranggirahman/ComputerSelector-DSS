@@ -186,7 +186,7 @@
 											    <input type="radio" name="options" id="options" value="2" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">supervisor_account</i><br><br>Home Usage
 											</label>
 											<label class="btn btn-light" style="width: 20%">
-											    <input type="radio" name="options" id="options" value="3" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">games</i><br><br>Gaming Rig
+											    <input type="radio" name="options" id="options" value="3" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">games</i><br><br>Gaming
 											</label>
 											<label class="btn btn-light" style="width: 20%">
 											    <input type="radio" name="options" id="options" value="4" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">terrain</i><br><br>Graphic Rendering
