@@ -71,7 +71,7 @@
 						<div class="card-body">
 							<img src="img/processor.png" style="width: 100px">
 							<hr>
-							<h5 class="card-title">Processor</h5>
+							<h5 class="card-title display-4" style="font-size: 22px;">Processor</h5>
 						   	<p class="card-text"> Fungsi utama dari CPU adalah melakukan operasi aritmetika dan logika terhadap data yang diambil dari memori atau dari informasi yang dimasukkan</p>
 						   	<div class="btn btn-primary" data-toggle="modal" data-target="#processormodal">View Processor List</div>
 						 </div>
@@ -82,7 +82,7 @@
 						<div class="card-body">
 							<img src="img/vga.png" style="width: 142px">
 							<hr>
-							<h5 class="card-title">Video Graphic Array</h5>
+							<h5 class="card-title display-4" style="font-size: 22px;">Video Graphic Array</h5>
 						   	<p class="card-text">Kartu VGA berguna untuk menerjemahkan keluaran komputer ke monitor. Untuk menggambar / design graphic ataupun untuk bermain game</p>
 						   	<div class="btn btn-primary" data-toggle="modal" data-target="#vgamodal">View VGA List</div>
 						 </div>
@@ -93,7 +93,7 @@
 						<div class="card-body">
 							<img src="img/ssd.png" style="width: 100px">
 							<hr>
-							<h5 class="card-title">Solid State Disk</h5>
+							<h5 class="card-title display-4" style="font-size: 22px;">Solid State Disk</h5>
 						   	<p class="card-text">Komponen perangkat keras yang menyimpan data sekunder. Menggunakan menggunakan nonvolatile memory tidak seperti hardisk konvensional</p>
 						   	<div href="" class="btn btn-primary" data-toggle="modal" data-target="#ssdmodal">View SSD List</div>
 						 </div>
@@ -103,7 +103,15 @@
 	     	<br>
 	      	<hr>
 	      	<footer>
-	        	<p>&copy; 2018 Ranggi Rahman.</p>
+	      		<div class="row">
+	      			<div class="col-md-9">
+	      				<p class="display-4" style="font-size: 16px; padding: 4px 0px 8px 0px;">&copy; 2018 Ranggi Rahman</p>
+	      			</div>
+	      			<div class="col-md-3 text-right">
+	      				<button type="button" class="btn btn-light btn-sm" onclick="toggleFullScreen()"><i class="material-icons">fullscreen</i></button>
+	      				<a class="btn btn-light btn-sm" href="settings.php" role="button"><i class="material-icons">settings</i></a>
+	      			</div>
+	      		</div>	        	
 	      	</footer>
 		</div>
 
@@ -397,9 +405,31 @@
 	    <script src="js/bootstrap.js"></script>
 	    <script src="js/custom.js"></script> 
 	    <script type="text/javascript">
+	    	// pop over
 	    	$(function () {
 			  	$('[data-toggle="popover"]').popover()
 			})
+
+	    	// fullscreen
+			function toggleFullScreen() {
+			  	if ((document.fullScreenElement && document.fullScreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+				    if (document.documentElement.requestFullScreen) {  
+				      	document.documentElement.requestFullScreen();  
+				    }else if(document.documentElement.mozRequestFullScreen) {  
+				      	document.documentElement.mozRequestFullScreen();  
+				    }else if(document.documentElement.webkitRequestFullScreen) {  
+				      	document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
+				    }  
+			  	}else{  
+				    if(document.cancelFullScreen) {  
+				      	document.cancelFullScreen();  
+				    }else if(document.mozCancelFullScreen) {  
+				      	document.mozCancelFullScreen();  
+				    }else if(document.webkitCancelFullScreen) {  
+				      	document.webkitCancelFullScreen();  
+				    }  
+			  	}  
+			}
 	    </script>
 
 	</body>

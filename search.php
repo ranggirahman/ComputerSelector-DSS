@@ -52,7 +52,7 @@
    					$result = mysqli_query($koneksi,"select *from cpu where cpuname like'%$search%'");
 					while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
 						$found = 1;
-						echo "<table border=0>"; 
+						echo "<div class='card'><div class='card-body'><table border=0>"; 
 							echo "<tr>";
 						    	echo "<td rowspan='4' width='130'><img src='img/processor.png' style='max-width: 75%; and height: auto'></td>";
 						    	echo "<td colspan='7'><a href='https://www.google.com/search?q=".$row['cpuname']."' target='_blank'><h5 class='display-4' style='font-size: 22px;'>".$row['cpuname']."</h5></a></td>";
@@ -79,14 +79,14 @@
 						    	echo "<td>Value (Pay)</td>";
 						    	echo "<td>".$row['value']."</td>";						    	
 						    echo "</tr>";
-						echo "</table><br><br>";						    
+						echo "</table></div></div><br><br>";						    
 					}
 
 					// vga					
    					$result = mysqli_query($koneksi,"select *from vga where vganame like'%$search%'");
 					while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
 						$found = 1;
-						echo "<table border=0>"; 
+						echo "<div class='card'><div class='card-body'><table border=0>"; 
 							echo "<tr>";
 						    	echo "<td rowspan='4' width='130'><img src='img/vga.png' style='max-width: 80%; and height: auto'></td>";
 						    	echo "<td colspan='7'><a href='https://www.google.com/search?q=".$row['vganame']."' target='_blank'><h5 class='display-4' style='font-size: 22px;'>".$row['vganame']."</h5></a></td>";
@@ -113,14 +113,14 @@
 						    	echo "<td>Noise and Power</td>";
 						    	echo "<td>".$row['nap']."</td>";						    	
 						    echo "</tr>";
-						echo "</table><br><br>";						    
+						echo "</table></div></div><br><br>";						    
 					}
 
 					// ssd					
    					$result = mysqli_query($koneksi,"select *from ssd where ssdname like'%$search%'");
 					while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
 						$found = 1;
-						echo "<table border=0>"; 
+						echo "<div class='card'><div class='card-body'><table border=0>"; 
 							echo "<tr>";
 						    	echo "<td rowspan='4' width='130'><img src='img/ssd.png' style='max-width: 70%; and height: auto'></td>";
 						    	echo "<td colspan='7'><a href='https://www.google.com/search?q=".$row['ssdname']."' target='_blank'><h5 class='display-4' style='font-size: 22px;'>".$row['ssdname']."</h5></a></td>";
@@ -147,7 +147,7 @@
 						    	echo "<td></td>";
 						    	echo "<td></td>";						    	
 						    echo "</tr>";
-						echo "</table><br><br>";						    
+						echo "</table></div></div><br><br>";						    
 					}
 
 					if($found == 0){
@@ -171,7 +171,15 @@
 	     	</div>
 	      	<hr>
 	      	<footer>
-	        	<p>&copy; 2018 Ranggi Rahman.</p>
+	      		<div class="row">
+	      			<div class="col-md-9">
+	      				<p class="display-4" style="font-size: 16px; padding: 4px 0px 8px 0px;">&copy; 2018 Ranggi Rahman</p>
+	      			</div>
+	      			<div class="col-md-3 text-right">
+	      				<button type="button" class="btn btn-light btn-sm" onclick="toggleFullScreen()"><i class="material-icons">fullscreen</i></button>
+	      				<a class="btn btn-light btn-sm" href="settings.php" role="button"><i class="material-icons">settings</i></a>
+	      			</div>
+	      		</div>	        	
 	      	</footer>
 		</div>
 
@@ -180,9 +188,31 @@
 	    <script src="js/bootstrap.js"></script>
 	    <script src="js/custom.js"></script> 
 	    <script type="text/javascript">
+	    	// pop over
 	    	$(function () {
 			  	$('[data-toggle="popover"]').popover()
 			})
+
+	    	// fullscreen
+			function toggleFullScreen() {
+			  	if ((document.fullScreenElement && document.fullScreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+				    if (document.documentElement.requestFullScreen) {  
+				      	document.documentElement.requestFullScreen();  
+				    }else if(document.documentElement.mozRequestFullScreen) {  
+				      	document.documentElement.mozRequestFullScreen();  
+				    }else if(document.documentElement.webkitRequestFullScreen) {  
+				      	document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
+				    }  
+			  	}else{  
+				    if(document.cancelFullScreen) {  
+				      	document.cancelFullScreen();  
+				    }else if(document.mozCancelFullScreen) {  
+				      	document.mozCancelFullScreen();  
+				    }else if(document.webkitCancelFullScreen) {  
+				      	document.webkitCancelFullScreen();  
+				    }  
+			  	}  
+			}
 	    </script>
 
 	</body>
