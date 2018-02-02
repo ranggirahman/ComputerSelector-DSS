@@ -54,13 +54,15 @@
  					 	<div class="card-body">   
 			    			<div class="row">
 			    				<div class="col-md-12">			    					
-		    						<table class="table table-sm">	    								
-		    							<tr>
-		    								<th></th>
-		    								<th>Name</th>
-		    								<th>Score</th>
-		    								<th></th>
-		    							</tr>
+		    						<table class="table table-sm table-hover">	   
+		    							<thead>		    								 								
+			    							<tr>
+			    								<th></th>
+			    								<th>Name</th>
+			    								<th>Score</th>
+			    								<th></th>
+			    							</tr>
+		    							</thead>
 		    							<?php
 							    			$cpu = mysqli_query($koneksi,"select *from cpu order by cpuscore desc limit 5");
 								      		$i = 0;
@@ -91,13 +93,15 @@
  					 	<div class="card-body">   
 			    			<div class="row">
 			    				<div class="col-md-12">			    					
-		    						<table class="table table-sm">		    								
-		    							<tr>
-		    								<th></th>
-		    								<th>Name</th>
-		    								<th>Score</th>
-		    								<th></th>
-		    							</tr>
+		    						<table class="table table-sm table-hover">		    								
+		    							<thead>		    								 								
+			    							<tr>
+			    								<th></th>
+			    								<th>Name</th>
+			    								<th>Score</th>
+			    								<th></th>
+			    							</tr>
+		    							</thead>
 		    							<?php
 							    			$vga = mysqli_query($koneksi,"select *from vga order by vgascore desc limit 5");
 								      		$i = 0;
@@ -128,13 +132,15 @@
  					 	<div class="card-body">   
 			    			<div class="row">
 			    				<div class="col-md-12">			    					
-		    						<table class="table table-sm">		    								
-		    							<tr>
-		    								<th></th>
-		    								<th>Name</th>
-		    								<th>Score</th>
-		    								<th></th>
-		    							</tr>
+		    						<table class="table table-sm table-hover">		    								
+		    							<thead>		    								 								
+			    							<tr>
+			    								<th></th>
+			    								<th>Name</th>
+			    								<th>Score</th>
+			    								<th></th>
+			    							</tr>
+		    							</thead>
 		    							<?php
 							    			$ssd = mysqli_query($koneksi,"select *from ssd order by ssdscore desc limit 5");
 								      		$i = 0;
@@ -167,23 +173,26 @@
 	     				<form action="" method="post" accept-charset="utf-8">
 						  	<div class="card-header">
 						    	<h5 class="card-title display-4" style="padding-top: 8px; font-size: 24px;">Spesification Select</h5>
+						    	<p class="card-title display-4" style="font-size: 30px;">What Your Computer Can Do ?</p>
 						  	</div>
 						  	<div class="card-body">
 						  		<div class="row">
-						  			<div class="col-md-2">What Your Computer Can Do ?</div>
-						  			<div class="col-md-10">
-						  				<div class="btn-group btn-group-toggle" data-toggle="buttons">
-											<label class="btn btn-info">
-											    <input type="radio" name="options" id="options" value="1" autocomplete="off">Home Usage, Office
+						  			<div class="col-md-12 text-center">
+						  				<div class="btn-group btn-group-toggle" data-toggle="buttons" style="width: 100%">
+						  					<label class="btn btn-light" style="width: 20%">
+											    <input type="radio" name="options" id="options" value="1" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">work</i><br><br>Office Task
 											</label>
-											<label class="btn btn-info">
-											    <input type="radio" name="options" id="options" value="2" autocomplete="off">Gaming
+											<label class="btn btn-light" style="width: 20%">
+											    <input type="radio" name="options" id="options" value="2" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">supervisor_account</i><br><br>Home Usage
 											</label>
-											<label class="btn btn-info">
-											    <input type="radio" name="options" id="options" value="3" autocomplete="off">Graphic Rendering
+											<label class="btn btn-light" style="width: 20%">
+											    <input type="radio" name="options" id="options" value="3" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">games</i><br><br>Gaming Rig
 											</label>
-											<label class="btn btn-info">
-											    <input type="radio" name="options" id="options" value="4" autocomplete="off">Computing, Simulation, Mining
+											<label class="btn btn-light" style="width: 20%">
+											    <input type="radio" name="options" id="options" value="4" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">terrain</i><br><br>Graphic Rendering
+											</label>
+											<label class="btn btn-light" style="width: 20%">
+											    <input type="radio" name="options" id="options" value="5" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">gradient</i><br><br>Computing, Simulation
 											</label>										  
 										</div>
 						  			</div>
@@ -201,18 +210,20 @@
 	     		<div class="col-md-12">
 	     			<div class="card">
 					  	<div class="card-body">
-					  		<div class="card-title display-4" style="font-size: 20px;">Result For Home Usage, Office</div>
+					  		<div class="card-title display-4" style="font-size: 20px;">Result For Office</div>
 					  		<br>
 					  		<div class="row">
 					  			<div class="col-md-4">
-					  				<table class="table table-sm">	    								
-		    							<tr>
-		    								<th></th>
-		    								<th>Processor</th>
-		    								<th></th>
-		    							</tr>
+					  				<table class="table table-sm table-hover">		    								
+		    							<thead>		    								 								
+			    							<tr>
+			    								<th></th>
+			    								<th>Processor</th>
+			    								<th></th>
+			    							</tr>
+		    							</thead>
 		    							<?php
-							    			$cpu = mysqli_query($koneksi,"select *from cpu order by value desc limit 5");
+							    			$cpu = mysqli_query($koneksi,"select *from cpu order by performance desc limit 5");
 								      		$i = 0;
 
 								      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
@@ -229,14 +240,16 @@
 		    						</table>
 					  			</div>
 					  			<div class="col-md-4">
-					  				<table class="table table-sm">	    								
-		    							<tr>
-		    								<th></th>
-		    								<th>VGA</th>
-		    								<th></th>
-		    							</tr>
+					  				<table class="table table-sm table-hover">		    								
+		    							<thead>		    								 								
+			    							<tr>
+			    								<th></th>
+			    								<th>VGA</th>
+			    								<th></th>
+			    							</tr>
+		    							</thead>
 		    							<?php
-							    			$vga = mysqli_query($koneksi,"select *from vga order by value asc limit 5");
+							    			$vga = mysqli_query($koneksi,"select *from vga order by vgascore asc limit 5");
 								      		$i = 0;
 
 								      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
@@ -253,14 +266,16 @@
 		    						</table>
 					  			</div>
 					  			<div class="col-md-4">
-					  				<table class="table table-sm">	    								
-		    							<tr>
-		    								<th></th>
-		    								<th>SSD</th>
-		    								<th></th>
-		    							</tr>
+					  				<table class="table table-sm table-hover">		    								
+		    							<thead>		    								 								
+			    							<tr>
+			    								<th></th>
+			    								<th>SSD</th>
+			    								<th></th>
+			    							</tr>
+		    							</thead>
 		    							<?php
-							    			$ssd = mysqli_query($koneksi,"select *from ssd order by realwb desc limit 5");
+							    			$ssd = mysqli_query($koneksi,"select *from ssd order by readp asc limit 5");
 								      		$i = 0;
 
 								      		while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
@@ -285,18 +300,20 @@
 	     		<div class="col-md-12">
 	     			<div class="card">
 					  	<div class="card-body">
-					  		<div class="card-title display-4" style="font-size: 20px;">Result For Gaming</div>
+					  		<div class="card-title display-4" style="font-size: 20px;">Result For Home Usage</div>
 					  		<br>
 					  		<div class="row">
 					  			<div class="col-md-4">
-					  				<table class="table table-sm">	    								
-		    							<tr>
-		    								<th></th>
-		    								<th>Processor</th>
-		    								<th></th>
-		    							</tr>
+					  				<table class="table table-sm table-hover">		    								
+		    							<thead>		    								 								
+			    							<tr>
+			    								<th></th>
+			    								<th>Processor</th>
+			    								<th></th>
+			    							</tr>
+		    							</thead>
 		    							<?php
-							    			$cpu = mysqli_query($koneksi,"select *from cpu order by performance desc limit 5");
+							    			$cpu = mysqli_query($koneksi,"select *from cpu order by value desc limit 5");
 								      		$i = 0;
 
 								      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
@@ -313,14 +330,16 @@
 		    						</table>
 					  			</div>
 					  			<div class="col-md-4">
-					  				<table class="table table-sm">	    								
-		    							<tr>
-		    								<th></th>
-		    								<th>VGA</th>
-		    								<th></th>
-		    							</tr>
+					  				<table class="table table-sm table-hover">		    								
+		    							<thead>		    								 								
+			    							<tr>
+			    								<th></th>
+			    								<th>VGA</th>
+			    								<th></th>
+			    							</tr>
+		    							</thead>
 		    							<?php
-							    			$vga = mysqli_query($koneksi,"select *from vga order by gaming desc limit 5");
+							    			$vga = mysqli_query($koneksi,"select *from vga order by value asc limit 5");
 								      		$i = 0;
 
 								      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
@@ -337,14 +356,16 @@
 		    						</table>
 					  			</div>
 					  			<div class="col-md-4">
-					  				<table class="table table-sm">	    								
-		    							<tr>
-		    								<th></th>
-		    								<th>SSD</th>
-		    								<th></th>
-		    							</tr>
+					  				<table class="table table-sm table-hover">		    								
+		    							<thead>		    								 								
+			    							<tr>
+			    								<th></th>
+			    								<th>SSD</th>
+			    								<th></th>
+			    							</tr>
+		    							</thead>
 		    							<?php
-							    			$ssd = mysqli_query($koneksi,"select *from ssd order by readp desc limit 5");
+							    			$ssd = mysqli_query($koneksi,"select *from ssd order by realwb desc limit 5");
 								      		$i = 0;
 
 								      		while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
@@ -369,16 +390,18 @@
 	     		<div class="col-md-12">
 	     			<div class="card">
 					  	<div class="card-body">
-					  		<div class="card-title display-4" style="font-size: 20px;">Result For Graphic Rendering</div>
+					  		<div class="card-title display-4" style="font-size: 20px;">Result For Gaming</div>
 					  		<br>
 					  		<div class="row">
 					  			<div class="col-md-4">
-					  				<table class="table table-sm">	    								
-		    							<tr>
-		    								<th></th>
-		    								<th>Processor</th>
-		    								<th></th>
-		    							</tr>
+					  				<table class="table table-sm table-hover">		    								
+		    							<thead>		    								 								
+			    							<tr>
+			    								<th></th>
+			    								<th>Processor</th>
+			    								<th></th>
+			    							</tr>
+		    							</thead>
 		    							<?php
 							    			$cpu = mysqli_query($koneksi,"select *from cpu order by performance desc limit 5");
 								      		$i = 0;
@@ -397,14 +420,16 @@
 		    						</table>
 					  			</div>
 					  			<div class="col-md-4">
-					  				<table class="table table-sm">	    								
-		    							<tr>
-		    								<th></th>
-		    								<th>VGA</th>
-		    								<th></th>
-		    							</tr>
+					  				<table class="table table-sm table-hover">		    								
+		    							<thead>		    								 								
+			    							<tr>
+			    								<th></th>
+			    								<th>VGA</th>
+			    								<th></th>
+			    							</tr>
+		    							</thead>
 		    							<?php
-							    			$vga = mysqli_query($koneksi,"select *from vga order by graphics desc limit 5");
+							    			$vga = mysqli_query($koneksi,"select *from vga order by gaming desc limit 5");
 								      		$i = 0;
 
 								      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
@@ -421,14 +446,16 @@
 		    						</table>
 					  			</div>
 					  			<div class="col-md-4">
-					  				<table class="table table-sm">	    								
-		    							<tr>
-		    								<th></th>
-		    								<th>SSD</th>
-		    								<th></th>
-		    							</tr>
+					  				<table class="table table-sm table-hover">		    								
+		    							<thead>		    								 								
+			    							<tr>
+			    								<th></th>
+			    								<th>SSD</th>
+			    								<th></th>
+			    							</tr>
+		    							</thead>
 		    							<?php
-							    			$ssd = mysqli_query($koneksi,"select *from ssd order by bench desc limit 5");
+							    			$ssd = mysqli_query($koneksi,"select *from ssd order by readp desc limit 5");
 								      		$i = 0;
 
 								      		while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
@@ -453,16 +480,18 @@
 	     		<div class="col-md-12">
 	     			<div class="card">
 					  	<div class="card-body">
-					  		<div class="card-title display-4" style="font-size: 20px;">Result For Computing, Simulation, Mining</div>
+					  		<div class="card-title display-4" style="font-size: 20px;">Result For Graphic Rendering</div>
 					  		<br>
 					  		<div class="row">
 					  			<div class="col-md-4">
-					  				<table class="table table-sm">	    								
-		    							<tr>
-		    								<th></th>
-		    								<th>Processor</th>
-		    								<th></th>
-		    							</tr>
+					  				<table class="table table-sm table-hover">		    								
+		    							<thead>		    								 								
+			    							<tr>
+			    								<th></th>
+			    								<th>Processor</th>
+			    								<th></th>
+			    							</tr>
+		    							</thead>
 		    							<?php
 							    			$cpu = mysqli_query($koneksi,"select *from cpu order by performance desc limit 5");
 								      		$i = 0;
@@ -481,12 +510,104 @@
 		    						</table>
 					  			</div>
 					  			<div class="col-md-4">
-					  				<table class="table table-sm">	    								
-		    							<tr>
-		    								<th></th>
-		    								<th>VGA</th>
-		    								<th></th>
-		    							</tr>
+					  				<table class="table table-sm table-hover">		    								
+		    							<thead>		    								 								
+			    							<tr>
+			    								<th></th>
+			    								<th>VGA</th>
+			    								<th></th>
+			    							</tr>
+		    							</thead>
+		    							<?php
+							    			$vga = mysqli_query($koneksi,"select *from vga order by graphics desc limit 5");
+								      		$i = 0;
+
+								      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
+								      			$i++;
+								      			?>
+								      			<tr>
+								      				<td><?php echo $i; ?></td>
+								      				<td><?php echo $key['vganame']; ?></td>
+								      				<td><a href="https://www.google.com/search?q=<?php echo $key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
+								      			</tr>
+								      		<?php
+								      		}
+					    				?>
+		    						</table>
+					  			</div>
+					  			<div class="col-md-4">
+					  				<table class="table table-sm table-hover">		    								
+		    							<thead>		    								 								
+			    							<tr>
+			    								<th></th>
+			    								<th>SSD</th>
+			    								<th></th>
+			    							</tr>
+		    							</thead>
+		    							<?php
+							    			$ssd = mysqli_query($koneksi,"select *from ssd order by bench desc limit 5");
+								      		$i = 0;
+
+								      		while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
+								      			$i++;
+								      			?>
+								      			<tr>
+								      				<td><?php echo $i; ?></td>
+								      				<td><?php echo $key['ssdname']; ?></td>
+								      				<td><a href="https://www.google.com/search?q=<?php echo $key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
+								      			</tr>
+								      		<?php
+								      		}
+					    				?>
+		    						</table>
+					  			</div>					  			
+					  		</div>				    
+					  	</div>
+					</div>
+	     		</div>     		
+	     	</div>
+	     	<div id="5" class="row" style="display: none;">
+	     		<div class="col-md-12">
+	     			<div class="card">
+					  	<div class="card-body">
+					  		<div class="card-title display-4" style="font-size: 20px;">Result For Computing, Simulation</div>
+					  		<br>
+					  		<div class="row">
+					  			<div class="col-md-4">
+					  				<table class="table table-sm table-hover">		    								
+		    							<thead>		    								 								
+			    							<tr>
+			    								<th></th>
+			    								<th>Processor</th>
+			    								<th></th>
+			    							</tr>
+		    							</thead>
+		    							<?php
+							    			$cpu = mysqli_query($koneksi,"select *from cpu order by performance desc limit 5");
+								      		$i = 0;
+
+								      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
+								      			$i++;
+								      			?>
+								      			<tr>
+								      				<td><?php echo $i; ?></td>
+								      				<td><?php echo $key['cpuname']; ?></td>
+								      				<td><a href="https://www.google.com/search?q=<?php echo $key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
+								      			</tr>
+								      		<?php
+								      		}
+					    				?>
+		    						</table>
+					  			</div>
+					  			<div class="col-md-4">
+					  				<table class="table table-sm table-hover">		    								
+		    							<thead>		    								 								
+			    							<tr>
+			    								<th></th>
+			    								<th>VGA</th>
+			    								<th></th>
+			    							</tr>
+		    							</thead>
 		    							<?php
 							    			$vga = mysqli_query($koneksi,"select *from vga order by computing desc limit 5");
 								      		$i = 0;
@@ -505,12 +626,14 @@
 		    						</table>
 					  			</div>
 					  			<div class="col-md-4">
-					  				<table class="table table-sm">	    								
-		    							<tr>
-		    								<th></th>
-		    								<th>SSD</th>
-		    								<th></th>
-		    							</tr>
+					  				<table class="table table-sm table-hover">		    								
+		    							<thead>		    								 								
+			    							<tr>
+			    								<th></th>
+			    								<th>SSD</th>
+			    								<th></th>
+			    							</tr>
+		    							</thead>
 		    							<?php
 							    			$ssd = mysqli_query($koneksi,"select *from ssd order by realwb desc limit 5");
 								      		$i = 0;
@@ -590,6 +713,7 @@
 			       $("#2").hide("slow");
 			       $("#3").hide("slow");
 			       $("#4").hide("slow");
+			       $("#5").hide("slow");
 			   	}, 100);
 
 				if(options != undefined){					
