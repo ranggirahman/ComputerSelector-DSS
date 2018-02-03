@@ -80,7 +80,7 @@
 	        	<div class="col-md-4">
 	        		<div class="card">					  	
 						<div class="card-body">
-							<img src="img/vga.png" style="width: 142px">
+							<img src="img/vga.png" style="width: 100px">
 							<hr>
 							<h5 class="card-title display-4" style="font-size: 22px;">Video Graphic Array</h5>
 						   	<p class="card-text">Kartu VGA berguna untuk menerjemahkan keluaran komputer ke monitor. Untuk menggambar / design graphic ataupun untuk bermain game</p>
@@ -187,7 +187,7 @@
 		      				$rvga = mysqli_num_rows($vga);
 						?>		      			
 
-		        		<img src="img/vga.png" style="max-width: 3%; and height: auto"><h5 class="modal-title" id="exampleModalLongTitle">&nbsp; Video Graphic Array List (<?php echo $rvga; ?> Product)</h5>
+		        		<img src="img/vga.png" style="max-width: 2%; and height: auto"><h5 class="modal-title" id="exampleModalLongTitle">&nbsp; Video Graphic Array List (<?php echo $rvga; ?> Product)</h5>
 		        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          			<span aria-hidden="true">&times;</span>
 		        		</button>

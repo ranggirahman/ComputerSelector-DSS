@@ -88,7 +88,7 @@
 						$found = 1;
 						echo "<div class='card'><div class='card-body'><table border=0>"; 
 							echo "<tr>";
-						    	echo "<td rowspan='4' width='130'><img src='img/vga.png' style='max-width: 80%; and height: auto'></td>";
+						    	echo "<td rowspan='4' width='130'><img src='img/vga.png' style='max-width: 75%; and height: auto'></td>";
 						    	echo "<td colspan='7'><a href='https://www.google.com/search?q=".$row['vganame']."' target='_blank'><h5 class='display-4' style='font-size: 22px;'>".$row['vganame']."</h5></a></td>";
 						    echo "</tr>";
 						    echo "<tr>";
@@ -122,7 +122,7 @@
 						$found = 1;
 						echo "<div class='card'><div class='card-body'><table border=0>"; 
 							echo "<tr>";
-						    	echo "<td rowspan='4' width='130'><img src='img/ssd.png' style='max-width: 70%; and height: auto'></td>";
+						    	echo "<td rowspan='4' width='130'><img src='img/ssd.png' style='max-width: 75%; and height: auto'></td>";
 						    	echo "<td colspan='7'><a href='https://www.google.com/search?q=".$row['ssdname']."' target='_blank'><h5 class='display-4' style='font-size: 22px;'>".$row['ssdname']."</h5></a></td>";
 						    echo "</tr>";
 						    echo "<tr>";
@@ -187,7 +187,7 @@
 	    <script src="js/popper.min.js"></script>
 	    <script src="js/bootstrap.js"></script>
 	    <script src="js/custom.js"></script> 
-	    
+
 	    <script type="text/javascript">
 	    	// pop over
 	    	$(function () {

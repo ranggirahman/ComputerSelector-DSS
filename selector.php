@@ -210,7 +210,7 @@
 	     		<div class="col-md-12">
 	     			<div class="card">
 					  	<div class="card-body">
-					  		<div class="card-title display-4" style="font-size: 24px;"><?php echo $sr['sname'] ?></div>
+					  		<div class="card-title display-4" style="font-size: 24px;"><i class="material-icons" style="color: grey; font-size: 30px;">find_in_page</i> Result For <?php echo $sr['sname'] ?></div>
 					  		<br>
 					  		<div class="row">
 					  			<div class="col-md-4">

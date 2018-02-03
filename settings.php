@@ -44,17 +44,17 @@
 	      	<div class="row">
 	      		<div class="col-md-12">
 	      			<div class="card">
-					  	<div class="card-header"><i class="material-icons">add_box</i> Add Product</div>
+					  	<div class="card-header"><i class="material-icons" style="color: grey;">add_box</i> Add Product</div>
 					  	<div class="card-body">
 						    <ul class="nav nav-tabs" id="myTab" role="tablist">
 							  <li class="nav-item">
-							    <a class="nav-link active" data-toggle="tab" href="#processor" role="tab" aria-selected="true">Processor</a>
+							    <a class="nav-link active" data-toggle="tab" href="#processor" role="tab" aria-selected="true"><img src="img/processor.png" style="max-width: 28px; and height: 28px;"> Processor</a>
 							  </li>
 							  <li class="nav-item">
-							    <a class="nav-link" data-toggle="tab" href="#vga" role="tab" aria-selected="false">Video Graphic Array</a>
+							    <a class="nav-link" data-toggle="tab" href="#vga" role="tab" aria-selected="false"><img src="img/vga.png" style="max-width: 28px; and height: 28px;"> Video Graphic Array</a>
 							  </li>
 							  <li class="nav-item">
-							    <a class="nav-link" data-toggle="tab" href="#ssd" role="tab" aria-selected="false">Solid State Disk</a>
+							    <a class="nav-link" data-toggle="tab" href="#ssd" role="tab" aria-selected="false"><img src="img/ssd.png" style="max-width: 28px; and height: 28px;"> Solid State Disk</a>
 							  </li>
 							</ul>
 							<div class="tab-content">
@@ -237,7 +237,7 @@
 	      	<div class="row">
 	      		<div class="col-md-12">
 	      			<div class="card">
-					  	<div class="card-header"><i class="material-icons">edit</i> Edit Spesification</div>
+					  	<div class="card-header"><i class="material-icons" style="color: grey;">edit</i> Edit Spesification</div>
 					  	<div class="card-body">
 					     	<ul class="nav nav-tabs" id="myTab" role="tablist">
 					     		<?php
@@ -246,7 +246,7 @@
 									while($sr = mysqli_fetch_array($stab,MYSQLI_BOTH)){
 								?>
 							  	<li class="nav-item">
-							    	<a class="nav-link <?php if($sf == 0){echo 'active';} ?>" id="home-tab" data-toggle="tab" href="#<?php echo $sr['sid'] ?>" role="tab" aria-selected="true"><?php echo $sr['sname'] ?></a>
+							    	<a class="nav-link <?php if($sf == 0){echo 'active';} ?>" id="home-tab" data-toggle="tab" href="#<?php echo $sr['sid'] ?>" role="tab" aria-selected="true"><i class="material-icons"><?php echo $sr['sicon'] ?></i> <?php echo $sr['sname'] ?></a>
 							  	</li>
 							  	<?php
 							  		$sf = 1;
@@ -273,8 +273,8 @@
 							  					<table class="table borderless">
 									  				<tr>
 									      				<td width="180px">Spesification Name</td>
-									      				<td width="50%"><input class="form-control" type="text" name="<?php echo $sn ?>" maxlength="100" value="<?php echo $sr['sname'] ?>" required></td>
-									      				<td>Icon Name</td>
+									      				<td width="55%"><input class="form-control" type="text" name="<?php echo $sn ?>" maxlength="100" value="<?php echo $sr['sname'] ?>" required></td>
+									      				<td>Icon</td>
 									      				<td><input class="form-control" type="text" name="<?php echo $si ?>" maxlength="100" value="<?php echo $sr['sicon'] ?>" required></td>
 									      			</tr>
 									      		</table>
