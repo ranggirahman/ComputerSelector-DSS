@@ -170,43 +170,10 @@
 									}
 								}
 			      			?>
-			      	</div>
-			      	<div class="modal-footer">	
-			      			<form action="" method="POST">		      						        	
-				        		<tr>
-				      				<td></td>
-				      				<td><input class="form-control" type="text" name="cpuname" placeholder="Processor Name" maxlength="100" required></td>
-				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="performance" placeholder="Performance" maxlength="5" required></td>
-				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="single" placeholder="Single-Core Performance" maxlength="5" required></td>
-				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="intg" placeholder="Integrated Graphics" maxlength="5" required></td>
-				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="intgocl" placeholder="Integrated Graphics (OpenCL)" maxlength="5" required></td>
-				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="ppw" placeholder="Performance Per Watt" maxlength="5" required></td>
-				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="value" placeholder="Value" maxlength="5" required></td>
-				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="cpuscore" placeholder="Score" maxlength="5" required></td>
-				      				<td class="table-center"><input class="btn btn-success" type="submit" name="cpuadd" value="Add"></td>
-				      			</tr>
-				      		</form>
-						</table>
+			      		</table>
 			      	</div>
 		    	</div>
 		  	</div>
-		  	<?php
-			  	if(isset($_POST['cpuadd'])){
-
-				    $cpuname = $_POST['cpuname'];
-				    $performance = $_POST['performance'];
-				    $single = $_POST['single'];
-				    $intg = $_POST['intg'];
-				    $intgocl = $_POST['intgocl'];
-				    $ppw = $_POST['ppw'];
-				    $value = $_POST['value'];
-				    $cpuscore = $_POST['cpuscore'];
-
-				    $cpuadd = mysqli_query($koneksi,"insert into cpu(cpuname,performance,single,intg,intgocl,ppw,value,cpuscore) values ('$cpuname','$performance','$single','$intg','$intgocl','$ppw','$value','$cpuscore')");
-
-				    echo "<meta http-equiv='refresh' content='0'>";						   
-			  	}
-			?>
 		</div>  
 
 		<!-- VGA Modal -->
@@ -264,44 +231,11 @@
 						      			<?php
 									}
 								}
-			      			?>
-			      	</div>
-			      	<div class="modal-footer">	
-			      			<form action="" method="POST">		      						        	
-				        		<tr>
-				      				<td></td>
-				      				<td><input class="form-control" type="text" name="vganame" placeholder="VGA Name" maxlength="100" required></td>
-				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="gaming" placeholder="Gaming" maxlength="5" required></td>
-				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="graphics" placeholder="Graphic" maxlength="5" required></td>
-				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="computing" placeholder="Computing" maxlength="5" required></td>
-				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="ppw" placeholder="Performance Per Watt" maxlength="5" required></td>
-				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="value" placeholder="Value" maxlength="5" required></td>
-				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="nap" placeholder="Noise and Power" maxlength="5" required></td>
-				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="vgascore" placeholder="Score" maxlength="5" required></td>
-				      				<td class="table-center"><input class="btn btn-success" type="submit" name="vgaadd" value="Add"></td>
-				      			</tr>
-				      		</form>
+			      			?>			      	
 						</table>
 			      	</div>
 		    	</div>
-		  	</div>
-		  	<?php
-			  	if(isset($_POST['vgaadd'])){
-
-				    $vganame = $_POST['vganame'];
-				    $gaming = $_POST['gaming'];
-				    $graphics = $_POST['graphics'];
-				    $computing = $_POST['computing'];
-				    $ppw = $_POST['ppw'];
-				    $value = $_POST['value'];
-				    $nap = $_POST['nap'];
-				    $vgascore = $_POST['vgascore'];
-
-				    $cpuadd = mysqli_query($koneksi,"insert into vga(vganame,gaming,graphics,computing,ppw,value,nap,vgascore) values ('$vganame','$gaming','$graphics','$computing','$ppw','$value','$nap','$vgascore')");
-
-				    echo "<meta http-equiv='refresh' content='0'>";						   
-			  	}
-			?>
+		  	</div>		  	
 		</div>  
 
 		<!-- SSD Modal -->
@@ -362,48 +296,17 @@
 									}
 								}
 			      			?>
-			      	</div>
-			      	<div class="modal-footer">	
-			      			<form action="" method="POST">		      						        	
-				        		<tr>
-				      				<td></td>
-				      				<td><input class="form-control" type="text" name="ssdname" placeholder="SSD Name" maxlength="100" required></td>
-				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="readp" placeholder="Read Performance" maxlength="5" required></td>
-				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="writep" placeholder="Write Performance" maxlength="5" required></td>
-				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="realwb" placeholder="Real World Benchmarks" maxlength="5" required></td>
-				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="bench" placeholder="Benchmarks" maxlength="5" required></td>				      				
-				      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="ssdscore" placeholder="Score" maxlength="5" required></td>
-				      				<td class="table-center"><input class="btn btn-success" type="submit" name="ssdadd" value="Add"></td>
-				      			</tr>
-				      		</form>
 						</table>
 			      	</div>
 		    	</div>
-		  	</div>
-		  	<?php
-			  	if(isset($_POST['ssdadd'])){
-
-				    $ssdname = $_POST['ssdname'];
-				    $readp = $_POST['readp'];
-				    $writep = $_POST['writep'];
-				    $realwb = $_POST['realwb'];
-				    $bench = $_POST['bench'];
-				    $ssdscore = $_POST['ssdscore'];
-
-				    $cpuadd = mysqli_query($koneksi,"insert into ssd(ssdname,readp,writep,realwb,bench,ssdscore) values ('$ssdname','$readp','$writep','$realwb','$bench','$ssdscore')");
-
-				    echo "<meta http-equiv='refresh' content='0'>";						   
-			  	}
-			?>
+		  	</div>		  	
 		</div> 
-
-
-
 
 	    <script src="js/jquery.min.js"></script>
 	    <script src="js/popper.min.js"></script>
 	    <script src="js/bootstrap.js"></script>
 	    <script src="js/custom.js"></script> 
+	    
 	    <script type="text/javascript">
 	    	// pop over
 	    	$(function () {
