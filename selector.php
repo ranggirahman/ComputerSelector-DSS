@@ -42,7 +42,7 @@
 
 		<div class="container" style="padding-top: 60px;">
 	    	<div class="row">
-	    		<div class="col-md-12"><h5 class="display-4" style="font-size: 28px;"><i class="material-icons" style="font-size: 40px; color: grey;">assessment</i> Top 5 Best Score</h5></div>	    		
+	    		<div class="col-md-12"><h5 class="display-4" style="font-size: 24px;"><i class="material-icons" style="font-size: 32px; color: grey;">assessment</i> Top 5 Best Score</h5></div>	    		
 	    	</div>
 	    	<hr>
 	    	<div class="row">	    		
@@ -172,28 +172,23 @@
 	     			<div class="card">
 	     				<form action="" method="post" accept-charset="utf-8">
 						  	<div class="card-header">
-						    	<h5 class="card-title display-4" style="padding-top: 8px; font-size: 24px;">Spesification Select</h5>
-						    	<p class="card-title display-4" style="font-size: 30px;">What Your Computer Can Do ?</p>
+						    	<h5 class="card-title display-4" style="padding-top: 8px; font-size: 20px;">Spesification Select</h5>
+						    	<p class="card-title display-4" style="font-size: 24px;">What Your Computer Can Do ?</p>
 						  	</div>
 						  	<div class="card-body">
 						  		<div class="row">
 						  			<div class="col-md-12 text-center">
 						  				<div class="btn-group btn-group-toggle" data-toggle="buttons" style="width: 100%">
+						  					<?php
+									     		$sh = mysqli_query($koneksi,"select *from spesification");
+									     		while($sr = mysqli_fetch_array($sh,MYSQLI_BOTH)){
+									     	?>
 						  					<label class="btn btn-light" style="width: 20%">
-											    <input type="radio" name="options" id="options" value="1" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">work</i><br>Office Task<br><br>
+											    <input type="radio" name="options" id="options" value="<?php echo $sr['sid']; ?>" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;"><?php echo $sr['sicon']; ?></i><br><?php echo $sr['sname']; ?><br><br>
 											</label>
-											<label class="btn btn-light" style="width: 20%">
-											    <input type="radio" name="options" id="options" value="2" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">supervisor_account</i><br>Home Usage<br><br>
-											</label>
-											<label class="btn btn-light" style="width: 20%">
-											    <input type="radio" name="options" id="options" value="3" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">games</i><br>Gaming<br><br>
-											</label>
-											<label class="btn btn-light" style="width: 20%">
-											    <input type="radio" name="options" id="options" value="4" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">terrain</i><br>Graphic Rendering<br><br>
-											</label>
-											<label class="btn btn-light" style="width: 20%">
-											    <input type="radio" name="options" id="options" value="5" autocomplete="off"><br><i class="material-icons" style="font-size: 60px;">gradient</i><br>Computing, Simulation<br><br>
-											</label>										  
+											<?php
+												}
+											?>									  
 										</div>
 						  			</div>
 						  		</div>				    
@@ -206,11 +201,16 @@
 	     		</div>     		
 	     	</div>
 	     	<br>
-	     	<div id="1" class="row" style="display: none;">
+
+	     	<?php
+	     		$s = mysqli_query($koneksi,"select *from spesification");
+	     		while($sr = mysqli_fetch_array($s,MYSQLI_BOTH)){
+	     	?>
+ 			<div id="<?php echo $sr['sid']; ?>" class="row" style="display: none;">
 	     		<div class="col-md-12">
 	     			<div class="card">
 					  	<div class="card-body">
-					  		<div class="card-title display-4" style="font-size: 24px;">Result For Office Task</div>
+					  		<div class="card-title display-4" style="font-size: 24px;"><?php echo $sr['sname'] ?></div>
 					  		<br>
 					  		<div class="row">
 					  			<div class="col-md-4">
@@ -223,7 +223,7 @@
 			    							</tr>
 		    							</thead>
 		    							<?php
-							    			$cpu = mysqli_query($koneksi,"select *from cpu order by performance asc limit 5");
+							    			$cpu = mysqli_query($koneksi,$sr['psyntax']);
 								      		$i = 0;
 
 								      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
@@ -249,7 +249,7 @@
 			    							</tr>
 		    							</thead>
 		    							<?php
-							    			$vga = mysqli_query($koneksi,"select *from vga order by vgascore asc limit 5");
+							    			$vga = mysqli_query($koneksi,$sr['vsyntax']);
 								      		$i = 0;
 
 								      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
@@ -275,7 +275,7 @@
 			    							</tr>
 		    							</thead>
 		    							<?php
-							    			$ssd = mysqli_query($koneksi,"select *from ssd order by readp asc limit 5");
+							    			$ssd = mysqli_query($koneksi,$sr['ssyntax']);
 								      		$i = 0;
 
 								      		while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
@@ -296,21 +296,21 @@
 					  			<div class="col-md-12 text-center">					  				
 					  				<hr>
 					  				<?php
-					  					$s1 = mysqli_query($koneksi,"select *from feedback where spesification='1'");
-					  					$r1 = mysqli_fetch_array($s1,MYSQLI_BOTH)
+					  					$r = "r".$sr['sid'];
+					  					$nr = "nr".$sr['sid'];
 					  				?>
 					  				<form action="" method="post">
 					  					<div class="btn-group" role="group" style="width: 60%;">
-											<button type="submit" name="r1" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_up</i><h4 class="display-4" style="font-size: 20px;">Recommended (<?php echo $r1['r'] ?>)</h4></button>
-											<button type="submit" name="nr1" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_down</i><h4 class="display-4" style="font-size: 20px;">Not Recommended (<?php echo $r1['nr'] ?>)</h4></button>
+											<button type="submit" name="<?php echo $r ?>" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_up</i><h4 class="display-4" style="font-size: 20px;">Recommended (<?php echo $sr['fr'] ?>)</h4></button>
+											<button type="submit" name="<?php echo $nr ?>" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_down</i><h4 class="display-4" style="font-size: 20px;">Not Recommended (<?php echo $sr['fnr'] ?>)</h4></button>
 										</div>
 					  				</form>
 					  				<?php
-									  	if(isset($_POST['r1'])){
-										   	$r = mysqli_query($koneksi,"update feedback set r=r+1 where spesification='1'"); 
+									  	if(isset($_POST[$r])){
+										   	$r = mysqli_query($koneksi,"update spesification set fr=fr+1 where sid='".$sr['sid']."'"); 
 										   	echo "<meta http-equiv='refresh' content='0'>";	  
-									  	}else if(isset($_POST['nr1'])){
-									  		$nr = mysqli_query($koneksi,"update feedback set nr=nr+1 where spesification='1'");
+									  	}else if(isset($_POST[$nr])){
+									  		$nr = mysqli_query($koneksi,"update spesification set fnr=fnr+1 where sid='".$sr['sid']."'");
 									  		echo "<meta http-equiv='refresh' content='0'>";	
 									  	}
 									?>					  				
@@ -320,462 +320,10 @@
 					</div>
 	     		</div>     		
 	     	</div>
-	     	<div id="2" class="row" style="display: none;">
-	     		<div class="col-md-12">
-	     			<div class="card">
-					  	<div class="card-body">
-					  		<div class="card-title display-4" style="font-size: 24px;">Result For Home Usage</div>
-					  		<br>
-					  		<div class="row">
-					  			<div class="col-md-4">
-					  				<table class="table table-sm table-hover">		    								
-		    							<thead>		    								 								
-			    							<tr>
-			    								<th></th>
-			    								<th>Processor</th>
-			    								<th></th>
-			    							</tr>
-		    							</thead>
-		    							<?php
-							    			$cpu = mysqli_query($koneksi,"select *from cpu order by value desc limit 5");
-								      		$i = 0;
-
-								      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
-								      			$i++;
-								      			?>
-								      			<tr>
-								      				<td><?php echo $i; ?></td>
-								      				<td><?php echo $key['cpuname']; ?></td>
-								      				<td><a href="https://www.google.com/search?q=<?php echo $key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
-								      			</tr>
-								      		<?php
-								      		}
-					    				?>
-		    						</table>
-					  			</div>
-					  			<div class="col-md-4">
-					  				<table class="table table-sm table-hover">		    								
-		    							<thead>		    								 								
-			    							<tr>
-			    								<th></th>
-			    								<th>VGA</th>
-			    								<th></th>
-			    							</tr>
-		    							</thead>
-		    							<?php
-							    			$vga = mysqli_query($koneksi,"select *from vga order by value asc limit 5");
-								      		$i = 0;
-
-								      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
-								      			$i++;
-								      			?>
-								      			<tr>
-								      				<td><?php echo $i; ?></td>
-								      				<td><?php echo $key['vganame']; ?></td>
-								      				<td><a href="https://www.google.com/search?q=<?php echo $key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
-								      			</tr>
-								      		<?php
-								      		}
-					    				?>
-		    						</table>
-					  			</div>
-					  			<div class="col-md-4">
-					  				<table class="table table-sm table-hover">		    								
-		    							<thead>		    								 								
-			    							<tr>
-			    								<th></th>
-			    								<th>SSD</th>
-			    								<th></th>
-			    							</tr>
-		    							</thead>
-		    							<?php
-							    			$ssd = mysqli_query($koneksi,"select *from ssd order by realwb desc limit 5");
-								      		$i = 0;
-
-								      		while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
-								      			$i++;
-								      			?>
-								      			<tr>
-								      				<td><?php echo $i; ?></td>
-								      				<td><?php echo $key['ssdname']; ?></td>
-								      				<td><a href="https://www.google.com/search?q=<?php echo $key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
-								      			</tr>
-								      		<?php
-								      		}
-					    				?>
-		    						</table>
-					  			</div>					  			
-					  		</div>
-					  		<div class="row">
-					  			<div class="col-md-12 text-center">					  				
-					  				<hr>
-					  				<?php
-					  					$s2 = mysqli_query($koneksi,"select *from feedback where spesification='2'");
-					  					$r2 = mysqli_fetch_array($s2,MYSQLI_BOTH)
-					  				?>
-					  				<form action="" method="post">
-					  					<div class="btn-group" role="group" style="width: 60%;">
-											<button type="submit" name="r2" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_up</i><h4 class="display-4" style="font-size: 20px;">Recommended (<?php echo $r2['r'] ?>)</h4></button>
-											<button type="submit" name="nr2" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_down</i><h4 class="display-4" style="font-size: 20px;">Not Recommended (<?php echo $r2['nr'] ?>)</h4></button>
-										</div>
-					  				</form>
-					  				<?php
-									  	if(isset($_POST['r2'])){
-										   	$r = mysqli_query($koneksi,"update feedback set r=r+1 where spesification='2'"); 
-										   	echo "<meta http-equiv='refresh' content='0'>";	  
-									  	}else if(isset($_POST['nr2'])){
-									  		$nr = mysqli_query($koneksi,"update feedback set nr=nr+1 where spesification='2'");
-									  		echo "<meta http-equiv='refresh' content='0'>";	
-									  	}
-									?>					  				
-					  			</div>
-					  		</div>						    
-					  	</div>
-					</div>
-	     		</div>     		
-	     	</div>
-	     	<div id="3" class="row" style="display: none;">
-	     		<div class="col-md-12">
-	     			<div class="card">
-					  	<div class="card-body">
-					  		<div class="card-title display-4" style="font-size: 24px;">Result For Gaming</div>
-					  		<br>
-					  		<div class="row">
-					  			<div class="col-md-4">
-					  				<table class="table table-sm table-hover">		    								
-		    							<thead>		    								 								
-			    							<tr>
-			    								<th></th>
-			    								<th>Processor</th>
-			    								<th></th>
-			    							</tr>
-		    							</thead>
-		    							<?php
-							    			$cpu = mysqli_query($koneksi,"select *from cpu order by performance desc limit 5");
-								      		$i = 0;
-
-								      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
-								      			$i++;
-								      			?>
-								      			<tr>
-								      				<td><?php echo $i; ?></td>
-								      				<td><?php echo $key['cpuname']; ?></td>
-								      				<td><a href="https://www.google.com/search?q=<?php echo $key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
-								      			</tr>
-								      		<?php
-								      		}
-					    				?>
-		    						</table>
-					  			</div>
-					  			<div class="col-md-4">
-					  				<table class="table table-sm table-hover">		    								
-		    							<thead>		    								 								
-			    							<tr>
-			    								<th></th>
-			    								<th>VGA</th>
-			    								<th></th>
-			    							</tr>
-		    							</thead>
-		    							<?php
-							    			$vga = mysqli_query($koneksi,"select *from vga order by gaming desc limit 5");
-								      		$i = 0;
-
-								      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
-								      			$i++;
-								      			?>
-								      			<tr>
-								      				<td><?php echo $i; ?></td>
-								      				<td><?php echo $key['vganame']; ?></td>
-								      				<td><a href="https://www.google.com/search?q=<?php echo $key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
-								      			</tr>
-								      		<?php
-								      		}
-					    				?>
-		    						</table>
-					  			</div>
-					  			<div class="col-md-4">
-					  				<table class="table table-sm table-hover">		    								
-		    							<thead>		    								 								
-			    							<tr>
-			    								<th></th>
-			    								<th>SSD</th>
-			    								<th></th>
-			    							</tr>
-		    							</thead>
-		    							<?php
-							    			$ssd = mysqli_query($koneksi,"select *from ssd order by readp desc limit 5");
-								      		$i = 0;
-
-								      		while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
-								      			$i++;
-								      			?>
-								      			<tr>
-								      				<td><?php echo $i; ?></td>
-								      				<td><?php echo $key['ssdname']; ?></td>
-								      				<td><a href="https://www.google.com/search?q=<?php echo $key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
-								      			</tr>
-								      		<?php
-								      		}
-					    				?>
-		    						</table>
-					  			</div>					  			
-					  		</div>
-					  		<div class="row">
-					  			<div class="col-md-12 text-center">					  				
-					  				<hr>
-					  				<?php
-					  					$s3 = mysqli_query($koneksi,"select *from feedback where spesification='3'");
-					  					$r3 = mysqli_fetch_array($s3,MYSQLI_BOTH)
-					  				?>
-					  				<form action="" method="post">
-					  					<div class="btn-group" role="group" style="width: 60%;">
-											<button type="submit" name="r3" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_up</i><h4 class="display-4" style="font-size: 20px;">Recommended (<?php echo $r3['r'] ?>)</h4></button>
-											<button type="submit" name="nr3" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_down</i><h4 class="display-4" style="font-size: 20px;">Not Recommended (<?php echo $r3['nr'] ?>)</h4></button>
-										</div>
-					  				</form>
-					  				<?php
-									  	if(isset($_POST['r3'])){
-										   	$r = mysqli_query($koneksi,"update feedback set r=r+1 where spesification='3'"); 
-										   	echo "<meta http-equiv='refresh' content='0'>";	  
-									  	}else if(isset($_POST['nr3'])){
-									  		$nr = mysqli_query($koneksi,"update feedback set nr=nr+1 where spesification='3'");
-									  		echo "<meta http-equiv='refresh' content='0'>";	
-									  	}
-									?>					  				
-					  			</div>
-					  		</div>						    
-					  	</div>
-					</div>
-	     		</div>     		
-	     	</div>
-	     	<div id="4" class="row" style="display: none;">
-	     		<div class="col-md-12">
-	     			<div class="card">
-					  	<div class="card-body">
-					  		<div class="card-title display-4" style="font-size: 24px;">Result For Graphic Rendering</div>
-					  		<br>
-					  		<div class="row">
-					  			<div class="col-md-4">
-					  				<table class="table table-sm table-hover">		    								
-		    							<thead>		    								 								
-			    							<tr>
-			    								<th></th>
-			    								<th>Processor</th>
-			    								<th></th>
-			    							</tr>
-		    							</thead>
-		    							<?php
-							    			$cpu = mysqli_query($koneksi,"select *from cpu order by performance desc limit 5");
-								      		$i = 0;
-
-								      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
-								      			$i++;
-								      			?>
-								      			<tr>
-								      				<td><?php echo $i; ?></td>
-								      				<td><?php echo $key['cpuname']; ?></td>
-								      				<td><a href="https://www.google.com/search?q=<?php echo $key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
-								      			</tr>
-								      		<?php
-								      		}
-					    				?>
-		    						</table>
-					  			</div>
-					  			<div class="col-md-4">
-					  				<table class="table table-sm table-hover">		    								
-		    							<thead>		    								 								
-			    							<tr>
-			    								<th></th>
-			    								<th>VGA</th>
-			    								<th></th>
-			    							</tr>
-		    							</thead>
-		    							<?php
-							    			$vga = mysqli_query($koneksi,"select *from vga order by graphics desc limit 5");
-								      		$i = 0;
-
-								      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
-								      			$i++;
-								      			?>
-								      			<tr>
-								      				<td><?php echo $i; ?></td>
-								      				<td><?php echo $key['vganame']; ?></td>
-								      				<td><a href="https://www.google.com/search?q=<?php echo $key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
-								      			</tr>
-								      		<?php
-								      		}
-					    				?>
-		    						</table>
-					  			</div>
-					  			<div class="col-md-4">
-					  				<table class="table table-sm table-hover">		    								
-		    							<thead>		    								 								
-			    							<tr>
-			    								<th></th>
-			    								<th>SSD</th>
-			    								<th></th>
-			    							</tr>
-		    							</thead>
-		    							<?php
-							    			$ssd = mysqli_query($koneksi,"select *from ssd order by bench desc limit 5");
-								      		$i = 0;
-
-								      		while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
-								      			$i++;
-								      			?>
-								      			<tr>
-								      				<td><?php echo $i; ?></td>
-								      				<td><?php echo $key['ssdname']; ?></td>
-								      				<td><a href="https://www.google.com/search?q=<?php echo $key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
-								      			</tr>
-								      		<?php
-								      		}
-					    				?>
-		    						</table>
-					  			</div>					  			
-					  		</div>
-					  		<div class="row">
-					  			<div class="col-md-12 text-center">					  				
-					  				<hr>
-					  				<?php
-					  					$s4 = mysqli_query($koneksi,"select *from feedback where spesification='4'");
-					  					$r4 = mysqli_fetch_array($s4,MYSQLI_BOTH)
-					  				?>
-					  				<form action="" method="post">
-					  					<div class="btn-group" role="group" style="width: 60%;">
-											<button type="submit" name="r4" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_up</i><h4 class="display-4" style="font-size: 20px;">Recommended (<?php echo $r4['r'] ?>)</h4></button>
-											<button type="submit" name="nr4" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_down</i><h4 class="display-4" style="font-size: 20px;">Not Recommended (<?php echo $r4['nr'] ?>)</h4></button>
-										</div>
-					  				</form>
-					  				<?php
-									  	if(isset($_POST['r4'])){
-										   	$r = mysqli_query($koneksi,"update feedback set r=r+1 where spesification='4'"); 
-										   	echo "<meta http-equiv='refresh' content='0'>";	  
-									  	}else if(isset($_POST['nr4'])){
-									  		$nr = mysqli_query($koneksi,"update feedback set nr=nr+1 where spesification='4'");
-									  		echo "<meta http-equiv='refresh' content='0'>";	
-									  	}
-									?>					  				
-					  			</div>
-					  		</div>						    
-					  	</div>
-					</div>
-	     		</div>     		
-	     	</div>
-	     	<div id="5" class="row" style="display: none;">
-	     		<div class="col-md-12">
-	     			<div class="card">
-					  	<div class="card-body">
-					  		<div class="card-title display-4" style="font-size: 24px;">Result For Computing, Simulation</div>
-					  		<br>
-					  		<div class="row">
-					  			<div class="col-md-4">
-					  				<table class="table table-sm table-hover">		    								
-		    							<thead>		    								 								
-			    							<tr>
-			    								<th></th>
-			    								<th>Processor</th>
-			    								<th></th>
-			    							</tr>
-		    							</thead>
-		    							<?php
-							    			$cpu = mysqli_query($koneksi,"select *from cpu order by performance desc limit 5");
-								      		$i = 0;
-
-								      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
-								      			$i++;
-								      			?>
-								      			<tr>
-								      				<td><?php echo $i; ?></td>
-								      				<td><?php echo $key['cpuname']; ?></td>
-								      				<td><a href="https://www.google.com/search?q=<?php echo $key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
-								      			</tr>
-								      		<?php
-								      		}
-					    				?>
-		    						</table>
-					  			</div>
-					  			<div class="col-md-4">
-					  				<table class="table table-sm table-hover">		    								
-		    							<thead>		    								 								
-			    							<tr>
-			    								<th></th>
-			    								<th>VGA</th>
-			    								<th></th>
-			    							</tr>
-		    							</thead>
-		    							<?php
-							    			$vga = mysqli_query($koneksi,"select *from vga order by computing desc limit 5");
-								      		$i = 0;
-
-								      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
-								      			$i++;
-								      			?>
-								      			<tr>
-								      				<td><?php echo $i; ?></td>
-								      				<td><?php echo $key['vganame']; ?></td>
-								      				<td><a href="https://www.google.com/search?q=<?php echo $key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
-								      			</tr>
-								      		<?php
-								      		}
-					    				?>
-		    						</table>
-					  			</div>
-					  			<div class="col-md-4">
-					  				<table class="table table-sm table-hover">		    								
-		    							<thead>		    								 								
-			    							<tr>
-			    								<th></th>
-			    								<th>SSD</th>
-			    								<th></th>
-			    							</tr>
-		    							</thead>
-		    							<?php
-							    			$ssd = mysqli_query($koneksi,"select *from ssd order by realwb desc limit 5");
-								      		$i = 0;
-
-								      		while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
-								      			$i++;
-								      			?>
-								      			<tr>
-								      				<td><?php echo $i; ?></td>
-								      				<td><?php echo $key['ssdname']; ?></td>
-								      				<td><a href="https://www.google.com/search?q=<?php echo $key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
-								      			</tr>
-								      		<?php
-								      		}
-					    				?>
-		    						</table>
-					  			</div>					  			
-					  		</div>
-					  		<div class="row">
-					  			<div class="col-md-12 text-center">					  				
-					  				<hr>
-					  				<?php
-					  					$s5 = mysqli_query($koneksi,"select *from feedback where spesification='5'");
-					  					$r5 = mysqli_fetch_array($s5,MYSQLI_BOTH)
-					  				?>
-					  				<form action="" method="post">
-					  					<div class="btn-group" role="group" style="width: 60%;">
-											<button type="submit" name="r5" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_up</i><h4 class="display-4" style="font-size: 20px;">Recommended (<?php echo $r5['r'] ?>)</h4></button>
-											<button type="submit" name="nr5" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_down</i><h4 class="display-4" style="font-size: 20px;">Not Recommended (<?php echo $r5['nr'] ?>)</h4></button>
-										</div>
-					  				</form>
-					  				<?php
-									  	if(isset($_POST['r5'])){
-										   	$r = mysqli_query($koneksi,"update feedback set r=r+1 where spesification='5'"); 
-										   	echo "<meta http-equiv='refresh' content='0'>";	  
-									  	}else if(isset($_POST['nr5'])){
-									  		$nr = mysqli_query($koneksi,"update feedback set nr=nr+1 where spesification='5'");
-									  		echo "<meta http-equiv='refresh' content='0'>";	
-									  	}
-									?>					  				
-					  			</div>
-					  		</div>						    
-					  	</div>
-					</div>
-	     		</div>     		
-	     	</div>
+	     	<?php
+	     		}
+	     	?>
+	     	
 	     	<br>
 	      	<hr>
 	      	<footer>
@@ -795,7 +343,7 @@
 	    <script src="js/popper.min.js"></script>
 	    <script src="js/bootstrap.js"></script>
 	    <script src="js/custom.js"></script> 
-	    
+
 	    <script type="text/javascript">
 	    	// pop over
 	    	$(function () {

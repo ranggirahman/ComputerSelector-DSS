@@ -53,7 +53,7 @@
 		      	<hr>
 		      	<div class="row">
 		      		<div class="col-md-12">
-		      			<p class="lead">Sistem pendukung keputusan untuk membantu pengguna melakukan pemilihan spesifikasi hardware komputer dengan metode Utility Additive (UTA) yang digunakan untuk menentukan setiap perangkat khususnya seperti processor, vga, storage dan perangkat pendukung lainnya agar sesuai dengan kebutuhan sehingga keputusan yang diambil pengguna akan tepat.</p>
+		      			<p class="lead" align="justify">Sistem pendukung keputusan untuk membantu pengguna melakukan pemilihan spesifikasi hardware komputer dengan metode Utility Additive (UTA) yang digunakan untuk menentukan setiap perangkat khususnya seperti processor, vga, storage dan perangkat pendukung lainnya agar sesuai dengan kebutuhan sehingga keputusan yang diambil pengguna akan tepat.</p>
 		      		</div> 
 		      	</div>
 		      	<div class="row">
@@ -306,7 +306,7 @@
 	    <script src="js/popper.min.js"></script>
 	    <script src="js/bootstrap.js"></script>
 	    <script src="js/custom.js"></script> 
-	    
+
 	    <script type="text/javascript">
 	    	// pop over
 	    	$(function () {

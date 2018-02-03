@@ -44,22 +44,20 @@
 	      	<div class="row">
 	      		<div class="col-md-12">
 	      			<div class="card">
-					  	<div class="card-header">
-					    	Add Product
-					  	</div>
+					  	<div class="card-header"><i class="material-icons">add_box</i> Add Product</div>
 					  	<div class="card-body">
 						    <ul class="nav nav-tabs" id="myTab" role="tablist">
 							  <li class="nav-item">
-							    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#processor" role="tab" aria-selected="true">Processor</a>
+							    <a class="nav-link active" data-toggle="tab" href="#processor" role="tab" aria-selected="true">Processor</a>
 							  </li>
 							  <li class="nav-item">
-							    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#vga" role="tab" aria-selected="false">Video Graphic Array</a>
+							    <a class="nav-link" data-toggle="tab" href="#vga" role="tab" aria-selected="false">Video Graphic Array</a>
 							  </li>
 							  <li class="nav-item">
-							    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#ssd" role="tab" aria-selected="false">Solid State Disk</a>
+							    <a class="nav-link" data-toggle="tab" href="#ssd" role="tab" aria-selected="false">Solid State Disk</a>
 							  </li>
 							</ul>
-							<div class="tab-content" id="myTabContent">
+							<div class="tab-content">
 							  	<div class="tab-pane fade show active" id="processor" role="tabpanel">
 							  		<form action="" method="POST">
 							  			<br>
@@ -239,59 +237,89 @@
 	      	<div class="row">
 	      		<div class="col-md-12">
 	      			<div class="card">
-					  	<div class="card-header">
-					    	Add Spesification
-					  	</div>
+					  	<div class="card-header"><i class="material-icons">edit</i> Edit Spesification</div>
 					  	<div class="card-body">
-						    <form action="" method="POST">
+					     	<ul class="nav nav-tabs" id="myTab" role="tablist">
+					     		<?php
+					     			$stab = mysqli_query($koneksi,"select *from spesification");
+					     			$sf = 0;
+									while($sr = mysqli_fetch_array($stab,MYSQLI_BOTH)){
+								?>
+							  	<li class="nav-item">
+							    	<a class="nav-link <?php if($sf == 0){echo 'active';} ?>" id="home-tab" data-toggle="tab" href="#<?php echo $sr['sid'] ?>" role="tab" aria-selected="true"><?php echo $sr['sname'] ?></a>
+							  	</li>
+							  	<?php
+							  		$sf = 1;
+							  		}
+							  	?>							  
+							</ul>
+							<div class="tab-content">
+								<?php
+									$scon = mysqli_query($koneksi,"select *from spesification");
+					     			$sf = 0;
+									while($sr = mysqli_fetch_array($scon,MYSQLI_BOTH)){
+										$sn = "sname".$sr['sid'];
+										$si = "sicon".$sr['sid'];
+										$sc = "cpusyntax".$sr['sid'];
+										$sv = "vgasyntax".$sr['sid'];
+										$sd = "ssdsyntax".$sr['sid'];
+								  		$ss = "s".$sr['sid'];
+								?>
+							  	<div class="tab-pane fade <?php if($sf == 0){echo 'show active';} ?>" id="<?php echo $sr['sid'] ?>" role="tabpanel">
+							  		<form action="" method="POST">
 							  			<div class="row">
 							  				<div class="col-md-12">
+							  					<br>
 							  					<table class="table borderless">
 									  				<tr>
 									      				<td width="180px">Spesification Name</td>
-									      				<td width="50%"><input class="form-control" type="text" name="sname" maxlength="100" required></td>
+									      				<td width="50%"><input class="form-control" type="text" name="<?php echo $sn ?>" maxlength="100" value="<?php echo $sr['sname'] ?>" required></td>
 									      				<td>Icon Name</td>
-									      				<td><input class="form-control" type="text" name="sicon" maxlength="100" required></td>
+									      				<td><input class="form-control" type="text" name="<?php echo $si ?>" maxlength="100" value="<?php echo $sr['sicon'] ?>" required></td>
 									      			</tr>
 									      		</table>
 									      		<hr>
 									      		<table class="table borderless">
 									      			<tr>
 									      				<td width="180px">Processor Syntax</td>
-									      				<td><input class="form-control" type="text" name="cpusyntax" maxlength="100" required></td>
+									      				<td><input class="form-control" type="text" name="<?php echo $sc ?>" maxlength="300" value="<?php echo $sr['psyntax'] ?>" required></td>
 									      			<tr>
 									      				<td width="150px">VGA Syntax</td>
-									      				<td><input class="form-control" type="text" name="vgasyntax" maxlength="100" required></td>
+									      				<td><input class="form-control" type="text" name="<?php echo $sv ?>" maxlength="300" value="<?php echo $sr['vsyntax'] ?>" required></td>
 									      			</tr>
 									      			<tr>
 									      				<td width="150px">SSD Syntax</td>
-									      				<td><input class="form-control" type="text" name="ssdsyntax" maxlength="100" required></td>
+									      				<td><input class="form-control" type="text" name="<?php echo $sd ?>" maxlength="300" value="<?php echo $sr['ssyntax'] ?>" required></td>
 									      			</tr>		
 								      			</table>
 							  				</div>		
 							      		</div>
 							      		<hr>
 							      		<div class="row">
-							      			<div class="col-md-12 text-right">
-							      				<input class="btn btn-success" type="submit" name="ssdadd" value="Add">
+							      			<div class="col-md-12 text-right">							      				
+							      				<input class="btn btn-success" type="submit" name="<?php echo $ss?>" value="Save">
 							      			</div>							      			
 							      		</div>
 								  	</form>
 								  	<?php
-									  	if(isset($_POST['ssdadd'])){
+									  	if(isset($_POST[$ss])){
+										    $sname = $_POST[$sn];
+										    $sicon = $_POST[$si];
+										    $psyntax = $_POST[$sc];
+										    $vsyntax = $_POST[$sv];
+										    $ssyntax = $_POST[$sd];
 
-										    $ssdname = $_POST['ssdname'];
-										    $readp = $_POST['readp'];
-										    $writep = $_POST['writep'];
-										    $realwb = $_POST['realwb'];
-										    $bench = $_POST['bench'];
-										    $ssdscore = $_POST['ssdscore'];
+										    $result = mysqli_query($koneksi,"update spesification set snames='$sname', sicon='$sicon', psyntax='$psyntax', vsyntax='$vsyntax', ssyntax='$ssyntax' where sid='".$sr['sid']."'");
 
-										    $cpuadd = mysqli_query($koneksi,"insert into ssd(ssdname,readp,writep,realwb,bench,ssdscore) values ('$ssdname','$readp','$writep','$realwb','$bench','$ssdscore')");
-
-										    echo "<meta http-equiv='refresh' content='0'>";						   
-									  	}
+										    echo "<meta http-equiv='refresh' content='0'>";
+										}
 									?>
+							  	</div>
+							  	<?php
+							  		$sf = 1;
+							  		}
+							  	?>
+							</div>
 					  	</div>
 					</div>
 				</div>	        	
