@@ -243,9 +243,55 @@
 					    	Add Spesification
 					  	</div>
 					  	<div class="card-body">
-						    <h5 class="card-title">Special title treatment</h5>
-						    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-						    <a href="#" class="btn btn-primary">Go somewhere</a>
+						    <form action="" method="POST">
+							  			<div class="row">
+							  				<div class="col-md-12">
+							  					<table class="table borderless">
+									  				<tr>
+									      				<td width="180px">Spesification Name</td>
+									      				<td width="50%"><input class="form-control" type="text" name="sname" maxlength="100" required></td>
+									      				<td>Icon Name</td>
+									      				<td><input class="form-control" type="text" name="sicon" maxlength="100" required></td>
+									      			</tr>
+									      		</table>
+									      		<hr>
+									      		<table class="table borderless">
+									      			<tr>
+									      				<td width="180px">Processor Syntax</td>
+									      				<td><input class="form-control" type="text" name="cpusyntax" maxlength="100" required></td>
+									      			<tr>
+									      				<td width="150px">VGA Syntax</td>
+									      				<td><input class="form-control" type="text" name="vgasyntax" maxlength="100" required></td>
+									      			</tr>
+									      			<tr>
+									      				<td width="150px">SSD Syntax</td>
+									      				<td><input class="form-control" type="text" name="ssdsyntax" maxlength="100" required></td>
+									      			</tr>		
+								      			</table>
+							  				</div>		
+							      		</div>
+							      		<hr>
+							      		<div class="row">
+							      			<div class="col-md-12 text-right">
+							      				<input class="btn btn-success" type="submit" name="ssdadd" value="Add">
+							      			</div>							      			
+							      		</div>
+								  	</form>
+								  	<?php
+									  	if(isset($_POST['ssdadd'])){
+
+										    $ssdname = $_POST['ssdname'];
+										    $readp = $_POST['readp'];
+										    $writep = $_POST['writep'];
+										    $realwb = $_POST['realwb'];
+										    $bench = $_POST['bench'];
+										    $ssdscore = $_POST['ssdscore'];
+
+										    $cpuadd = mysqli_query($koneksi,"insert into ssd(ssdname,readp,writep,realwb,bench,ssdscore) values ('$ssdname','$readp','$writep','$realwb','$bench','$ssdscore')");
+
+										    echo "<meta http-equiv='refresh' content='0'>";						   
+									  	}
+									?>
 					  	</div>
 					</div>
 				</div>	        	
@@ -268,7 +314,7 @@
 	    <script src="js/popper.min.js"></script>
 	    <script src="js/bootstrap.js"></script>
 	    <script src="js/custom.js"></script> 
-	    
+
 	    <script type="text/javascript">
 	    	// pop over
 	    	$(function () {
