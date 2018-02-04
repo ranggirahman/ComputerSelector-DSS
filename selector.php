@@ -73,7 +73,11 @@
 								      			<tr>
 								      				<td><?php echo $i; ?></td>
 								      				<td><?php echo $key['cpuname']; ?></td>
-								      				<td><?php echo $key['cpuscore']; ?></td>
+								      				<td>
+								      					<div class="progress" style="height: 22px;">
+													  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['cpuscore']*10 ?>%;" aria-valuenow="<?php echo $key['cpuscore'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['cpuscore'] ?></div>
+														</div>
+													</td>
 								      				<td><a href="https://www.google.com/search?q=<?php echo $key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
 								      			</tr>
 								      		<?php
@@ -112,7 +116,11 @@
 								      			<tr>
 								      				<td><?php echo $i; ?></td>
 								      				<td><?php echo $key['vganame']; ?></td>
-								      				<td><?php echo $key['vgascore']; ?></td>
+								      				<td class="table-center">
+								      					<div class="progress" style="height: 22px;">
+													  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['vgascore']*10 ?>%;" aria-valuenow="<?php echo $key['vgascore'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['vgascore'] ?></div>
+														</div>
+													</td>
 								      				<td><a href="https://www.google.com/search?q=<?php echo $key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
 								      			</tr>
 								      		<?php
@@ -151,7 +159,11 @@
 								      			<tr>
 								      				<td><?php echo $i; ?></td>
 								      				<td><?php echo $key['ssdname']; ?></td>
-								      				<td><?php echo $key['ssdscore']; ?></td>
+								      				<td class="table-center">
+								      					<div class="progress" style="height: 22px;">
+													  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['ssdscore']*10 ?>%;" aria-valuenow="<?php echo $key['ssdscore'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['ssdscore'] ?></div>
+														</div>
+													</td>
 								      				<td><a href="https://www.google.com/search?q=<?php echo $key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
 								      			</tr>
 								      		<?php

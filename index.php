@@ -132,18 +132,18 @@
 		        		</button>
 		      		</div>
 			      	<div class="modal-body">
-			        	<table class="table table-hover table-bordered table-striped">
+			        	<table class="table table-sm table-hover table-bordered">
 			        		<thead class="thead-light">
 				      			<tr>
-				      				<th class="table-center"><button type="button" class="btn btn-light">No</button></th>
-				      				<th width="15%"><button type="button" class="btn btn-light">CPU Name</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Benchmark Performance Using All Cores" data-placement="bottom" data-content="PCMark Accelerated, PassMark, Geekbench Multi-Core">Performance</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Individual Core Benchmark Performance" data-placement="bottom" data-content="PassMark Single-Core, Geekbench Single-Core, AES Single-Core">Single-Core</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Integrated GPU Performance for Graphics" data-placement="bottom" data-content="Sky Driver, Cloud Gate">Graphics</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Integrated GPU Performance for Parallel Computing" data-placement="bottom" data-content="Bitcoin Minning, Face Detection, Ocean Simulation, CompuBench T-Rex, Video Composition">OpenCL</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Performance Per Watt" data-placement="bottom" data-content="Sky Driver, Cloud Gate, CompuBench, PCMark, PassMark, Geekbench, TDP">Perf / Watt</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Paying for Performance" data-placement="bottom" data-content="Sky Driver, Cloud Gate, CompuBench, PCMark, PassMark, Geekbench, TDP">Value</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Combination of All Six Facets" data-placement="bottom" data-content="Performance, Single-Core Performance, Integrated Graphics, Performance Per Watt, Value">Total Score</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-light btn-sm">No</button></th>
+				      				<th class="table-center" width="15%"><button type="button" class="btn btn-light btn-sm">Processor Name</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Benchmark Performance Using All Cores" data-placement="bottom" data-content="PCMark Accelerated, PassMark, Geekbench Multi-Core">Performance</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Individual Core Benchmark Performance" data-placement="bottom" data-content="PassMark Single-Core, Geekbench Single-Core, AES Single-Core">Single-Core</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Integrated GPU Performance for Graphics" data-placement="bottom" data-content="Sky Driver, Cloud Gate">Graphics</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Integrated GPU Performance for Parallel Computing" data-placement="bottom" data-content="Bitcoin Minning, Face Detection, Ocean Simulation, CompuBench T-Rex, Video Composition">G. OpenCL</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Performance Per Watt" data-placement="bottom" data-content="Sky Driver, Cloud Gate, CompuBench, PCMark, PassMark, Geekbench, TDP">Perf / Watt</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Paying for Performance" data-placement="bottom" data-content="Sky Driver, Cloud Gate, CompuBench, PCMark, PassMark, Geekbench, TDP">Value (Pay)</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Combination of All Six Facets" data-placement="bottom" data-content="Performance, Single-Core Performance, Integrated Graphics, Performance Per Watt, Value">Total Score</button></th>
 				      				<th></th>
 				      			</tr>
 			      			</thead>
@@ -157,14 +157,42 @@
 										<tr>
 											<td class="table-center"><?php echo $i ?></td>
 						      				<td><b><i><?php echo $key['cpuname'] ?><i></b></td>
-						      				<td class="table-center"><?php echo $key['performance'] ?></td>
-						      				<td class="table-center"><?php echo $key['single'] ?></td>
-						      				<td class="table-center"><?php echo $key['intg'] ?></td>
-						      				<td class="table-center"><?php echo $key['intgocl'] ?></td>
-						      				<td class="table-center"><?php echo $key['ppw'] ?></td>
-						      				<td class="table-center"><?php echo $key['value']; ?></td>
-						      				<td class="table-center"><b><?php echo $key['cpuscore']; ?></b></td>
-						      				<td class="table-center"><a class="btn btn-light" href="https://www.google.com/search?q=<?php echo $key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
+						      				<td class="table-center">
+						      					<div class="progress" style="height: 28px;">
+											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['performance']*10 ?>%;" aria-valuenow="<?php echo $key['performance'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['performance'] ?></div>
+												</div>
+											</td>
+											<td class="table-center">
+						      					<div class="progress" style="height: 28px;">
+											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['single']*10 ?>%;" aria-valuenow="<?php echo $key['single'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['single'] ?></div>
+												</div>
+											</td>
+											<td class="table-center">
+						      					<div class="progress" style="height: 28px;">
+											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['intg']*10 ?>%;" aria-valuenow="<?php echo $key['intg'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['intg'] ?></div>
+												</div>
+											</td>
+											<td class="table-center">
+						      					<div class="progress" style="height: 28px;">
+											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['intgocl']*10 ?>%;" aria-valuenow="<?php echo $key['intgocl'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['intgocl'] ?></div>
+												</div>
+											</td>
+											<td class="table-center">
+						      					<div class="progress" style="height: 28px;">
+											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['ppw']*10 ?>%;" aria-valuenow="<?php echo $key['ppw'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['ppw'] ?></div>
+												</div>
+											</td>
+						      				<td class="table-center">
+						      					<div class="progress" style="height: 28px;">
+											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['value']*10 ?>%;" aria-valuenow="<?php echo $key['value'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['value'] ?></div>
+												</div>
+											</td>
+											<td class="table-center">
+						      					<div class="progress" style="height: 28px;">
+											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['cpuscore']*10 ?>%;" aria-valuenow="<?php echo $key['cpuscore'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['cpuscore'] ?></div>
+												</div>
+											</td>
+						      				<td class="table-center"><a class="btn btn-light btn-sm" href="https://www.google.com/search?q=<?php echo $key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
 						      			</tr>
 						      			<?php
 									}
@@ -193,18 +221,18 @@
 		        		</button>
 		      		</div>
 			      	<div class="modal-body">
-			        	<table class="table table-hover table-bordered table-striped">
+			        	<table class="table table-sm table-hover table-bordered ">
 			        		<thead class="thead-light">
 				      			<tr>
-				      				<th class="table-center"><button type="button" class="btn btn-light">No</button></th>
-				      				<th width="20%"><button type="button" class="btn btn-light">VGA Name</button></th>				      				
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Gaming Performance Benchmark" data-placement="bottom" data-content="Battlefield 4, Bioshock Infinite, Crysis 3, Dirt 3, Farcry 3, CSGO, Diablo III, Fifa 16, GTA 5, The Witcher 3">Gaming</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Graphic Benchmark" data-placement="bottom" data-content="T-Rex, Manhattan, Gate Factor">Graphics</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Benchmark Performance Using All Cores" data-placement="bottom" data-content="Face Detection, Ocean Surface Simulation, Particle Simulation, Video Composition, Bitcoin Minning">Computing</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Performance Per Watt" data-placement="bottom" data-content="Battlefield 4, Bioshock Infinite, Crysis 3, Dirt 3, Farcry 3, CSGO, Diablo III, Fifa 16, GTA 5, The Witcher 3, T-Rex, Manhattan, Gate Factor, Face Detection, Ocean Surface Simulation, Particle Simulation, Video Composition, Bitcoin Minning">Perf / Watt</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Paying for Performance" data-placement="bottom" data-content="Battlefield 4, Bioshock Infinite, Crysis 3, Dirt 3, Farcry 3, CSGO, Diablo III, Fifa 16, GTA 5, The Witcher 3, T-Rex, Manhattan, Gate Factor, Face Detection, Ocean Surface Simulation, Particle Simulation, Video Composition, Bitcoin Minning">Value</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Noise and Power" data-placement="bottom" data-content="TDP, Idle Power Consumtion, Load Power Consumtion, Idle Noise Level, Load Noise Level">Noise Power</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Combination of All Six Facets" data-placement="bottom" data-content="Gaming, Graphic, Computing, Performance Per Watt, Value, Noise and Power">Total Score</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-light btn-sm">No</button></th>
+				      				<th class="table-center" width="20%"><button type="button" class="btn btn-light btn-sm">VGA Name</button></th>				      				
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Gaming Performance Benchmark" data-placement="bottom" data-content="Battlefield 4, Bioshock Infinite, Crysis 3, Dirt 3, Farcry 3, CSGO, Diablo III, Fifa 16, GTA 5, The Witcher 3">Gaming</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Graphic Benchmark" data-placement="bottom" data-content="T-Rex, Manhattan, Gate Factor">Graphics</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Benchmark Performance Using All Cores" data-placement="bottom" data-content="Face Detection, Ocean Surface Simulation, Particle Simulation, Video Composition, Bitcoin Minning">Computing</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Performance Per Watt" data-placement="bottom" data-content="Battlefield 4, Bioshock Infinite, Crysis 3, Dirt 3, Farcry 3, CSGO, Diablo III, Fifa 16, GTA 5, The Witcher 3, T-Rex, Manhattan, Gate Factor, Face Detection, Ocean Surface Simulation, Particle Simulation, Video Composition, Bitcoin Minning">Perf / Watt</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Paying for Performance" data-placement="bottom" data-content="Battlefield 4, Bioshock Infinite, Crysis 3, Dirt 3, Farcry 3, CSGO, Diablo III, Fifa 16, GTA 5, The Witcher 3, T-Rex, Manhattan, Gate Factor, Face Detection, Ocean Surface Simulation, Particle Simulation, Video Composition, Bitcoin Minning">Value (Pay)</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Noise and Power" data-placement="bottom" data-content="TDP, Idle Power Consumtion, Load Power Consumtion, Idle Noise Level, Load Noise Level">Noise Power</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Combination of All Six Facets" data-placement="bottom" data-content="Gaming, Graphic, Computing, Performance Per Watt, Value, Noise and Power">Total Score</button></th>
 				      				<th></th>
 				      			</tr>
 			      			</thead>
@@ -218,14 +246,42 @@
 										<tr>
 											<td class="table-center"><?php echo $i ?></td>
 						      				<td><b><i><?php echo $key['vganame'] ?><i></b></td>
-						      				<td class="table-center"><?php echo $key['gaming'] ?></td>
-						      				<td class="table-center"><?php echo $key['graphics'] ?></td>
-						      				<td class="table-center"><?php echo $key['computing'] ?></td>
-						      				<td class="table-center"><?php echo $key['ppw'] ?></td>
-						      				<td class="table-center"><?php echo $key['value'] ?></td>
-						      				<td class="table-center"><?php echo $key['nap'] ?></td>
-						      				<td class="table-center"><b><?php echo $key['vgascore']; ?></b></td>
-						      				<td class="table-center"><a class="btn btn-light" href="https://www.google.com/search?q=<?php echo $key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
+						      				<td class="table-center">
+						      					<div class="progress" style="height: 28px;">
+											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['gaming']*10 ?>%;" aria-valuenow="<?php echo $key['gaming'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['gaming'] ?></div>
+												</div>
+											</td>
+											<td class="table-center">
+						      					<div class="progress" style="height: 28px;">
+											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['graphics']*10 ?>%;" aria-valuenow="<?php echo $key['graphics'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['graphics'] ?></div>
+												</div>
+											</td>
+											<td class="table-center">
+						      					<div class="progress" style="height: 28px;">
+											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['computing']*10 ?>%;" aria-valuenow="<?php echo $key['computing'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['computing'] ?></div>
+												</div>
+											</td>
+						      				<td class="table-center">
+						      					<div class="progress" style="height: 28px;">
+											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['ppw']*10 ?>%;" aria-valuenow="<?php echo $key['ppw'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['ppw'] ?></div>
+												</div>
+											</td>
+						      				<td class="table-center">
+						      					<div class="progress" style="height: 28px;">
+											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['value']*10 ?>%;" aria-valuenow="<?php echo $key['value'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['value'] ?></div>
+												</div>
+											</td>
+						      				<td class="table-center">
+						      					<div class="progress" style="height: 28px;">
+											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['nap']*10 ?>%;" aria-valuenow="<?php echo $key['nap'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['nap'] ?></div>
+												</div>
+											</td>
+						      				<td class="table-center">
+						      					<div class="progress" style="height: 28px;">
+											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['vgascore']*10 ?>%;" aria-valuenow="<?php echo $key['vgascore'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['vgascore'] ?></div>
+												</div>
+											</td>						      				
+						      				<td class="table-center"><a class="btn btn-sm btn-light" href="https://www.google.com/search?q=<?php echo $key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
 						      			</tr>
 
 						      			<?php
@@ -255,16 +311,16 @@
 		        		</button>
 		      		</div>
 			      	<div class="modal-body">
-			        	<table class="table table-hover table-bordered table-striped">
+			        	<table class="table table-sm table-hover table-bordered">
 			        		<thead class="thead-light">
 				      			<tr>
-				      				<th class="table-center"><button type="button" class="btn btn-light">No</button></th>
-				      				<th width="20%"><button type="button" class="btn btn-light">SSD Name</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="How Quickly Data Is Read From The Drive" data-placement="bottom" data-content="4K Random Read, 4K Random Read Access Time, 512K Squential Read">Read Perf</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="How Quickly Data Is Written To The Drive" data-placement="bottom" data-content="4K Random Write, 4K Random Write Access Time, 512K Squential Write">Write Perf</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Real World Benchmarks, How Well The Drive Performs Common Task" data-placement="bottom" data-content="Photoshop Lens Filter, AS SSD ISO Copy">Real World</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="How Well The Drive Performs On Common Benchmarks" data-placement="bottom" data-content="PCMark Vantage, AS SSD Score">Benchmarks</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info" data-container="body" data-toggle="popover" title="Combination of All Four Facets" data-placement="bottom" data-content="Read Performance, Write Performance, Real World Benchmarks, Benchmarks">Total Score</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-sm btn-light">No</button></th>
+				      				<th class="table-center" width="20%"><button type="button" class="btn btn-sm btn-light">SSD Name</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-sm btn-wrap btn-info" data-container="body" data-toggle="popover" title="How Quickly Data Is Read From The Drive" data-placement="bottom" data-content="4K Random Read, 4K Random Read Access Time, 512K Squential Read">Read Perf</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-sm btn-wrap btn-info" data-container="body" data-toggle="popover" title="How Quickly Data Is Written To The Drive" data-placement="bottom" data-content="4K Random Write, 4K Random Write Access Time, 512K Squential Write">Write Perf</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-sm btn-wrap btn-info" data-container="body" data-toggle="popover" title="Real World Benchmarks, How Well The Drive Performs Common Task" data-placement="bottom" data-content="Photoshop Lens Filter, AS SSD ISO Copy">Real World</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-sm btn-wrap btn-info" data-container="body" data-toggle="popover" title="How Well The Drive Performs On Common Benchmarks" data-placement="bottom" data-content="PCMark Vantage, AS SSD Score">Benchmarks</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-sm btn-wrap btn-info" data-container="body" data-toggle="popover" title="Combination of All Four Facets" data-placement="bottom" data-content="Read Performance, Write Performance, Real World Benchmarks, Benchmarks">Total Score</button></th>
 				      				<th></th>
 				      			</tr>
 			      			</thead>
@@ -284,12 +340,32 @@
 										<tr>
 											<td class="table-center"><?php echo $i ?></td>
 						      				<td><b><i><?php echo $key['ssdname'] ?><i></b></td>
-						      				<td class="table-center"><?php echo $key['readp'] ?></td>
-						      				<td class="table-center"><?php echo $key['writep'] ?></td>
-						      				<td class="table-center"><?php echo $key['realwb'] ?></td>
-						      				<td class="table-center"><?php echo $key['bench'] ?></td>
-						      				<td class="table-center"><b><?php echo $key['ssdscore'] ?></b></td>
-						      				<td class="table-center"><a class="btn btn-light" href="https://www.google.com/search?q=<?php echo $key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
+						      				<td class="table-center">
+						      					<div class="progress" style="height: 28px;">
+											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['readp']*10 ?>%;" aria-valuenow="<?php echo $key['readp'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['readp'] ?></div>
+												</div>
+											</td>
+											<td class="table-center">
+						      					<div class="progress" style="height: 28px;">
+											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['writep']*10 ?>%;" aria-valuenow="<?php echo $key['writep'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['writep'] ?></div>
+												</div>
+											</td>
+						      				<td class="table-center">
+						      					<div class="progress" style="height: 28px;">
+											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['realwb']*10 ?>%;" aria-valuenow="<?php echo $key['realwb'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['realwb'] ?></div>
+												</div>
+											</td>
+						      				<td class="table-center">
+						      					<div class="progress" style="height: 28px;">
+											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['bench']*10 ?>%;" aria-valuenow="<?php echo $key['bench'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['bench'] ?></div>
+												</div>
+											</td>
+						      				<td class="table-center">
+						      					<div class="progress" style="height: 28px;">
+											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['ssdscore']*10 ?>%;" aria-valuenow="<?php echo $key['ssdscore'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['ssdscore'] ?></div>
+												</div>
+											</td>
+						      				<td class="table-center"><a class="btn btn-sm btn-light" href="https://www.google.com/search?q=<?php echo $key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
 						      			</tr>
 
 						      			<?php
