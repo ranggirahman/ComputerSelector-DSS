@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 26, 2018 at 02:45 AM
+-- Generation Time: Feb 04, 2018 at 04:35 PM
 -- Server version: 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -73,8 +73,36 @@ INSERT INTO `cpu` (`cpuid`, `cpuname`, `performance`, `single`, `intg`, `intgocl
 (28, 'AMD A10 7850K', 8.2, 7, 10, 9.9, 9.1, 7.2, 8.9),
 (29, 'AMD A4 7300', 5.3, 6.4, 0, 6.6, 7.2, 10, 8.1),
 (30, 'Intel Core i3 4160', 7.1, 9, 6, 6.4, 9, 6.6, 8),
-(31, 'AMD A10 7870K', 5.5, 5.5, 0, 10, 8.8, 8.3, 9.2),
-(32, 'AMD A8 7650K', 6.7, 5, 10, 8, 9.1, 10, 10);
+(31, 'AMD A10 7870K', 5.5, 5.5, 0, 10, 8.8, 8.3, 9.2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `spesification`
+--
+
+CREATE TABLE `spesification` (
+  `sid` int(11) NOT NULL,
+  `sname` varchar(100) NOT NULL,
+  `description` varchar(300) NOT NULL,
+  `sicon` varchar(100) NOT NULL,
+  `psyntax` varchar(300) NOT NULL,
+  `vsyntax` varchar(300) NOT NULL,
+  `ssyntax` varchar(300) NOT NULL,
+  `fr` int(11) NOT NULL,
+  `fnr` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `spesification`
+--
+
+INSERT INTO `spesification` (`sid`, `sname`, `description`, `sicon`, `psyntax`, `vsyntax`, `ssyntax`, `fr`, `fnr`) VALUES
+(1, 'Office Task', '', 'work', 'select *from cpu order by performance asc limit 5', 'select *from vga order by vgascore asc limit 5', 'select *from ssd order by readp asc limit 5', 1, 0),
+(2, 'Home Usage', '', 'supervisor_account', 'select *from cpu order by value desc limit 5', 'select *from vga order by value asc limit 5', 'select *from ssd order by realwb desc limit 5', 0, 0),
+(3, 'Gaming', '', 'games', 'select *from cpu order by performance desc limit 5', 'select *from vga order by gaming desc limit 5', 'select *from ssd order by readp desc limit 5', 0, 1),
+(4, 'Graphic Rendering', '', 'terrain', 'select *from cpu order by performance desc limit 5', 'select *from vga order by graphics desc limit 5', 'select *from ssd order by bench desc limit 5', 0, 0),
+(5, 'Computing, Simulation', '', 'gradient', 'select *from cpu order by performance desc limit 5', 'select *from vga order by computing desc limit 5', 'select *from ssd order by realwb desc limit 5', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -180,6 +208,12 @@ ALTER TABLE `cpu`
   ADD PRIMARY KEY (`cpuid`);
 
 --
+-- Indexes for table `spesification`
+--
+ALTER TABLE `spesification`
+  ADD PRIMARY KEY (`sid`);
+
+--
 -- Indexes for table `ssd`
 --
 ALTER TABLE `ssd`
@@ -199,17 +233,22 @@ ALTER TABLE `vga`
 -- AUTO_INCREMENT for table `cpu`
 --
 ALTER TABLE `cpu`
-  MODIFY `cpuid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `cpuid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+--
+-- AUTO_INCREMENT for table `spesification`
+--
+ALTER TABLE `spesification`
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `ssd`
 --
 ALTER TABLE `ssd`
-  MODIFY `ssdid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `ssdid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `vga`
 --
 ALTER TABLE `vga`
-  MODIFY `vgaid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `vgaid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
