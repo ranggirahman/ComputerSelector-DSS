@@ -74,7 +74,7 @@
 								      				<td><?php echo $i; ?></td>
 								      				<td><?php echo $key['cpuname']; ?></td>
 								      				<td>
-								      					<div class="progress" style="height: 22px;">
+								      					<div class="progress" style="height: 25px;">
 													  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['cpuscore']*10 ?>%;" aria-valuenow="<?php echo $key['cpuscore'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['cpuscore'] ?></div>
 														</div>
 													</td>
@@ -92,7 +92,7 @@
 	    		<div class="col-md-4">
 	    			<div class="card">
 	    				<div class="card-header">
-	    					<h5 class="display-4" style="padding-top: 12px; font-size: 22px;"><img src="img/vga.png" style="max-width: 12%; and height: auto"> Video Graphic Array</h5>
+	    					<h5 class="display-4" style="padding-top: 12px; font-size: 22px;"><img src="img/vga.png" style="max-width: 9%; and height: auto"> Video Graphic Array</h5>
 	    				</div>
  					 	<div class="card-body">   
 			    			<div class="row">
@@ -117,7 +117,7 @@
 								      				<td><?php echo $i; ?></td>
 								      				<td><?php echo $key['vganame']; ?></td>
 								      				<td class="table-center">
-								      					<div class="progress" style="height: 22px;">
+								      					<div class="progress" style="height: 25px;">
 													  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['vgascore']*10 ?>%;" aria-valuenow="<?php echo $key['vgascore'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['vgascore'] ?></div>
 														</div>
 													</td>
@@ -160,7 +160,7 @@
 								      				<td><?php echo $i; ?></td>
 								      				<td><?php echo $key['ssdname']; ?></td>
 								      				<td class="table-center">
-								      					<div class="progress" style="height: 22px;">
+								      					<div class="progress" style="height: 25px;">
 													  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['ssdscore']*10 ?>%;" aria-valuenow="<?php echo $key['ssdscore'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['ssdscore'] ?></div>
 														</div>
 													</td>

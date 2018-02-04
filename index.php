@@ -155,44 +155,44 @@
 										$i++;										
 										?>
 										<tr>
-											<td class="table-center"><?php echo $i ?></td>
-						      				<td><b><i><?php echo $key['cpuname'] ?><i></b></td>
+											<td width="50px" class="table-center"><?php echo $i ?></td>
+						      				<td><?php echo $key['cpuname'] ?></td>
 						      				<td class="table-center">
-						      					<div class="progress" style="height: 28px;">
+						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['performance']*10 ?>%;" aria-valuenow="<?php echo $key['performance'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['performance'] ?></div>
 												</div>
 											</td>
 											<td class="table-center">
-						      					<div class="progress" style="height: 28px;">
+						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['single']*10 ?>%;" aria-valuenow="<?php echo $key['single'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['single'] ?></div>
 												</div>
 											</td>
 											<td class="table-center">
-						      					<div class="progress" style="height: 28px;">
+						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['intg']*10 ?>%;" aria-valuenow="<?php echo $key['intg'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['intg'] ?></div>
 												</div>
 											</td>
 											<td class="table-center">
-						      					<div class="progress" style="height: 28px;">
+						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['intgocl']*10 ?>%;" aria-valuenow="<?php echo $key['intgocl'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['intgocl'] ?></div>
 												</div>
 											</td>
 											<td class="table-center">
-						      					<div class="progress" style="height: 28px;">
+						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['ppw']*10 ?>%;" aria-valuenow="<?php echo $key['ppw'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['ppw'] ?></div>
 												</div>
 											</td>
 						      				<td class="table-center">
-						      					<div class="progress" style="height: 28px;">
+						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['value']*10 ?>%;" aria-valuenow="<?php echo $key['value'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['value'] ?></div>
 												</div>
 											</td>
 											<td class="table-center">
-						      					<div class="progress" style="height: 28px;">
+						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['cpuscore']*10 ?>%;" aria-valuenow="<?php echo $key['cpuscore'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['cpuscore'] ?></div>
 												</div>
 											</td>
-						      				<td class="table-center"><a class="btn btn-light btn-sm" href="https://www.google.com/search?q=<?php echo $key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
+						      				<td width="50px" class="table-center"><a class="btn btn-light btn-sm" href="https://www.google.com/search?q=<?php echo $key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
 						      			</tr>
 						      			<?php
 									}
@@ -244,44 +244,44 @@
 										$i++;
 										?>
 										<tr>
-											<td class="table-center"><?php echo $i ?></td>
-						      				<td><b><i><?php echo $key['vganame'] ?><i></b></td>
+											<td width="50px" class="table-center"><?php echo $i ?></td>
+						      				<td><?php echo $key['vganame'] ?></td>
 						      				<td class="table-center">
-						      					<div class="progress" style="height: 28px;">
+						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['gaming']*10 ?>%;" aria-valuenow="<?php echo $key['gaming'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['gaming'] ?></div>
 												</div>
 											</td>
 											<td class="table-center">
-						      					<div class="progress" style="height: 28px;">
+						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['graphics']*10 ?>%;" aria-valuenow="<?php echo $key['graphics'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['graphics'] ?></div>
 												</div>
 											</td>
 											<td class="table-center">
-						      					<div class="progress" style="height: 28px;">
+						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['computing']*10 ?>%;" aria-valuenow="<?php echo $key['computing'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['computing'] ?></div>
 												</div>
 											</td>
 						      				<td class="table-center">
-						      					<div class="progress" style="height: 28px;">
+						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['ppw']*10 ?>%;" aria-valuenow="<?php echo $key['ppw'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['ppw'] ?></div>
 												</div>
 											</td>
 						      				<td class="table-center">
-						      					<div class="progress" style="height: 28px;">
+						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['value']*10 ?>%;" aria-valuenow="<?php echo $key['value'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['value'] ?></div>
 												</div>
 											</td>
 						      				<td class="table-center">
-						      					<div class="progress" style="height: 28px;">
+						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['nap']*10 ?>%;" aria-valuenow="<?php echo $key['nap'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['nap'] ?></div>
 												</div>
 											</td>
 						      				<td class="table-center">
-						      					<div class="progress" style="height: 28px;">
+						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['vgascore']*10 ?>%;" aria-valuenow="<?php echo $key['vgascore'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['vgascore'] ?></div>
 												</div>
 											</td>						      				
-						      				<td class="table-center"><a class="btn btn-sm btn-light" href="https://www.google.com/search?q=<?php echo $key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
+						      				<td width="50px" class="table-center"><a class="btn btn-sm btn-light" href="https://www.google.com/search?q=<?php echo $key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
 						      			</tr>
 
 						      			<?php
@@ -338,34 +338,34 @@
 										$ssdscore = $key['ssdscore'];
 										?>
 										<tr>
-											<td class="table-center"><?php echo $i ?></td>
-						      				<td><b><i><?php echo $key['ssdname'] ?><i></b></td>
+											<td width="50px" class="table-center"><?php echo $i ?></td>
+						      				<td><?php echo $key['ssdname'] ?></td>
 						      				<td class="table-center">
-						      					<div class="progress" style="height: 28px;">
+						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['readp']*10 ?>%;" aria-valuenow="<?php echo $key['readp'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['readp'] ?></div>
 												</div>
 											</td>
 											<td class="table-center">
-						      					<div class="progress" style="height: 28px;">
+						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['writep']*10 ?>%;" aria-valuenow="<?php echo $key['writep'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['writep'] ?></div>
 												</div>
 											</td>
 						      				<td class="table-center">
-						      					<div class="progress" style="height: 28px;">
+						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['realwb']*10 ?>%;" aria-valuenow="<?php echo $key['realwb'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['realwb'] ?></div>
 												</div>
 											</td>
 						      				<td class="table-center">
-						      					<div class="progress" style="height: 28px;">
+						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['bench']*10 ?>%;" aria-valuenow="<?php echo $key['bench'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['bench'] ?></div>
 												</div>
 											</td>
 						      				<td class="table-center">
-						      					<div class="progress" style="height: 28px;">
+						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['ssdscore']*10 ?>%;" aria-valuenow="<?php echo $key['ssdscore'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['ssdscore'] ?></div>
 												</div>
 											</td>
-						      				<td class="table-center"><a class="btn btn-sm btn-light" href="https://www.google.com/search?q=<?php echo $key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
+						      				<td width="50px" class="table-center"><a class="btn btn-sm btn-light" href="https://www.google.com/search?q=<?php echo $key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
 						      			</tr>
 
 						      			<?php
