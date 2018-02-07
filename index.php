@@ -149,7 +149,6 @@
 			      			</thead>
 			      			<?php			      							      				
 								$i = 0;
-
 			      				if($cpu == TRUE){
 									while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
 										$i++;										
@@ -238,7 +237,6 @@
 			      			</thead>
 			      			<?php		      				
 								$i = 0;
-
 			      				if($vga == TRUE){
 									while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
 										$i++;
@@ -326,7 +324,6 @@
 			      			</thead>
 			      			<?php		      				
 								$i = 0;
-
 			      				if($ssd == TRUE){
 									while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
 										$i++;

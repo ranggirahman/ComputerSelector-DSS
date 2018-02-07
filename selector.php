@@ -42,7 +42,7 @@
 
 		<div class="container" style="padding-top: 60px;">
 	    	<div class="row">
-	    		<div class="col-md-12"><h5 class="display-4" style="font-size: 24px;"><i class="material-icons" style="font-size: 32px; color: grey;">assessment</i> Top 5 Best Score</h5></div>	    		
+	    		<div class="col-md-12"><h5 class="display-4" style="font-size: 24px;"><i class="material-icons" style="font-size: 32px; color: grey;">assessment</i> Top 5 Best Total Score</h5></div>	    		
 	    	</div>
 	    	<hr>
 	    	<div class="row">	    		
@@ -205,8 +205,10 @@
 						  			</div>
 						  		</div>				    
 						  	</div>
-						  	<div class="card-footer text-right">
-						    	<button type="button" class="btn btn-primary" id="find">Find</button>
+						  	<div class="card-footer">
+						  		<div class="row">
+						  			<div class="col-md-12 text-right"><button type="button" class="btn btn-primary" id="find">Find</button></div>
+						  		</div>						  		
 						  	</div>
 						</form>
 					</div>
@@ -225,85 +227,143 @@
 					  		<div class="card-title display-4" style="font-size: 24px;"><i class="material-icons" style="color: grey; font-size: 30px;">find_in_page</i> Result For <?php echo $sr['sname'] ?></div>
 					  		<br>
 					  		<div class="row">
-					  			<div class="col-md-4">
-					  				<table class="table table-sm table-hover">		    								
-		    							<thead>		    								 								
-			    							<tr>
-			    								<th></th>
-			    								<th>Processor</th>
-			    								<th></th>
-			    							</tr>
-		    							</thead>
+					  			<div class="col-md-12">
+					  				<table class="table table-center table-sm table-bordered">  
 		    							<?php
-							    			$cpu = mysqli_query($koneksi,$sr['psyntax']);
-								      		$i = 0;
-
-								      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
+		    								$cpu = mysqli_query($koneksi,$sr['psyntax']);
+		    								$i = 0;
+								      		echo "<tr><td></td><td></td>";
+								      		while(mysqli_fetch_array($cpu,MYSQLI_BOTH)){
 								      			$i++;
 								      			?>
-								      			<tr>
-								      				<td><?php echo $i; ?></td>
-								      				<td><?php echo $key['cpuname']; ?></td>
-								      				<td><a href="https://www.google.com/search?q=<?php echo $key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
-								      			</tr>
-								      		<?php
+							      				<th width="200px"><p class="display-4" ><?php echo $i; ?><p></th>   												      			
+								      		<?php								      		
 								      		}
+								      		echo "</tr>";
+								    			$cpu = mysqli_query($koneksi,$sr['psyntax']);
+								    			echo "<td rowspan='5' style='transform: rotate(270deg); padding-top: 5%;'>Processor</td>";
+									      		echo "<tr><td>Name</td>";
+									      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
+									      			?>
+								      				<td><?php echo $key['cpuname']; ?></td>							      												      			
+									      		<?php								      		
+									      		}
+									      		echo "</tr>";
+									      		echo "<tr><td>Score</td>";
+									      		$cpu = mysqli_query($koneksi,$sr['psyntax']);
+									      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
+									      			?>
+								      				<td><?php echo $key['cpuscore']; ?></td>							      												      			
+									      		<?php								      		
+									      		}
+									      		echo "</tr>";
+									      		echo "<tr><td>Price</td>";
+									      		$cpu = mysqli_query($koneksi,$sr['psyntax']);
+									      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
+									      			?>
+								      				<td>$<?php echo $key['cpuprice']; ?></td>							      												      			
+									      		<?php								      		
+									      		}
+									      		echo "</tr>";
+									      		echo "<tr><td></td>";
+									      		$cpu = mysqli_query($koneksi,$sr['psyntax']);
+									      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
+									      			?>
+								      				<td>
+								      					<a class="btn btn-light btn-sm" href="https://www.google.com/search?q=<?php echo $key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a>
+								      					<a class="btn btn-light btn-sm" href="https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=<?php echo $key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">shopping_cart</i></span></a>
+								      				</td>							      												      			
+									      		<?php								      		
+									      		}
+								      		echo "</tr>";
 					    				?>
-		    						</table>
-					  			</div>
-					  			<div class="col-md-4">
-					  				<table class="table table-sm table-hover">		    								
-		    							<thead>		    								 								
-			    							<tr>
-			    								<th></th>
-			    								<th>VGA</th>
-			    								<th></th>
-			    							</tr>
-		    							</thead>
-		    							<?php
-							    			$vga = mysqli_query($koneksi,$sr['vsyntax']);
-								      		$i = 0;
+					    				
+					    				<tr><td colspan="6"><br></td></tr>
 
-								      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
-								      			$i++;
-								      			?>
-								      			<tr>
-								      				<td><?php echo $i; ?></td>
-								      				<td><?php echo $key['vganame']; ?></td>
-								      				<td><a href="https://www.google.com/search?q=<?php echo $key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
-								      			</tr>
-								      		<?php
-								      		}
-					    				?>
-		    						</table>
-					  			</div>
-					  			<div class="col-md-4">
-					  				<table class="table table-sm table-hover">		    								
-		    							<thead>		    								 								
-			    							<tr>
-			    								<th></th>
-			    								<th>SSD</th>
-			    								<th></th>
-			    							</tr>
-		    							</thead>
 		    							<?php
+								      		echo "</tr>";
+								    			$vga = mysqli_query($koneksi,$sr['vsyntax']);
+									      		echo "<tr><td>Name</td>";
+									      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
+									      			?>
+								      				<td><?php echo $key['vganame']; ?></td>							      												      			
+									      		<?php								      		
+									      		}
+									      		echo "</tr>";
+									      		echo "<tr><td>Score</td>";
+									      		$vga = mysqli_query($koneksi,$sr['vsyntax']);
+									      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
+									      			?>
+								      				<td><?php echo $key['vgascore']; ?></td>							      												      			
+									      		<?php								      		
+									      		}
+									      		echo "</tr>";
+									      		echo "<tr><td>Price</td>";
+									      		$vga = mysqli_query($koneksi,$sr['vsyntax']);
+									      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
+									      			?>
+								      				<td>$<?php echo $key['vgaprice']; ?></td>							      												      			
+									      		<?php								      		
+									      		}
+									      		echo "</tr>";
+									      		echo "<tr><td></td>";
+									      		$vga = mysqli_query($koneksi,$sr['vsyntax']);
+									      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
+									      			?>
+								      				<td>
+								      					<a class="btn btn-light btn-sm" href="https://www.google.com/search?q=<?php echo $key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a>
+								      					<a class="btn btn-light btn-sm" href="https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=<?php echo $key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">shopping_cart</i></span></a>
+								      				</td>							      												      			
+									      		<?php								      		
+									      		}
+								      		echo "</tr>";
+					    				?>
+
+					    				<tr><td colspan="6"><br></td></tr>
+
+		    							<?php
+								      		echo "</tr>";
 							    			$ssd = mysqli_query($koneksi,$sr['ssyntax']);
-								      		$i = 0;
-
-								      		while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
-								      			$i++;
-								      			?>
-								      			<tr>
-								      				<td><?php echo $i; ?></td>
-								      				<td><?php echo $key['ssdname']; ?></td>
-								      				<td><a href="https://www.google.com/search?q=<?php echo $key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
-								      			</tr>
-								      		<?php
-								      		}
+								      		echo "<tr><td>Name</td>";
+									      		while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
+									      			?>
+								      				<td><?php echo $key['ssdname']; ?></td>							      												      			
+									      		<?php								      		
+									      		}
+									      		echo "</tr>";
+									      		echo "<tr><td>Score</td>";
+									      		$ssd = mysqli_query($koneksi,$sr['ssyntax']);
+									      		while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
+									      			?>
+								      				<td><?php echo $key['ssdscore']; ?></td>							      												      			
+									      		<?php								      		
+									      		}
+									      		echo "</tr>";
+									      		echo "<tr><td>Price</td>";
+									      		$ssd = mysqli_query($koneksi,$sr['ssyntax']);
+									      		while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
+									      			?>
+								      				<td>$<?php echo $key['ssdprice']; ?></td>							      												      			
+									      		<?php								      		
+									      		}
+									      		echo "</tr>";
+									      		echo "<tr><td></td>";
+									      		$ssd = mysqli_query($koneksi,$sr['ssyntax']);
+									      		while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
+									      			?>
+								      				<td>
+								      					<a class="btn btn-light btn-sm" href="https://www.google.com/search?q=<?php echo $key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a>
+								      					<a class="btn btn-light btn-sm" href="https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=<?php echo $key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">shopping_cart</i></span></a>
+								      				</td>							      												      			
+									      		<?php								      		
+									      		}
+								      		echo "</tr>";
 					    				?>
+					    				
 		    						</table>
-					  			</div>					  			
+					  			</div>
 					  		</div>
+					  		
 					  		<div class="row">
 					  			<div class="col-md-12 text-center">					  				
 					  				<hr>
@@ -386,7 +446,7 @@
 			// data process on find
 			$('#find').on('click',function() {				
 
-        		var options= $('input[name=options]:checked').val();
+        		var options = $('input[name=options]:checked').val();
 
         		// reset display
         		setTimeout(function() {

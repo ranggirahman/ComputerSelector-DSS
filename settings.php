@@ -309,7 +309,7 @@
 										    $vsyntax = $_POST[$sv];
 										    $ssyntax = $_POST[$sd];
 
-										    $result = mysqli_query($koneksi,"update spesification set snames='$sname', sicon='$sicon', psyntax='$psyntax', vsyntax='$vsyntax', ssyntax='$ssyntax' where sid='".$sr['sid']."'");
+										    $result = mysqli_query($koneksi,"update spesification set sname='$sname', sicon='$sicon', psyntax='$psyntax', vsyntax='$vsyntax', ssyntax='$ssyntax' where sid='".$sr['sid']."'");
 
 										    echo "<meta http-equiv='refresh' content='0'>";
 										}
