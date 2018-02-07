@@ -70,7 +70,7 @@
 									      			</tr>
 									      		</table>
 									      		<hr>
-									      		<table class="table borderless">
+									      		<table class="table table-responsive borderless">
 									      			<tr>
 									      				<td width="150px">Performance</td>
 									      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="performance" maxlength="5" required></td>
@@ -87,7 +87,9 @@
 									      				<td>Value (Pay)</td>
 									      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="value" maxlength="5" required></td>
 									      				<td>Total Score</td>
-									      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="cpuscore" maxlength="5" required></td>		
+									      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="cpuscore" maxlength="5" required></td>
+									      				<td>Price</td>
+									      				<td><input class="form-control" type="number" name="cpuprice" required></td>			
 									      			</tr>	
 								      			</table>
 							  				</div>						  												  										      			
@@ -110,8 +112,9 @@
 										    $ppw = $_POST['ppw'];
 										    $value = $_POST['value'];
 										    $cpuscore = $_POST['cpuscore'];
+										    $cpuprice = $_POST['cpuprice'];
 
-										    $cpuadd = mysqli_query($koneksi,"insert into cpu(cpuname,performance,single,intg,intgocl,ppw,value,cpuscore) values ('$cpuname','$performance','$single','$intg','$intgocl','$ppw','$value','$cpuscore')");
+										    $cpuadd = mysqli_query($koneksi,"insert into cpu(cpuname,performance,single,intg,intgocl,ppw,value,cpuscore,cpuprice) values ('$cpuname','$performance','$single','$intg','$intgocl','$ppw','$value','$cpuscore','$cpuprice')");
 
 										    echo "<meta http-equiv='refresh' content='0'>";						   
 									  	}
@@ -146,7 +149,9 @@
 									      				<td>Noise and Power</td>
 									      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="nap" maxlength="5" required></td>
 									      				<td>Total Score</td>
-									      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="vgascore" maxlength="5" required></td>		
+									      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="vgascore" maxlength="5" required></td>
+									      				<td>Price</td>
+									      				<td><input class="form-control" type="number" name="vgaprice" required></td>		
 									      			</tr>	
 								      			</table>
 							  				</div>		
@@ -169,8 +174,9 @@
 										    $value = $_POST['value'];
 										    $nap = $_POST['nap'];
 										    $vgascore = $_POST['vgascore'];
+										    $vgaprice = $_POST['vgaprice'];
 
-										    $cpuadd = mysqli_query($koneksi,"insert into vga(vganame,gaming,graphics,computing,ppw,value,nap,vgascore) values ('$vganame','$gaming','$graphics','$computing','$ppw','$value','$nap','$vgascore')");
+										    $cpuadd = mysqli_query($koneksi,"insert into vga(vganame,gaming,graphics,computing,ppw,value,nap,vgascore,vgaprice) values ('$vganame','$gaming','$graphics','$computing','$ppw','$value','$nap','$vgascore','$vgaprice')");
 
 										    echo "<meta http-equiv='refresh' content='0'>";						   
 									  	}
@@ -200,7 +206,9 @@
 									      				<td>Benchmarks</td>
 									      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="bench" maxlength="5" required></td>
 									      				<td>Total Score</td>
-									      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="ssdscore" maxlength="5" required></td>	
+									      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="ssdscore" maxlength="5" required></td>
+									      				<td>Price</td>
+									      				<td><input class="form-control" type="number" name="ssdprice" required></td>	
 									      			</tr>	
 								      			</table>
 							  				</div>		
@@ -221,8 +229,9 @@
 										    $realwb = $_POST['realwb'];
 										    $bench = $_POST['bench'];
 										    $ssdscore = $_POST['ssdscore'];
+										    $ssdprice = $_POST['ssdprice'];
 
-										    $cpuadd = mysqli_query($koneksi,"insert into ssd(ssdname,readp,writep,realwb,bench,ssdscore) values ('$ssdname','$readp','$writep','$realwb','$bench','$ssdscore')");
+										    $cpuadd = mysqli_query($koneksi,"insert into ssd(ssdname,readp,writep,realwb,bench,ssdscore,ssdprice) values ('$ssdname','$readp','$writep','$realwb','$bench','$ssdscore','$ssdprice')");
 
 										    echo "<meta http-equiv='refresh' content='0'>";						   
 									  	}

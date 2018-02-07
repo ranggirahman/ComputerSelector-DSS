@@ -225,47 +225,44 @@
 	     			<div class="card">
 					  	<div class="card-body">
 					  		<div class="card-title display-4" style="font-size: 24px;"><i class="material-icons" style="color: grey; font-size: 30px;">find_in_page</i> Result For <?php echo $sr['sname'] ?></div>
-					  		<br>
 					  		<div class="row">
 					  			<div class="col-md-12">
-					  				<table class="table table-center table-sm table-bordered">  
-		    							<?php
-		    								$cpu = mysqli_query($koneksi,$sr['psyntax']);
+					  				<table class="table table-center table-sm">  
+		    							<?php		    								
 		    								$i = 0;
+		    								$cpu = mysqli_query($koneksi,$sr['psyntax']);
 								      		echo "<tr><td></td><td></td>";
-								      		while(mysqli_fetch_array($cpu,MYSQLI_BOTH)){
-								      			$i++;
-								      			?>
-							      				<th width="200px"><p class="display-4" ><?php echo $i; ?><p></th>   												      			
-								      		<?php								      		
-								      		}
+									      		while(mysqli_fetch_array($cpu,MYSQLI_BOTH)){
+									      			$i++;
+								      				echo "<th width='200px'><h2><span class='badge badge-light'>".$i."</span><h2></th>"; 							      		
+									      		}
 								      		echo "</tr>";
-								    			$cpu = mysqli_query($koneksi,$sr['psyntax']);
-								    			echo "<td rowspan='5' style='transform: rotate(270deg); padding-top: 5%;'>Processor</td>";
-									      		echo "<tr><td>Name</td>";
+
+								    		$cpu = mysqli_query($koneksi,$sr['psyntax']);
+									      	echo "<tr><td class='bg-light' rowspan='4' width='50px'><img src='img/hprocessor.png' style='max-height: 8%; and width: auto'></td><td>Name</td>";
 									      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
 									      			?>
 								      				<td><?php echo $key['cpuname']; ?></td>							      												      			
 									      		<?php								      		
 									      		}
-									      		echo "</tr>";
-									      		echo "<tr><td>Score</td>";
+									      	echo "</tr>";
+									      	echo "<tr><td>Score</td>";
 									      		$cpu = mysqli_query($koneksi,$sr['psyntax']);
 									      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
 									      			?>
 								      				<td><?php echo $key['cpuscore']; ?></td>							      												      			
 									      		<?php								      		
 									      		}
-									      		echo "</tr>";
-									      		echo "<tr><td>Price</td>";
+									      	echo "</tr>";
+									      	echo "<tr><td>Price</td>";
 									      		$cpu = mysqli_query($koneksi,$sr['psyntax']);
 									      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
 									      			?>
 								      				<td>$<?php echo $key['cpuprice']; ?></td>							      												      			
 									      		<?php								      		
 									      		}
-									      		echo "</tr>";
-									      		echo "<tr><td></td>";
+									      	echo "</tr>";
+									      	echo "<tr><td></td>";
 									      		$cpu = mysqli_query($koneksi,$sr['psyntax']);
 									      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
 									      			?>
@@ -278,19 +275,18 @@
 								      		echo "</tr>";
 					    				?>
 					    				
-					    				<tr><td colspan="6"><br></td></tr>
+					    				<tr><td colspan="7"><br></td></tr>
 
 		    							<?php
-								      		echo "</tr>";
-								    			$vga = mysqli_query($koneksi,$sr['vsyntax']);
-									      		echo "<tr><td>Name</td>";
+		    								$vga = mysqli_query($koneksi,$sr['vsyntax']);
+									      	echo "<tr><td class='bg-light' rowspan='4' width='50px'><img src='img/hvga.png' style='max-height: 8%; and width: auto'></td><td>Name</td>";
 									      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
 									      			?>
 								      				<td><?php echo $key['vganame']; ?></td>							      												      			
 									      		<?php								      		
 									      		}
-									      		echo "</tr>";
-									      		echo "<tr><td>Score</td>";
+								      		echo "</tr>";
+									      	echo "<tr><td>Score</td>";
 									      		$vga = mysqli_query($koneksi,$sr['vsyntax']);
 									      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
 									      			?>
@@ -319,12 +315,11 @@
 								      		echo "</tr>";
 					    				?>
 
-					    				<tr><td colspan="6"><br></td></tr>
+					    				<tr><td colspan="7"><br></td></tr>
 
 		    							<?php
-								      		echo "</tr>";
 							    			$ssd = mysqli_query($koneksi,$sr['ssyntax']);
-								      		echo "<tr><td>Name</td>";
+								      		echo "<tr><td class='bg-light' rowspan='4' width='50px'><img src='img/hssd.png' style='max-height: 8%; and width: auto'></td><td>Name</td>";
 									      		while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
 									      			?>
 								      				<td><?php echo $key['ssdname']; ?></td>							      												      			
@@ -359,7 +354,8 @@
 									      		}
 								      		echo "</tr>";
 					    				?>
-					    				
+
+					    				<tr><td colspan="7"><br></td></tr>
 		    						</table>
 					  			</div>
 					  		</div>
