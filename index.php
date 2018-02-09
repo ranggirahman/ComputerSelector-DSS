@@ -8,6 +8,14 @@
 * Deskripsi   : Home Page
 *
 **************************************************/
+ 	session_start();
+	if( $_SESSION['islogin'] != 1){
+		header("Location: login.php");
+	}else if(isset($_POST['logout'])){
+	    session_unset();
+	    session_destroy();
+	    header("Location: login.php");
+  	}
 
   	include "koneksi.php";
 ?>
@@ -23,7 +31,7 @@
 	    <link rel="stylesheet" href="css/modification.css">
 	    <link href="css/jumbotron.css" rel="stylesheet">
 	    <link rel="icon" href="img/favicon.ico">	   
-	    <title>DSS : Pemilihan Spesifikasi Hardware Komputer</title>
+	    <title>DSS : Choice of Computer Hardware Specifications</title>
   	</head>
 
   	<body>
@@ -47,7 +55,7 @@
 			   			<img src="img/desktop.png" style="padding-top: 18px; max-width: 115%; and height: auto">
 			   		</div>
 		          	<div class="col-md-10">
-		            	<h1 class="display-4" style="padding-left: 50px;">Pemilihan Spesifikasi Hardware Komputer</h1>
+		            	<h1 class="display-4" style="padding-left: 50px;">Choice of Computer Hardware Specifications</h1>
 		            </div>
 		      	</div>
 		      	<hr>
@@ -104,12 +112,16 @@
 	      	<hr>
 	      	<footer>
 	      		<div class="row">
-	      			<div class="col-md-9">
+	      			<div class="col-md-10">
 	      				<p class="display-4" style="font-size: 16px; padding: 4px 0px 8px 0px;">&copy; 2018 Ranggi Rahman</p>
 	      			</div>
-	      			<div class="col-md-3 text-right">
-	      				<button type="button" class="btn btn-light btn-sm" onclick="toggleFullScreen()"><i class="material-icons">fullscreen</i></button>
-	      				<a class="btn btn-light btn-sm" href="settings.php" role="button"><i class="material-icons">settings</i></a>
+	      			<div class="col-md-2">
+	      				<table class="float-right">
+	      					<tr>
+	      						<td><a class="btn btn-light btn-sm" href="settings.php" role="button"><i class="material-icons">settings_applications</i></a></td>
+	      						<td><form action="" method="post"><button type="submit" class="btn btn-light btn-sm" name="logout"><i class="material-icons">exit_to_app</i></button></form></td>
+	      					</tr>
+	      				</table>
 	      			</div>
 	      		</div>	        	
 	      	</footer>
@@ -385,28 +397,11 @@
 	    	$(function () {
 			  	$('[data-toggle="popover"]').popover()
 			})
-
-	    	// fullscreen
-			function toggleFullScreen() {
-			  	if ((document.fullScreenElement && document.fullScreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
-				    if (document.documentElement.requestFullScreen) {  
-				      	document.documentElement.requestFullScreen();  
-				    }else if(document.documentElement.mozRequestFullScreen) {  
-				      	document.documentElement.mozRequestFullScreen();  
-				    }else if(document.documentElement.webkitRequestFullScreen) {  
-				      	document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
-				    }  
-			  	}else{  
-				    if(document.cancelFullScreen) {  
-				      	document.cancelFullScreen();  
-				    }else if(document.mozCancelFullScreen) {  
-				      	document.mozCancelFullScreen();  
-				    }else if(document.webkitCancelFullScreen) {  
-				      	document.webkitCancelFullScreen();  
-				    }  
-			  	}  
-			}
 	    </script>
 
 	</body>
 </html>
+
+<?php
+
+?>

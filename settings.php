@@ -8,6 +8,14 @@
 * Deskripsi   : Settings Page
 *
 **************************************************/
+	session_start();
+	if( $_SESSION['islogin'] != 1){
+		header("Location: login.php");
+	}else if(isset($_POST['logout'])){
+	    session_unset();
+	    session_destroy();
+	    header("Location: login.php");
+  	}
 
   	include "koneksi.php";
 ?>
@@ -23,7 +31,7 @@
 	    <link rel="stylesheet" href="css/modification.css">
 	    <link href="css/jumbotron.css" rel="stylesheet">
 	    <link rel="icon" href="img/favicon.ico">	   
-	    <title>DSS : Pemilihan Spesifikasi Hardware Komputer</title>
+	    <title>DSS : Choice of Computer Hardware Specifications</title>
   	</head>
 
   	<body>
@@ -41,6 +49,31 @@
 	    
 
 		<div class="container" style="padding-top: 60px;">
+
+			<div class="row">
+	      		<div class="col-md-12">
+	      			<div class="card">
+					  	<div class="card-header"><i class="material-icons" style="color: grey;">people</i> Personalization</div>
+					  	<div class="card-body">
+					     	<ul class="nav nav-tabs" id="myTab" role="tablist">
+							  	<li class="nav-item">
+							    	<a class="nav-link active" data-toggle="tab" href="#profile" role="tab" aria-selected="true"><i class="material-icons">portrait</i> Profile</a>
+							  	</li>
+							  	<li class="nav-item">
+							    	<a class="nav-link" data-toggle="tab" href="#settings" role="tab" aria-selected="true"><i class="material-icons">build</i> Settings</a>
+							  	</li>						  
+							</ul>
+							<div class="tab-content">		
+							  	<div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="home-tab">...</div>
+							  	<div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="profile-tab">...</div>
+							</div>
+						</div>
+					</div>
+				</div>	        	
+	     	</div>
+
+	     	<hr>
+
 	      	<div class="row">
 	      		<div class="col-md-12">
 	      			<div class="card">
@@ -65,7 +98,7 @@
 							  				<div class="col-md-12">
 							  					<table class="table borderless">
 									  				<tr>
-									      				<td width="150px">Processor Name</td>
+									      				<td width="150px" class="align-middle">Processor Name</td>
 									      				<td><input class="form-control" type="text" name="cpuname" maxlength="100" required></td>
 									      			</tr>
 									      		</table>
@@ -88,7 +121,7 @@
 									      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="value" maxlength="5" required></td>
 									      				<td>Total Score</td>
 									      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="cpuscore" maxlength="5" required></td>
-									      				<td>Price</td>
+									      				<td>Price ($)</td>
 									      				<td><input class="form-control" type="number" name="cpuprice" required></td>			
 									      			</tr>	
 								      			</table>
@@ -127,7 +160,7 @@
 							  				<div class="col-md-12">
 							  					<table class="table borderless">
 									  				<tr>
-									      				<td width="150px">VGA Name</td>
+									      				<td width="150px" class="align-middle">VGA Name</td>
 									      				<td><input class="form-control" type="text" name="vganame" maxlength="100" required></td>
 									      			</tr>
 									      		</table>
@@ -150,7 +183,7 @@
 									      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="nap" maxlength="5" required></td>
 									      				<td>Total Score</td>
 									      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="vgascore" maxlength="5" required></td>
-									      				<td>Price</td>
+									      				<td>Price ($)</td>
 									      				<td><input class="form-control" type="number" name="vgaprice" required></td>		
 									      			</tr>	
 								      			</table>
@@ -189,7 +222,7 @@
 							  				<div class="col-md-12">
 							  					<table class="table borderless">
 									  				<tr>
-									      				<td width="150px">SSD Name</td>
+									      				<td width="150px" class="align-middle">SSD Name</td>
 									      				<td><input class="form-control" type="text" name="ssdname" maxlength="100" required></td>
 									      			</tr>
 									      		</table>
@@ -202,12 +235,12 @@
 									      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="writep" maxlength="5" required></td>	
 									      				<td>Real World Benchmarks</td>
 									      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="realwb" maxlength="5" required></td>
-									      			<tr>
 									      				<td>Benchmarks</td>
 									      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="bench" maxlength="5" required></td>
+									      			<tr>
 									      				<td>Total Score</td>
 									      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="ssdscore" maxlength="5" required></td>
-									      				<td>Price</td>
+									      				<td>Price ($)</td>
 									      				<td><input class="form-control" type="number" name="ssdprice" required></td>	
 									      			</tr>	
 								      			</table>
@@ -242,7 +275,9 @@
 					</div>
 				</div>	        	
 	     	</div>
+
 	      	<hr>
+
 	      	<div class="row">
 	      		<div class="col-md-12">
 	      			<div class="card">
@@ -255,7 +290,7 @@
 									while($sr = mysqli_fetch_array($stab,MYSQLI_BOTH)){
 								?>
 							  	<li class="nav-item">
-							    	<a class="nav-link <?php if($sf == 0){echo 'active';} ?>" id="home-tab" data-toggle="tab" href="#<?php echo $sr['sid'] ?>" role="tab" aria-selected="true"><i class="material-icons"><?php echo $sr['sicon'] ?></i> <?php echo $sr['sname'] ?></a>
+							    	<a class="nav-link <?php if($sf == 0){echo 'active';} ?>" data-toggle="tab" href="#<?php echo $sr['sid'] ?>" role="tab" aria-selected="true"><i class="material-icons"><?php echo $sr['sicon'] ?></i> <?php echo $sr['sname'] ?></a>
 							  	</li>
 							  	<?php
 							  		$sf = 1;
@@ -281,23 +316,23 @@
 							  					<br>
 							  					<table class="table borderless">
 									  				<tr>
-									      				<td width="180px">Spesification Name</td>
+									      				<td width="180px" class="align-middle">Spesification Name</td>
 									      				<td width="55%"><input class="form-control" type="text" name="<?php echo $sn ?>" maxlength="100" value="<?php echo $sr['sname'] ?>" required></td>
-									      				<td>Icon</td>
+									      				<td class="align-middle">Icon</td>
 									      				<td><input class="form-control" type="text" name="<?php echo $si ?>" maxlength="100" value="<?php echo $sr['sicon'] ?>" required></td>
 									      			</tr>
 									      		</table>
 									      		<hr>
 									      		<table class="table borderless">
 									      			<tr>
-									      				<td width="180px">Processor Syntax</td>
+									      				<td width="180px" class="align-middle">Processor Syntax</td>
 									      				<td><input class="form-control" type="text" name="<?php echo $sc ?>" maxlength="300" value="<?php echo $sr['psyntax'] ?>" required></td>
 									      			<tr>
-									      				<td width="150px">VGA Syntax</td>
+									      				<td width="150px" class="align-middle">VGA Syntax</td>
 									      				<td><input class="form-control" type="text" name="<?php echo $sv ?>" maxlength="300" value="<?php echo $sr['vsyntax'] ?>" required></td>
 									      			</tr>
 									      			<tr>
-									      				<td width="150px">SSD Syntax</td>
+									      				<td width="150px" class="align-middle">SSD Syntax</td>
 									      				<td><input class="form-control" type="text" name="<?php echo $sd ?>" maxlength="300" value="<?php echo $sr['ssyntax'] ?>" required></td>
 									      			</tr>		
 								      			</table>
@@ -333,15 +368,21 @@
 					</div>
 				</div>	        	
 	     	</div>
+
 	     	<hr>
+
 	      	<footer>
 	      		<div class="row">
-	      			<div class="col-md-9">
+	      			<div class="col-md-10">
 	      				<p class="display-4" style="font-size: 16px; padding: 4px 0px 8px 0px;">&copy; 2018 Ranggi Rahman</p>
 	      			</div>
-	      			<div class="col-md-3 text-right">
-	      				<button type="button" class="btn btn-light btn-sm" onclick="toggleFullScreen()"><i class="material-icons">fullscreen</i></button>
-	      				<a class="btn btn-light btn-sm" href="settings.php" role="button"><i class="material-icons">settings</i></a>
+	      			<div class="col-md-2">
+	      				<table class="float-right">
+	      					<tr>
+	      						<td><a class="btn btn-light btn-sm" href="settings.php" role="button"><i class="material-icons">settings_applications</i></a></td>
+	      						<td><form action="" method="post"><button type="submit" class="btn btn-light btn-sm" name="logout"><i class="material-icons">exit_to_app</i></button></form></td>
+	      					</tr>
+	      				</table>
 	      			</div>
 	      		</div>	        	
 	      	</footer>
@@ -357,27 +398,6 @@
 	    	$(function () {
 			  	$('[data-toggle="popover"]').popover()
 			})
-
-	    	// fullscreen
-			function toggleFullScreen() {
-			  	if ((document.fullScreenElement && document.fullScreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
-				    if (document.documentElement.requestFullScreen) {  
-				      	document.documentElement.requestFullScreen();  
-				    }else if(document.documentElement.mozRequestFullScreen) {  
-				      	document.documentElement.mozRequestFullScreen();  
-				    }else if(document.documentElement.webkitRequestFullScreen) {  
-				      	document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
-				    }  
-			  	}else{  
-				    if(document.cancelFullScreen) {  
-				      	document.cancelFullScreen();  
-				    }else if(document.mozCancelFullScreen) {  
-				      	document.mozCancelFullScreen();  
-				    }else if(document.webkitCancelFullScreen) {  
-				      	document.webkitCancelFullScreen();  
-				    }  
-			  	}  
-			}
 	    </script>
 
 	</body>
