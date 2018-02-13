@@ -186,8 +186,8 @@
 	      			<div class="col-md-2">
 	      				<table class="float-right">
 	      					<tr>
-	      						<td><a class="btn btn-light btn-sm" href="settings.php" role="button"><i class="material-icons">settings_applications</i></a></td>
-	      						<td><form action="" method="post"><button type="submit" class="btn btn-light btn-sm" name="logout"><i class="material-icons">exit_to_app</i></button></form></td>
+	      						<td><a class="btn btn-light btn-sm" href="settings.php" role="button" title="Settings"><i class="material-icons">settings_applications</i></a></td>
+	      						<td><form action="" method="post"><button type="submit" class="btn btn-light btn-sm" name="logout" title="Sign Out"><i class="material-icons">exit_to_app</i></button></form></td>
 	      					</tr>
 	      				</table>
 	      			</div>

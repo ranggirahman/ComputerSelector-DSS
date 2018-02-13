@@ -18,6 +18,9 @@
   	}
 
   	include "koneksi.php";
+
+  	$result = mysqli_query($koneksi,"select *from user where username='".$_SESSION['username']."'");
+	$us = mysqli_fetch_array($result);
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +52,6 @@
 	    
 
 		<div class="container" style="padding-top: 60px;">
-
 			<div class="row">
 	      		<div class="col-md-12">
 	      			<div class="card">
@@ -63,17 +65,156 @@
 							    	<a class="nav-link" data-toggle="tab" href="#settings" role="tab" aria-selected="true"><i class="material-icons">build</i> Settings</a>
 							  	</li>						  
 							</ul>
-							<div class="tab-content">		
-							  	<div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="home-tab">...</div>
-							  	<div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="profile-tab">...</div>
+							<div class="tab-content">	
+							  	<div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="home-tab">							  		
+							  		<form enctype="multipart/form-data" action="" method="POST">
+							  			<br>
+							  			<div class="row">
+							  				<div class="col-md-12">
+							  					<table class="table table-responsive borderless">
+							  						<tr>
+							  							<td width="10%" rowspan="4">
+							  								<div class="card">
+							  									<div class="card-body">
+							  										<img src="user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle" height="125px" width="125px"/>
+							  									</div>
+							  									<div class="card-footer">
+							  										<input class="btn btn-sm" type="file" name="uploaded_file" style="width: 80%">
+							  									</div>
+							  								</div>
+							  							</td>
+							  							<td width="20px" rowspan="4"></td>
+							  							<td class="align-middle">Username</td>
+								  						<td><input class="form-control" type="text" name="username" value="<?php echo($us['username'])?>" disabled></td>
+								  						<td></td>
+								  						<td width="200px" rowspan="4"></td>
+							  						</tr>
+							  						<tr>
+								  						<td class="align-middle">Name</td>
+								  						<td><input class="form-control" type="text" name="name" value="<?php echo($us['name'])?>"></td>
+								  						<td></td>
+								  					</tr>
+								  					<tr>
+								  						<td class="align-middle">Organization</td>
+								  						<td><input class="form-control" type="text" name="organization" value="<?php echo($us['organization'])?>"></td>
+								  						<td></td>
+								  					</tr>
+								  					<tr>
+								  						<td class="align-middle">Password</td>
+								  						<td><input class="form-control" type="password" name="password1" placeholder="not change"></td>
+								  						<td><input class="form-control" type="password" name="password2" placeholder="not change"></td>
+								  					</tr>
+							  					</table>
+							  				</div>
+							  			</div>
+							  			<hr>	
+							  			<div class="row">
+							  				<div class="col-md-12 text-right">
+							      				<input class="btn btn-success" type="submit" name="update" value="Update">
+							  				</div>
+							  			</div>
+									</form>
+									<?php
+										if(isset($_POST['update'])){
+
+										    $name = $_POST['name'];
+										    $organization = $_POST['organization'];
+										    $password1 = $_POST['password1'];
+										    $password2 = $_POST['password2'];
+
+										    $result = mysqli_query($koneksi,"update user set name='$name', organization='$organization' where username='".$_SESSION['username']."'");
+
+										    if($password1 != ''){
+										    	if($password1 == $password2){
+										    		$result = mysqli_query($koneksi,"update user set password='$password1' where username='".$_SESSION['username']."'");
+												}else{
+											    	$msg = "Password not Correct";
+		    										echo "<script type='text/javascript'>alert('$msg');</script>";
+												}
+										    }
+
+										    if (empty($_FILES['uploaded_file']['name'])) {
+											    // No file was selected for upload, your (re)action goes here
+											}else{
+												$path = "user/profile/".$us['username'].".jpg";
+										    	if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
+										    		// success upload refresh cache
+											    }else{
+											    	$msg = "Problem with photo upload";
+		    										echo "<script type='text/javascript'>alert('$msg');</script>";
+											    }
+											}
+										    echo "<meta http-equiv='refresh' content='0'>";
+										}
+									?>
+							  	</div>
+							  	<div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="profile-tab">
+							  		<form action="" method="POST">
+							  			<br>
+							  			<div class="row">
+							  				<div class="col-md-12">
+									      		<table class="table table-responsive borderless">
+									      			<tr>
+									      				<td class="align-middle" width="150px">Budget for CPU</td>
+									      				<td><input class="form-control" type="number" name="bcpu" value="<?php echo $us['bcpu'] ?>" required></td>
+									      				<td class="align-middle" width="150px">Budget for VGA</td>
+									      				<td><input class="form-control" type="number" name="bvga" value="<?php echo $us['bvga'] ?>" required></td>
+									      				<td class="align-middle" width="150px">Budget for SSD</td>
+									      				<td><input class="form-control" type="number" name="bssd" value="<?php echo $us['bssd'] ?>" required></td>
+									      			</tr>
+									      			<tr>
+									      				<td class="align-middle">Store</td>
+									      				<td>
+										      				<select class="custom-select" name="storeid" >
+										      					<?php
+											      					$result = mysqli_query($koneksi,"select *from store");
+										    						while($st = mysqli_fetch_array($result,MYSQLI_BOTH)){
+										    							?>
+
+										    							<option value='<?php echo $st['storeid'] ?>' <?php if($us['storeid'] == $st['storeid']){echo 'selected';} ?> ><?php echo $st['name'] ?></option>
+
+										    							<?php
+										    						}
+										      					?>
+															</select>
+														</td>
+									      			</tr>	
+								      			</table>
+							  				</div>						  												  										      			
+							      		</div>
+							      		<hr>
+							      		<div class="row">
+							      			<div class="col-md-12 text-right">
+							      				<input class="btn btn-success" type="submit" name="apply" value="Apply">
+							      			</div>							      			
+							      		</div>
+								  	</form>
+								  	<?php
+									  	if(isset($_POST['apply'])){
+
+										    $bcpu = $_POST['bcpu'];
+										    $bvga = $_POST['bvga'];
+										    $bssd = $_POST['bssd'];
+										    $storeid = $_POST['storeid'];
+
+										  	$result = mysqli_query($koneksi,"update user set bcpu='$bcpu', bvga='$bvga', bssd='$bssd', storeid='$storeid' where username='".$_SESSION['username']."'");
+
+										    echo "<meta http-equiv='refresh' content='0'>";						   
+									  	}
+									?>		
+							  	</div>
 							</div>
 						</div>
 					</div>
 				</div>	        	
 	     	</div>
 
-	     	<hr>
 
+	     	<?php if($us['usertype'] == '1'){
+	     	?>
+
+	     	<br><br>
+	     	
 	      	<div class="row">
 	      		<div class="col-md-12">
 	      			<div class="card">
@@ -276,7 +417,7 @@
 				</div>	        	
 	     	</div>
 
-	      	<hr>
+	      	<br><br>
 
 	      	<div class="row">
 	      		<div class="col-md-12">
@@ -368,8 +509,10 @@
 					</div>
 				</div>	        	
 	     	</div>
+	     	
+	     	<?php 	}   ?>
 
-	     	<hr>
+	     	<br><br><hr>
 
 	      	<footer>
 	      		<div class="row">
@@ -379,8 +522,8 @@
 	      			<div class="col-md-2">
 	      				<table class="float-right">
 	      					<tr>
-	      						<td><a class="btn btn-light btn-sm" href="settings.php" role="button"><i class="material-icons">settings_applications</i></a></td>
-	      						<td><form action="" method="post"><button type="submit" class="btn btn-light btn-sm" name="logout"><i class="material-icons">exit_to_app</i></button></form></td>
+	      						<td><a class="btn btn-light btn-sm" href="settings.php" role="button" title="Settings"><i class="material-icons">settings_applications</i></a></td>
+	      						<td><form action="" method="post"><button type="submit" class="btn btn-light btn-sm" name="logout" title="Sign Out"><i class="material-icons">exit_to_app</i></button></form></td>
 	      					</tr>
 	      				</table>
 	      			</div>

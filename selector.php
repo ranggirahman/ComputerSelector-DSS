@@ -18,6 +18,12 @@
   	}
 
   	include "koneksi.php";
+
+  	$result = mysqli_query($koneksi,"select *from user where username='".$_SESSION['username']."'");
+	$us = mysqli_fetch_array($result);
+
+	$result = mysqli_query($koneksi,"select *from store where storeid='".$us['storeid']."'");
+	$st = mysqli_fetch_array($result);
 ?>
 
 <!DOCTYPE html>
@@ -213,9 +219,10 @@
 						  			</div>
 						  		</div>				    
 						  	</div>
-						  	<div class="card-footer">
+						  	<div class="card-footer text-muted">
 						  		<div class="row">
-						  			<div class="col-md-12 text-right"><button type="button" class="btn btn-primary" id="find">Find</button></div>
+						  			<div class="col-md-4"><a class="btn btn-light" href="settings.php" role="button" style="color: grey;">Price Filtered by Budget Settings</a></div>
+						  			<div class="col-md-8 text-right"><button type="button" class="btn btn-primary" id="find">Find</button></div>
 						  		</div>						  		
 						  	</div>
 						</form>
@@ -276,7 +283,7 @@
 									      			?>
 								      				<td>
 								      					<a class="btn btn-light btn-sm" href="https://www.google.com/search?q=<?php echo $key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a>
-								      					<a class="btn btn-light btn-sm" href="https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=<?php echo $key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">shopping_cart</i></span></a>
+								      					<a class="btn btn-light btn-sm" href="<?php echo $st['query'].$key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">shopping_cart</i></span></a>
 								      				</td>							      												      			
 									      		<?php								      		
 									      		}
@@ -316,7 +323,7 @@
 									      			?>
 								      				<td>
 								      					<a class="btn btn-light btn-sm" href="https://www.google.com/search?q=<?php echo $key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a>
-								      					<a class="btn btn-light btn-sm" href="https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=<?php echo $key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">shopping_cart</i></span></a>
+								      					<a class="btn btn-light btn-sm" href="<?php echo $st['query'].$key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">shopping_cart</i></span></a>
 								      				</td>							      												      			
 									      		<?php								      		
 									      		}
@@ -356,7 +363,7 @@
 									      			?>
 								      				<td>
 								      					<a class="btn btn-light btn-sm" href="https://www.google.com/search?q=<?php echo $key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a>
-								      					<a class="btn btn-light btn-sm" href="https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=<?php echo $key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">shopping_cart</i></span></a>
+								      					<a class="btn btn-light btn-sm" href="<?php echo $st['query'].$key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">shopping_cart</i></span></a>
 								      				</td>							      												      			
 									      		<?php								      		
 									      		}
@@ -410,8 +417,8 @@
 	      			<div class="col-md-2">
 	      				<table class="float-right">
 	      					<tr>
-	      						<td><a class="btn btn-light btn-sm" href="settings.php" role="button"><i class="material-icons">settings_applications</i></a></td>
-	      						<td><form action="" method="post"><button type="submit" class="btn btn-light btn-sm" name="logout"><i class="material-icons">exit_to_app</i></button></form></td>
+	      						<td><a class="btn btn-light btn-sm" href="settings.php" role="button" title="Settings"><i class="material-icons">settings_applications</i></a></td>
+	      						<td><form action="" method="post"><button type="submit" class="btn btn-light btn-sm" name="logout" title="Sign Out"><i class="material-icons">exit_to_app</i></button></form></td>
 	      					</tr>
 	      				</table>
 	      			</div>
