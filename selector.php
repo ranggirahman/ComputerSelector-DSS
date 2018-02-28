@@ -63,7 +63,7 @@
 	    		<div class="col-md-4">
 	    			<div class="card">
 	    				<div class="card-header">
-	    					<h5 class="display-4" style="padding-top: 12px; font-size: 22px;"><img src="img/processor.png" style="max-width: 9%; and height: auto"> Processor</h5>
+	    					<h5 class="display-4" style="padding-top: 7px; font-size: 22px;">Processor</h5>
 	    				</div>
  					 	<div class="card-body">   
 			    			<div class="row">
@@ -106,7 +106,7 @@
 	    		<div class="col-md-4">
 	    			<div class="card">
 	    				<div class="card-header">
-	    					<h5 class="display-4" style="padding-top: 12px; font-size: 22px;"><img src="img/vga.png" style="max-width: 9%; and height: auto"> Video Graphic Array</h5>
+	    					<h5 class="display-4" style="padding-top: 7px; font-size: 22px;">Video Graphic Array</h5>
 	    				</div>
  					 	<div class="card-body">   
 			    			<div class="row">
@@ -149,7 +149,7 @@
 	    		<div class="col-md-4">
 	    			<div class="card">
 	    				<div class="card-header">
-	    					<h5 class="display-4" style="padding-top: 12px; font-size: 22px;"><img src="img/ssd.png" style="max-width: 9%; and height: auto"> Solid State Disk</h5>
+	    					<h5 class="display-4" style="padding-top: 7px; font-size: 22px;">Solid State Disk</h5>
 	    				</div>
  					 	<div class="card-body">   
 			    			<div class="row">
@@ -242,135 +242,66 @@
 					  		<div class="card-title display-4" style="font-size: 24px;"><i class="material-icons" style="color: grey; font-size: 30px;">find_in_page</i> Result For <?php echo $sr['sname'] ?></div>
 					  		<div class="row">
 					  			<div class="col-md-12">
-					  				<table class="table table-center table-sm">  
-		    							<?php		    								
-		    								$i = 0;
-		    								$cpu = mysqli_query($koneksi,$sr['psyntax']);
-								      		echo "<tr><td></td><td></td>";
-									      		while(mysqli_fetch_array($cpu,MYSQLI_BOTH)){
-									      			$i++;
-								      				echo "<th width='200px'><h2><span class='badge badge-light'>".$i."</span><h2></th>"; 							      		
-									      		}
-								      		echo "</tr>";
+					  				<table class="table table-sm" border="0">  
+		    							<?php 
+		    								$i = 1;
 
-								    		$cpu = mysqli_query($koneksi,$sr['psyntax']);
-									      	echo "<tr><td class='bg-light' rowspan='4' width='50px'><img src='img/hprocessor.png' style='max-height: 8%; and width: auto'></td><td>Name</td>";
-									      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
-									      			?>
-								      				<td><?php echo $key['cpuname']; ?></td>							      												      			
-									      		<?php								      		
-									      		}
-									      	echo "</tr>";
-									      	echo "<tr><td>Score</td>";
-									      		$cpu = mysqli_query($koneksi,$sr['psyntax']);
-									      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
-									      			?>
-								      				<td><?php echo $key['cpuscore']; ?></td>							      												      			
-									      		<?php								      		
-									      		}
-									      	echo "</tr>";
-									      	echo "<tr><td>Price</td>";
-									      		$cpu = mysqli_query($koneksi,$sr['psyntax']);
-									      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
-									      			?>
-								      				<td>$<?php echo $key['cpuprice']; ?></td>							      												      			
-									      		<?php								      		
-									      		}
-									      	echo "</tr>";
-									      	echo "<tr><td></td>";
-									      		$cpu = mysqli_query($koneksi,$sr['psyntax']);
-									      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
-									      			?>
-								      				<td>
-								      					<a class="btn btn-light btn-sm" href="https://www.google.com/search?q=<?php echo $key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a>
-								      					<a class="btn btn-light btn-sm" href="<?php echo $st['query'].$key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">shopping_cart</i></span></a>
-								      				</td>							      												      			
-									      		<?php								      		
-									      		}
-								      		echo "</tr>";
-					    				?>
-					    				
-					    				<tr><td colspan="7"><br></td></tr>
+		    								echo "
+		    									<tr class='bg-light'>
+		    										<td width='7%'></td>
+		    										<td width='10%'></td>
+		    										<td class='table-center' width='26%'><img src='img/processor.png' style='width: 50px'><br>Processor</td>
+		    										<td class='table-center' width='26%'><img src='img/vga.png' style='width: 50px'><br>VGA</td>
+		    										<td class='table-center' width='26%'><img src='img/ssd.png' style='width: 50px'><br>SSD</td>
 
-		    							<?php
-		    								$vga = mysqli_query($koneksi,$sr['vsyntax']);
-									      	echo "<tr><td class='bg-light' rowspan='4' width='50px'><img src='img/hvga.png' style='max-height: 8%; and width: auto'></td><td>Name</td>";
-									      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
-									      			?>
-								      				<td><?php echo $key['vganame']; ?></td>							      												      			
-									      		<?php								      		
-									      		}
-								      		echo "</tr>";
-									      	echo "<tr><td>Score</td>";
-									      		$vga = mysqli_query($koneksi,$sr['vsyntax']);
-									      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
-									      			?>
-								      				<td><?php echo $key['vgascore']; ?></td>							      												      			
-									      		<?php								      		
-									      		}
-									      		echo "</tr>";
-									      		echo "<tr><td>Price</td>";
-									      		$vga = mysqli_query($koneksi,$sr['vsyntax']);
-									      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
-									      			?>
-								      				<td>$<?php echo $key['vgaprice']; ?></td>							      												      			
-									      		<?php								      		
-									      		}
-									      		echo "</tr>";
-									      		echo "<tr><td></td>";
-									      		$vga = mysqli_query($koneksi,$sr['vsyntax']);
-									      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
-									      			?>
-								      				<td>
-								      					<a class="btn btn-light btn-sm" href="https://www.google.com/search?q=<?php echo $key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a>
-								      					<a class="btn btn-light btn-sm" href="<?php echo $st['query'].$key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">shopping_cart</i></span></a>
-								      				</td>							      												      			
-									      		<?php								      		
-									      		}
-								      		echo "</tr>";
-					    				?>
+		    									</tr>
+		    									<tr><td colspan=5><br></td></tr>
+		    								";
 
-					    				<tr><td colspan="7"><br></td></tr>
+		    								$epsy = explode(" ", $sr['psyntax']);
+		    								$epsy['2'] = $epsy['2']." where cpuprice <= ".$us['bcpu'];
+		    								$ipsy = implode(" ",$epsy);
+		    								$cpu = mysqli_query($koneksi,$ipsy);
 
-		    							<?php
-							    			$ssd = mysqli_query($koneksi,$sr['ssyntax']);
-								      		echo "<tr><td class='bg-light' rowspan='4' width='50px'><img src='img/hssd.png' style='max-height: 8%; and width: auto'></td><td>Name</td>";
-									      		while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
-									      			?>
-								      				<td><?php echo $key['ssdname']; ?></td>							      												      			
-									      		<?php								      		
-									      		}
-									      		echo "</tr>";
-									      		echo "<tr><td>Score</td>";
-									      		$ssd = mysqli_query($koneksi,$sr['ssyntax']);
-									      		while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
-									      			?>
-								      				<td><?php echo $key['ssdscore']; ?></td>							      												      			
-									      		<?php								      		
-									      		}
-									      		echo "</tr>";
-									      		echo "<tr><td>Price</td>";
-									      		$ssd = mysqli_query($koneksi,$sr['ssyntax']);
-									      		while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
-									      			?>
-								      				<td>$<?php echo $key['ssdprice']; ?></td>							      												      			
-									      		<?php								      		
-									      		}
-									      		echo "</tr>";
-									      		echo "<tr><td></td>";
-									      		$ssd = mysqli_query($koneksi,$sr['ssyntax']);
-									      		while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
-									      			?>
-								      				<td>
-								      					<a class="btn btn-light btn-sm" href="https://www.google.com/search?q=<?php echo $key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a>
-								      					<a class="btn btn-light btn-sm" href="<?php echo $st['query'].$key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">shopping_cart</i></span></a>
-								      				</td>							      												      			
-									      		<?php								      		
-									      		}
-								      		echo "</tr>";
-					    				?>
+		    								$evsy = explode(" ", $sr['vsyntax']);
+		    								$evsy['2'] = $evsy['2']." where vgaprice <= ".$us['bvga'];
+		    								$ivsy = implode(" ",$evsy);
+		    								$vga = mysqli_query($koneksi,$ivsy);
 
-					    				<tr><td colspan="7"><br></td></tr>
+ 											$essy = explode(" ", $sr['ssyntax']);
+		    								$essy['2'] = $essy['2']." where ssdprice <= ".$us['bssd'];
+		    								$issy = implode(" ",$essy);
+		    								$ssd = mysqli_query($koneksi,$issy);
+		    								
+
+		    								while ($i <= 5) {
+		    									$rcpu = mysqli_fetch_array($cpu,MYSQLI_BOTH);
+		    									$rvga = mysqli_fetch_array($vga,MYSQLI_BOTH);
+		    									$rssd = mysqli_fetch_array($ssd,MYSQLI_BOTH);
+		    									echo "<tr>";
+			    								echo "<td rowspan=3 class='align-middle bg-light table-center'><h1 class=display-4>$i<h1></td>";
+			    								echo "<td style='padding-left: 30px;'>Name</td>";
+			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><b>".$rcpu['cpuname']."</b> <a href='https://www.google.com/search?q=".$rcpu['cpuname']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
+			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><b>".$rvga['vganame']."</b> <a href='https://www.google.com/search?q=".$rvga['vganame']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
+			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><b>".$rssd['ssdname']."</b> <a href='https://www.google.com/search?q=".$rssd ['ssdname']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
+			    								echo "</tr>";
+			    								echo "<tr>";
+			    								echo "<td style='padding-left: 30px;'>Score</td>";
+			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><div class='progress' style='height: 25px;''><div class='progress-bar' role='progressbar' style='width: ".$rcpu['cpuscore']*10 ."%;' aria-valuenow='".$rcpu['cpuscore']."' aria-valuemin='0' aria-valuemax='10'>".$rcpu['cpuscore']."</div></div></td>";
+			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><div class='progress' style='height: 25px;''><div class='progress-bar' role='progressbar' style='width: ".$rvga['vgascore']*10 ."%;' aria-valuenow='".$rvga['vgascore']."' aria-valuemin='0' aria-valuemax='10'>".$rvga['vgascore']."</div></div></td>";
+			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><div class='progress' style='height: 25px;''><div class='progress-bar' role='progressbar' style='width: ".$rssd['ssdscore']*10 ."%;' aria-valuenow='".$rssd['ssdscore']."' aria-valuemin='0' aria-valuemax='10'>".$rssd['ssdscore']."</div></div></td>";
+			    								echo "</tr>";
+			    								echo "<tr>";
+			    								echo "<td style='padding-left: 30px;'>Price</td>";
+			    								echo "<td style='padding-right: 20px; padding-left: 20px;'>$".$rcpu['cpuprice']." <a href='".$st['query']."".$rcpu['cpuname']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>shopping_cart</i></span></a></td>";
+			    								echo "<td style='padding-right: 20px; padding-left: 20px;'>$".$rvga['vgaprice']." <a href='".$st['query']."".$rvga['vganame']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>shopping_cart</i></span></a></td>";
+			    								echo "<td style='padding-right: 20px; padding-left: 20px;'>$".$rssd['ssdprice']." <a href='".$st['query']."".$rssd['ssdname']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>shopping_cart</i></span></a></td>";
+			    								echo "</tr>";
+
+			    								echo "<tr><td colspan=5><br></td></tr>";
+			    								$i++;
+		    								}
+		    							?>
 		    						</table>
 					  			</div>
 					  		</div>
@@ -384,8 +315,8 @@
 					  				?>
 					  				<form action="" method="post">
 					  					<div class="btn-group" role="group" style="width: 60%;">
-											<button type="submit" name="<?php echo $r ?>" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_up</i><h4 class="display-4" style="font-size: 20px;">Recommended (<?php echo $sr['fr'] ?>)</h4></button>
-											<button type="submit" name="<?php echo $nr ?>" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_down</i><h4 class="display-4" style="font-size: 20px;">Not Recommended (<?php echo $sr['fnr'] ?>)</h4></button>
+											<button type="submit" name="<?php echo $r ?>" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_up</i><h4 class="display-4" style="font-size: 20px;">Recommended</h4></button>
+											<button type="submit" name="<?php echo $nr ?>" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_down</i><h4 class="display-4" style="font-size: 20px;">Not Recommended</h4></button>
 										</div>
 					  				</form>
 					  				<?php

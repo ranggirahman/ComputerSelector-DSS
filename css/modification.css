@@ -11,6 +11,7 @@
 .material-icons {
     display: inline-flex;
     vertical-align: middle;
+    margin-top: -2px;
 }
 
 .modal-lg {
