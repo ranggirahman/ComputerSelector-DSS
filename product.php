@@ -1,11 +1,11 @@
 <?php
 /*************************************************
-* Filename    : search.php
+* Filename    : product.php
 * Programmer  : Ranggi Rahman
 * Date        : 2018 - 1 - 14
 * Email       : ranggirahman@gmail.com
 * Website     : 1400707.blog.upi.edu
-* Deskripsi   : Search Result Page
+* Deskripsi   : Product Information Page
 *
 **************************************************/
 	session_start();
@@ -18,6 +18,9 @@
   	}
 
   	include "koneksi.php";
+
+  	$result = mysqli_query($koneksi,"select *from user where username='".$_SESSION['username']."'");
+	$us = mysqli_fetch_array($result);
 ?>
 
 <!DOCTYPE html>
@@ -35,14 +38,14 @@
   	</head>
 
   	<body>
-  		<?php $search = $_POST['search']; ?>
+  		<?php $product = $_GET['p']; ?>
 
 	    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
 	      	<div class="container">
 	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 5%; and height: auto">&nbsp; Decision Support System</a>
 
 	        	<form class="col-lg-5" action="search.php" method="POST" class="form-inline">
-				  	<input class="form-control" name="search" placeholder="Product Search" value="<?php echo $search ?>">
+				  	<input class="form-control" name="search" placeholder="Product Search">
 				  	<input type="submit" name="searchsubmit" style="display:none"/>
 		        </form>
 	      	</div>
@@ -57,7 +60,7 @@
 	      			$found = 0;
 
 					// cpu
-   					$result = mysqli_query($koneksi,"select *from cpu where cpuname like'%$search%'");
+   					$result = mysqli_query($koneksi,"select *from cpu where cpuname='$product'");
 					while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
 						$found = 1;
 						echo "<div class='card'><div class='card-body'><table border=0>"; 
@@ -91,7 +94,7 @@
 					}
 
 					// vga					
-   					$result = mysqli_query($koneksi,"select *from vga where vganame like'%$search%'");
+   					$result = mysqli_query($koneksi,"select *from vga where vganame='$product'");
 					while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
 						$found = 1;
 						echo "<div class='card'><div class='card-body'><table border=0>"; 
@@ -125,7 +128,7 @@
 					}
 
 					// ssd					
-   					$result = mysqli_query($koneksi,"select *from ssd where ssdname like'%$search%'");
+   					$result = mysqli_query($koneksi,"select *from ssd where ssdname='$product'");
 					while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
 						$found = 1;
 						echo "<div class='card'><div class='card-body'><table border=0>"; 
@@ -160,7 +163,7 @@
 
 					if($found == 0){
 						echo "
-							<div class='row' style='padding-bottom: 40px;'>
+							<div class='row' style='padding: 200px 0px 200px 0px;'>
 						   		<div class='col-md-1'>
 						   		</div>
 						   		<div class='col-md-2'>
@@ -177,6 +180,58 @@
 				?>
 				</div>	        	
 	     	</div>
+
+	     	<hr>			  	
+		  	<div class="row">
+		  		<div class="col-sm-10">							
+				</div>					
+				<div class="col-sm-2w">
+					<?php 
+						$c = mysqli_query($koneksi,"select count(resid) from product_response where product_name='$product'"); 
+						$cr = mysqli_fetch_array($c);
+   						$replycount = $cr['count(resid)'];
+
+					?>
+
+
+					<i class="material-icons" style="font-size: 20px;">comment</i> <?php echo "$replycount"; ?> Comments
+				</div>   	
+			</div>	
+			<?php
+				$result = mysqli_query($koneksi,"select *from product_response where product_name='$product'");
+
+				if($result == TRUE){
+					while($key = mysqli_fetch_array($result,MYSQLI_BOTH)){
+						$tresu = mysqli_query($koneksi,"select name from user where username='".$key['resuser']."'");
+						$resu = mysqli_fetch_array($tresu);
+						echo "<hr><div class='row'>
+								<div class='col-sm-2'>	
+									<center><img src='user/profile/".$key['resuser'].".jpg?dummy=8484744' onerror=this.src='img/default_profile.jpg' class='rounded-circle' height=70px' width='70px'/></center>									
+								</div>
+								<div class='col-sm-10'>	
+									<h5>".$resu['name']."</h5>									
+									".$key['comment']."
+								</div>
+							</div>
+							";
+					}
+				}
+			?> 	
+			<hr>
+			<div class="row">
+				<div class='col-sm-2'>	
+					<center><img src='user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744' onerror=this.src='img/default_profile.jpg' class='rounded-circle' height=70px' width='70px'/></center>									
+				</div>
+				<div class='col-sm-10'>
+					<form action="" method="POST">
+						<textarea class="form-control" rows="3" name="comment" placeholder="Reply Post.." required></textarea>
+						<hr>
+						<input class="btn btn-success float-right" type="submit" name="post" value="Post">
+					</form>							
+				</div>
+			</div>
+
+
 	      	<hr>
 	      	<footer>
 	      		<div class="row">
@@ -203,3 +258,13 @@
 
 	</body>
 </html>
+
+<?php
+	if(isset($_POST['post'])){
+
+	    $comment = mysql_real_escape_string($_POST['comment']);
+	    $result = mysqli_query($koneksi,"insert into product_response(product_name,resuser,comment) values ('$product','".$_SESSION['username']."','$comment')");
+
+	    echo "<meta http-equiv='refresh' content='0'>";
+	}
+?>

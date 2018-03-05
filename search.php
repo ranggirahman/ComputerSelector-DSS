@@ -63,7 +63,7 @@
 						echo "<div class='card'><div class='card-body'><table border=0>"; 
 							echo "<tr>";
 						    	echo "<td rowspan='4' width='130'><img src='img/processor.png' style='max-width: 75%; and height: auto'></td>";
-						    	echo "<td colspan='7'><a href='https://www.google.com/search?q=".$row['cpuname']."' target='_blank'><h5 class='display-4' style='font-size: 22px;'>".$row['cpuname']."</h5></a></td>";
+						    	echo "<td colspan='7'><a href='product.php?p=".$row['cpuname']."'><h5 class='display-4' style='font-size: 22px;'>".$row['cpuname']."</h5></a></td>";
 						    echo "</tr>";
 						    echo "<tr>";
 						    	echo "<td width='200'>Perfomance</td>";
@@ -97,7 +97,7 @@
 						echo "<div class='card'><div class='card-body'><table border=0>"; 
 							echo "<tr>";
 						    	echo "<td rowspan='4' width='130'><img src='img/vga.png' style='max-width: 75%; and height: auto'></td>";
-						    	echo "<td colspan='7'><a href='https://www.google.com/search?q=".$row['vganame']."' target='_blank'><h5 class='display-4' style='font-size: 22px;'>".$row['vganame']."</h5></a></td>";
+						    	echo "<td colspan='7'><a href='product.php?p=".$row['vganame']."'><h5 class='display-4' style='font-size: 22px;'>".$row['vganame']."</h5></a></td>";
 						    echo "</tr>";
 						    echo "<tr>";
 						    	echo "<td width='200'>Gaming</td>";
@@ -131,7 +131,7 @@
 						echo "<div class='card'><div class='card-body'><table border=0>"; 
 							echo "<tr>";
 						    	echo "<td rowspan='4' width='130'><img src='img/ssd.png' style='max-width: 75%; and height: auto'></td>";
-						    	echo "<td colspan='7'><a href='https://www.google.com/search?q=".$row['ssdname']."' target='_blank'><h5 class='display-4' style='font-size: 22px;'>".$row['ssdname']."</h5></a></td>";
+						    	echo "<td colspan='7'><a href='product.php?p=".$row['ssdname']."'><h5 class='display-4' style='font-size: 22px;'>".$row['ssdname']."</h5></a></td>";
 						    echo "</tr>";
 						    echo "<tr>";
 						    	echo "<td width='200'>Read Performance</td>";
@@ -160,7 +160,7 @@
 
 					if($found == 0){
 						echo "
-							<div class='row' style='padding-bottom: 40px;'>
+							<div class='row' style='padding: 200px 0px 200px 0px;'>
 						   		<div class='col-md-1'>
 						   		</div>
 						   		<div class='col-md-2'>
