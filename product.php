@@ -34,7 +34,7 @@
 	    <link rel="stylesheet" href="css/modification.css">
 	    <link href="css/jumbotron.css" rel="stylesheet">
 	    <link rel="icon" href="img/favicon.ico">	   
-	    <title>DSS : Choice of Computer Hardware Specifications</title>
+	    <title>Choice of Computer Hardware Specifications</title>
   	</head>
 
   	<body>
@@ -42,7 +42,7 @@
 
 	    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
 	      	<div class="container">
-	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 5%; and height: auto">&nbsp; Decision Support System</a>
+	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 5%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
 
 	        	<form class="col-lg-5" action="search.php" method="POST" class="form-inline">
 				  	<input class="form-control" name="search" placeholder="Product Search">
@@ -60,9 +60,12 @@
 	      			$found = 0;
 
 					// cpu
-   					$result = mysqli_query($koneksi,"select *from cpu where cpuname='$product'");
-					while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
+   					$cpu = mysqli_query($koneksi,"select *from cpu where cpuname='$product'");					
+					if(mysqli_num_rows($cpu) != 0){
 						$found = 1;
+						$row = mysqli_fetch_array($cpu,MYSQLI_BOTH);
+						$vp = mysqli_query($koneksi,"update cpu set cpuview=cpuview+1 where cpuname='$product'");
+						$view = $row['cpuview'];						 
 						echo "<div class='card'><div class='card-body'><table border=0>"; 
 							echo "<tr>";
 						    	echo "<td rowspan='4' width='130'><img src='img/processor.png' style='max-width: 75%; and height: auto'></td>";
@@ -70,7 +73,7 @@
 						    echo "</tr>";
 						    echo "<tr>";
 						    	echo "<td width='200'>Perfomance</td>";
-						    	echo "<td width='30'>".$row['performance']."</td>";
+						    	echo "<td width='30' style='padding-right: 20px; padding-left: 20px;'><div class='progress' style='height: 25px;''><div class='progress-bar' role='progressbar' style='width: ".$row['cpuscore']*10 ."%;' aria-valuenow='".$row['cpuscore']."' aria-valuemin='0' aria-valuemax='10'>".$row['cpuscore']."</div></div></td>";
 						    	echo "<td width='25' rowspan='4'></td>";
 						    	echo "<td width='250'>Single-Core Perfomance</td>";
 						    	echo "<td width='30'>".$row['single']."</td>";
@@ -90,13 +93,17 @@
 						    	echo "<td>Value (Pay)</td>";
 						    	echo "<td>".$row['value']."</td>";						    	
 						    echo "</tr>";
-						echo "</table></div></div><br><br>";						    
+						echo "</table></div></div>";
 					}
+					
 
 					// vga					
-   					$result = mysqli_query($koneksi,"select *from vga where vganame='$product'");
-					while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
+   					$vga = mysqli_query($koneksi,"select *from vga where vganame='$product'");
+					if(mysqli_num_rows($vga) != 0 && $found == 0){
 						$found = 1;
+						$row = mysqli_fetch_array($vga,MYSQLI_BOTH);
+						$vp = mysqli_query($koneksi,"update vga set vgaview=vgaview+1 where vganame='$product'"); 
+						$view = $row['vgaview'];						
 						echo "<div class='card'><div class='card-body'><table border=0>"; 
 							echo "<tr>";
 						    	echo "<td rowspan='4' width='130'><img src='img/vga.png' style='max-width: 75%; and height: auto'></td>";
@@ -124,13 +131,17 @@
 						    	echo "<td>Noise and Power</td>";
 						    	echo "<td>".$row['nap']."</td>";						    	
 						    echo "</tr>";
-						echo "</table></div></div><br><br>";						    
+						echo "</table></div></div>";
 					}
 
 					// ssd					
-   					$result = mysqli_query($koneksi,"select *from ssd where ssdname='$product'");
-					while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
-						$found = 1;
+   					$ssd = mysqli_query($koneksi,"select *from ssd where ssdname='$product'");
+   					if(mysqli_num_rows($ssd) != 0 && $found == 0){
+   						$found = 1;
+						$row = mysqli_fetch_array($ssd,MYSQLI_BOTH);
+						$vp = mysqli_query($koneksi,"update ssd set ssdview=ssdview+1 where ssdname='$product'"); 
+						mysqli_query($koneksi,"select *from ssd where ssdname='$product'");
+						$view = $row['ssdview'];
 						echo "<div class='card'><div class='card-body'><table border=0>"; 
 							echo "<tr>";
 						    	echo "<td rowspan='4' width='130'><img src='img/ssd.png' style='max-width: 75%; and height: auto'></td>";
@@ -158,8 +169,8 @@
 						    	echo "<td></td>";
 						    	echo "<td></td>";						    	
 						    echo "</tr>";
-						echo "</table></div></div><br><br>";						    
-					}
+						echo "</table></div></div>";
+					}	
 
 					if($found == 0){
 						echo "
@@ -181,53 +192,72 @@
 				</div>	        	
 	     	</div>
 
+	     	<br>			  	
 	     	<hr>			  	
-		  	<div class="row">
-		  		<div class="col-sm-10">							
-				</div>					
-				<div class="col-sm-2w">
-					<?php 
-						$c = mysqli_query($koneksi,"select count(resid) from product_response where product_name='$product'"); 
-						$cr = mysqli_fetch_array($c);
-   						$replycount = $cr['count(resid)'];
+			<?php 
+				$c = mysqli_query($koneksi,"select count(resid) from product_response where product_name='$product'"); 
+				$cr = mysqli_fetch_array($c);
+				$replycount = $cr['count(resid)'];
 
-					?>
-
-
+			?>
+			<div class="row">
+				<div class="col-sm-1">
+				</div>
+				<div class="col-sm-2">
 					<i class="material-icons" style="font-size: 20px;">comment</i> <?php echo "$replycount"; ?> Comments
-				</div>   	
-			</div>	
+				</div>										
+				<div class="col-sm-2">
+					<i class="material-icons" style="font-size: 20px;">remove_red_eye</i> <?php echo "$view"; ?> Views
+				</div>
+				<div class="col-sm-7">					
+				</div>
+			</div>
+			<hr>
 			<?php
 				$result = mysqli_query($koneksi,"select *from product_response where product_name='$product'");
 
 				if($result == TRUE){
 					while($key = mysqli_fetch_array($result,MYSQLI_BOTH)){
-						$tresu = mysqli_query($koneksi,"select name from user where username='".$key['resuser']."'");
+						$tresu = mysqli_query($koneksi,"select *from user where username='".$key['resuser']."'");
 						$resu = mysqli_fetch_array($tresu);
-						echo "<hr><div class='row'>
-								<div class='col-sm-2'>	
-									<center><img src='user/profile/".$key['resuser'].".jpg?dummy=8484744' onerror=this.src='img/default_profile.jpg' class='rounded-circle' height=70px' width='70px'/></center>									
-								</div>
-								<div class='col-sm-10'>	
-									<h5>".$resu['name']."</h5>									
-									".$key['comment']."
+						echo "
+							<div class='card'>
+						  		<div class='card-body'>
+									<div class='row'>
+										<div class='col-sm-1'>	
+											<img src='user/profile/".$key['resuser'].".jpg?dummy=8484744' onerror=this.src='img/default_profile.jpg' class='rounded-circle float-right' height=62px' width='62px'/>							
+										</div>
+										<div class='col-sm-10'>	
+											<b>".$resu['name']."</b> ".$resu['organization']."						
+											<p>".$key['comment']."</p>
+										</div>
+									</div>
 								</div>
 							</div>
+							<br>
 							";
 					}
 				}
 			?> 	
-			<hr>
 			<div class="row">
-				<div class='col-sm-2'>	
-					<center><img src='user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744' onerror=this.src='img/default_profile.jpg' class='rounded-circle' height=70px' width='70px'/></center>									
-				</div>
-				<div class='col-sm-10'>
-					<form action="" method="POST">
-						<textarea class="form-control" rows="3" name="comment" placeholder="Reply Post.." required></textarea>
-						<hr>
-						<input class="btn btn-success float-right" type="submit" name="post" value="Post">
-					</form>							
+				<div class="col-md-12">
+					<div class="card">
+					  	<div class="card-body">
+					  		<div class="row">
+						  		<div class='col-sm-1'>	
+									<center><img src='user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744' onerror=this.src='img/default_profile.jpg' class='rounded-circle float-right' height='62px' width='62px'/></center>									
+								</div>
+								<div class='col-sm-11'>
+									<form action="" method="POST">
+										<textarea class="form-control" rows="2" name="comment" placeholder="Reply Post.." required></textarea>			
+								</div>
+							</div>
+					  	</div>
+					  	<div class="card-footer">
+					  		<input class="btn btn-success float-right" type="submit" name="post" value="Post">
+					  		</form>	
+					  	</div>
+					</div>
 				</div>
 			</div>
 

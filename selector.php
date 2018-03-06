@@ -37,13 +37,13 @@
 	    <link rel="stylesheet" href="css/modification.css">
 	    <link href="css/jumbotron.css" rel="stylesheet">
 	    <link rel="icon" href="img/favicon.ico">	   
-	    <title>DSS : Choice of Computer Hardware Specifications</title>
+	    <title>Choice of Computer Hardware Specifications</title>
   	</head>
 
   	<body>
 	    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
 	      	<div class="container">
-	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 5%; and height: auto">&nbsp; Decision Support System</a>
+	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 5%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
 
 	        	<form class="col-lg-5" action="search.php" method="POST" class="form-inline">
 				  	<input class="form-control" name="search" placeholder="Product Search">

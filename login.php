@@ -23,7 +23,7 @@
 	    <link rel="stylesheet" href="css/modification.css">
 	    <link href="css/jumbotron.css" rel="stylesheet">
 	    <link rel="icon" href="img/favicon.ico">	   
-	    <title>DSS : Choice of Computer Hardware Specifications</title>
+	    <title>Choice of Computer Hardware Specifications</title>
   	</head>
 
   	<body>
@@ -31,7 +31,7 @@
   		<div class="fixed-bg"></div>
 	    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
 	      	<div class="container">
-	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 3%; and height: auto">&nbsp; Decision Support System</a>
+	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 3%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
 	      	</div>
 	    </div>
 

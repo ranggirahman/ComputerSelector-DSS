@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2018 at 10:33 AM
+-- Generation Time: Mar 05, 2018 at 03:19 AM
 -- Server version: 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -79,6 +79,26 @@ INSERT INTO `cpu` (`cpuid`, `cpuname`, `performance`, `single`, `intg`, `intgocl
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `product_response`
+--
+
+CREATE TABLE `product_response` (
+  `resid` int(11) NOT NULL,
+  `product_name` varchar(100) NOT NULL,
+  `resuser` varchar(20) NOT NULL,
+  `comment` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `product_response`
+--
+
+INSERT INTO `product_response` (`resid`, `product_name`, `resuser`, `comment`) VALUES
+(1, 'Intel Core i7 5930k', 'admin', 'Test');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `spesification`
 --
 
@@ -99,11 +119,11 @@ CREATE TABLE `spesification` (
 --
 
 INSERT INTO `spesification` (`sid`, `sname`, `description`, `sicon`, `psyntax`, `vsyntax`, `ssyntax`, `fr`, `fnr`) VALUES
-(1, 'Office Task', '', 'work', 'select *from cpu order by performance asc limit 5', 'select *from vga order by vgascore asc limit 5', 'select *from ssd order by readp asc limit 5', 1, 0),
-(2, 'Home Usage', '', 'supervisor_account', 'select *from cpu order by value desc limit 5', 'select *from vga order by value asc limit 5', 'select *from ssd order by realwb desc limit 5', 0, 0),
-(3, 'Gaming', '', 'games', 'select *from cpu order by performance desc limit 5', 'select *from vga order by gaming desc limit 5', 'select *from ssd order by readp desc limit 5', 0, 1),
-(4, 'Graphic Rendering', '', 'terrain', 'select *from cpu order by performance desc limit 5', 'select *from vga order by graphics desc limit 5', 'select *from ssd order by bench desc limit 5', 0, 0),
-(5, 'Computing, Simulation', '', 'gradient', 'select *from cpu order by performance desc limit 5', 'select *from vga order by computing desc limit 5', 'select *from ssd order by realwb desc limit 5', 0, 0);
+(1, 'Office Task', '', 'work', 'select *from cpu order by performance asc ', 'select *from vga order by vgascore asc', 'select *from ssd order by readp asc', 1, 0),
+(2, 'Home Usage', '', 'supervisor_account', 'select *from cpu order by value desc ', 'select *from vga order by value asc', 'select *from ssd order by realwb desc ', 0, 0),
+(3, 'Gaming', '', 'games', 'select *from cpu order by performance desc ', 'select *from vga order by gaming desc ', 'select *from ssd order by readp desc ', 0, 1),
+(4, 'Graphic Rendering', '', 'terrain', 'select *from cpu order by performance desc', 'select *from vga order by graphics desc', 'select *from ssd order by bench desc ', 0, 0),
+(5, 'Computing, Simulation', '', 'gradient', 'select *from cpu order by performance desc', 'select *from vga order by computing desc', 'select *from ssd order by realwb desc', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -154,6 +174,54 @@ INSERT INTO `ssd` (`ssdid`, `ssdname`, `readp`, `writep`, `realwb`, `bench`, `ss
 (25, 'Crucial MX300', 6.3, 6.3, 8.2, 6.9, 6.9, 147),
 (26, 'KingFast F8', 5.7, 6, 7.4, 6.3, 6.2, 130),
 (27, 'Kingston HyperX FURY', 5.3, 6.3, 7.3, 6.1, 6.1, 148);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `store`
+--
+
+CREATE TABLE `store` (
+  `storeid` int(11) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `query` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `store`
+--
+
+INSERT INTO `store` (`storeid`, `name`, `query`) VALUES
+(1, 'Amazon', 'https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords='),
+(2, 'Bukalapak', 'https://www.bukalapak.com/products?utf8=?&source=navbar&from=omnisearch&search_source=omnisearch_keywords_history&search%5Bkeywords%5D='),
+(3, 'Bhinneka', 'https://www.bhinneka.com/search.aspx?Search=');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `userid` int(11) NOT NULL,
+  `usertype` int(11) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `organization` varchar(100) NOT NULL,
+  `bcpu` int(11) NOT NULL,
+  `bvga` int(11) NOT NULL,
+  `bssd` int(11) NOT NULL,
+  `storeid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`userid`, `usertype`, `username`, `password`, `name`, `organization`, `bcpu`, `bvga`, `bssd`, `storeid`) VALUES
+(1, 1, 'admin', 'admin', 'Ranggi Rahman', 'UPI', 1000, 1000, 1000, 1),
+(2, 2, 'dewi', 'dewi', 'Dewi', 'UPI', 1000, 1000, 1000, 1);
 
 -- --------------------------------------------------------
 
@@ -210,6 +278,12 @@ ALTER TABLE `cpu`
   ADD PRIMARY KEY (`cpuid`);
 
 --
+-- Indexes for table `product_response`
+--
+ALTER TABLE `product_response`
+  ADD PRIMARY KEY (`resid`);
+
+--
 -- Indexes for table `spesification`
 --
 ALTER TABLE `spesification`
@@ -220,6 +294,18 @@ ALTER TABLE `spesification`
 --
 ALTER TABLE `ssd`
   ADD PRIMARY KEY (`ssdid`);
+
+--
+-- Indexes for table `store`
+--
+ALTER TABLE `store`
+  ADD PRIMARY KEY (`storeid`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`userid`);
 
 --
 -- Indexes for table `vga`
@@ -235,7 +321,12 @@ ALTER TABLE `vga`
 -- AUTO_INCREMENT for table `cpu`
 --
 ALTER TABLE `cpu`
-  MODIFY `cpuid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `cpuid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+--
+-- AUTO_INCREMENT for table `product_response`
+--
+ALTER TABLE `product_response`
+  MODIFY `resid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `spesification`
 --
@@ -246,6 +337,16 @@ ALTER TABLE `spesification`
 --
 ALTER TABLE `ssd`
   MODIFY `ssdid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+--
+-- AUTO_INCREMENT for table `store`
+--
+ALTER TABLE `store`
+  MODIFY `storeid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `vga`
 --
