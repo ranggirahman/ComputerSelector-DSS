@@ -63,7 +63,7 @@
 						echo "<div class='card'><div class='card-body'><table border=0>"; 
 							echo "<tr>";
 						    	echo "<td rowspan='4' width='130'><img src='img/processor.png' style='max-width: 75%; and height: auto'></td>";
-						    	echo "<td colspan='7'><a href='product.php?p=".$row['cpuname']."'><h5 class='display-4' style='font-size: 22px;'>".$row['cpuname']."</h5></a></td>";
+						    	echo "<td colspan='7'><a href='product.php?p=".$row['cpuname']."'><h5 class='display-4' style='font-size: 22px;'>".$row['cpuname']." <span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>open_in_new</i></span></h5></a></td>";
 						    echo "</tr>";
 						    echo "<tr>";
 						    	echo "<td width='200'>Perfomance</td>";
@@ -143,7 +143,7 @@
 						    	echo "<td width='250'>Total Score</td>";
 						    echo "</tr>";
 						    echo "<tr>";
-						    	echo "<td>Real World Performance</td>";
+						    	echo "<td>Real World Benchmarks</td>";
 						    	echo "<td>".$row['realwb']."</td>";	
 						    	echo "<td>Benchmarks</td>";
 						    	echo "<td>".$row['bench']."</td>";				    	

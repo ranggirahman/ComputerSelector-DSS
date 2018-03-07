@@ -92,7 +92,7 @@
 													  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['cpuscore']*10 ?>%;" aria-valuenow="<?php echo $key['cpuscore'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['cpuscore'] ?></div>
 														</div>
 													</td>
-								      				<td><a href="https://www.google.com/search?q=<?php echo $key['cpuname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
+								      				<td><a href="product.php?p=<?php echo $key['cpuname'] ?>" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
 								      			</tr>
 								      		<?php
 								      		}
@@ -135,7 +135,7 @@
 													  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['vgascore']*10 ?>%;" aria-valuenow="<?php echo $key['vgascore'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['vgascore'] ?></div>
 														</div>
 													</td>
-								      				<td><a href="https://www.google.com/search?q=<?php echo $key['vganame'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
+								      				<td><a href="product.php?p=<?php echo $key['vganame'] ?>" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
 								      			</tr>
 								      		<?php
 								      		}
@@ -178,7 +178,7 @@
 													  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['ssdscore']*10 ?>%;" aria-valuenow="<?php echo $key['ssdscore'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['ssdscore'] ?></div>
 														</div>
 													</td>
-								      				<td><a href="https://www.google.com/search?q=<?php echo $key['ssdname'] ?>" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
+								      				<td><a href="product.php?p=<?php echo $key['ssdname'] ?>" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
 								      			</tr>
 								      		<?php
 								      		}
@@ -281,9 +281,9 @@
 		    									echo "<tr>";
 			    								echo "<td rowspan=3 class='align-middle bg-light table-center'><h1 class=display-4>$i<h1></td>";
 			    								echo "<td style='padding-left: 30px;'>Name</td>";
-			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><b>".$rcpu['cpuname']."</b> <a href='https://www.google.com/search?q=".$rcpu['cpuname']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
-			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><b>".$rvga['vganame']."</b> <a href='https://www.google.com/search?q=".$rvga['vganame']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
-			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><b>".$rssd['ssdname']."</b> <a href='https://www.google.com/search?q=".$rssd ['ssdname']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
+			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><b>".$rcpu['cpuname']."</b> <a href='product.php?p=".$rcpu['cpuname']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
+			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><b>".$rvga['vganame']."</b> <a href='product.php?p=".$rvga['vganame']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
+			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><b>".$rssd['ssdname']."</b> <a href='product.php?p=".$rssd ['ssdname']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
 			    								echo "</tr>";
 			    								echo "<tr>";
 			    								echo "<td style='padding-left: 30px;'>Score</td>";

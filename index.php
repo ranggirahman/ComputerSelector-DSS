@@ -156,7 +156,6 @@
 				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Performance Per Watt" data-placement="bottom" data-content="Sky Driver, Cloud Gate, CompuBench, PCMark, PassMark, Geekbench, TDP">Perf / Watt</button></th>
 				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Paying for Performance" data-placement="bottom" data-content="Sky Driver, Cloud Gate, CompuBench, PCMark, PassMark, Geekbench, TDP">Value (Pay)</button></th>
 				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Combination of All Six Facets" data-placement="bottom" data-content="Performance, Single-Core Performance, Integrated Graphics, Performance Per Watt, Value">Total Score</button></th>
-				      				<th></th>
 				      			</tr>
 			      			</thead>
 			      			<?php			      							      				
@@ -167,7 +166,7 @@
 										?>
 										<tr>
 											<td class="align-middle table-center" width="50px"><?php echo $i ?></td>
-						      				<td class="align-middle"><?php echo $key['cpuname'] ?></td>
+						      				<td class="align-middle"><a href="product.php?p=<?php echo $key['cpuname'] ?>" role="button"><?php echo $key['cpuname'] ?> <span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
 						      				<td class="table-center">
 						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['performance']*10 ?>%;" aria-valuenow="<?php echo $key['performance'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['performance'] ?></div>
@@ -203,7 +202,6 @@
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['cpuscore']*10 ?>%;" aria-valuenow="<?php echo $key['cpuscore'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['cpuscore'] ?></div>
 												</div>
 											</td>
-						      				<td width="50px" class="table-center"><a class="btn btn-light btn-sm" href="product.php?p=<?php echo $key['cpuname'] ?>" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
 						      			</tr>
 						      			<?php
 									}
@@ -244,7 +242,6 @@
 				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Paying for Performance" data-placement="bottom" data-content="Battlefield 4, Bioshock Infinite, Crysis 3, Dirt 3, Farcry 3, CSGO, Diablo III, Fifa 16, GTA 5, The Witcher 3, T-Rex, Manhattan, Gate Factor, Face Detection, Ocean Surface Simulation, Particle Simulation, Video Composition, Bitcoin Minning">Value (Pay)</button></th>
 				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Noise and Power" data-placement="bottom" data-content="TDP, Idle Power Consumtion, Load Power Consumtion, Idle Noise Level, Load Noise Level">Noise Power</button></th>
 				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Combination of All Six Facets" data-placement="bottom" data-content="Gaming, Graphic, Computing, Performance Per Watt, Value, Noise and Power">Total Score</button></th>
-				      				<th></th>
 				      			</tr>
 			      			</thead>
 			      			<?php		      				
@@ -255,7 +252,7 @@
 										?>
 										<tr>
 											<td class="align-middle table-center" width="50px"><?php echo $i ?></td>
-						      				<td class="align-middle"><?php echo $key['vganame'] ?></td>
+						      				<td class="align-middle"><a href="product.php?p=<?php echo $key['vganame'] ?>" role="button"><span aria-hidden="true"><?php echo $key['vganame'] ?> <i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
 						      				<td class="table-center">
 						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['gaming']*10 ?>%;" aria-valuenow="<?php echo $key['gaming'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['gaming'] ?></div>
@@ -291,7 +288,6 @@
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['vgascore']*10 ?>%;" aria-valuenow="<?php echo $key['vgascore'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['vgascore'] ?></div>
 												</div>
 											</td>						      				
-						      				<td width="50px" class="table-center"><a class="btn btn-sm btn-light" href="product.php?p=<?php echo $key['vganame'] ?>" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
 						      			</tr>
 
 						      			<?php
@@ -331,7 +327,6 @@
 				      				<th class="table-center"><button type="button" class="btn btn-sm btn-wrap btn-info" data-container="body" data-toggle="popover" title="Real World Benchmarks, How Well The Drive Performs Common Task" data-placement="bottom" data-content="Photoshop Lens Filter, AS SSD ISO Copy">Real World</button></th>
 				      				<th class="table-center"><button type="button" class="btn btn-sm btn-wrap btn-info" data-container="body" data-toggle="popover" title="How Well The Drive Performs On Common Benchmarks" data-placement="bottom" data-content="PCMark Vantage, AS SSD Score">Benchmarks</button></th>
 				      				<th class="table-center"><button type="button" class="btn btn-sm btn-wrap btn-info" data-container="body" data-toggle="popover" title="Combination of All Four Facets" data-placement="bottom" data-content="Read Performance, Write Performance, Real World Benchmarks, Benchmarks">Total Score</button></th>
-				      				<th></th>
 				      			</tr>
 			      			</thead>
 			      			<?php		      				
@@ -348,7 +343,7 @@
 										?>
 										<tr>
 											<td class="align-middle table-center" width="50px"><?php echo $i ?></td>
-						      				<td class="align-middle"><?php echo $key['ssdname'] ?></td>
+						      				<td class="align-middle"><a href="product.php?p=<?php echo $key['ssdname'] ?>" role="button"><?php echo $key['ssdname'] ?> <span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
 						      				<td class="table-center">
 						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['readp']*10 ?>%;" aria-valuenow="<?php echo $key['readp'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['readp'] ?></div>
@@ -374,7 +369,6 @@
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['ssdscore']*10 ?>%;" aria-valuenow="<?php echo $key['ssdscore'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['ssdscore'] ?></div>
 												</div>
 											</td>
-						      				<td width="50px" class="table-center"><a class="btn btn-sm btn-light" href="product.php?p=<?php echo $key['ssdname'] ?>" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">open_in_new</i></span></a></td>
 						      			</tr>
 
 						      			<?php
