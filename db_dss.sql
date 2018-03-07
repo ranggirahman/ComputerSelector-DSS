@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2018 at 01:05 PM
+-- Generation Time: Mar 07, 2018 at 07:23 PM
 -- Server version: 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -50,16 +50,16 @@ CREATE TABLE `cpu` (
 --
 
 INSERT INTO `cpu` (`cpuid`, `cpuname`, `performance`, `single`, `intg`, `intgocl`, `ppw`, `value`, `cpuscore`, `cpuprice`, `cpuview`, `s1`, `s2`, `s3`, `s4`, `s5`) VALUES
-(1, 'Intel Core i7 5930k', 10, 8.7, 0, 0, 6.2, 5.2, 6.2, 640, 255, 0, 0, 0, 0, 0),
+(1, 'Intel Core i7 5930k', 10, 8.7, 0, 0, 6.2, 5.2, 6.2, 640, 256, 0, 0, 0, 0, 0),
 (2, 'Intel Core i7 5820K', 9.6, 8.3, 0, 0, 6.1, 5.5, 6.1, 439, 3, 0, 0, 0, 0, 0),
 (3, 'AMD FX 8370', 6.8, 6, 0, 0, 5.7, 6, 5.5, 169, 0, 0, 0, 0, 0, 0),
 (4, 'Intel Core i3 4370', 7.4, 10, 0, 7.2, 9.9, 6.5, 8.7, 179, 0, 0, 0, 0, 0, 0),
 (5, 'AMD FX 8370E', 7.2, 5.2, 0, 0, 6.1, 5.8, 5.5, 249, 0, 0, 0, 0, 0, 0),
 (6, 'AMD FX 8320E', 6.8, 5.7, 0, 0, 6.1, 6.6, 5.8, 109, 0, 0, 0, 0, 0, 0),
 (7, 'Intel Core i7 5960X', 9.4, 8.5, 0, 0, 6.1, 5, 6, 1110, 1, 0, 0, 0, 0, 0),
-(8, 'Intel Core i7 4790K', 9.4, 10, 6.7, 6.6, 10, 6.6, 9.7, 399, 3, 0, 0, 0, 0, 0),
+(8, 'Intel Core i7 4790K', 9.4, 10, 6.7, 6.6, 10, 6.6, 9.7, 399, 4, 0, 0, 0, 0, 0),
 (9, 'Intel Pentium G3470', 6.2, 9.5, 0, 0, 9.7, 8.5, 9, 89, 0, 0, 0, 0, 0, 0),
-(10, 'Intel Core i5 4690K', 7.8, 9.2, 6.2, 6.7, 9.5, 6.7, 9.2, 350, 0, 0, 0, 0, 0, 0),
+(10, 'Intel Core i5 4690K', 7.8, 9.2, 6.2, 6.7, 9.5, 6.7, 9.2, 350, 1, 0, 0, 0, 0, 0),
 (11, 'Intel Core i5 4690', 7.4, 9, 5.9, 6.4, 9.5, 6.8, 9, 325, 1, 0, 0, 0, 0, 0),
 (12, 'Intel Core i7 4790', 8.4, 9.1, 6.1, 6.8, 9.8, 6.3, 9.2, 359, 0, 0, 0, 0, 0, 0),
 (13, 'Intel Core i5 4690S', 8.8, 10, 6.9, 7.9, 8.8, 5.9, 8.3, 172, 0, 0, 0, 0, 0, 0),
@@ -78,7 +78,7 @@ INSERT INTO `cpu` (`cpuid`, `cpuname`, `performance`, `single`, `intg`, `intgocl
 (26, 'Intel Core i5 4590T', 7.8, 8.6, 9.2, 0, 6.2, 5, 7.9, 214, 0, 0, 0, 0, 0, 0),
 (27, 'Intel Pentium G3440', 6, 8.4, 0, 6.8, 9, 7.2, 8.2, 82, 0, 0, 0, 0, 0, 0),
 (28, 'AMD A10 7850K', 8.2, 7, 10, 9.9, 9.1, 7.2, 8.9, 155, 0, 0, 0, 0, 0, 0),
-(29, 'AMD A4 7300', 5.3, 6.4, 0, 6.6, 7.2, 10, 8.1, 44, 2, 0, 0, 0, 0, 0),
+(29, 'AMD A4 7300', 5.3, 6.4, 0, 6.6, 7.2, 10, 8.1, 44, 3, 0, 0, 0, 0, 0),
 (30, 'Intel Core i3 4160', 7.1, 9, 6, 6.4, 9, 6.6, 8, 94, 0, 0, 0, 0, 0, 0),
 (31, 'AMD A10 7870K', 5.5, 5.5, 0, 10, 8.8, 8.3, 9.2, 160, 0, 0, 0, 0, 0, 0);
 
@@ -100,7 +100,7 @@ CREATE TABLE `product_response` (
 --
 
 INSERT INTO `product_response` (`resid`, `product_name`, `resuser`, `comment`) VALUES
-(1, 'Intel Core i7 5930k', 'admin', 'Test'),
+(1, 'Intel Core i7 5930k', 'admin', 'Powerful Performance '),
 (2, 'Intel Core i7 5930k', 'admin', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '),
 (3, 'GeForce GTX 1080', 'admin', 'Great Product');
 
