@@ -101,8 +101,8 @@
 								  					</tr>
 								  					<tr>
 								  						<td class="align-middle">Password</td>
-								  						<td><input class="form-control" type="password" name="password1" placeholder="not change"></td>
-								  						<td><input class="form-control" type="password" name="password2" placeholder="not change"></td>
+								  						<td><input class="form-control" type="password" name="password1" placeholder="Not Change"></td>
+								  						<td><input class="form-control" type="password" name="password2" placeholder="Not Change"></td>
 								  					</tr>
 							  					</table>
 							  				</div>
