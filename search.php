@@ -62,32 +62,10 @@
 						$found = 1;
 						echo "<div class='card'><div class='card-body'><table border=0>"; 
 							echo "<tr>";
-						    	echo "<td rowspan='4' width='130'><img src='img/processor.png' style='max-width: 75%; and height: auto'></td>";
-						    	echo "<td colspan='7'><a href='product.php?p=".$row['cpuname']."'><h5 class='display-4' style='font-size: 22px;'>".$row['cpuname']." <span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>open_in_new</i></span></h5></a></td>";
+						    	echo "<td width='50px'><img src='img/processor.png' style='height='34px' width='34px''></td>";
+						    	echo "<td><a href='product.php?p=".$row['cpuname']."'>".$row['cpuname']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
 						    echo "</tr>";
-						    echo "<tr>";
-						    	echo "<td width='200'>Perfomance</td>";
-						    	echo "<td width='30'>".$row['performance']."</td>";
-						    	echo "<td width='25' rowspan='4'></td>";
-						    	echo "<td width='250'>Single-Core Perfomance</td>";
-						    	echo "<td width='30'>".$row['single']."</td>";
-						    	echo "<td width='30' rowspan='4'></td>";
-						    	echo "<td width='250'>Total Score</td>";
-						    echo "</tr>";
-						    echo "<tr>";
-						    	echo "<td>Integrated Graphic</td>";
-						    	echo "<td>".$row['intg']."</td>";
-						    	echo "<td>Integrated Graphic (OpenCL)</td>";
-						    	echo "<td>".$row['intgocl']."</td>";					    	
-						    	echo "<td rowspan='2'><h5 class='display-4' style='font-size: 36px;'>".$row['cpuscore']."</h5></td>";
-						    echo "</tr>";
-						    echo "<tr>";
-						    	echo "<td>Performance Per Watt</td>";
-						    	echo "<td>".$row['ppw']."</td>";
-						    	echo "<td>Value (Pay)</td>";
-						    	echo "<td>".$row['value']."</td>";						    	
-						    echo "</tr>";
-						echo "</table></div></div><br><br>";						    
+						echo "</table></div></div><br>";						    
 					}
 
 					// vga					
@@ -96,32 +74,10 @@
 						$found = 1;
 						echo "<div class='card'><div class='card-body'><table border=0>"; 
 							echo "<tr>";
-						    	echo "<td rowspan='4' width='130'><img src='img/vga.png' style='max-width: 75%; and height: auto'></td>";
-						    	echo "<td colspan='7'><a href='product.php?p=".$row['vganame']."'><h5 class='display-4' style='font-size: 22px;'>".$row['vganame']."</h5></a></td>";
+						    	echo "<td width='50px'><img src='img/vga.png' style='height='34px' width='34px''></td>";
+						    	echo "<td><a href='product.php?p=".$row['vganame']."'>".$row['vganame']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
 						    echo "</tr>";
-						    echo "<tr>";
-						    	echo "<td width='200'>Gaming</td>";
-						    	echo "<td width='30'>".$row['gaming']."</td>";
-						    	echo "<td width='25' rowspan='4'></td>";
-						    	echo "<td width='250'>Graphic</td>";
-						    	echo "<td width='30'>".$row['graphics']."</td>";
-						    	echo "<td width='30' rowspan='4'></td>";
-						    	echo "<td width='250'>Total Score</td>";
-						    echo "</tr>";
-						    echo "<tr>";
-						    	echo "<td>Computing</td>";
-						    	echo "<td>".$row['computing']."</td>";
-						    	echo "<td>Performance Per Watt</td>";
-						    	echo "<td>".$row['ppw']."</td>";					    	
-						    	echo "<td rowspan='2'><h5 class='display-4' style='font-size: 36px;'>".$row['vgascore']."</h5></td>";
-						    echo "</tr>";
-						    echo "<tr>";
-						    	echo "<td>Value (Pay)</td>";
-						    	echo "<td>".$row['value']."</td>";
-						    	echo "<td>Noise and Power</td>";
-						    	echo "<td>".$row['nap']."</td>";						    	
-						    echo "</tr>";
-						echo "</table></div></div><br><br>";						    
+						echo "</table></div></div><br>";						    
 					}
 
 					// ssd					
@@ -130,32 +86,10 @@
 						$found = 1;
 						echo "<div class='card'><div class='card-body'><table border=0>"; 
 							echo "<tr>";
-						    	echo "<td rowspan='4' width='130'><img src='img/ssd.png' style='max-width: 75%; and height: auto'></td>";
-						    	echo "<td colspan='7'><a href='product.php?p=".$row['ssdname']."'><h5 class='display-4' style='font-size: 22px;'>".$row['ssdname']."</h5></a></td>";
+						    	echo "<td width='50px'><img src='img/ssd.png' style='height='34px' width='34px''></td>";
+						    	echo "<td colspan='7'><a href='product.php?p=".$row['ssdname']."'>".$row['ssdname']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
 						    echo "</tr>";
-						    echo "<tr>";
-						    	echo "<td width='200'>Read Performance</td>";
-						    	echo "<td width='30'>".$row['readp']."</td>";
-						    	echo "<td width='25' rowspan='3'></td>";
-						    	echo "<td width='250'>Write Performance</td>";
-						    	echo "<td width='30'>".$row['writep']."</td>";
-						    	echo "<td width='30' rowspan='3'></td>";
-						    	echo "<td width='250'>Total Score</td>";
-						    echo "</tr>";
-						    echo "<tr>";
-						    	echo "<td>Real World Benchmarks</td>";
-						    	echo "<td>".$row['realwb']."</td>";	
-						    	echo "<td>Benchmarks</td>";
-						    	echo "<td>".$row['bench']."</td>";				    	
-						    	echo "<td rowspan='2'><h5 class='display-4' style='font-size: 36px;'>".$row['ssdscore']."</h5></td>";
-						    echo "</tr>";
-						    echo "<tr>";						    	
-						    	echo "<td>&nbsp;</td>";
-						    	echo "<td></td>";	
-						    	echo "<td></td>";
-						    	echo "<td></td>";						    	
-						    echo "</tr>";
-						echo "</table></div></div><br><br>";						    
+						echo "</table></div></div><br>";						    
 					}
 
 					if($found == 0){

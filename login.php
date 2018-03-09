@@ -85,7 +85,7 @@
   	if(isset($_POST['submit'])){
 
 	    $username = $_POST['username'];
-	    $password = $_POST['password'];
+	    $password = md5($_POST['password']);
 
 	    $c = mysqli_query($koneksi,"select count(username) from user where username='$username' and password='$password'");
 

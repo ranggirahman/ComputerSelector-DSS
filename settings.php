@@ -126,7 +126,8 @@
 
 										    if($password1 != ''){
 										    	if($password1 == $password2){
-										    		$result = mysqli_query($koneksi,"update user set password='$password1' where username='".$_SESSION['username']."'");
+										    		$password = md5($password1);
+										    		$result = mysqli_query($koneksi,"update user set password='$password' where username='".$_SESSION['username']."'");
 												}else{
 											    	$msg = "Password not Correct";
 		    										echo "<script type='text/javascript'>alert('$msg');</script>";
@@ -278,7 +279,7 @@
 								  	<?php
 									  	if(isset($_POST['cpuadd'])){
 
-										    $cpuname = $_POST['cpuname'];
+									  		$cpuname = $_POST['cpuname'];
 										    $performance = $_POST['performance'];
 										    $single = $_POST['single'];
 										    $intg = $_POST['intg'];
@@ -288,9 +289,19 @@
 										    $cpuscore = $_POST['cpuscore'];
 										    $cpuprice = $_POST['cpuprice'];
 
-										    $cpuadd = mysqli_query($koneksi,"insert into cpu(cpuname,performance,single,intg,intgocl,ppw,value,cpuscore,cpuprice) values ('$cpuname','$performance','$single','$intg','$intgocl','$ppw','$value','$cpuscore','$cpuprice')");
+									  		$c = mysqli_query($koneksi,"select count(cpuname) from cpu where cpuname='$cpuname'");
 
-										    echo "<meta http-equiv='refresh' content='0'>";						   
+										    $cr = mysqli_fetch_array($c);
+										    $ci = $cr['count(cpuname)'];
+
+										    if( $ci == 0 ){		
+											    $cpuadd = mysqli_query($koneksi,"insert into cpu(cpuname,performance,single,intg,intgocl,ppw,value,cpuscore,cpuprice) values ('$cpuname','$performance','$single','$intg','$intgocl','$ppw','$value','$cpuscore','$cpuprice')");
+
+											    echo "<meta http-equiv='refresh' content='0'>";
+										    }else if ( $ci >= 1 ) {
+									    		$message = "Error : CPU Name Already Exists";
+        										echo "<script type='text/javascript'>alert('$message');</script>";
+										    }										    					   
 									  	}
 									?>							  		
 							  	</div>
@@ -350,7 +361,21 @@
 										    $vgascore = $_POST['vgascore'];
 										    $vgaprice = $_POST['vgaprice'];
 
-										    $cpuadd = mysqli_query($koneksi,"insert into vga(vganame,gaming,graphics,computing,ppw,value,nap,vgascore,vgaprice) values ('$vganame','$gaming','$graphics','$computing','$ppw','$value','$nap','$vgascore','$vgaprice')");
+										    $c = mysqli_query($koneksi,"select count(vganame) from vga where vganame='$vganame'");
+
+										    $cr = mysqli_fetch_array($c);
+										    $ci = $cr['count(vganame)'];
+
+										    if( $ci == 0 ){		
+											    $vgaadd = mysqli_query($koneksi,"insert into vga(vganame,gaming,graphics,computing,ppw,value,nap,vgascore,vgaprice) values ('$vganame','$gaming','$graphics','$computing','$ppw','$value','$nap','$vgascore','$vgaprice')");
+
+											    echo "<meta http-equiv='refresh' content='0'>";
+										    }else if ( $ci >= 1 ) {
+									    		$message = "Error : VGA Name Already Exists";
+        										echo "<script type='text/javascript'>alert('$message');</script>";
+										    }										    		
+
+										   
 
 										    echo "<meta http-equiv='refresh' content='0'>";						   
 									  	}
@@ -405,12 +430,173 @@
 										    $ssdscore = $_POST['ssdscore'];
 										    $ssdprice = $_POST['ssdprice'];
 
-										    $cpuadd = mysqli_query($koneksi,"insert into ssd(ssdname,readp,writep,realwb,bench,ssdscore,ssdprice) values ('$ssdname','$readp','$writep','$realwb','$bench','$ssdscore','$ssdprice')");
+										    $c = mysqli_query($koneksi,"select count(ssdname) from ssd where ssdname='$ssdname'");
+
+										    $cr = mysqli_fetch_array($c);
+										    $ci = $cr['count(ssdname)'];
+
+										    if( $ci == 0 ){		
+											    $ssdadd = mysqli_query($koneksi,"insert into ssd(ssdname,readp,writep,realwb,bench,ssdscore,ssdprice) values ('$ssdname','$readp','$writep','$realwb','$bench','$ssdscore','$ssdprice')");
+
+											    echo "<meta http-equiv='refresh' content='0'>";
+										    }else if ( $ci >= 1 ) {
+									    		$message = "Error : SSD Name Already Exists";
+        										echo "<script type='text/javascript'>alert('$message');</script>";
+										    }	
+
+
+										    
 
 										    echo "<meta http-equiv='refresh' content='0'>";						   
 									  	}
 									?>
 							  	</div>
+							</div>
+					  	</div>
+					</div>
+				</div>	        	
+	     	</div>
+
+	      	<br><br>
+
+	      	<div class="row">
+	      		<div class="col-md-12">
+	      			<div class="card">
+					  	<div class="card-header"><i class="material-icons" style="color: grey;">delete_sweep</i> Remove Product</div>
+					  	<div class="card-body">
+						    <ul class="nav nav-tabs" id="myTab" role="tablist">
+							  <li class="nav-item">
+							    <a class="nav-link active" data-toggle="tab" href="#dprocessor" role="tab" aria-selected="true"><img src="img/processor.png" style="max-width: 28px; and height: 28px;"> Processor</a>
+							  </li>
+							  <li class="nav-item">
+							    <a class="nav-link" data-toggle="tab" href="#dvga" role="tab" aria-selected="false"><img src="img/vga.png" style="max-width: 28px; and height: 28px;"> Video Graphic Array</a>
+							  </li>
+							  <li class="nav-item">
+							    <a class="nav-link" data-toggle="tab" href="#dssd" role="tab" aria-selected="false"><img src="img/ssd.png" style="max-width: 28px; and height: 28px;"> Solid State Disk</a>
+							  </li>
+							</ul>
+							<div class="tab-content">
+							  	<div class="tab-pane fade show active" id="dprocessor" role="tabpanel">
+							  		<form action="" method="POST">
+							  			<div class="row" style="overflow-y: scroll; height:358px;">
+							  				<div class="col-sm-12">
+							  					<table class="table table-sm">
+													<tr>
+														<th class="align-middle table-center">No.</th>
+														<th>Product Name</th>
+														<th></th>
+													</tr>
+							  				<?php 
+							      				$cpu = mysqli_query($koneksi,"select *from cpu");
+
+							      				$i = 0;
+							      				if($cpu == TRUE){
+													while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
+														$i++;
+											?>	
+												<tr>
+													<td class="align-middle table-center"><?php echo $i ?></td>
+						      						<td><a href="product.php?p=<?php echo $key['cpuname'] ?>" role="button"><?php echo $key['cpuname'] ?> <span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
+						      						<td class="align-middle table-center"><button class="btn btn-sm btn-warning" type="submit" name="<?php echo $key['cpuname'] ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
+												</tr>													
+							      					
+						      				<?php
+							      						if(isset($_POST[$key['cpuname']])){
+														    $dcpu = $key['cpuname'];
+
+														    $result = mysqli_query($koneksi,"delete from cpu where cpuname = '$dcpu'");
+
+														    echo "<meta http-equiv='refresh' content='0'>";
+														}
+													}
+												}
+											?>
+												</table>
+							  				</div>						  												  										      			
+							      		</div>							      		
+								  	</form>						  	
+							  	</div>
+							  	<div class="tab-pane fade" id="dvga" role="tabpanel">
+							  		<form action="" method="POST">
+							  			<div class="row" style="overflow-y: scroll; height:358px;">
+							  				<div class="col-sm-12">
+							  					<table class="table table-sm">
+													<tr>
+														<th class="align-middle table-center">No.</th>
+														<th>Product Name</th>
+														<th></th>
+													</tr>
+							  				<?php 
+							      				$vga = mysqli_query($koneksi,"select *from vga");
+
+							      				$i = 0;
+							      				if($vga == TRUE){
+													while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
+														$i++;
+											?>	
+												<tr>
+													<td class="align-middle table-center"><?php echo $i ?></td>
+						      						<td><a href="product.php?p=<?php echo $key['vganame'] ?>" role="button"><?php echo $key['vganame'] ?> <span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
+						      						<td class="align-middle table-center"><button class="btn btn-sm btn-warning" type="submit" name="<?php echo $key['vganame'] ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
+												</tr>													
+							      					
+						      				<?php
+							      						if(isset($_POST[$key['vganame']])){
+														    $dvga = $key['vganame'];
+
+														    $result = mysqli_query($koneksi,"delete from vga where vganame = '$dvga'");
+
+														    echo "<meta http-equiv='refresh' content='0'>";
+														}
+													}
+												}
+											?>
+												</table>
+							  				</div>						  												  										      			
+							      		</div>							      		
+								  	</form>	
+							  	</div>
+							  	<div class="tab-pane fade" id="dssd" role="tabpanel">
+							  		<form action="" method="POST">
+							  			<div class="row" style="overflow-y: scroll; height:358px;">
+							  				<div class="col-sm-12">
+							  					<table class="table table-sm">
+													<tr>
+														<th class="align-middle table-center">No.</th>
+														<th>Product Name</th>
+														<th></th>
+													</tr>
+							  				<?php 
+							      				$ssd = mysqli_query($koneksi,"select *from ssd");
+
+							      				$i = 0;
+							      				if($ssd == TRUE){
+													while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
+														$i++;
+											?>	
+												<tr>
+													<td class="align-middle table-center"><?php echo $i ?></td>
+						      						<td><a href="product.php?p=<?php echo $key['ssdname'] ?>" role="button"><?php echo $key['ssdname'] ?> <span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
+						      						<td class="align-middle table-center"><button class="btn btn-sm btn-warning" type="submit" name="<?php echo $key['ssdname'] ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
+												</tr>													
+							      					
+						      				<?php
+							      						if(isset($_POST[$key['ssdname']])){
+														    $dssd = $key['ssdname'];
+
+														    $result = mysqli_query($koneksi,"delete from ssd where ssdname = '$dssd'");
+
+														    echo "<meta http-equiv='refresh' content='0'>";
+														}
+													}
+												}
+											?>
+												</table>
+							  				</div>						  												  										      			
+							      		</div>							      		
+								  	</form>	
+							  	</div>
+							  	
 							</div>
 					  	</div>
 					</div>
