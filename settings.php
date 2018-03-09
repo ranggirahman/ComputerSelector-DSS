@@ -8,6 +8,7 @@
 * Deskripsi   : Settings Page
 *
 **************************************************/
+
 	session_start();
 	if( $_SESSION['islogin'] != 1){
 		header("Location: login.php");
@@ -47,9 +48,7 @@
 				  	<input type="submit" name="searchsubmit" style="display:none"/>
 		        </form>
 	      	</div>
-	    </div>
-
-	    
+	    </div>	    
 
 		<div class="container" style="padding-top: 60px;">
 			<div class="row">
@@ -373,11 +372,7 @@
 										    }else if ( $ci >= 1 ) {
 									    		$message = "Error : VGA Name Already Exists";
         										echo "<script type='text/javascript'>alert('$message');</script>";
-										    }										    		
-
-										   
-
-										    echo "<meta http-equiv='refresh' content='0'>";						   
+										    }					   
 									  	}
 									?>
 							  	</div>
@@ -442,12 +437,7 @@
 										    }else if ( $ci >= 1 ) {
 									    		$message = "Error : SSD Name Already Exists";
         										echo "<script type='text/javascript'>alert('$message');</script>";
-										    }	
-
-
-										    
-
-										    echo "<meta http-equiv='refresh' content='0'>";						   
+										    }									    				   
 									  	}
 									?>
 							  	</div>
@@ -481,9 +471,9 @@
 							  			<div class="row" style="overflow-y: scroll; height:358px;">
 							  				<div class="col-sm-12">
 							  					<table class="table table-sm">
-													<tr>
+													<tr style="height: 40px;">
 														<th class="align-middle table-center">No.</th>
-														<th>Product Name</th>
+														<th class="align-middle">Product Name</th>
 														<th></th>
 													</tr>
 							  				<?php 
@@ -521,9 +511,9 @@
 							  			<div class="row" style="overflow-y: scroll; height:358px;">
 							  				<div class="col-sm-12">
 							  					<table class="table table-sm">
-													<tr>
+													<tr style="height: 40px;">
 														<th class="align-middle table-center">No.</th>
-														<th>Product Name</th>
+														<th class="align-middle">Product Name</th>
 														<th></th>
 													</tr>
 							  				<?php 
@@ -561,9 +551,9 @@
 							  			<div class="row" style="overflow-y: scroll; height:358px;">
 							  				<div class="col-sm-12">
 							  					<table class="table table-sm">
-													<tr>
+													<tr style="height: 40px;">
 														<th class="align-middle table-center">No.</th>
-														<th>Product Name</th>
+														<th class="align-middle">Product Name</th>
 														<th></th>
 													</tr>
 							  				<?php 
@@ -596,7 +586,7 @@
 							      		</div>							      		
 								  	</form>	
 							  	</div>
-							  	
+
 							</div>
 					  	</div>
 					</div>
@@ -698,7 +688,7 @@
 	     	
 	     	<?php 	}   ?>
 
-	     	<br><br><hr>
+	     	<br><hr>
 
 	      	<footer>
 	      		<div class="row">

@@ -8,6 +8,7 @@
 * Deskripsi   : Product Information Page
 *
 **************************************************/
+
 	session_start();
 	if( $_SESSION['islogin'] != 1){
 		header("Location: login.php");

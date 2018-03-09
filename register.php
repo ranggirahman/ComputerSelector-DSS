@@ -1,11 +1,11 @@
 <?php
 /*************************************************
-* Filename    : login.php
+* Filename    : register.php
 * Programmer  : Ranggi Rahman
 * Date        : 2017 - 12 - 20
 * Email       : ranggirahman@gmail.com
 * Website     : 1400707.blog.upi.edu
-* Deskripsi   : Login Page
+* Deskripsi   : Register Page
 *
 **************************************************/
 
@@ -33,42 +33,69 @@
 
   	<body>
 
-  		<div class="fixed-bg"></div>
 	    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
 	      	<div class="container">
 	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 3%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
 	      	</div>
 	    </div>
 
-	    <div class="jumbotron">
-	    	<div class="container">	    	
-			   	<div class="row">
-		          	<div class="col-md-7">
-		            	<h1 class="display-4" style="font-size: 64px;">Choice of Computer Hardware Specifications</h1>
-		            </div>
-		            <div class="col-md-1"></div>
-		            <div class="col-md-1" style="border-left:1px solid lightgray;height:auto;"></div>
-	            	<div class="col-md-3" style="padding-top: 15px;">            
-		            	<form action="" method="POST">
-		              	<table>
-		                	<tr height="50px">
-		                    	<td><input class="form-control" type="user" name="username" placeholder="Username" maxlength="40" size="40" required></td>
-		               		</tr>
-		               		<tr height="50px">
-		                    	<td><input class="form-control" type="password" name="password" placeholder="Password" maxlength="20" size="40" required></td>
-		                	</tr>
-		                </table>
-		                <table>
-		                	<tr height="50px">
-		                  		<td><input class="btn btn-success" type="submit" name="login" value="Login"></td>
-		                  		<td><a class='btn btn-info' href='register.php' role='button'>Register</a></td>		                		
-		                	</tr>                        
-		              	</table>
-		            	</form>
-		          	</div>
-		      	</div>
-	    	</div>
-		</div>
+    	<div class="container" style="padding-top: 60px;">
+			<div class="row">
+	      		<div class="col-md-12">
+	      			<div class="card">
+					  	<div class="card-header"><i class="material-icons" style="color: grey;">people</i> Register</div>
+					  	<div class="card-body">
+					     	<form enctype="multipart/form-data" action="" method="POST">
+					  			<div class="row">
+					  				<div class="col-md-12">
+					  					<table class="table table-responsive borderless">
+					  						<tr>
+					  							<td class="align-middle" width="150px">Username</td>
+						  						<td width="250px"><input class="form-control" type="text" name="username" required></td>
+						  						<td></td>
+						  						<td width="200px" rowspan="4"></td>
+					  						</tr>
+					  						<tr>
+						  						<td class="align-middle">Name</td>
+						  						<td><input class="form-control" type="text" name="name" required></td>
+						  						<td></td>
+						  					</tr>
+						  					<tr>
+						  						<td class="align-middle">Organization</td>
+						  						<td><input class="form-control" type="text" name="organization" required></td>
+						  						<td></td>
+						  					</tr>
+						  					<tr>
+						  						<td class="align-middle">Password</td>
+						  						<td><input class="form-control" type="password" name="password1"</td>
+						  						<td width="250px"><input class="form-control" type="password" name="password2"</td>
+						  					</tr>
+						  					<tr>
+						  						<td></td>
+						  						<td colspan="2">
+						  							<div class="custom-control custom-checkbox mr-sm-2">
+												        <input type="checkbox" class="custom-control-input" id="customControlAutosizing" required>
+												        <label class="custom-control-label" for="customControlAutosizing">I Agree Terms and Conditions</label>
+												    </div>
+						  						</td>
+						  					</tr>
+					  					</table>
+					  				</div>
+					  			</div>
+					  			<hr>	
+					  			<div class="row">
+					  				<div class="col-md-12 text-center">
+					      				<input class="btn btn-success" type="submit" name="register" value="Register">
+					  				</div>
+					  			</div>
+							</form>
+						</div>
+					</div>
+				</div>	        	
+	     	</div>
+	    </div>
+
+	    <br><hr>
 
 		<div class="container">	      	
 	      	<hr>
@@ -89,7 +116,7 @@
 </html>
 
 <?php
-  	if(isset($_POST['login'])){
+  	if(isset($_POST['submit'])){
 
 	    $username = $_POST['username'];
 	    $password = md5($_POST['password']);

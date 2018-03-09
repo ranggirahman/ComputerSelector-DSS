@@ -8,6 +8,7 @@
 * Deskripsi   : Computer Hardware Selector Page
 *
 **************************************************/
+
 	session_start();
 	if( $_SESSION['islogin'] != 1){
 		header("Location: login.php");
@@ -338,8 +339,8 @@
 	     		}
 	     	?>
 	     	
-	     	<br>
-	      	<hr>
+	     	<br><hr>
+	     	
 	      	<footer>
 	      		<div class="row">
 	      			<div class="col-md-10">
