@@ -47,7 +47,8 @@
 					  	<div class="card-body">
 					     	<form enctype="multipart/form-data" action="" method="POST">
 					  			<div class="row">
-					  				<div class="col-md-12">
+					  				<div class="col-md-1"></div>
+					  				<div class="col-md-10">
 					  					<table class="table table-responsive borderless">
 					  						<tr>
 					  							<td class="align-middle" width="150px">Username</td>
@@ -81,6 +82,7 @@
 						  					</tr>
 					  					</table>
 					  				</div>
+					  				<div class="col-md-1"></div>
 					  			</div>
 					  			<hr>	
 					  			<div class="row">
@@ -95,7 +97,7 @@
 	     	</div>
 	    </div>
 
-	    <br><hr>
+	    <br>
 
 		<div class="container">	      	
 	      	<hr>
@@ -116,29 +118,34 @@
 </html>
 
 <?php
-  	if(isset($_POST['submit'])){
+	if(isset($_POST['register'])){
 
-	    $username = $_POST['username'];
-	    $password = md5($_POST['password']);
+		$username = $_POST['username'];		
+	    $password1 = $_POST['password1'];
+	    $password2 = $_POST['password2'];
+		$name = $_POST['name'];
+	    $organization = $_POST['organization'];
 
-	    $c = mysqli_query($koneksi,"select count(username) from user where username='$username' and password='$password'");
+	    $c = mysqli_query($koneksi,"select count(username) from user where username='$username'");
 
 	    $cr = mysqli_fetch_array($c);
 	    $ci = $cr['count(username)'];
 
-	    if( $ci == 1 ){
+	    if( $ci == 0 ){
+	    	if($password1 == $password2){
+	    		$password = md5($password1);
+	    		$result = mysqli_query($koneksi,"insert into user(username,password,name,organization,bcpu,bvga,bssd,storeid) values ('$username','$password','$name','$organization','1000','1000','1000','1')");
 
-	        session_start();
-	        $_SESSION['username']= $username;
-	        $_SESSION['islogin']= 1;
-
-	        var_dump($_SESSION);
-
-	        header("Location: index.php");
+	    		header("Location: login.php");
+	    	}else{
+		    	$msg = "Password not Correct";
+				echo "<script type='text/javascript'>alert('$msg');</script>";
+			}		        
 	    }else{
-	    	$message = "Invalid Username or Password";
+	    	$message = "Username Already Taken";
 	        echo "<script type='text/javascript'>alert('$message');</script>";
-	    }
+	    }		
 
-  	}
+	    echo "<meta http-equiv='refresh' content='0'>";
+	}
 ?>

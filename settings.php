@@ -54,7 +54,7 @@
 			<div class="row">
 	      		<div class="col-md-12">
 	      			<div class="card">
-					  	<div class="card-header"><i class="material-icons" style="color: grey;">people</i> Personalization</div>
+					  	<div class="card-header"><i class="material-icons" style="color: grey;">person</i> Personalization</div>
 					  	<div class="card-body">
 					     	<ul class="nav nav-tabs" id="myTab" role="tablist">
 							  	<li class="nav-item">
@@ -109,12 +109,12 @@
 							  			<hr>	
 							  			<div class="row">
 							  				<div class="col-md-12 text-right">
-							      				<input class="btn btn-success" type="submit" name="update" value="Update">
+							      				<input class="btn btn-success" type="submit" name="save" value="Save">
 							  				</div>
 							  			</div>
 									</form>
 									<?php
-										if(isset($_POST['update'])){
+										if(isset($_POST['save'])){
 
 										    $name = $_POST['name'];
 										    $organization = $_POST['organization'];
@@ -210,7 +210,7 @@
 	     	</div>
 
 
-	     	<?php if($us['usertype'] == '1'){
+	     	<?php if($us['usertype'] == '2'){
 	     	?>
 
 	     	<br><br>
@@ -635,7 +635,7 @@
 									  				<tr>
 									      				<td width="180px" class="align-middle">Spesification Name</td>
 									      				<td width="55%"><input class="form-control" type="text" name="<?php echo $sn ?>" maxlength="100" value="<?php echo $sr['sname'] ?>" required></td>
-									      				<td class="align-middle">Icon</td>
+									      				<td class="align-middle">Icon <a href="https://material.io/icons/" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
 									      				<td><input class="form-control" type="text" name="<?php echo $si ?>" maxlength="100" value="<?php echo $sr['sicon'] ?>" required></td>
 									      			</tr>
 									      		</table>
@@ -658,7 +658,7 @@
 							      		<hr>
 							      		<div class="row">
 							      			<div class="col-md-12 text-right">							      				
-							      				<input class="btn btn-success" type="submit" name="<?php echo $ss?>" value="Save">
+							      				<input class="btn btn-success" type="submit" name="<?php echo $ss?>" value="Change">
 							      			</div>							      			
 							      		</div>
 								  	</form>
@@ -685,6 +685,172 @@
 					</div>
 				</div>	        	
 	     	</div>
+
+	     	<br><br>
+
+	     	<div class="row">
+	      		<div class="col-md-12">
+	      			<div class="card">
+					  	<div class="card-header"><i class="material-icons" style="color: grey;">people</i> User Management</div>
+					  	<div class="card-body">
+					     	<ul class="nav nav-tabs" id="myTab" role="tablist">
+							  	<li class="nav-item">
+							    	<a class="nav-link active" data-toggle="tab" href="#ulist" role="tab" aria-selected="true"><i class="material-icons">format_list_bulleted</i> User List</a>
+							  	</li>
+							  	<li class="nav-item">
+							    	<a class="nav-link" data-toggle="tab" href="#adduser" role="tab" aria-selected="true"><i class="material-icons">person_add</i> Add User</a>
+							  	</li>						  
+							</ul>
+							<div class="tab-content">	
+							  	<div class="tab-pane fade show active" id="ulist" role="tabpanel" aria-labelledby="home-tab">							  		
+							  		<form action="" method="POST">
+							  			<div class="row" style="overflow-y: scroll; height:358px;">
+							  				<div class="col-sm-12">
+							  					<table class="table table-sm">
+													<tr style="height: 40px;">
+														<th class="align-middle text-center">User Id</th>
+														<th class="align-middle">Usertype</th>
+														<th class="align-middle">Username</th>
+														<th class="align-middle">Password</th>
+														<th class="align-middle">Name</th>
+														<th class="align-middle">Organization</th>
+														<th></th>
+													</tr>
+							  				<?php 
+							      				$userlist = mysqli_query($koneksi,"select *from user");
+							      				if($userlist == TRUE){
+													while($key = mysqli_fetch_array($userlist,MYSQLI_BOTH)){
+														$ut = "usertype".$key['userid'];
+														$ps = "password".$key['userid'];
+											?>	
+												<tr>
+													<td class="align-middle text-center"><?php echo $key['userid'] ?></td>
+													<td class="align-middle" width="128px">
+														<select class="custom-select" name="<?php echo $ut ?>">
+									      					<?php
+									    						for ($i=0; $i <= 2; $i++){
+									    							?>
+									    							<option value='<?php echo $i ?>' <?php if($key['usertype'] == $i){echo 'selected';} ?> ><?php if($i == 0 ){echo "User"; }elseif ($i == 1) {echo "Moderator"; }elseif ($i == 2) {echo "Admin"; } ?></option>
+
+									    							<?php
+									    						}
+									      					?>
+														</select>
+													</td>
+													<td class="align-middle"><?php echo $key['username'] ?></td>
+													<td class="align-middle" width="200px"><input class="form-control" type="text" name="<?php echo $ps ?>" placeholder="Not Change"></td>
+													<td class="align-middle"><?php echo $key['name'] ?></td>
+													<td class="align-middle"><?php echo $key['organization'] ?></td>
+						      						
+						      						<td class="align-middle table-center"><button class="btn btn-sm btn-success" type="submit" name="<?php echo $key['userid'] ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">save</i></button>&nbsp;<button class="btn btn-sm btn-warning" type="submit" name="<?php echo $key['username'] ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
+												</tr>													
+							      					
+						      				<?php
+							      						if(isset($_POST[$key['userid']])){
+							      							$usertype = $_POST[$ut];
+							      							$password = md5($_POST[$ps]);
+														    $euser = $key['userid'];
+
+														    $result = mysqli_query($koneksi,"update user set usertype='$usertype', password='$password' where userid='$euser'");
+
+														    $message = "User ".$key['username']." was Edited";
+	        												echo "<script type='text/javascript'>alert('$message');</script>";
+
+														    echo "<meta http-equiv='refresh' content='0'>";
+														}
+
+							      						if(isset($_POST[$key['username']])){
+
+														    $result = mysqli_query($koneksi,"delete from user where username = '".$key['username']."'");
+
+														    $message = "User ".$key['username']." was Deleted";
+	        												echo "<script type='text/javascript'>alert('$message');</script>";
+
+														    echo "<meta http-equiv='refresh' content='0'>";
+														}
+													}
+												}
+											?>
+												</table>
+							  				</div>						  												  										      			
+							      		</div>	
+						      		</form>
+							  	</div>
+							  	<div class="tab-pane fade" id="adduser" role="tabpanel" aria-labelledby="profile-tab">
+							  		<form enctype="multipart/form-data" action="" method="POST">
+							  			<br>
+							  			<div class="row">
+							  				<div class="col-md-12">
+							  					<table class="table table-responsive borderless">
+							  						<tr>
+							  							<td class="align-middle" width="150px">Username</td>
+								  						<td width="250px"><input class="form-control" type="text" name="username" required></td>
+								  						<td></td>
+								  						<td width="200px" rowspan="4"></td>
+							  						</tr>
+							  						<tr>
+								  						<td class="align-middle">Name</td>
+								  						<td><input class="form-control" type="text" name="name" required></td>
+								  						<td></td>
+								  					</tr>
+								  					<tr>
+								  						<td class="align-middle">Organization</td>
+								  						<td><input class="form-control" type="text" name="organization" required></td>
+								  						<td></td>
+								  					</tr>
+								  					<tr>
+								  						<td class="align-middle">Password</td>
+								  						<td><input class="form-control" type="password" name="password1" required></td>
+								  						<td width="250px"><input class="form-control" type="password" name="password2" required></td>
+								  					</tr>
+							  					</table>
+							  				</div>
+							  			</div>
+							  			<hr>	
+							  			<div class="row">
+							  				<div class="col-md-12 text-right">
+							      				<input class="btn btn-success" type="submit" name="register" value="Register">
+							  				</div>
+							  			</div>
+									</form>
+									<?php
+										if(isset($_POST['register'])){
+
+											$username = $_POST['username'];		
+										    $password1 = $_POST['password1'];
+										    $password2 = $_POST['password2'];
+											$name = $_POST['name'];
+										    $organization = $_POST['organization'];
+
+										    $c = mysqli_query($koneksi,"select count(username) from user where username='$username'");
+
+										    $cr = mysqli_fetch_array($c);
+										    $ci = $cr['count(username)'];
+
+										    if( $ci == 0 ){
+										    	if($password1 == $password2){
+										    		$password = md5($password1);
+										    		$result = mysqli_query($koneksi,"insert into user(username,password,name,organization,bcpu,bvga,bssd,storeid) values ('$username','$password','$name','$organization','1000','1000','1000','1')");
+										    	}else{
+											    	$msg = "Password not Correct";
+													echo "<script type='text/javascript'>alert('$msg');</script>";
+												}		        
+										    }else{
+										    	$message = "Username Already Taken";
+										        echo "<script type='text/javascript'>alert('$message');</script>";
+										    }		
+
+										    $message = "User ".$username." was Added";
+	        								echo "<script type='text/javascript'>alert('$message');</script>";
+										    echo "<meta http-equiv='refresh' content='0'>";
+										}
+									?>
+							  	</div>
+							</div>
+						</div>
+					</div>
+				</div>	        	
+	     	</div>	     	
 	     	
 	     	<?php 	}   ?>
 
