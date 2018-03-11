@@ -5,20 +5,21 @@
 * Date        : 2018 - 1 - 14
 * Email       : ranggirahman@gmail.com
 * Website     : 1400707.blog.upi.edu
-* Deskripsi   : Settings Page
+* Deskripsi   : User Settings Page
 *
 **************************************************/
 
 	session_start();
 	if( $_SESSION['islogin'] != 1){
-		header("Location: login.php");
+		header("Location: ../pages/login.php");
 	}else if(isset($_POST['logout'])){
 	    session_unset();
 	    session_destroy();
-	    header("Location: login.php");
+	    header("Location: ../pages/login.php");
   	}
 
-  	include "koneksi.php";
+  	include "../db/connection.php";
+
 
   	$result = mysqli_query($koneksi,"select *from user where username='".$_SESSION['username']."'");
 	$us = mysqli_fetch_array($result);
@@ -30,20 +31,20 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
-	    <link rel="stylesheet" href="css/material-icons.css">
-	    <link rel="stylesheet" href="css/modification.css">
-	    <link href="css/jumbotron.css" rel="stylesheet">
-	    <link rel="icon" href="img/favicon.ico">	   
+	    <link rel="stylesheet" href="../css/bootstrap.css" media="screen">
+	    <link rel="stylesheet" href="../css/material-icons.css">
+	    <link rel="stylesheet" href="../css/modification.css">
+	    <link href="../css/jumbotron.css" rel="stylesheet">
+	    <link rel="icon" href="../img/favicon.ico">	   
 	    <title>Choice of Computer Hardware Specifications</title>
   	</head>
 
   	<body>
 	    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
 	      	<div class="container">
-	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 5%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
+	        	<a href="../index.php" class="navbar-brand"><img src="../img/logo.png" class="img-fluid" style="max-width: 5%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
 
-	        	<form class="col-lg-5" action="search.php" method="POST" class="form-inline">
+	        	<form class="col-lg-5" action="../pages/search.php" method="POST" class="form-inline">
 				  	<input class="form-control" name="search" placeholder="Product Search">
 				  	<input type="submit" name="searchsubmit" style="display:none"/>
 		        </form>
@@ -75,7 +76,7 @@
 							  							<td width="10%" rowspan="4">
 							  								<div class="card">
 							  									<div class="card-body">
-							  										<img src="user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle" height="125px" width="125px"/>
+							  										<img src="../user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744" onerror=this.src="../img/default_profile.jpg" class="rounded-circle" height="125px" width="125px"/>
 							  									</div>
 							  									<div class="card-footer">
 							  										<input class="btn btn-sm" type="file" name="uploaded_file" style="width: 80%">
@@ -136,7 +137,7 @@
 										    if (empty($_FILES['uploaded_file']['name'])) {
 											    // No file was selected for upload, your (re)action goes here
 											}else{
-												$path = "user/profile/".$us['username'].".jpg";
+												$path = "../user/profile/".$us['username'].".jpg";
 										    	if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
 										    		// success upload refresh cache
 											    }else{
@@ -222,13 +223,13 @@
 					  	<div class="card-body">
 						    <ul class="nav nav-tabs" id="myTab" role="tablist">
 							  <li class="nav-item">
-							    <a class="nav-link active" data-toggle="tab" href="#processor" role="tab" aria-selected="true"><img src="img/processor.png" style="max-width: 28px; and height: 28px;"> Processor</a>
+							    <a class="nav-link active" data-toggle="tab" href="#processor" role="tab" aria-selected="true"><img src="../img/processor.png" style="max-width: 28px; and height: 28px;"> Processor</a>
 							  </li>
 							  <li class="nav-item">
-							    <a class="nav-link" data-toggle="tab" href="#vga" role="tab" aria-selected="false"><img src="img/vga.png" style="max-width: 28px; and height: 28px;"> Video Graphic Array</a>
+							    <a class="nav-link" data-toggle="tab" href="#vga" role="tab" aria-selected="false"><img src="../img/vga.png" style="max-width: 28px; and height: 28px;"> Video Graphic Array</a>
 							  </li>
 							  <li class="nav-item">
-							    <a class="nav-link" data-toggle="tab" href="#ssd" role="tab" aria-selected="false"><img src="img/ssd.png" style="max-width: 28px; and height: 28px;"> Solid State Disk</a>
+							    <a class="nav-link" data-toggle="tab" href="#ssd" role="tab" aria-selected="false"><img src="../img/ssd.png" style="max-width: 28px; and height: 28px;"> Solid State Disk</a>
 							  </li>
 							</ul>
 							<div class="tab-content">
@@ -296,6 +297,8 @@
 										    if( $ci == 0 ){		
 											    $cpuadd = mysqli_query($koneksi,"insert into cpu(cpuname,performance,single,intg,intgocl,ppw,value,cpuscore,cpuprice) values ('$cpuname','$performance','$single','$intg','$intgocl','$ppw','$value','$cpuscore','$cpuprice')");
 
+											    $message = "Processor ".$cpuadd." was Added";
+		        								echo "<script type='text/javascript'>alert('$message');</script>";
 											    echo "<meta http-equiv='refresh' content='0'>";
 										    }else if ( $ci >= 1 ) {
 									    		$message = "Error : CPU Name Already Exists";
@@ -368,6 +371,8 @@
 										    if( $ci == 0 ){		
 											    $vgaadd = mysqli_query($koneksi,"insert into vga(vganame,gaming,graphics,computing,ppw,value,nap,vgascore,vgaprice) values ('$vganame','$gaming','$graphics','$computing','$ppw','$value','$nap','$vgascore','$vgaprice')");
 
+											    $message = "VGA ".$vgaadd." was Added";
+		        								echo "<script type='text/javascript'>alert('$message');</script>";
 											    echo "<meta http-equiv='refresh' content='0'>";
 										    }else if ( $ci >= 1 ) {
 									    		$message = "Error : VGA Name Already Exists";
@@ -433,6 +438,8 @@
 										    if( $ci == 0 ){		
 											    $ssdadd = mysqli_query($koneksi,"insert into ssd(ssdname,readp,writep,realwb,bench,ssdscore,ssdprice) values ('$ssdname','$readp','$writep','$realwb','$bench','$ssdscore','$ssdprice')");
 
+											    $message = "SSD ".$ssdadd." was Added";
+		        								echo "<script type='text/javascript'>alert('$message');</script>";
 											    echo "<meta http-equiv='refresh' content='0'>";
 										    }else if ( $ci >= 1 ) {
 									    		$message = "Error : SSD Name Already Exists";
@@ -456,13 +463,13 @@
 					  	<div class="card-body">
 						    <ul class="nav nav-tabs" id="myTab" role="tablist">
 							  <li class="nav-item">
-							    <a class="nav-link active" data-toggle="tab" href="#dprocessor" role="tab" aria-selected="true"><img src="img/processor.png" style="max-width: 28px; and height: 28px;"> Processor</a>
+							    <a class="nav-link active" data-toggle="tab" href="#dprocessor" role="tab" aria-selected="true"><img src="../img/processor.png" style="max-width: 28px; and height: 28px;"> Processor</a>
 							  </li>
 							  <li class="nav-item">
-							    <a class="nav-link" data-toggle="tab" href="#dvga" role="tab" aria-selected="false"><img src="img/vga.png" style="max-width: 28px; and height: 28px;"> Video Graphic Array</a>
+							    <a class="nav-link" data-toggle="tab" href="#dvga" role="tab" aria-selected="false"><img src="../img/vga.png" style="max-width: 28px; and height: 28px;"> Video Graphic Array</a>
 							  </li>
 							  <li class="nav-item">
-							    <a class="nav-link" data-toggle="tab" href="#dssd" role="tab" aria-selected="false"><img src="img/ssd.png" style="max-width: 28px; and height: 28px;"> Solid State Disk</a>
+							    <a class="nav-link" data-toggle="tab" href="#dssd" role="tab" aria-selected="false"><img src="../img/ssd.png" style="max-width: 28px; and height: 28px;"> Solid State Disk</a>
 							  </li>
 							</ul>
 							<div class="tab-content">
@@ -486,7 +493,7 @@
 											?>	
 												<tr>
 													<td class="align-middle table-center"><?php echo $i ?></td>
-						      						<td><a href="product.php?p=<?php echo $key['cpuname'] ?>" role="button"><?php echo $key['cpuname'] ?> <span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
+						      						<td><a href="../pages/product.php?p=<?php echo $key['cpuname'] ?>" role="button"><?php echo $key['cpuname'] ?> <span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
 						      						<td class="align-middle table-center"><button class="btn btn-sm btn-warning" type="submit" name="<?php echo $key['cpuname'] ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
 												</tr>													
 							      					
@@ -496,6 +503,8 @@
 
 														    $result = mysqli_query($koneksi,"delete from cpu where cpuname = '$dcpu'");
 
+														    $message = "Processor ".$dcpu." was Deleted";
+					        								echo "<script type='text/javascript'>alert('$message');</script>";
 														    echo "<meta http-equiv='refresh' content='0'>";
 														}
 													}
@@ -526,7 +535,7 @@
 											?>	
 												<tr>
 													<td class="align-middle table-center"><?php echo $i ?></td>
-						      						<td><a href="product.php?p=<?php echo $key['vganame'] ?>" role="button"><?php echo $key['vganame'] ?> <span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
+						      						<td><a href="../pages/product.php?p=<?php echo $key['vganame'] ?>" role="button"><?php echo $key['vganame'] ?> <span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
 						      						<td class="align-middle table-center"><button class="btn btn-sm btn-warning" type="submit" name="<?php echo $key['vganame'] ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
 												</tr>													
 							      					
@@ -536,6 +545,8 @@
 
 														    $result = mysqli_query($koneksi,"delete from vga where vganame = '$dvga'");
 
+														  	$message = "VGA ".$dvga." was Deleted";
+					        								echo "<script type='text/javascript'>alert('$message');</script>";
 														    echo "<meta http-equiv='refresh' content='0'>";
 														}
 													}
@@ -566,16 +577,17 @@
 											?>	
 												<tr>
 													<td class="align-middle table-center"><?php echo $i ?></td>
-						      						<td><a href="product.php?p=<?php echo $key['ssdname'] ?>" role="button"><?php echo $key['ssdname'] ?> <span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
+						      						<td><a href="../pages/product.php?p=<?php echo $key['ssdname'] ?>" role="button"><?php echo $key['ssdname'] ?> <span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
 						      						<td class="align-middle table-center"><button class="btn btn-sm btn-warning" type="submit" name="<?php echo $key['ssdname'] ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
 												</tr>													
 							      					
 						      				<?php
 							      						if(isset($_POST[$key['ssdname']])){
 														    $dssd = $key['ssdname'];
-
 														    $result = mysqli_query($koneksi,"delete from ssd where ssdname = '$dssd'");
 
+														    $message = "SSD ".$dssd." was Deleted";
+					        								echo "<script type='text/javascript'>alert('$message');</script>";
 														    echo "<meta http-equiv='refresh' content='0'>";
 														}
 													}
@@ -619,7 +631,8 @@
 									$scon = mysqli_query($koneksi,"select *from spesification");
 					     			$sf = 0;
 									while($sr = mysqli_fetch_array($scon,MYSQLI_BOTH)){
-										$sn = "sname".$sr['sid'];
+										$sn = "sname".$sr['sid'];										
+										$dc = "sdescription".$sr['sid'];
 										$si = "sicon".$sr['sid'];
 										$sc = "cpusyntax".$sr['sid'];
 										$sv = "vgasyntax".$sr['sid'];
@@ -637,6 +650,10 @@
 									      				<td width="55%"><input class="form-control" type="text" name="<?php echo $sn ?>" maxlength="100" value="<?php echo $sr['sname'] ?>" required></td>
 									      				<td class="align-middle">Icon <a href="https://material.io/icons/" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
 									      				<td><input class="form-control" type="text" name="<?php echo $si ?>" maxlength="100" value="<?php echo $sr['sicon'] ?>" required></td>
+									      			</tr>
+									      			<tr>
+									      				<td width="180px" class="align-middle">Description</td>
+									      				<td width="55%" colspan="3"><textarea class="form-control" rows="2" name="<?php echo $dc ?>"><?php echo $sr['description'] ?></textarea></td>
 									      			</tr>
 									      		</table>
 									      		<hr>
@@ -665,13 +682,16 @@
 								  	<?php
 									  	if(isset($_POST[$ss])){
 										    $sname = $_POST[$sn];
+										    $sdescription = mysql_real_escape_string($_POST[$dc]);
 										    $sicon = $_POST[$si];
 										    $psyntax = $_POST[$sc];
 										    $vsyntax = $_POST[$sv];
 										    $ssyntax = $_POST[$sd];
 
-										    $result = mysqli_query($koneksi,"update spesification set sname='$sname', sicon='$sicon', psyntax='$psyntax', vsyntax='$vsyntax', ssyntax='$ssyntax' where sid='".$sr['sid']."'");
+										    $result = mysqli_query($koneksi,"update spesification set sname='$sname', description='$sdescription', sicon='$sicon', psyntax='$psyntax', vsyntax='$vsyntax', ssyntax='$ssyntax' where sid='".$sr['sid']."'");
 
+										    $message = "".$sname." Spesification was Edited";
+	        								echo "<script type='text/javascript'>alert('$message');</script>";
 										    echo "<meta http-equiv='refresh' content='0'>";
 										}
 									?>
@@ -760,12 +780,10 @@
 														}
 
 							      						if(isset($_POST[$key['username']])){
-
 														    $result = mysqli_query($koneksi,"delete from user where username = '".$key['username']."'");
 
 														    $message = "User ".$key['username']." was Deleted";
 	        												echo "<script type='text/javascript'>alert('$message');</script>";
-
 														    echo "<meta http-equiv='refresh' content='0'>";
 														}
 													}
@@ -864,7 +882,7 @@
 	      			<div class="col-md-2">
 	      				<table class="float-right">
 	      					<tr>
-	      						<td><a class="btn btn-light btn-sm" href="settings.php" role="button" title="Settings"><i class="material-icons">settings_applications</i></a></td>
+	      						<td><a class="btn btn-light btn-sm" href="../pages/settings.php" role="button" title="Settings"><i class="material-icons">settings_applications</i></a></td>
 	      						<td><form action="" method="post"><button type="submit" class="btn btn-light btn-sm" name="logout" title="Sign Out"><i class="material-icons">exit_to_app</i></button></form></td>
 	      					</tr>
 	      				</table>
@@ -873,10 +891,10 @@
 	      	</footer>
 		</div>
 
-	    <script src="js/jquery.min.js"></script>
-	    <script src="js/popper.min.js"></script>
-	    <script src="js/bootstrap.js"></script>
-	    <script src="js/custom.js"></script> 
+	    <script src="../js/jquery.min.js"></script>
+	    <script src="../js/popper.min.js"></script>
+	    <script src="../js/bootstrap.js"></script>
+	    <script src="../js/custom.js"></script> 
 
 	    <script type="text/javascript">
 	    	// pop over

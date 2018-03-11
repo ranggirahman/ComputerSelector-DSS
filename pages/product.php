@@ -11,14 +11,15 @@
 
 	session_start();
 	if( $_SESSION['islogin'] != 1){
-		header("Location: login.php");
+		header("Location: ../pages/login.php");
 	}else if(isset($_POST['logout'])){
 	    session_unset();
 	    session_destroy();
-	    header("Location: login.php");
+	    header("Location: ../pages/login.php");
   	}
 
-  	include "koneksi.php";
+  	include "../db/connection.php";
+
 
   	$result = mysqli_query($koneksi,"select *from user where username='".$_SESSION['username']."'");
 	$us = mysqli_fetch_array($result);
@@ -33,11 +34,11 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
-	    <link rel="stylesheet" href="css/material-icons.css">
-	    <link rel="stylesheet" href="css/modification.css">
-	    <link href="css/jumbotron.css" rel="stylesheet">
-	    <link rel="icon" href="img/favicon.ico">	   
+	    <link rel="stylesheet" href="../css/bootstrap.css" media="screen">
+	    <link rel="stylesheet" href="../css/material-icons.css">
+	    <link rel="stylesheet" href="../css/modification.css">
+	    <link href="../css/jumbotron.css" rel="stylesheet">
+	    <link rel="icon" href="../img/favicon.ico">	   
 	    <title>Choice of Computer Hardware Specifications</title>
   	</head>
 
@@ -46,7 +47,7 @@
 
 	    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
 	      	<div class="container">
-	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 5%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
+	        	<a href="../index.php" class="navbar-brand"><img src="../img/logo.png" class="img-fluid" style="max-width: 5%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
 
 	        	<form class="col-lg-5" action="search.php" method="POST" class="form-inline">
 				  	<input class="form-control" name="search" placeholder="Product Search">
@@ -73,7 +74,7 @@
 						echo "<div class='card'>";
 						echo "<div class='card-body'>";
 							echo "<div class='row'>";
-							echo "<div class='col-md-1'><img src='img/processor.png' height='55px' width='55px'></div>";
+							echo "<div class='col-md-1'><img src='../img/processor.png' height='55px' width='55px'></div>";
 							echo "<div class='col-md-11'><h5 class='display-4' style='font-size: 40px;'>".$row['cpuname']."</h5></div>";
 						    echo "</div>"; 	
 						   	echo "<hr>";
@@ -133,7 +134,7 @@
 						echo "<div class='card'>";
 						echo "<div class='card-body'>";
 							echo "<div class='row'>";
-							echo "<div class='col-md-1'><img src='img/vga.png' height='55px' width='55px'></div>";
+							echo "<div class='col-md-1'><img src='../img/vga.png' height='55px' width='55px'></div>";
 							echo "<div class='col-md-11'><h5 class='display-4' style='font-size: 40px;'>".$row['vganame']."</h5></div>";
 						    echo "</div>"; 	
 						   	echo "<hr>";
@@ -193,7 +194,7 @@
 						echo "<div class='card'>";
 						echo "<div class='card-body'>";
 							echo "<div class='row'>";
-							echo "<div class='col-md-1'><img src='img/ssd.png' height='55px' width='55px'></div>";
+							echo "<div class='col-md-1'><img src='../img/ssd.png' height='55px' width='55px'></div>";
 							echo "<div class='col-md-11'><h5 class='display-4' style='font-size: 40px;'>".$row['ssdname']."</h5></div>";
 						    echo "</div>"; 	
 						   	echo "<hr>";
@@ -291,7 +292,7 @@
 						  		<div class='card-body'>
 									<div class='row'>
 										<div class='col-sm-1'>	
-											<img src='user/profile/".$key['resuser'].".jpg?dummy=8484744' onerror=this.src='img/default_profile.jpg' class='rounded-circle float-right' height=62px' width='62px'/>							
+											<img src='../user/profile/".$key['resuser'].".jpg?dummy=8484744' onerror=this.src='../img/default_profile.jpg' class='rounded-circle float-right' height=62px' width='62px'/>							
 										</div>
 										<div class='col-sm-10'>	
 											<b>".$resu['name']."</b> ".$resu['organization']."						
@@ -311,7 +312,7 @@
 					  	<div class="card-body">
 					  		<div class="row">
 						  		<div class='col-sm-1'>	
-									<center><img src='user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744' onerror=this.src='img/default_profile.jpg' class='rounded-circle float-right' height='62px' width='62px'/></center>									
+									<center><img src='../user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744' onerror=this.src='../img/default_profile.jpg' class='rounded-circle float-right' height='62px' width='62px'/></center>									
 								</div>
 								<div class='col-sm-11'>
 									<form action="" method="POST">

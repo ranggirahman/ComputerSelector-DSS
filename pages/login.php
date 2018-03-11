@@ -5,16 +5,16 @@
 * Date        : 2017 - 12 - 20
 * Email       : ranggirahman@gmail.com
 * Website     : 1400707.blog.upi.edu
-* Deskripsi   : Login Page
+* Deskripsi   : User Login Page
 *
 **************************************************/
 
 	session_start();
 	if(array_key_exists('islogin',$_SESSION) && !empty($_SESSION['islogin'])) {
-	   	header("Location: index.php");
+	   	header("Location: ../index.php");
 	}
 
-  	include "koneksi.php";
+  	include "../db/connection.php";
 ?>
 
 <!DOCTYPE html>
@@ -23,11 +23,11 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
-	    <link rel="stylesheet" href="css/material-icons.css">
-	    <link rel="stylesheet" href="css/modification.css">
-	    <link href="css/jumbotron.css" rel="stylesheet">
-	    <link rel="icon" href="img/favicon.ico">	   
+	    <link rel="stylesheet" href="../css/bootstrap.css" media="screen">
+	    <link rel="stylesheet" href="../css/material-icons.css">
+	    <link rel="stylesheet" href="../css/modification.css">
+	    <link href="../css/jumbotron.css" rel="stylesheet">
+	    <link rel="icon" href="../img/favicon.ico">	   
 	    <title>Choice of Computer Hardware Specifications</title>
   	</head>
 
@@ -36,7 +36,7 @@
   		<div class="fixed-bg"></div>
 	    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
 	      	<div class="container">
-	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 3%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
+	        	<a href="../index.php" class="navbar-brand"><img src="../img/logo.png" class="img-fluid" style="max-width: 3%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
 	      	</div>
 	    </div>
 
@@ -61,7 +61,7 @@
 		                <table>
 		                	<tr height="50px">
 		                  		<td><input class="btn btn-success" type="submit" name="login" value="Login"></td>
-		                  		<td><a class='btn btn-info' href='register.php' role='button'>Register</a></td>		                		
+		                  		<td><a class='btn btn-info' href='../pages/register.php' role='button'>Register</a></td>		                		
 		                	</tr>                        
 		              	</table>
 		            	</form>
@@ -81,10 +81,10 @@
 	      	</footer>
 		</div>
 
-	    <script src="js/jquery.min.js"></script>
-	    <script src="js/popper.min.js"></script>
-	    <script src="js/bootstrap.js"></script>
-	    <script src="js/custom.js"></script> 
+	    <script src="../js/jquery.min.js"></script>
+	    <script src="../js/popper.min.js"></script>
+	    <script src="../js/bootstrap.js"></script>
+	    <script src="../js/custom.js"></script> 
 	</body>
 </html>
 
@@ -107,7 +107,7 @@
 
 	        var_dump($_SESSION);
 
-	        header("Location: index.php");
+	        header("Location: ../index.php");
 	    }else{
 	    	$message = "Invalid Username or Password";
 	        echo "<script type='text/javascript'>alert('$message');</script>";

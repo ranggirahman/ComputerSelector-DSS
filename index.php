@@ -11,14 +11,14 @@
 
  	session_start();
 	if( $_SESSION['islogin'] != 1){
-		header("Location: login.php");
+		header("Location: pages/login.php");
 	}else if(isset($_POST['logout'])){
 	    session_unset();
 	    session_destroy();
-	    header("Location: login.php");
+	    header("Location: pages/login.php");
   	}
 
-  	include "koneksi.php";
+  	include "db/connection.php";
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +42,7 @@
 	      	<div class="container">
 	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 5%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
 
-	        	<form  class="col-lg-5" action="search.php" method="POST">
+	        	<form  class="col-lg-5" action="/pages/search.php" method="POST">
 				  	<input class="form-control" name="search" placeholder="Product Search">
 				  	<input type="submit" name="searchsubmit" style="display:none"/>
 		        </form>
@@ -67,7 +67,7 @@
 		      	</div>
 		      	<div class="row">
 		      		<div class="col-md-4">
-						<a class="btn btn-secondary" href="selector.php" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">touch_app</i></span> Pick Your Own Computer</a>
+						<a class="btn btn-secondary" href="pages/selector.php" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">touch_app</i></span> Pick Your Own Computer</a>
 					</div>
 		      	</div>
 	    	</div>
@@ -119,7 +119,7 @@
 	      			<div class="col-md-2">
 	      				<table class="float-right">
 	      					<tr>
-	      						<td><a class="btn btn-light btn-sm" href="settings.php" role="button" title="Settings"><i class="material-icons">settings_applications</i></a></td>
+	      						<td><a class="btn btn-light btn-sm" href="pages/settings.php" role="button" title="Settings"><i class="material-icons">settings_applications</i></a></td>
 	      						<td><form action="" method="post"><button type="submit" class="btn btn-light btn-sm" name="logout" title="Sign Out"><i class="material-icons">exit_to_app</i></button></form></td>
 	      					</tr>
 	      				</table>
@@ -167,7 +167,7 @@
 										?>
 										<tr>
 											<td class="align-middle table-center" width="50px"><?php echo $i ?></td>
-						      				<td class="align-middle"><a href="product.php?p=<?php echo $key['cpuname'] ?>" role="button"><?php echo $key['cpuname'] ?> <span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
+						      				<td class="align-middle"><a href="pages/product.php?p=<?php echo $key['cpuname'] ?>" role="button"><?php echo $key['cpuname'] ?> <span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
 						      				<td class="table-center">
 						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['performance']*10 ?>%;" aria-valuenow="<?php echo $key['performance'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['performance'] ?></div>
@@ -253,7 +253,7 @@
 										?>
 										<tr>
 											<td class="align-middle table-center" width="50px"><?php echo $i ?></td>
-						      				<td class="align-middle"><a href="product.php?p=<?php echo $key['vganame'] ?>" role="button"><span aria-hidden="true"><?php echo $key['vganame'] ?> <i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
+						      				<td class="align-middle"><a href="pages/product.php?p=<?php echo $key['vganame'] ?>" role="button"><span aria-hidden="true"><?php echo $key['vganame'] ?> <i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
 						      				<td class="table-center">
 						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['gaming']*10 ?>%;" aria-valuenow="<?php echo $key['gaming'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['gaming'] ?></div>
@@ -344,7 +344,7 @@
 										?>
 										<tr>
 											<td class="align-middle table-center" width="50px"><?php echo $i ?></td>
-						      				<td class="align-middle"><a href="product.php?p=<?php echo $key['ssdname'] ?>" role="button"><?php echo $key['ssdname'] ?> <span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
+						      				<td class="align-middle"><a href="pages/product.php?p=<?php echo $key['ssdname'] ?>" role="button"><?php echo $key['ssdname'] ?> <span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
 						      				<td class="table-center">
 						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['readp']*10 ?>%;" aria-valuenow="<?php echo $key['readp'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['readp'] ?></div>

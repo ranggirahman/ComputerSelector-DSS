@@ -1,6 +1,6 @@
 <?php
 /*************************************************
-* Filename 		: koneksi.php
+* Filename 		: connection.php
 * Programmer	: Ranggi Rahman
 * Date 			: 2017 - 12 - 20
 * Email 		: ranggirahman@gmail.com

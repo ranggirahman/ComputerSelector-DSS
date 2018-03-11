@@ -11,10 +11,10 @@
 
 	session_start();
 	if(array_key_exists('islogin',$_SESSION) && !empty($_SESSION['islogin'])) {
-	   	header("Location: index.php");
+	   	header("Location: ../index.php");
 	}
 
-  	include "koneksi.php";
+  	include "../db/connection.php";
 ?>
 
 <!DOCTYPE html>
@@ -23,11 +23,11 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
-	    <link rel="stylesheet" href="css/material-icons.css">
-	    <link rel="stylesheet" href="css/modification.css">
-	    <link href="css/jumbotron.css" rel="stylesheet">
-	    <link rel="icon" href="img/favicon.ico">	   
+	    <link rel="stylesheet" href="../css/bootstrap.css" media="screen">
+	    <link rel="stylesheet" href="../css/material-icons.css">
+	    <link rel="stylesheet" href="../css/modification.css">
+	    <link href="../css/jumbotron.css" rel="stylesheet">
+	    <link rel="icon" href="../img/favicon.ico">	   
 	    <title>Choice of Computer Hardware Specifications</title>
   	</head>
 
@@ -35,7 +35,7 @@
 
 	    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
 	      	<div class="container">
-	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 3%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
+	        	<a href="../index.php" class="navbar-brand"><img src="../img/logo.png" class="img-fluid" style="max-width: 3%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
 	      	</div>
 	    </div>
 
@@ -110,10 +110,10 @@
 	      	</footer>
 		</div>
 
-	    <script src="js/jquery.min.js"></script>
-	    <script src="js/popper.min.js"></script>
-	    <script src="js/bootstrap.js"></script>
-	    <script src="js/custom.js"></script> 
+	    <script src="../js/jquery.min.js"></script>
+	    <script src="../js/popper.min.js"></script>
+	    <script src="../js/bootstrap.js"></script>
+	    <script src="../js/custom.js"></script> 
 	</body>
 </html>
 
@@ -136,7 +136,7 @@
 	    		$password = md5($password1);
 	    		$result = mysqli_query($koneksi,"insert into user(username,password,name,organization,bcpu,bvga,bssd,storeid) values ('$username','$password','$name','$organization','1000','1000','1000','1')");
 
-	    		header("Location: login.php");
+	    		header("Location: ../pages/login.php");
 	    	}else{
 		    	$msg = "Password not Correct";
 				echo "<script type='text/javascript'>alert('$msg');</script>";

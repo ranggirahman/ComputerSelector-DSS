@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2018 at 12:15 PM
+-- Generation Time: Mar 11, 2018 at 12:40 PM
 -- Server version: 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -50,14 +50,14 @@ CREATE TABLE `cpu` (
 --
 
 INSERT INTO `cpu` (`cpuid`, `cpuname`, `performance`, `single`, `intg`, `intgocl`, `ppw`, `value`, `cpuscore`, `cpuprice`, `cpuview`, `s1`, `s2`, `s3`, `s4`, `s5`) VALUES
-(1, 'Intel Core i7 5930k', 10, 8.7, 0, 0, 6.2, 5.2, 6.2, 640, 256, 0, 0, 0, 0, 0),
+(1, 'Intel Core i7 5930k', 10, 8.7, 0, 0, 6.2, 5.2, 6.2, 640, 264, 0, 0, 0, 0, 0),
 (2, 'Intel Core i7 5820K', 9.6, 8.3, 0, 0, 6.1, 5.5, 6.1, 439, 4, 0, 0, 0, 0, 0),
 (3, 'AMD FX 8370', 6.8, 6, 0, 0, 5.7, 6, 5.5, 169, 0, 0, 0, 0, 0, 0),
 (4, 'Intel Core i3 4370', 7.4, 10, 0, 7.2, 9.9, 6.5, 8.7, 179, 0, 0, 0, 0, 0, 0),
 (5, 'AMD FX 8370E', 7.2, 5.2, 0, 0, 6.1, 5.8, 5.5, 249, 0, 0, 0, 0, 0, 0),
 (6, 'AMD FX 8320E', 6.8, 5.7, 0, 0, 6.1, 6.6, 5.8, 109, 0, 0, 0, 0, 0, 0),
 (7, 'Intel Core i7 5960X', 9.4, 8.5, 0, 0, 6.1, 5, 6, 1110, 1, 0, 0, 0, 0, 0),
-(8, 'Intel Core i7 4790K', 9.4, 10, 6.7, 6.6, 10, 6.6, 9.7, 399, 5, 0, 0, 0, 0, 0),
+(8, 'Intel Core i7 4790K', 9.4, 10, 6.7, 6.6, 10, 6.6, 9.7, 399, 6, 0, 0, 0, 0, 0),
 (9, 'Intel Pentium G3470', 6.2, 9.5, 0, 0, 9.7, 8.5, 9, 89, 0, 0, 0, 0, 0, 0),
 (10, 'Intel Core i5 4690K', 7.8, 9.2, 6.2, 6.7, 9.5, 6.7, 9.2, 350, 1, 0, 0, 0, 0, 0),
 (11, 'Intel Core i5 4690', 7.4, 9, 5.9, 6.4, 9.5, 6.8, 9, 325, 1, 0, 0, 0, 0, 0),
@@ -78,7 +78,7 @@ INSERT INTO `cpu` (`cpuid`, `cpuname`, `performance`, `single`, `intg`, `intgocl
 (26, 'Intel Core i5 4590T', 7.8, 8.6, 9.2, 0, 6.2, 5, 7.9, 214, 0, 0, 0, 0, 0, 0),
 (27, 'Intel Pentium G3440', 6, 8.4, 0, 6.8, 9, 7.2, 8.2, 82, 0, 0, 0, 0, 0, 0),
 (28, 'AMD A10 7850K', 8.2, 7, 10, 9.9, 9.1, 7.2, 8.9, 155, 0, 0, 0, 0, 0, 0),
-(29, 'AMD A4 7300', 5.3, 6.4, 0, 6.6, 7.2, 10, 8.1, 44, 3, 0, 0, 0, 0, 0),
+(29, 'AMD A4 7300', 5.3, 6.4, 0, 6.6, 7.2, 10, 8.1, 44, 6, 0, 0, 0, 0, 0),
 (30, 'Intel Core i3 4160', 7.1, 9, 6, 6.4, 9, 6.6, 8, 94, 0, 0, 0, 0, 0, 0),
 (31, 'AMD A10 7870K', 5.5, 5.5, 0, 10, 8.8, 8.3, 9.2, 160, 0, 0, 0, 0, 0, 0);
 
@@ -235,7 +235,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`userid`, `usertype`, `username`, `password`, `name`, `organization`, `bcpu`, `bvga`, `bssd`, `storeid`) VALUES
 (1, 2, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Ranggi Rahman', 'UPI', 1000, 1000, 1000, 1),
-(2, 0, 'dewi', 'ed1d859c50262701d92e5cbf39652792', 'Dewi', 'IBM', 1000, 1000, 1000, 1);
+(2, 0, 'dewi', 'ed1d859c50262701d92e5cbf39652792', 'Dewi', 'IBM', 1000, 1000, 1000, 1),
+(3, 0, 'johar', 'd8f0dac6e7eda4e37e926b1ab5159dbe', 'Johar Ridha', 'Intel', 1000, 1000, 1000, 1);
 
 -- --------------------------------------------------------
 
@@ -277,7 +278,7 @@ INSERT INTO `vga` (`vgaid`, `vganame`, `gaming`, `graphics`, `computing`, `ppw`,
 (8, 'Radeon RX 470', 9.1, 6.8, 10, 8.3, 5.1, 7, 8.5, 487, 2, 0, 0, 0, 0, 0),
 (9, 'Radeon R9 290X', 7.2, 8.7, 8.5, 6.6, 7.8, 7.4, 8.1, 483, 0, 0, 0, 0, 0, 0),
 (10, 'Radeon R9 290', 8, 6.5, 8.7, 5.5, 6.7, 6.1, 7.2, 470, 0, 0, 0, 0, 0, 0),
-(11, 'Radeon R9 380', 9.6, 6.8, 8.9, 6, 5, 5, 7.7, 481, 0, 0, 0, 0, 0, 0),
+(11, 'Radeon R9 380', 9.6, 6.8, 8.9, 6, 5, 5, 7.7, 481, 1, 0, 0, 0, 0, 0),
 (12, 'Radeon R9 380X', 7.6, 8.3, 7.7, 6.8, 7.6, 7, 7.7, 320, 0, 0, 0, 0, 0, 0),
 (13, 'GeForce GTX 960', 8, 9.4, 7.1, 7.7, 5.1, 7, 8, 231, 0, 0, 0, 0, 0, 0),
 (15, 'Radeon R9 280', 6.7, 6.2, 7.7, 5.6, 6.2, 6.9, 6.3, 269, 0, 0, 0, 0, 0, 0),
@@ -366,7 +367,7 @@ ALTER TABLE `store`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `vga`
 --

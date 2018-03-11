@@ -11,14 +11,14 @@
 
 	session_start();
 	if( $_SESSION['islogin'] != 1){
-		header("Location: login.php");
+		header("Location: ../pages/login.php");
 	}else if(isset($_POST['logout'])){
 	    session_unset();
 	    session_destroy();
-	    header("Location: login.php");
+	    header("Location: ../pages/login.php");
   	}
 
-  	include "koneksi.php";
+  	include "../db/connection.php";
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +31,7 @@
 	    <link rel="stylesheet" href="css/material-icons.css">
 	    <link rel="stylesheet" href="css/modification.css">
 	    <link href="css/jumbotron.css" rel="stylesheet">
-	    <link rel="icon" href="img/favicon.ico">	   
+	    <link rel="icon" href="../img/favicon.ico">	   
 	    <title>Choice of Computer Hardware Specifications</title>
   	</head>
 
@@ -40,9 +40,9 @@
 
 	    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
 	      	<div class="container">
-	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 5%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
+	        	<a href="../index.php" class="navbar-brand"><img src="../img/logo.png" class="img-fluid" style="max-width: 5%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
 
-	        	<form class="col-lg-5" action="search.php" method="POST" class="form-inline">
+	        	<form class="col-lg-5" action="../pages/search.php" method="POST" class="form-inline">
 				  	<input class="form-control" name="search" placeholder="Product Search" value="<?php echo $search ?>">
 				  	<input type="submit" name="searchsubmit" style="display:none"/>
 		        </form>
@@ -63,8 +63,8 @@
 						$found = 1;
 						echo "<div class='card'><div class='card-body'><table border=0>"; 
 							echo "<tr>";
-						    	echo "<td width='50px'><img src='img/processor.png' style='height='34px' width='34px''></td>";
-						    	echo "<td><a href='product.php?p=".$row['cpuname']."'>".$row['cpuname']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
+						    	echo "<td width='50px'><img src='../img/processor.png' style='height='34px' width='34px''></td>";
+						    	echo "<td><a href='../pages/product.php?p=".$row['cpuname']."'>".$row['cpuname']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
 						    echo "</tr>";
 						echo "</table></div></div><br>";						    
 					}
@@ -75,8 +75,8 @@
 						$found = 1;
 						echo "<div class='card'><div class='card-body'><table border=0>"; 
 							echo "<tr>";
-						    	echo "<td width='50px'><img src='img/vga.png' style='height='34px' width='34px''></td>";
-						    	echo "<td><a href='product.php?p=".$row['vganame']."'>".$row['vganame']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
+						    	echo "<td width='50px'><img src='../img/vga.png' style='height='34px' width='34px''></td>";
+						    	echo "<td><a href='../pages/product.php?p=".$row['vganame']."'>".$row['vganame']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
 						    echo "</tr>";
 						echo "</table></div></div><br>";						    
 					}
@@ -87,7 +87,7 @@
 						$found = 1;
 						echo "<div class='card'><div class='card-body'><table border=0>"; 
 							echo "<tr>";
-						    	echo "<td width='50px'><img src='img/ssd.png' style='height='34px' width='34px''></td>";
+						    	echo "<td width='50px'><img src='../img/ssd.png' style='height='34px' width='34px''></td>";
 						    	echo "<td colspan='7'><a href='product.php?p=".$row['ssdname']."'>".$row['ssdname']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
 						    echo "</tr>";
 						echo "</table></div></div><br>";						    
@@ -121,7 +121,7 @@
 	      			<div class="col-md-2">
 	      				<table class="float-right">
 	      					<tr>
-	      						<td><a class="btn btn-light btn-sm" href="settings.php" role="button" title="Settings"><i class="material-icons">settings_applications</i></a></td>
+	      						<td><a class="btn btn-light btn-sm" href="../pages/settings.php" role="button" title="Settings"><i class="material-icons">settings_applications</i></a></td>
 	      						<td><form action="" method="post"><button type="submit" class="btn btn-light btn-sm" name="logout" title="Sign Out"><i class="material-icons">exit_to_app</i></button></form></td>
 	      					</tr>
 	      				</table>
@@ -130,10 +130,10 @@
 	      	</footer>
 		</div>
 
-	    <script src="js/jquery.min.js"></script>
-	    <script src="js/popper.min.js"></script>
-	    <script src="js/bootstrap.js"></script>
-	    <script src="js/custom.js"></script> 
+	    <script src="../js/jquery.min.js"></script>
+	    <script src="../js/popper.min.js"></script>
+	    <script src="../js/bootstrap.js"></script>
+	    <script src="../js/custom.js"></script> 
 
 
 	</body>
