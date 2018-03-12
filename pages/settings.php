@@ -71,7 +71,7 @@
 							  			<br>
 							  			<div class="row">
 							  				<div class="col-md-12">
-							  					<table class="table table-responsive borderless">
+							  					<table class="table borderless">
 							  						<tr>
 							  							<td width="10%" rowspan="4">
 							  								<div class="card">
@@ -154,7 +154,7 @@
 							  			<br>
 							  			<div class="row">
 							  				<div class="col-md-12">
-									      		<table class="table table-responsive borderless">
+									      		<table class="table borderless">
 									      			<tr>
 									      				<td class="align-middle" width="150px">Budget for CPU</td>
 									      				<td><input class="form-control" type="number" name="bcpu" value="<?php echo $us['bcpu'] ?>" required></td>
@@ -215,6 +215,297 @@
 	     	?>
 
 	     	<br><br>
+
+	     	<div class="row">
+	      		<div class="col-md-12">
+	      			<div class="card">
+					  	<div class="card-header"><i class="material-icons" style="color: grey;">shopping_cart</i> Edit Store</div>
+					  	<div class="card-body">
+					     	<ul class="nav nav-tabs" id="myTab" role="tablist">
+							  	<li class="nav-item">
+							    	<a class="nav-link active" data-toggle="tab" href="#stlist" role="tab" aria-selected="true"><i class="material-icons">list</i> Store List</a>
+							  	</li>
+							  	<li class="nav-item">
+							    	<a class="nav-link" data-toggle="tab" href="#addstore" role="tab" aria-selected="true"><i class="material-icons">add_shopping_cart</i> Add Store</a>
+							  	</li>						  
+							</ul>
+							<div class="tab-content">	
+							  	<div class="tab-pane fade show active" id="stlist" role="tabpanel" aria-labelledby="profile-tab">
+							  		<form action="" method="POST">
+							  			<div class="row" style="overflow-y: scroll; height:358px;">
+							  				<div class="col-sm-12">
+							  					<table class="table table-sm">
+													<tr style="height: 40px;">
+														<th width="80px" class="align-middle text-center">Store Id</th>
+														<th class="align-middle">Store Name</th>
+														<th class="align-middle">Syntax</th>
+														<th width="100px"></th>
+													</tr>
+							  				<?php 
+							      				$pdlist = mysqli_query($koneksi,"select *from store");
+							      				if($pdlist == TRUE){
+													while($key = mysqli_fetch_array($pdlist,MYSQLI_BOTH)){
+														$stn = "stname".$key['storeid'];
+														$sts = "storesyntax".$key['storeid'];
+														$sts = "storesyntax".$key['storeid'];														
+														$ste = "storeedit".$key['storeid'];
+														$std = "storedelete".$key['storeid'];
+											?>	
+												<tr>
+													<td class="align-middle text-center"><?php echo $key['storeid'] ?></td>
+													<td class="align-middle" width="200px"><input class="form-control" type="text" name="<?php echo $stn ?>" value="<?php echo $key['name'] ?>"></td>
+													<td class="align-middle" width="500px"><input class="form-control" type="text" name="<?php echo $sts ?>" value="<?php echo $key['query'] ?>"></td>
+						      						
+						      						<td class="align-middle table-center"><button class="btn btn-sm btn-success" type="submit" name="<?php echo $ste ?>" title="Save Changes"><i class="material-icons" style="font-size: 16px;">save</i></button>&nbsp;<button class="btn btn-sm btn-warning" type="submit" name="<?php echo $std ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
+												</tr>													
+							      					
+						      				<?php
+							      						if(isset($_POST[$ste])){
+							      							$stname = $_POST[$stn];
+							      							$stsyntax = $_POST[$sts];
+														    $est = $key['storeid'];
+
+														    $result = mysqli_query($koneksi,"update store set name='$stname', query='$stsyntax' where storeid='$est'");
+
+														    $message = "Store ".$stname." was Edited";
+	        												echo "<script type='text/javascript'>alert('$message');</script>";
+														    echo "<meta http-equiv='refresh' content='0'>";
+														}
+
+							      						if(isset($_POST[$std])){
+							      							$stname = $_POST[$stn];
+							      							$est = $key['storeid'];
+														    $result = mysqli_query($koneksi,"delete from store where storeid='$est'");
+
+														    $message = "Store ".$stname." was Deleted";
+	        												echo "<script type='text/javascript'>alert('$message');</script>";
+														    echo "<meta http-equiv='refresh' content='0'>";
+														}
+													}
+												}
+											?>
+												</table>
+							  				</div>						  												  										      			
+							      		</div>	
+						      		</form>
+							  	</div>
+							  	<div class="tab-pane fade" id="addstore" role="tabpanel" aria-labelledby="profile-tab">
+							  		<form enctype="multipart/form-data" action="" method="POST">
+							  			<br>
+							  			<div class="row">
+							  				<div class="col-md-12">
+							  					<table class="table borderless">
+							  						<tr>
+									  					<td width="150px" class="align-middle">Store Name</td>
+									      				<td><input class="form-control" type="text" name="storename" maxlength="20" required></td>
+									      			</tr>
+							  						<tr>
+								  						<td class="align-middle">Syntax</td>
+								  						<td><input class="form-control" type="text" name="storesyntax" maxlength="200" required=""></td>
+								  					</tr>
+							  					</table>
+							  				</div>
+							  			</div>
+							  			<hr>	
+							  			<div class="row">
+							  				<div class="col-md-12 text-right">
+							      				<input class="btn btn-success" type="submit" name="storeadd" value="Add">
+							  				</div>
+							  			</div>
+									</form>
+									<?php
+										if(isset($_POST['storeadd'])){
+
+										    $storename = $_POST['storename'];
+										    $storesyntax = $_POST['storesyntax'];
+
+										    $c = mysqli_query($koneksi,"select count(name) from store where name='$storename'");
+
+										    $cr = mysqli_fetch_array($c);
+										    $ci = $cr['count(name)'];
+
+										    if( $ci == 0 ){		
+											    $result = mysqli_query($koneksi,"insert into store(name,query) values ('$storename','$storesyntax')");
+
+											    $message = "Store Name ".$storename." was Added";
+		        								echo "<script type='text/javascript'>alert('$message');</script>";
+											    echo "<meta http-equiv='refresh' content='0'>";
+										    }else if ( $ci >= 1 ) {
+									    		$message = "Error : Store Name Already Exists";
+        										echo "<script type='text/javascript'>alert('$message');</script>";
+										    }
+										}
+									?>		
+							  	</div>
+							</div>
+						</div>
+					</div>
+				</div>	        	
+	     	</div>
+
+	     	<br><br>
+
+	     	<div class="row">
+	      		<div class="col-md-12">
+	      			<div class="card">
+					  	<div class="card-header"><i class="material-icons" style="color: grey;">view_module</i> Edit Product Detail</div>
+					  	<div class="card-body">
+					     	<ul class="nav nav-tabs" id="myTab" role="tablist">
+							  	<li class="nav-item">
+							    	<a class="nav-link active" data-toggle="tab" href="#pdlist" role="tab" aria-selected="true"><i class="material-icons">list</i> List Product</a>
+							  	</li>							  								  	<li class="nav-item">
+							    	<a class="nav-link" data-toggle="tab" href="#pdetail" role="tab" aria-selected="true"><i class="material-icons">note_add</i> Add Product</a>
+							  	</li>						  
+							</ul>
+							<div class="tab-content">	
+							  	<div class="tab-pane fade show active" id="pdlist" role="tabpanel">							  		
+							  		<form action="" method="POST">
+							  			<div class="row" style="overflow-y: scroll; height:358px;">
+							  				<div class="col-sm-12">
+							  					<table class="table table-sm">
+													<tr style="height: 40px;">
+														<th class="align-middle text-center">Product Id</th>
+														<th class="align-middle">Product Detail Name</th>
+														<th class="align-middle">Image</th>
+														<th class="align-middle">Syntax</th>
+														<th></th>
+													</tr>
+							  				<?php 
+							      				$pdlist = mysqli_query($koneksi,"select *from product_detail");
+							      				if($pdlist == TRUE){
+													while($key = mysqli_fetch_array($pdlist,MYSQLI_BOTH)){
+														$pn = "pdname".$key['pdid'];
+														$pi = "pdimg".$key['pdid'];
+														$pq = "pdquery".$key['pdid'];
+														$pe = "pdedit".$key['pdid'];
+														$pt = "pddelete".$key['pdid'];
+											?>	
+												<tr>
+													<td class="align-middle text-center"><?php echo $key['pdid'] ?></td>
+													<td class="align-middle" width="200px"><input class="form-control" type="text" name="<?php echo $pn ?>" value="<?php echo $key['pdname'] ?>"></td>
+													<td class="align-middle" width="150px"><img src="../<?php echo $key['pdimg'] ?>?dummy=8484744" onerror=this.src="../img/product/Other.png" height="25px" width="25px"/><input class="btn btn-sm" type="file" name="<?php echo $pi ?>" style="width: 70%"></td>
+													<td class="align-middle" width="500px"><input class="form-control" type="text" name="<?php echo $pq ?>" value="<?php echo $key['query'] ?>"></td>
+						      						
+						      						<td class="align-middle table-center"><button class="btn btn-sm btn-success" type="submit" name="<?php echo $pe ?>" title="Save Changes"><i class="material-icons" style="font-size: 16px;">save</i></button>&nbsp;<button class="btn btn-sm btn-warning" type="submit" name="<?php echo $pt ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
+												</tr>													
+							      					
+						      				<?php
+							      						if(isset($_POST[$pe])){
+							      							$pdname = $_POST[$pn];
+							      							$pdquery = $_POST[$pq];
+														    $epd = $key['pdid'];
+
+														    $result = mysqli_query($koneksi,"update product_detail set pdname='$pdname', query='$pdquery' where pdid='$epd'");
+
+	        												if (empty($_FILES[$pi]['name'])) {
+															}else{
+																$path = "../img/product/".$pdname.".png";
+														    	if(move_uploaded_file($_FILES[$pi]['tmp_name'], $path)) {
+														    		// success upload refresh cache
+															    }else{
+															    	$msg = "Problem with photo upload";
+						    										echo "<script type='text/javascript'>alert('$msg');</script>";
+															    }
+															}
+
+															//debug error upload
+	        												echo "<script type='text/javascript'>alert('$path');</script>";
+														    echo "<meta http-equiv='refresh' content='0'>";
+
+														    $message = "Product Name ".$pdname." was Edited";
+	        												echo "<script type='text/javascript'>alert('$message');</script>";
+														    echo "<meta http-equiv='refresh' content='0'>";
+														}
+
+							      						if(isset($_POST[$pt])){
+							      							$pdname = $_POST[$pn];
+							      							$epd = $key['pdid'];
+														    $result = mysqli_query($koneksi,"delete from product_detail where pdid='$epd'");
+
+														    $message = "Product Name ".$pdname." was Deleted";
+	        												echo "<script type='text/javascript'>alert('$message');</script>";
+														    echo "<meta http-equiv='refresh' content='0'>";
+														}
+													}
+												}
+											?>
+												</table>
+							  				</div>						  												  										      			
+							      		</div>	
+						      		</form>
+							  	</div>
+							  	<div class="tab-pane fade" id="pdetail" role="tabpanel">							  		
+							  		<form enctype="multipart/form-data" action="" method="POST">
+							  			<br>
+							  			<div class="row">
+							  				<div class="col-md-12">
+							  					<table class="table borderless">
+							  						<tr>
+									  					<td width="150px" class="align-middle">Product Name</td>
+									      				<td><input class="form-control" type="text" name="productname" maxlength="20" required></td>
+									      				<td width="8px" class="align-middle">Image</td>
+									      				<td width="145px"><input class="btn btn-sm" type="file" name="pdimg" style="width: 80%"></td>
+									      			</tr>
+							  						<tr>
+								  						<td class="align-middle">Syntax</td>
+								  						<td colspan="3"><input class="form-control" type="text" name="productsyntax" maxlength="200" required=""></td>
+								  					</tr>
+							  					</table>
+							  				</div>
+							  			</div>
+							  			<hr>	
+							  			<div class="row">
+							  				<div class="col-md-12 text-right">
+							      				<input class="btn btn-success" type="submit" name="productadd" value="Add">
+							  				</div>
+							  			</div>
+									</form>
+									<?php
+										if(isset($_POST['productadd'])){
+
+										    $productname = $_POST['productname'];
+										    $pdimg = "img/product".$_FILES['pdimg']['name'];
+										    $productsyntax = $_POST['productsyntax'];
+
+										    $c = mysqli_query($koneksi,"select count(pdname) from product_detail where pdname='$productname'");
+
+										    $cr = mysqli_fetch_array($c);
+										    $ci = $cr['count(pdname)'];
+
+										    if( $ci == 0 ){		
+											    $result = mysqli_query($koneksi,"insert into product_detail(pdname,pdimg,query) values ('$productname','$pdimg','$productsyntax')");
+
+											    if (empty($_FILES['pdimg']['name'])) {
+												    // No file was selected for upload, your (re)action goes here
+												}else{
+													$path = "../img/product/".$productname.".png";
+											    	if(move_uploaded_file($_FILES['pdimg']['tmp_name'], $path)) {
+											    		// success upload refresh cache
+												    }else{
+												    	$msg = "Problem with photo upload";
+			    										echo "<script type='text/javascript'>alert('$msg');</script>";
+												    }
+												}
+											    echo "<meta http-equiv='refresh' content='0'>";
+
+											    $message = "Product Name ".$productname." was Added";
+		        								echo "<script type='text/javascript'>alert('$message');</script>";
+											    echo "<meta http-equiv='refresh' content='0'>";
+										    }else if ( $ci >= 1 ) {
+									    		$message = "Error : Product Name Already Exists";
+        										echo "<script type='text/javascript'>alert('$message');</script>";
+										    }
+										}
+									?>
+							  	</div>
+							  	
+							</div>
+						</div>
+					</div>
+				</div>	        	
+	     	</div>
+
+	     	<br><br>
 	     	
 	      	<div class="row">
 	      		<div class="col-md-12">
@@ -240,12 +531,27 @@
 							  				<div class="col-md-12">
 							  					<table class="table borderless">
 									  				<tr>
-									      				<td width="150px" class="align-middle">Processor Name</td>
-									      				<td><input class="form-control" type="text" name="cpuname" maxlength="100" required></td>
+									  					<td width="150px" class="align-middle">Processor Name</td>
+									      				<td width="60%"><input class="form-control" type="text" name="cpuname" maxlength="100" required></td>
+									      				<td width="80px" class="align-middle">Product</td>
+									      				<td>
+									      					<select class="custom-select" name="pdidcpu" >
+										      					<?php
+											      					$result = mysqli_query($koneksi,"select *from product_detail");
+										    						while($pd = mysqli_fetch_array($result,MYSQLI_BOTH)){
+										    							?>
+
+										    							<option value='<?php echo $pd['pdid'] ?>'><?php echo $pd['pdname'] ?></option>
+
+										    							<?php
+										    						}
+										      					?>
+															</select>
+									      				</td>
 									      			</tr>
 									      		</table>
 									      		<hr>
-									      		<table class="table table-responsive borderless">
+									      		<table class="table borderless">
 									      			<tr>
 									      				<td width="150px">Performance</td>
 									      				<td><input class="form-control" type="number" min="0" max="10" step="0.1" name="performance" maxlength="5" required></td>
@@ -280,6 +586,7 @@
 									  	if(isset($_POST['cpuadd'])){
 
 									  		$cpuname = $_POST['cpuname'];
+									  		$pdidcpu = $_POST['pdidcpu'];
 										    $performance = $_POST['performance'];
 										    $single = $_POST['single'];
 										    $intg = $_POST['intg'];
@@ -295,9 +602,9 @@
 										    $ci = $cr['count(cpuname)'];
 
 										    if( $ci == 0 ){		
-											    $cpuadd = mysqli_query($koneksi,"insert into cpu(cpuname,performance,single,intg,intgocl,ppw,value,cpuscore,cpuprice) values ('$cpuname','$performance','$single','$intg','$intgocl','$ppw','$value','$cpuscore','$cpuprice')");
+											    $cpuadd = mysqli_query($koneksi,"insert into cpu(cpuname,pdid,performance,single,intg,intgocl,ppw,value,cpuscore,cpuprice) values ('$cpuname','$pdidcpu','$performance','$single','$intg','$intgocl','$ppw','$value','$cpuscore','$cpuprice')");
 
-											    $message = "Processor ".$cpuadd." was Added";
+											    $message = "Processor ".$cpuname." was Added";
 		        								echo "<script type='text/javascript'>alert('$message');</script>";
 											    echo "<meta http-equiv='refresh' content='0'>";
 										    }else if ( $ci >= 1 ) {
@@ -315,7 +622,22 @@
 							  					<table class="table borderless">
 									  				<tr>
 									      				<td width="150px" class="align-middle">VGA Name</td>
-									      				<td><input class="form-control" type="text" name="vganame" maxlength="100" required></td>
+									      				<td width="60%"><input class="form-control" type="text" name="vganame" maxlength="100" required></td>
+									      				<td width="80px" class="align-middle">Product</td>
+									      				<td>
+									      					<select class="custom-select" name="pdidvga" >
+										      					<?php
+											      					$result = mysqli_query($koneksi,"select *from product_detail");
+										    						while($pd = mysqli_fetch_array($result,MYSQLI_BOTH)){
+										    							?>
+
+										    							<option value='<?php echo $pd['pdid'] ?>'><?php echo $pd['pdname'] ?></option>
+
+										    							<?php
+										    						}
+										      					?>
+															</select>
+									      				</td>
 									      			</tr>
 									      		</table>
 									      		<hr>
@@ -354,6 +676,7 @@
 									  	if(isset($_POST['vgaadd'])){
 
 										    $vganame = $_POST['vganame'];
+										    $pdidvga = $_POST['pdidvga'];
 										    $gaming = $_POST['gaming'];
 										    $graphics = $_POST['graphics'];
 										    $computing = $_POST['computing'];
@@ -369,9 +692,9 @@
 										    $ci = $cr['count(vganame)'];
 
 										    if( $ci == 0 ){		
-											    $vgaadd = mysqli_query($koneksi,"insert into vga(vganame,gaming,graphics,computing,ppw,value,nap,vgascore,vgaprice) values ('$vganame','$gaming','$graphics','$computing','$ppw','$value','$nap','$vgascore','$vgaprice')");
+											    $vgaadd = mysqli_query($koneksi,"insert into vga(vganame,pdid,gaming,graphics,computing,ppw,value,nap,vgascore,vgaprice) values ('$vganame','$pdidvga','$gaming','$graphics','$computing','$ppw','$value','$nap','$vgascore','$vgaprice')");
 
-											    $message = "VGA ".$vgaadd." was Added";
+											    $message = "VGA ".$vganame." was Added";
 		        								echo "<script type='text/javascript'>alert('$message');</script>";
 											    echo "<meta http-equiv='refresh' content='0'>";
 										    }else if ( $ci >= 1 ) {
@@ -389,7 +712,22 @@
 							  					<table class="table borderless">
 									  				<tr>
 									      				<td width="150px" class="align-middle">SSD Name</td>
-									      				<td><input class="form-control" type="text" name="ssdname" maxlength="100" required></td>
+									      				<td width="60%"><input class="form-control" type="text" name="ssdname" maxlength="100" required></td>
+									      				<td width="80px" class="align-middle">Product</td>
+									      				<td>
+									      					<select class="custom-select" name="pdidssd" >
+										      					<?php
+											      					$result = mysqli_query($koneksi,"select *from product_detail");
+										    						while($pd = mysqli_fetch_array($result,MYSQLI_BOTH)){
+										    							?>
+
+										    							<option value='<?php echo $pd['pdid'] ?>'><?php echo $pd['pdname'] ?></option>
+
+										    							<?php
+										    						}
+										      					?>
+															</select>
+									      				</td>
 									      			</tr>
 									      		</table>
 									      		<hr>
@@ -423,6 +761,7 @@
 									  	if(isset($_POST['ssdadd'])){
 
 										    $ssdname = $_POST['ssdname'];
+										    $pdidssd = $_POST['pdidssd'];
 										    $readp = $_POST['readp'];
 										    $writep = $_POST['writep'];
 										    $realwb = $_POST['realwb'];
@@ -436,9 +775,9 @@
 										    $ci = $cr['count(ssdname)'];
 
 										    if( $ci == 0 ){		
-											    $ssdadd = mysqli_query($koneksi,"insert into ssd(ssdname,readp,writep,realwb,bench,ssdscore,ssdprice) values ('$ssdname','$readp','$writep','$realwb','$bench','$ssdscore','$ssdprice')");
+											    $ssdadd = mysqli_query($koneksi,"insert into ssd(ssdname,pdid,readp,writep,realwb,bench,ssdscore,ssdprice) values ('$ssdname','$pdidssd','$readp','$writep','$realwb','$bench','$ssdscore','$ssdprice')");
 
-											    $message = "SSD ".$ssdadd." was Added";
+											    $message = "SSD ".$ssdname." was Added";
 		        								echo "<script type='text/javascript'>alert('$message');</script>";
 											    echo "<meta http-equiv='refresh' content='0'>";
 										    }else if ( $ci >= 1 ) {
@@ -762,7 +1101,7 @@
 													<td class="align-middle"><?php echo $key['name'] ?></td>
 													<td class="align-middle"><?php echo $key['organization'] ?></td>
 						      						
-						      						<td class="align-middle table-center"><button class="btn btn-sm btn-success" type="submit" name="<?php echo $key['userid'] ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">save</i></button>&nbsp;<button class="btn btn-sm btn-warning" type="submit" name="<?php echo $key['username'] ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
+						      						<td class="align-middle table-center"><button class="btn btn-sm btn-success" type="submit" name="<?php echo $key['userid'] ?>" title="Save Changes"><i class="material-icons" style="font-size: 16px;">save</i></button>&nbsp;<button class="btn btn-sm btn-warning" type="submit" name="<?php echo $key['username'] ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
 												</tr>													
 							      					
 						      				<?php
@@ -799,7 +1138,7 @@
 							  			<br>
 							  			<div class="row">
 							  				<div class="col-md-12">
-							  					<table class="table table-responsive borderless">
+							  					<table class="table borderless">
 							  						<tr>
 							  							<td class="align-middle" width="150px">Username</td>
 								  						<td width="250px"><input class="form-control" type="text" name="username" required></td>

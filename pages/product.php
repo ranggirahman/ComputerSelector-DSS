@@ -70,12 +70,15 @@
 						$found = 1;
 						$row = mysqli_fetch_array($cpu,MYSQLI_BOTH);
 						$vp = mysqli_query($koneksi,"update cpu set cpuview=cpuview+1 where cpuname='$product'");
+						$tpd = mysqli_query($koneksi,"select *from product_detail where pdid='".$row['pdid']."'");	
+						$pd = mysqli_fetch_array($tpd,MYSQLI_BOTH);
 						$view = $row['cpuview'];						 
 						echo "<div class='card'>";
 						echo "<div class='card-body'>";
 							echo "<div class='row'>";
 							echo "<div class='col-md-1'><img src='../img/processor.png' height='55px' width='55px'></div>";
-							echo "<div class='col-md-11'><h5 class='display-4' style='font-size: 40px;'>".$row['cpuname']."</h5></div>";
+							echo "<div class='col-md-10'><h5 class='display-4' style='font-size: 40px;'>".$row['cpuname']."</h5></div>";
+							echo "<div class='col-md-1'><img src='../".$pd['pdimg']."' height='55px' width='55px'></div>";
 						    echo "</div>"; 	
 						   	echo "<hr>";
 						    echo "<div class='row'>";
@@ -116,8 +119,7 @@
 						echo "</div>";
 						echo "<div class='card-footer'>";
 							 echo "<div class='row'>";
-							 	echo "<div class='col-md-9'></div>";
-						    	echo "<div class='col-md-3 text-right'><div class='pull-right'><a class='btn btn-sm btn-light' href='".$st['query']."".$row['cpuname']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a><a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['cpuname']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a></div></div>";
+						    	echo "<div class='col-md-12 text-right'><div class='pull-right'><a class='btn btn-sm btn-light' href='".$pd['query']."".$row['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> View Specifications</a><a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a><a class='btn btn-sm btn-light' href='".$st['query']."".$row['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a></div></div>";
 						    echo "</div>";
 						echo "</div>";
 						echo "</div>";
@@ -130,12 +132,15 @@
 						$found = 1;
 						$row = mysqli_fetch_array($vga,MYSQLI_BOTH);
 						$vp = mysqli_query($koneksi,"update vga set vgaview=vgaview+1 where vganame='$product'"); 
+						$tpd = mysqli_query($koneksi,"select *from product_detail where pdid='".$row['pdid']."'");	
+						$pd = mysqli_fetch_array($tpd,MYSQLI_BOTH);
 						$view = $row['vgaview'];						
 						echo "<div class='card'>";
 						echo "<div class='card-body'>";
 							echo "<div class='row'>";
 							echo "<div class='col-md-1'><img src='../img/vga.png' height='55px' width='55px'></div>";
-							echo "<div class='col-md-11'><h5 class='display-4' style='font-size: 40px;'>".$row['vganame']."</h5></div>";
+							echo "<div class='col-md-10'><h5 class='display-4' style='font-size: 40px;'>".$row['vganame']."</h5></div>";
+							echo "<div class='col-md-1'><img src='../".$pd['pdimg']."' height='55px' width='55px'></div>";
 						    echo "</div>"; 	
 						   	echo "<hr>";
 						    echo "<div class='row'>";
@@ -176,8 +181,7 @@
 						echo "</div>";
 						echo "<div class='card-footer'>";
 						echo "<div class='row'>";
-						 	echo "<div class='col-md-9'></div>";
-					    	echo "<div class='col-md-3 text-right'><div class='pull-right'><a class='btn btn-sm btn-light' href='".$st['query']."".$row['vganame']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a><a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['vganame']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a></div></div>";
+					    	echo "<div class='col-md-12 text-right'><div class='pull-right'><a class='btn btn-sm btn-light' href='".$pd['query']."".$row['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> View Specifications</a><a class='btn btn-sm btn-light' href='".$st['query']."".$row['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a><a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a></div></div>";
 						    echo "</div>";
 						echo "</div>";
 						echo "</div>";
@@ -190,12 +194,15 @@
 						$row = mysqli_fetch_array($ssd,MYSQLI_BOTH);
 						$vp = mysqli_query($koneksi,"update ssd set ssdview=ssdview+1 where ssdname='$product'"); 
 						mysqli_query($koneksi,"select *from ssd where ssdname='$product'");
+						$tpd = mysqli_query($koneksi,"select *from product_detail where pdid='".$row['pdid']."'");	
+						$pd = mysqli_fetch_array($tpd,MYSQLI_BOTH);
 						$view = $row['ssdview'];
 						echo "<div class='card'>";
 						echo "<div class='card-body'>";
 							echo "<div class='row'>";
 							echo "<div class='col-md-1'><img src='../img/ssd.png' height='55px' width='55px'></div>";
-							echo "<div class='col-md-11'><h5 class='display-4' style='font-size: 40px;'>".$row['ssdname']."</h5></div>";
+							echo "<div class='col-md-10'><h5 class='display-4' style='font-size: 40px;'>".$row['ssdname']."</h5></div>";
+							echo "<div class='col-md-1'><img src='../".$pd['pdimg']."' height='55px' width='55px'></div>";
 						    echo "</div>"; 	
 						   	echo "<hr>";
 						    echo "<div class='row'>";
@@ -232,8 +239,7 @@
 						echo "</div>";
 						echo "<div class='card-footer'>";
 							 echo "<div class='row'>";
-							 	echo "<div class='col-md-9'></div>";
-						    	echo "<div class='col-md-3 text-right'><div class='pull-right'><a class='btn btn-sm btn-light' href='".$st['query']."".$row['ssdname']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a><a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['ssdname']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a></div></div>";
+						    	echo "<div class='col-md-12 text-right'><div class='pull-right'><a class='btn btn-sm btn-light' href='".$pd['query']."".$row['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> View Specifications</a><a class='btn btn-sm btn-light' href='".$st['query']."".$row['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a><a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a></div></div>";
 						    echo "</div>";
 						echo "</div>";
 						echo "</div>";
@@ -347,10 +353,10 @@
 	      	</footer>
 		</div>
 
-	    <script src="js/jquery.min.js"></script>
-	    <script src="js/popper.min.js"></script>
-	    <script src="js/bootstrap.js"></script>
-	    <script src="js/custom.js"></script> 
+	    <script src="../js/jquery.min.js"></script>
+	    <script src="../js/popper.min.js"></script>
+	    <script src="../js/bootstrap.js"></script>
+	    <script src="../js/custom.js"></script> 
 
 
 	</body>

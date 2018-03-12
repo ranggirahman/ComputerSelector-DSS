@@ -281,9 +281,9 @@
 		    									echo "<tr>";
 			    								echo "<td rowspan=3 class='align-middle bg-light table-center'><h1 class=display-4>$i<h1></td>";
 			    								echo "<td style='padding-left: 30px;'>Name</td>";
-			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><b>".$rcpu['cpuname']."</b> <a href='../pages/product.php?p=".$rcpu['cpuname']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
-			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><b>".$rvga['vganame']."</b> <a href='../pages/product.php?p=".$rvga['vganame']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
-			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><b>".$rssd['ssdname']."</b> <a href='../pages/product.php?p=".$rssd ['ssdname']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
+			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><b>".$rcpu['cpuname']."</b> <a href='../pages/product.php?p=".$rcpu['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
+			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><b>".$rvga['vganame']."</b> <a href='../pages/product.php?p=".$rvga['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
+			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><b>".$rssd['ssdname']."</b> <a href='../pages/product.php?p=".$rssd ['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
 			    								echo "</tr>";
 			    								echo "<tr>";
 			    								echo "<td style='padding-left: 30px;'>Score</td>";
@@ -293,9 +293,9 @@
 			    								echo "</tr>";
 			    								echo "<tr>";
 			    								echo "<td style='padding-left: 30px;'>Price</td>";
-			    								echo "<td style='padding-right: 20px; padding-left: 20px;'>$".$rcpu['cpuprice']." <a href='".$st['query']."".$rcpu['cpuname']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>shopping_cart</i></span></a></td>";
-			    								echo "<td style='padding-right: 20px; padding-left: 20px;'>$".$rvga['vgaprice']." <a href='".$st['query']."".$rvga['vganame']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>shopping_cart</i></span></a></td>";
-			    								echo "<td style='padding-right: 20px; padding-left: 20px;'>$".$rssd['ssdprice']." <a href='".$st['query']."".$rssd['ssdname']."' target='_blank' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>shopping_cart</i></span></a></td>";
+			    								echo "<td style='padding-right: 20px; padding-left: 20px;'>$".$rcpu['cpuprice']." <a href='".$st['query']."".$rcpu['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>shopping_cart</i></span></a></td>";
+			    								echo "<td style='padding-right: 20px; padding-left: 20px;'>$".$rvga['vgaprice']." <a href='".$st['query']."".$rvga['vganame']."'  role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>shopping_cart</i></span></a></td>";
+			    								echo "<td style='padding-right: 20px; padding-left: 20px;'>$".$rssd['ssdprice']." <a href='".$st['query']."".$rssd['ssdname']."'  role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>shopping_cart</i></span></a></td>";
 			    								echo "</tr>";
 
 			    								echo "<tr><td colspan=5><br></td></tr>";
