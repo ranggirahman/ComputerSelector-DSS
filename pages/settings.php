@@ -290,7 +290,7 @@
 						      		</form>
 							  	</div>
 							  	<div class="tab-pane fade" id="addstore" role="tabpanel" aria-labelledby="profile-tab">
-							  		<form enctype="multipart/form-data" action="" method="POST">
+							  		<form action="" method="POST">
 							  			<br>
 							  			<div class="row">
 							  				<div class="col-md-12">
@@ -315,7 +315,6 @@
 									</form>
 									<?php
 										if(isset($_POST['storeadd'])){
-
 										    $storename = $_POST['storename'];
 										    $storesyntax = $_POST['storesyntax'];
 
@@ -359,7 +358,7 @@
 							</ul>
 							<div class="tab-content">	
 							  	<div class="tab-pane fade show active" id="pdlist" role="tabpanel">							  		
-							  		<form action="" method="POST">
+							  		<form enctype="multipart/form-data" action="" method="POST">
 							  			<div class="row" style="overflow-y: scroll; height:358px;">
 							  				<div class="col-sm-12">
 							  					<table class="table table-sm">
@@ -394,10 +393,13 @@
 							      							$pdname = $_POST[$pn];
 							      							$pdquery = $_POST[$pq];
 														    $epd = $key['pdid'];
+														    $x = var_dump($pi);
+														    echo "<script type='text/javascript'>alert('$x');</script>";
 
 														    $result = mysqli_query($koneksi,"update product_detail set pdname='$pdname', query='$pdquery' where pdid='$epd'");
 
 	        												if (empty($_FILES[$pi]['name'])) {
+	        													// No file was selected for upload, your (re)action goes here
 															}else{
 																$path = "../img/product/".$pdname.".png";
 														    	if(move_uploaded_file($_FILES[$pi]['tmp_name'], $path)) {
@@ -407,10 +409,6 @@
 						    										echo "<script type='text/javascript'>alert('$msg');</script>";
 															    }
 															}
-
-															//debug error upload
-	        												echo "<script type='text/javascript'>alert('$path');</script>";
-														    echo "<meta http-equiv='refresh' content='0'>";
 
 														    $message = "Product Name ".$pdname." was Edited";
 	        												echo "<script type='text/javascript'>alert('$message');</script>";
