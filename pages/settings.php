@@ -260,27 +260,30 @@
 												</tr>													
 							      					
 						      				<?php
-							      						if(isset($_POST[$ste])){
-							      							$stname = $_POST[$stn];
-							      							$stsyntax = $_POST[$sts];
-														    $est = $key['storeid'];
+						      							if(isset($_POST[$ste]) || isset($_POST[$std])){
 
-														    $result = mysqli_query($koneksi,"update store set name='$stname', query='$stsyntax' where storeid='$est'");
+						      								$stname = $_POST[$stn];
+						      								$stsyntax = $_POST[$sts];
+								      						$est = $key['storeid'];
 
-														    $message = "Store ".$stname." was Edited";
-	        												echo "<script type='text/javascript'>alert('$message');</script>";
-														    echo "<meta http-equiv='refresh' content='0'>";
-														}
+						      								if(isset($_POST[$ste])){							      							
 
-							      						if(isset($_POST[$std])){
-							      							$stname = $_POST[$stn];
-							      							$est = $key['storeid'];
-														    $result = mysqli_query($koneksi,"delete from store where storeid='$est'");
+															    $result = mysqli_query($koneksi,"update store set name='$stname', query='$stsyntax' where storeid='$est'");
 
-														    $message = "Store ".$stname." was Deleted";
-	        												echo "<script type='text/javascript'>alert('$message');</script>";
-														    echo "<meta http-equiv='refresh' content='0'>";
-														}
+															    $message = "Store ".$stname." was Edited";
+		        												echo "<script type='text/javascript'>alert('$message');</script>";
+															    echo "<meta http-equiv='refresh' content='0'>";
+															}
+
+								      						if(isset($_POST[$std])){
+								      							
+															    $result = mysqli_query($koneksi,"delete from store where storeid='$est'");
+
+															    $message = "Store ".$stname." was Deleted";
+		        												echo "<script type='text/javascript'>alert('$message');</script>";
+															    echo "<meta http-equiv='refresh' content='0'>";
+															}
+						      							}							      						
 													}
 												}
 											?>
@@ -389,40 +392,39 @@
 												</tr>													
 							      					
 						      				<?php
-							      						if(isset($_POST[$pe])){
+						      							if(isset($_POST[$pe]) || isset($_POST[$pt])){
+
 							      							$pdname = $_POST[$pn];
 							      							$pdquery = $_POST[$pq];
 														    $epd = $key['pdid'];
-														    $x = var_dump($pi);
-														    echo "<script type='text/javascript'>alert('$x');</script>";
+															    
+								      						if(isset($_POST[$pe])){
+															    $result = mysqli_query($koneksi,"update product_detail set pdname='$pdname', query='$pdquery' where pdid='$epd'");
 
-														    $result = mysqli_query($koneksi,"update product_detail set pdname='$pdname', query='$pdquery' where pdid='$epd'");
+		        												if (empty($_FILES[$pi]['name'])) {
+		        													// No file was selected for upload, your (re)action goes here
+																}else{
+																	$path = "../img/product/".$pdname.".png";
+															    	if(move_uploaded_file($_FILES[$pi]['tmp_name'], $path)) {
+															    		// success upload refresh cache
+																    }else{
+																    	$msg = "Problem with photo upload";
+							    										echo "<script type='text/javascript'>alert('$msg');</script>";
+																    }
+																}
 
-	        												if (empty($_FILES[$pi]['name'])) {
-	        													// No file was selected for upload, your (re)action goes here
-															}else{
-																$path = "../img/product/".$pdname.".png";
-														    	if(move_uploaded_file($_FILES[$pi]['tmp_name'], $path)) {
-														    		// success upload refresh cache
-															    }else{
-															    	$msg = "Problem with photo upload";
-						    										echo "<script type='text/javascript'>alert('$msg');</script>";
-															    }
+															    $message = "Product Name ".$pdname." was Edited";
+		        												echo "<script type='text/javascript'>alert('$message');</script>";
+															    echo "<meta http-equiv='refresh' content='0'>";
 															}
 
-														    $message = "Product Name ".$pdname." was Edited";
-	        												echo "<script type='text/javascript'>alert('$message');</script>";
-														    echo "<meta http-equiv='refresh' content='0'>";
-														}
+								      						if(isset($_POST[$pt])){								      							
+															    $result = mysqli_query($koneksi,"delete from product_detail where pdid='$epd'");
 
-							      						if(isset($_POST[$pt])){
-							      							$pdname = $_POST[$pn];
-							      							$epd = $key['pdid'];
-														    $result = mysqli_query($koneksi,"delete from product_detail where pdid='$epd'");
-
-														    $message = "Product Name ".$pdname." was Deleted";
-	        												echo "<script type='text/javascript'>alert('$message');</script>";
-														    echo "<meta http-equiv='refresh' content='0'>";
+															    $message = "Product Name ".$pdname." was Deleted";
+		        												echo "<script type='text/javascript'>alert('$message');</script>";
+															    echo "<meta http-equiv='refresh' content='0'>";
+															}
 														}
 													}
 												}

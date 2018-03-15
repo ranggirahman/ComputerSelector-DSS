@@ -268,7 +268,7 @@
 	     	<br>			  	
 	     	<hr>			  	
 			<?php 
-				$c = mysqli_query($koneksi,"select count(resid) from product_response where product_name='$product'"); 
+				$c = mysqli_query($koneksi,"select count(resid) from product_comment where product_name='$product'"); 
 				$cr = mysqli_fetch_array($c);
 				$replycount = $cr['count(resid)'];
 
@@ -287,7 +287,7 @@
 			</div>
 			<hr>
 			<?php
-				$result = mysqli_query($koneksi,"select *from product_response where product_name='$product'");
+				$result = mysqli_query($koneksi,"select *from product_comment where product_name='$product'");
 
 				if($result == TRUE){
 					while($key = mysqli_fetch_array($result,MYSQLI_BOTH)){
@@ -366,7 +366,7 @@
 	if(isset($_POST['post'])){
 
 	    $comment = mysql_real_escape_string($_POST['comment']);
-	    $result = mysqli_query($koneksi,"insert into product_response(product_name,resuser,comment) values ('$product','".$_SESSION['username']."','$comment')");
+	    $result = mysqli_query($koneksi,"insert into product_comment(product_name,resuser,comment) values ('$product','".$_SESSION['username']."','$comment')");
 
 	    echo "<meta http-equiv='refresh' content='0'>";
 	}

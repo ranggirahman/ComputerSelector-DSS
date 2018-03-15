@@ -221,7 +221,7 @@
 						  	</div>
 						  	<div class="card-footer text-muted">
 						  		<div class="row">
-						  			<div class="col-md-4"><a class="btn btn-light" href="../pages/settings.php" role="button" style="color: grey;">Price Filtered by Budget Settings</a></div>
+						  			<div class="col-md-4"><a class="btn btn-light" href="../pages/settings.php" role="button" style="color: grey;"><i class="material-icons" style="font-size: 16px;">settings</i> Price Filtered by Budget Settings</a></div>
 						  			<div class="col-md-8 text-right"><button type="button" class="btn btn-primary" id="find">Find</button></div>
 						  		</div>						  		
 						  	</div>
@@ -312,21 +312,57 @@
 					  				<?php
 					  					$r = "r".$sr['sid'];
 					  					$nr = "nr".$sr['sid'];
+
+					  					$ttr = mysqli_query($koneksi,"select count(resid) from spesification_response where ressid='".$sr['sid']."' and feedback='1'");
+					  					$ftr = mysqli_fetch_array($ttr);
+									    $str = $ftr['count(resid)'];
+
+					  					$tnr = mysqli_query($koneksi,"select count(resid) from spesification_response where ressid='".$sr['sid']."' and feedback='2'");
+					  					$fnr = mysqli_fetch_array($tnr);
+									    $snr = $fnr['count(resid)'];
+
+									    $htr = mysqli_query($koneksi,"select count(resid) from spesification_response where ressid='".$sr['sid']."' and resuser='".$_SESSION['username']."' and feedback='1'");
+									    $hsr = mysqli_fetch_array($htr);
+									    $hr = $hsr['count(resid)'];
+
+									    $hnr = mysqli_query($koneksi,"select count(resid) from spesification_response where ressid='".$sr['sid']."' and resuser='".$_SESSION['username']."' and feedback='2'");
+									    $hsnr = mysqli_fetch_array($hnr);
+									    $hnr = $hsnr['count(resid)'];		    						    
+					  					
 					  				?>
 					  				<form action="" method="post">
-					  					<div class="btn-group" role="group" style="width: 60%;">
-											<button type="submit" name="<?php echo $r ?>" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_up</i><h4 class="display-4" style="font-size: 20px;">Recommended</h4></button>
-											<button type="submit" name="<?php echo $nr ?>" class="btn btn-light" style="width: 50%;"><i class="material-icons" style="font-size: 40px;">thumb_down</i><h4 class="display-4" style="font-size: 20px;">Not Recommended</h4></button>
+					  					<div class="btn-group" role="group" style="width: 40%;">
+											<button type="submit" name="<?php echo $r ?>" class="btn <?php if($hr == 1){echo 'btn-success';}else{echo 'btn-light';} ?>" style="width: 50%;"><i class="material-icons" style="font-size: 28px;">thumb_up</i><h4 class="display-4" style="font-size: 18px;">(<b><?php echo $str ?></b>) Recommended</h4></button>
+											<button type="submit" name="<?php echo $nr ?>" class="btn <?php if($hnr == 1){echo 'btn-danger';}else{echo 'btn-light';} ?>" style="width: 50%;"><i class="material-icons" style="font-size: 28px;">thumb_down</i><h4 class="display-4" style="font-size: 18px;">(<b><?php echo $snr ?></b>) Not Recommended</h4></button>
 										</div>
 					  				</form>
 					  				<?php
-									  	if(isset($_POST[$r])){
-										   	$r = mysqli_query($koneksi,"update spesification set fr=fr+1 where sid='".$sr['sid']."'"); 
-										   	echo "<meta http-equiv='refresh' content='0'>";	  
-									  	}else if(isset($_POST[$nr])){
-									  		$nr = mysqli_query($koneksi,"update spesification set fnr=fnr+1 where sid='".$sr['sid']."'");
-									  		echo "<meta http-equiv='refresh' content='0'>";	
-									  	}
+
+					  					if( isset($_POST[$r])|| isset($_POST[$nr])){
+
+					  					
+					  						$c = mysqli_query($koneksi,"select count(resid) from spesification_response where resuser='".$_SESSION['username']."' and ressid='".$sr['sid']."'");
+
+										    $cr = mysqli_fetch_array($c);
+										    $ci = $cr['count(resid)'];
+
+										    if( $ci == 1 ){	
+										    	if(isset($_POST[$r])){
+												   	$r = mysqli_query($koneksi,"update spesification_response set feedback='1' where resuser='".$_SESSION['username']."' and ressid='".$sr['sid']."' "); 
+											  	}else if(isset($_POST[$nr])){
+											  		$nr = mysqli_query($koneksi,"update spesification_response set feedback='2' where resuser='".$_SESSION['username']."' and ressid='".$sr['sid']."'");
+											  	}
+											}else{
+												if(isset($_POST[$r])){
+												   	$r = mysqli_query($koneksi,"insert into spesification_response(resuser,ressid,feedback) values ('".$_SESSION['username']."','".$sr['sid']."','1')"); 
+											  	}else if(isset($_POST[$nr])){
+											  		$nr = mysqli_query($koneksi,"insert into spesification_response(resuser,ressid,feedback) values ('".$_SESSION['username']."','".$sr['sid']."','2')");
+											  	}
+											}
+											$message = "Your Response Has Been Recorded";
+	        								echo "<script type='text/javascript'>alert('$message');</script>";
+										    echo "<meta http-equiv='refresh' content='0'>";										  	
+										}
 									?>					  				
 					  			</div>
 					  		</div>				    
