@@ -298,11 +298,25 @@
 									</form>
 									<?php 
 										if(isset($_POST[$lst])){
-											if($lst == "likestatus=1"){
-												$result = mysqli_query($koneksi,"update product_response set likestatus='0' where product_name='$product'");
-											}else if($lst == "likestatus=0"){
-												$result = mysqli_query($koneksi,"update product_response set likestatus='1' where product_name='$product'");
-											}	
+
+											$c = mysqli_query($koneksi,"select count(resid) from product_response where product_name='$product' and resuser='".$_SESSION['username']."'");
+
+										    $cr = mysqli_fetch_array($c);
+										    $ci = $cr['count(resid)'];
+
+										    if( $ci == 1 ){	
+										    	if($lst == "likestatus=1"){
+												$result = mysqli_query($koneksi,"update product_response set likestatus='0' where product_name='$product' and resuser='".$_SESSION['username']."'");
+												}else if($lst == "likestatus=0"){
+													$result = mysqli_query($koneksi,"update product_response set likestatus='1' where product_name='$product' and resuser='".$_SESSION['username']."'");
+												}	
+										    }else{
+										    	if($lst == "likestatus=1"){
+													$result = mysqli_query($koneksi,"insert into product_response(product_name,resuser,likestatus) values ('$product','".$_SESSION['username']."','0')"); 
+												}else if($lst == "likestatus=0"){
+													$result = mysqli_query($koneksi,"insert into product_response(product_name,resuser,likestatus) values ('$product','".$_SESSION['username']."','1')"); 
+												}
+										    }											
 										}
 									?>
 								</div>
