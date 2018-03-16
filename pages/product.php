@@ -119,7 +119,7 @@
 						echo "</div>";
 						echo "<div class='card-footer'>";
 							 echo "<div class='row'>";
-						    	echo "<div class='col-md-12 text-right'><div class='pull-right'><a class='btn btn-sm btn-light' href='".$pd['query']."".$row['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> View Specifications</a><a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a><a class='btn btn-sm btn-light' href='".$st['query']."".$row['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a></div></div>";
+						    	echo "<div class='col-md-12 text-right'><div class='pull-right'><a class='btn btn-sm btn-light' href='".$pd['query']."".$row['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> View Specifications</a>&nbsp;<a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a>&nbsp;<a class='btn btn-sm btn-light' href='".$st['query']."".$row['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a></div></div>";
 						    echo "</div>";
 						echo "</div>";
 						echo "</div>";
@@ -181,7 +181,7 @@
 						echo "</div>";
 						echo "<div class='card-footer'>";
 						echo "<div class='row'>";
-					    	echo "<div class='col-md-12 text-right'><div class='pull-right'><a class='btn btn-sm btn-light' href='".$pd['query']."".$row['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> View Specifications</a><a class='btn btn-sm btn-light' href='".$st['query']."".$row['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a><a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a></div></div>";
+					    	echo "<div class='col-md-12 text-right'><div class='pull-right'><a class='btn btn-sm btn-light' href='".$pd['query']."".$row['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> View Specifications</a>&nbsp;<a class='btn btn-sm btn-light' href='".$st['query']."".$row['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a>&nbsp;<a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a></div></div>";
 						    echo "</div>";
 						echo "</div>";
 						echo "</div>";
@@ -239,7 +239,7 @@
 						echo "</div>";
 						echo "<div class='card-footer'>";
 							 echo "<div class='row'>";
-						    	echo "<div class='col-md-12 text-right'><div class='pull-right'><a class='btn btn-sm btn-light' href='".$pd['query']."".$row['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> View Specifications</a><a class='btn btn-sm btn-light' href='".$st['query']."".$row['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a><a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a></div></div>";
+						    	echo "<div class='col-md-12 text-right'><div class='pull-right'><a class='btn btn-sm btn-light' href='".$pd['query']."".$row['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> View Specifications</a>&nbsp;<a class='btn btn-sm btn-light' href='".$st['query']."".$row['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a>&nbsp;<a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a></div></div>";
 						    echo "</div>";
 						echo "</div>";
 						echo "</div>";
@@ -271,13 +271,21 @@
 				$cr = mysqli_fetch_array($c);
 				$replycount = $cr['count(resid)'];
 
-				$c = mysqli_query($koneksi,"select count(resid) from product_response where product_name='$product'"); 
+				$c = mysqli_query($koneksi,"select count(resid) from product_response where product_name='$product' and likestatus='1'"); 
 				$lr = mysqli_fetch_array($c);
 				$likecount = $lr['count(resid)'];
 
+
 				$result = mysqli_query($koneksi,"select *from product_response where product_name='$product' and resuser='".$_SESSION['username']."'");
 				$lstt = mysqli_fetch_array($result);
-				$lst = "likestatus=".$lstt['likestatus'];
+				$lstp = $lstt['resid'];
+				$userlike = count($lstp);
+
+				if( $userlike == 0 ){	
+					$lst = "likestatus=0";					
+				}else{
+					$lst = "likestatus=".$lstt['likestatus'];
+				}
 			?>
 			<div class="row">
 				<div class="col-md-12">
@@ -294,7 +302,7 @@
 								</div>
 								<div class="col-sm-7 text-right">
 									<form action="" method="POST">
-										<button class="btn btn-sm btn-less btn-outline-dark" type="submit" name="<?php echo $lst ?>" title="Save Changes"><h5 style="font-size: 15px;"><i class="material-icons" style="font-size: 15px;">thumb_up</i> <?php echo "$likecount"; ?> Like</h5></button>
+										<button class="btn btn-sm btn-less <?php if($lstt['likestatus'] == 1){echo 'btn-outline-dark';}else{echo 'btn-outline-danger';} ?>" type="submit" name="<?php echo $lst ?>"><h5 style="font-size: 15px;"><i class="material-icons" style="font-size: 15px;">thumb_up</i> <?php echo "$likecount"; ?> Like</h5></button>
 									</form>
 									<?php 
 										if(isset($_POST[$lst])){
@@ -306,7 +314,7 @@
 
 										    if( $ci == 1 ){	
 										    	if($lst == "likestatus=1"){
-												$result = mysqli_query($koneksi,"update product_response set likestatus='0' where product_name='$product' and resuser='".$_SESSION['username']."'");
+													$result = mysqli_query($koneksi,"update product_response set likestatus='0' where product_name='$product' and resuser='".$_SESSION['username']."'");
 												}else if($lst == "likestatus=0"){
 													$result = mysqli_query($koneksi,"update product_response set likestatus='1' where product_name='$product' and resuser='".$_SESSION['username']."'");
 												}	
@@ -316,7 +324,9 @@
 												}else if($lst == "likestatus=0"){
 													$result = mysqli_query($koneksi,"insert into product_response(product_name,resuser,likestatus) values ('$product','".$_SESSION['username']."','1')"); 
 												}
-										    }											
+										    }
+
+										    echo "<meta http-equiv='refresh' content='0'>";											
 										}
 									?>
 								</div>

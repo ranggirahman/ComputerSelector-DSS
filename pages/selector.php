@@ -76,7 +76,6 @@
 			    								<th></th>
 			    								<th>Name</th>
 			    								<th>Score</th>
-			    								<th></th>
 			    							</tr>
 		    							</thead>
 		    							<?php
@@ -86,7 +85,7 @@
 								      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
 								      			$i++;
 								      			?>
-								      			<tr>
+								      			<tr class="borderless">
 								      				<td><?php echo $i; ?></td>
 								      				<td><a href="../pages/product.php?p=<?php echo $key['cpuname'] ?>" role="button"><?php echo $key['cpuname']; ?></a></td>
 								      				<td>
@@ -94,7 +93,6 @@
 													  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['cpuscore']*10 ?>%;" aria-valuenow="<?php echo $key['cpuscore'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['cpuscore'] ?></div>
 														</div>
 													</td>
-								      				<td></a></td>
 								      			</tr>
 								      		<?php
 								      		}
@@ -119,7 +117,6 @@
 			    								<th></th>
 			    								<th>Name</th>
 			    								<th>Score</th>
-			    								<th></th>
 			    							</tr>
 		    							</thead>
 		    							<?php
@@ -129,7 +126,7 @@
 								      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
 								      			$i++;
 								      			?>
-								      			<tr>
+								      			<tr class="borderless">
 								      				<td><?php echo $i; ?></td>
 								      				<td><a href="../pages/product.php?p=<?php echo $key['vganame'] ?>" role="button"><span aria-hidden="true"><?php echo $key['vganame']; ?></span></td>
 								      				<td class="table-center">
@@ -161,7 +158,6 @@
 			    								<th></th>
 			    								<th>Name</th>
 			    								<th>Score</th>
-			    								<th></th>
 			    							</tr>
 		    							</thead>
 		    							<?php
@@ -171,7 +167,7 @@
 								      		while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
 								      			$i++;
 								      			?>
-								      			<tr>
+								      			<tr class="borderless">
 								      				<td><?php echo $i; ?></td>
 								      				<td><a href="../pages/product.php?p=<?php echo $key['ssdname'] ?>" role="button"><?php echo $key['ssdname']; ?></a></td>
 								      				<td class="table-center">
@@ -358,10 +354,7 @@
 											  	}else if(isset($_POST[$nr])){
 											  		$nr = mysqli_query($koneksi,"insert into spesification_response(resuser,ressid,feedback) values ('".$_SESSION['username']."','".$sr['sid']."','2')");
 											  	}
-											}
-											$message = "Your Response Has Been Recorded";
-	        								echo "<script type='text/javascript'>alert('$message');</script>";
-										    echo "<meta http-equiv='refresh' content='0'>";										  	
+											}									  	
 										}
 									?>					  				
 					  			</div>

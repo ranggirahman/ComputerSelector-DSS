@@ -42,7 +42,7 @@
 	      	<div class="container">
 	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 5%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
 
-	        	<form  class="col-lg-5" action="/pages/search.php" method="POST">
+	        	<form  class="col-lg-5" action="pages/search.php" method="POST">
 				  	<input class="form-control" name="search" placeholder="Product Search">
 				  	<input type="submit" name="searchsubmit" style="display:none"/>
 		        </form>
@@ -82,7 +82,7 @@
 							<hr>
 							<h5 class="card-title display-4" style="font-size: 22px;">Processor</h5>
 						   	<p class="card-text"> Fungsi utama dari CPU adalah melakukan operasi aritmetika dan logika terhadap data yang diambil dari memori atau dari informasi yang dimasukkan</p>
-						   	<div class="btn btn-primary" data-toggle="modal" data-target="#processormodal">View Processor List</div>
+						   	<div class="btn btn-primary" data-toggle="modal" data-target="#processormodal"><i class="material-icons" style="font-size: 20px;">format_list_bulleted</i> Processor List</div>
 						 </div>
 					</div>
 	        	</div>
@@ -93,7 +93,7 @@
 							<hr>
 							<h5 class="card-title display-4" style="font-size: 22px;">Video Graphic Array</h5>
 						   	<p class="card-text">Kartu VGA berguna untuk menerjemahkan keluaran komputer ke monitor. Untuk menggambar / design graphic ataupun untuk bermain game</p>
-						   	<div class="btn btn-primary" data-toggle="modal" data-target="#vgamodal">View VGA List</div>
+						   	<div class="btn btn-primary" data-toggle="modal" data-target="#vgamodal"><i class="material-icons" style="font-size: 20px;">format_list_bulleted</i> VGA List</div>
 						 </div>
 					</div>
 	        	</div>
@@ -104,11 +104,98 @@
 							<hr>
 							<h5 class="card-title display-4" style="font-size: 22px;">Solid State Disk</h5>
 						   	<p class="card-text">Komponen perangkat keras yang menyimpan data sekunder. Menggunakan menggunakan nonvolatile memory tidak seperti hardisk konvensional</p>
-						   	<div href="" class="btn btn-primary" data-toggle="modal" data-target="#ssdmodal">View SSD List</div>
+						   	<div href="" class="btn btn-primary" data-toggle="modal" data-target="#ssdmodal"><i class="material-icons" style="font-size: 20px;">format_list_bulleted</i> SSD List</div>
 						 </div>
 					</div>
 	        	</div>
 	     	</div>
+	     	<br>
+	     	<div class="row">	    		
+	    		<div class="col-md-4">
+	    			<div class="card">
+ 					 	<div class="card-body">   
+			    			<div class="row">
+			    				<div class="col-md-12">
+			    					<div class="display-4" style="font-size: 20px;"><i class="material-icons" style="color: grey; font-size: 30px;">trending_up</i> Processor Trends</div>	
+			    					<hr>   					
+		    						<table class="table table-sm table-hover borderless">
+		    							<?php
+							    			$cpu = mysqli_query($koneksi,"select *from cpu order by cpuview desc limit 5");
+								      		$i = 0;
+
+								      		while($key = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
+								      			$i++;
+								      			?>
+								      			<tr>
+								      				<td><?php echo $i; ?></td>
+								      				<td><a href="pages/product.php?p=<?php echo $key['cpuname'] ?>" role="button"><?php echo $key['cpuname']; ?></a></td>
+								      			</tr>
+								      		<?php
+								      		}
+					    				?>
+		    						</table>	    					
+			    				</div>
+			    			</div>
+			    		</div>
+			    	</div>
+	    		</div>
+	    		<div class="col-md-4">
+	    			<div class="card">
+ 					 	<div class="card-body">   
+			    			<div class="row">
+			    				<div class="col-md-12">
+			    					<div class="display-4" style="font-size: 20px;"><i class="material-icons" style="color: grey; font-size: 30px;">trending_up</i> VGA Trends</div>
+			    					<hr>				
+		    						<table class="table table-sm table-hover borderless">
+		    							<?php
+							    			$vga = mysqli_query($koneksi,"select *from vga order by vgaview desc limit 5");
+								      		$i = 0;
+
+								      		while($key = mysqli_fetch_array($vga,MYSQLI_BOTH)){
+								      			$i++;
+								      			?>
+								      			<tr>
+								      				<td><?php echo $i; ?></td>
+								      				<td><a href="pages/product.php?p=<?php echo $key['vganame'] ?>" role="button"><span aria-hidden="true"><?php echo $key['vganame']; ?></span></td>
+								      			</tr>
+								      		<?php
+								      		}
+					    				?>
+		    						</table>	    					
+			    				</div>
+			    			</div>
+			    		</div>
+			    	</div>
+	    		</div>
+	    		<div class="col-md-4">
+	    			<div class="card">
+ 					 	<div class="card-body">   
+			    			<div class="row">
+			    				<div class="col-md-12">
+			    					<div class="display-4" style="font-size: 20px;"><i class="material-icons" style="color: grey; font-size: 30px;">trending_up</i> SSD Trends</div>
+			    					<hr>			    					
+		    						<table class="table table-sm table-hover borderless">
+		    							<?php
+							    			$ssd = mysqli_query($koneksi,"select *from ssd order by ssdview desc limit 5");
+								      		$i = 0;
+
+								      		while($key = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
+								      			$i++;
+								      			?>
+								      			<tr>
+								      				<td><?php echo $i; ?></td>
+								      				<td><a href="pages/product.php?p=<?php echo $key['ssdname'] ?>" role="button"><?php echo $key['ssdname']; ?></a></td>
+								      			</tr>
+								      		<?php
+								      		}
+					    				?>
+		    						</table>	    					
+			    				</div>
+			    			</div>
+			    		</div>
+			    	</div>
+	    		</div>
+	    	</div>
 	     	<br>
 	      	<hr>
 	      	<footer>
