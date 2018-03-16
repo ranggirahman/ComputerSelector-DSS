@@ -28,13 +28,19 @@
 }
 
 .table-center{
-   text-align: center;
+    text-align: center;
 }
 
 a {
-  text-decoration: none !important; 
+    text-decoration: none !important; 
 }
 
 .borderless td, .borderless th {
     border: none !important;
+}
+
+.btn-less{
+    border:0px solid transparent;
+    padding: 5px 10px 0px 10px;
+    margin-top: -5px;
 }

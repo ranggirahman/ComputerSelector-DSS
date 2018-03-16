@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2018 at 06:39 PM
+-- Generation Time: Mar 16, 2018 at 07:01 AM
 -- Server version: 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -51,7 +51,7 @@ CREATE TABLE `cpu` (
 --
 
 INSERT INTO `cpu` (`cpuid`, `cpuname`, `pdid`, `performance`, `single`, `intg`, `intgocl`, `ppw`, `value`, `cpuscore`, `cpuprice`, `cpuview`, `s1`, `s2`, `s3`, `s4`, `s5`) VALUES
-(1, 'Intel Core i7 5930k', 1, 10, 8.7, 0, 0, 6.2, 5.2, 6.2, 640, 268, 0, 0, 0, 0, 0),
+(1, 'Intel Core i7 5930k', 1, 10, 8.7, 0, 0, 6.2, 5.2, 6.2, 640, 279, 0, 0, 0, 0, 0),
 (2, 'Intel Core i7 5820K', 1, 9.6, 8.3, 0, 0, 6.1, 5.5, 6.1, 439, 4, 0, 0, 0, 0, 0),
 (3, 'AMD FX 8370', 2, 6.8, 6, 0, 0, 5.7, 6, 5.5, 169, 44, 0, 0, 0, 0, 0),
 (4, 'Intel Core i3 4370', 1, 7.4, 10, 0, 7.2, 9.9, 6.5, 8.7, 179, 7, 0, 0, 0, 0, 0),
@@ -127,6 +127,19 @@ INSERT INTO `product_detail` (`pdid`, `pdname`, `pdimg`, `query`) VALUES
 (1, 'Intel', 'img/product/Intel.png', 'https://ark.intel.com/search?q='),
 (2, 'AMD', 'img/product/AMD.png', 'https://products.amd.com/en-us/search#k='),
 (4, 'Nvidia', 'img/product/Nvidia.png', 'https://www.geforce.com/hardware/desktop-gpus?keys=');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_response`
+--
+
+CREATE TABLE `product_response` (
+  `resid` int(11) NOT NULL,
+  `product_name` varchar(100) NOT NULL,
+  `resuser` varchar(20) NOT NULL,
+  `likestatus` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -207,7 +220,7 @@ CREATE TABLE `ssd` (
 --
 
 INSERT INTO `ssd` (`ssdid`, `ssdname`, `pdid`, `readp`, `writep`, `realwb`, `bench`, `ssdscore`, `ssdprice`, `ssdview`, `s1`, `s2`, `s3`, `s4`, `s5`) VALUES
-(1, 'Intel 750', 1, 10, 10, 10, 8.7, 9.2, 270, 20, 0, 0, 0, 0, 0),
+(1, 'Intel 750', 1, 10, 10, 10, 8.7, 9.2, 270, 21, 0, 0, 0, 0, 0),
 (2, 'Toshiba HG6', 0, 6.7, 7.1, 7.5, 6.5, 6.8, 64, 1, 0, 0, 0, 0, 0),
 (3, 'Plextor M6e Black Edition', 0, 6.3, 7, 8.6, 7, 7, 173, 10, 0, 0, 0, 0, 0),
 (4, 'PLextor M6 Pro', 0, 6.4, 6.5, 7.3, 6.5, 6.5, 139, 0, 0, 0, 0, 0, 0),
@@ -216,7 +229,7 @@ INSERT INTO `ssd` (`ssdid`, `ssdname`, `pdid`, `readp`, `writep`, `realwb`, `ben
 (7, 'Crucial BX100', 0, 6.3, 6.5, 8.9, 6.8, 6.9, 92, 0, 0, 0, 0, 0, 0),
 (8, 'Anglebird SSD wrk', 0, 6.3, 6.1, 7.6, 6.4, 6.5, 159, 0, 0, 0, 0, 0, 0),
 (9, 'Crucial MX100', 0, 6, 6.5, 7.4, 6.3, 6.4, 179, 0, 0, 0, 0, 0, 0),
-(10, 'Intel 730', 1, 6.7, 7.1, 8, 6.8, 7, 249, 0, 0, 0, 0, 0, 0),
+(10, 'Intel 730', 1, 6.7, 7.1, 8, 6.8, 7, 249, 125, 0, 0, 0, 0, 0),
 (11, 'Plextor M6S', 0, 5.9, 6.2, 7.3, 6.4, 6.3, 64, 0, 0, 0, 0, 0, 0),
 (12, 'Crucial M550', 0, 6, 6.6, 8.1, 6.5, 6.6, 128, 0, 0, 0, 0, 0, 0),
 (13, 'SanDisk Extreme PRO SSD', 0, 6.3, 6.7, 7.7, 6.5, 6.6, 146, 0, 0, 0, 0, 0, 0),
@@ -325,7 +338,7 @@ INSERT INTO `vga` (`vgaid`, `vganame`, `pdid`, `gaming`, `graphics`, `computing`
 (8, 'Radeon RX 470', 2, 9.1, 6.8, 10, 8.3, 5.1, 7, 8.5, 487, 2, 0, 0, 0, 0, 0),
 (9, 'Radeon R9 290X', 2, 7.2, 8.7, 8.5, 6.6, 7.8, 7.4, 8.1, 483, 3, 0, 0, 0, 0, 0),
 (10, 'Radeon R9 290', 2, 8, 6.5, 8.7, 5.5, 6.7, 6.1, 7.2, 470, 0, 0, 0, 0, 0, 0),
-(11, 'Radeon R9 380', 2, 9.6, 6.8, 8.9, 6, 5, 5, 7.7, 481, 4, 0, 0, 0, 0, 0),
+(11, 'Radeon R9 380', 2, 9.6, 6.8, 8.9, 6, 5, 5, 7.7, 481, 39, 0, 0, 0, 0, 0),
 (12, 'Radeon R9 380X', 2, 7.6, 8.3, 7.7, 6.8, 7.6, 7, 7.7, 320, 0, 0, 0, 0, 0, 0),
 (13, 'GeForce GTX 960', 4, 8, 9.4, 7.1, 7.7, 5.1, 7, 8, 231, 0, 0, 0, 0, 0, 0),
 (15, 'Radeon R9 280', 2, 6.7, 6.2, 7.7, 5.6, 6.2, 6.9, 6.3, 269, 0, 0, 0, 0, 0, 0),
@@ -356,6 +369,12 @@ ALTER TABLE `product_comment`
 --
 ALTER TABLE `product_detail`
   ADD PRIMARY KEY (`pdid`);
+
+--
+-- Indexes for table `product_response`
+--
+ALTER TABLE `product_response`
+  ADD PRIMARY KEY (`resid`);
 
 --
 -- Indexes for table `spesification`
@@ -412,6 +431,11 @@ ALTER TABLE `product_comment`
 --
 ALTER TABLE `product_detail`
   MODIFY `pdid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `product_response`
+--
+ALTER TABLE `product_response`
+  MODIFY `resid` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `spesification`
 --

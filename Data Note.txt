@@ -1,9 +1,6 @@
-- Kalau kriteria didapat dari internet karena semua orang tau mau menggunakan ini untuk ini ini ini
-
-
 - Semua data diambil yang tidak mengadung n.d
-- kecuali cpu yg integrated graphic
-- semua untuk desktop
+- kecuali cpu yg integrated graphic / opcl
+- semua perangkat untuk desktop
 
 --------- CPU ----------------
 2014 -2015

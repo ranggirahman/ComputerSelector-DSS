@@ -77,7 +77,7 @@
 						echo "<div class='card-body'>";
 							echo "<div class='row'>";
 							echo "<div class='col-md-1'><img src='../img/processor.png' height='55px' width='55px'></div>";
-							echo "<div class='col-md-10'><h5 class='display-4' style='font-size: 40px;'>".$row['cpuname']."</h5></div>";
+							echo "<div class='col-md-10'><h5 class='display-4' style='font-size: 40px;'>".$row['cpuname']." </h5></div>";
 							echo "<div class='col-md-1'><img src='../".$pd['pdimg']."' height='55px' width='55px'></div>";
 						    echo "</div>"; 	
 						   	echo "<hr>";
@@ -265,27 +265,55 @@
 				</div>	        	
 	     	</div>
 
-	     	<br>			  	
-	     	<hr>			  	
+	     	<br>
 			<?php 
 				$c = mysqli_query($koneksi,"select count(resid) from product_comment where product_name='$product'"); 
 				$cr = mysqli_fetch_array($c);
 				$replycount = $cr['count(resid)'];
 
+				$c = mysqli_query($koneksi,"select count(resid) from product_response where product_name='$product'"); 
+				$lr = mysqli_fetch_array($c);
+				$likecount = $lr['count(resid)'];
+
+				$result = mysqli_query($koneksi,"select *from product_response where product_name='$product' and resuser='".$_SESSION['username']."'");
+				$lstt = mysqli_fetch_array($result);
+				$lst = "likestatus=".$lstt['likestatus'];
 			?>
 			<div class="row">
-				<div class="col-sm-1">
-				</div>
-				<div class="col-sm-2">
-					<i class="material-icons" style="font-size: 20px;">comment</i> <?php echo "$replycount"; ?> Comments
-				</div>										
-				<div class="col-sm-2">
-					<i class="material-icons" style="font-size: 20px;">remove_red_eye</i> <?php echo "$view"; ?> Views
-				</div>
-				<div class="col-sm-7">					
-				</div>
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-body bg-light">
+							<div class="row" style="margin-bottom: -10px;">
+								<div class="col-sm-1">
+								</div>
+								<div class="col-sm-2">
+									<h5 style="font-size: 15px;"><i class="material-icons" style="font-size: 20px;">comment</i> <?php echo "$replycount"; ?> Comments</h5>
+								</div>										
+								<div class="col-sm-2">
+									<h5 style="font-size: 15px;"><i class="material-icons" style="font-size: 20px;">remove_red_eye</i> <?php echo "$view"; ?> Views</h5>
+								</div>
+								<div class="col-sm-7 text-right">
+									<form action="" method="POST">
+										<button class="btn btn-sm btn-less btn-outline-dark" type="submit" name="<?php echo $lst ?>" title="Save Changes"><h5 style="font-size: 15px;"><i class="material-icons" style="font-size: 15px;">thumb_up</i> <?php echo "$likecount"; ?> Like</h5></button>
+									</form>
+									<?php 
+										if(isset($_POST[$lst])){
+											if($lst == "likestatus=1"){
+												$result = mysqli_query($koneksi,"update product_response set likestatus='0' where product_name='$product'");
+											}else if($lst == "likestatus=0"){
+												$result = mysqli_query($koneksi,"update product_response set likestatus='1' where product_name='$product'");
+											}	
+										}
+									?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>				
 			</div>
-			<hr>
+			<br>
+			<div class="row">
+				<div class="col-md-12">
 			<?php
 				$result = mysqli_query($koneksi,"select *from product_comment where product_name='$product'");
 
@@ -311,7 +339,9 @@
 							";
 					}
 				}
-			?> 	
+			?> 
+				</div>
+			</div>	
 			<div class="row">
 				<div class="col-md-12">
 					<div class="card">
