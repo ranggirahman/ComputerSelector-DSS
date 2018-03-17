@@ -240,7 +240,6 @@
 					  			<div class="col-md-12">
 					  				<table class="table table-sm" border="0">  
 		    							<?php 
-		    								$i = 1;
 
 		    								echo "
 		    									<tr class='bg-light'>
@@ -270,7 +269,7 @@
 		    								$ssd = mysqli_query($koneksi,$issy);
 		    								
 
-		    								while ($i <= 5) {
+		    								for ($i = 0; $i <= 5; $i++) {
 		    									$rcpu = mysqli_fetch_array($cpu,MYSQLI_BOTH);
 		    									$rvga = mysqli_fetch_array($vga,MYSQLI_BOTH);
 		    									$rssd = mysqli_fetch_array($ssd,MYSQLI_BOTH);
@@ -295,7 +294,6 @@
 			    								echo "</tr>";
 
 			    								echo "<tr><td colspan=5><br></td></tr>";
-			    								$i++;
 		    								}
 		    							?>
 		    						</table>
@@ -309,6 +307,7 @@
 					  					$r = "r".$sr['sid'];
 					  					$nr = "nr".$sr['sid'];
 
+					  					// recommend counter
 					  					$ttr = mysqli_query($koneksi,"select count(resid) from spesification_response where ressid='".$sr['sid']."' and feedback='1'");
 					  					$ftr = mysqli_fetch_array($ttr);
 									    $str = $ftr['count(resid)'];
@@ -317,6 +316,7 @@
 					  					$fnr = mysqli_fetch_array($tnr);
 									    $snr = $fnr['count(resid)'];
 
+									    // recommend button status
 									    $htr = mysqli_query($koneksi,"select count(resid) from spesification_response where ressid='".$sr['sid']."' and resuser='".$_SESSION['username']."' and feedback='1'");
 									    $hsr = mysqli_fetch_array($htr);
 									    $hr = $hsr['count(resid)'];
@@ -337,18 +337,20 @@
 
 					  					if( isset($_POST[$r])|| isset($_POST[$nr])){
 
-					  					
+					  						// is user recommend exist
 					  						$c = mysqli_query($koneksi,"select count(resid) from spesification_response where resuser='".$_SESSION['username']."' and ressid='".$sr['sid']."'");
 
 										    $cr = mysqli_fetch_array($c);
 										    $ci = $cr['count(resid)'];
 
+										    // if exsist just update 
 										    if( $ci == 1 ){	
 										    	if(isset($_POST[$r])){
 												   	$r = mysqli_query($koneksi,"update spesification_response set feedback='1' where resuser='".$_SESSION['username']."' and ressid='".$sr['sid']."' "); 
 											  	}else if(isset($_POST[$nr])){
 											  		$nr = mysqli_query($koneksi,"update spesification_response set feedback='2' where resuser='".$_SESSION['username']."' and ressid='".$sr['sid']."'");
 											  	}
+											// if not insert
 											}else{
 												if(isset($_POST[$r])){
 												   	$r = mysqli_query($koneksi,"insert into spesification_response(resuser,ressid,feedback) values ('".$_SESSION['username']."','".$sr['sid']."','1')"); 
