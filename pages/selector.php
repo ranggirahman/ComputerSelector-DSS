@@ -329,8 +329,9 @@
 					  				<form action="" method="post">
 					  					<div class="btn-group" role="group" style="width: 40%;">
 											<button type="submit" name="<?php echo $r ?>" class="btn <?php if($hr == 1){echo 'btn-success';}else{echo 'btn-light';} ?>" style="width: 50%;"><i class="material-icons" style="font-size: 28px;">thumb_up</i><h4 class="display-4" style="font-size: 18px;">(<b><?php echo $str ?></b>) Recommended</h4></button>
-											<button type="submit" name="<?php echo $nr ?>" class="btn <?php if($hnr == 1){echo 'btn-danger';}else{echo 'btn-light';} ?>" style="width: 50%;"><i class="material-icons" style="font-size: 28px;">thumb_down</i><h4 class="display-4" style="font-size: 18px;">(<b><?php echo $snr ?></b>) Not Recommended</h4></button>
+											<button type="submit" name="<?php echo $nr ?>" class="btn <?php if($hnr == 1){echo 'btn-danger';}else{echo 'btn-light';} ?>" style="width: 50%;"><i class="material-icons" style="font-size: 28px;">thumb_down</i><h4 class="display-4" style="font-size: 18px;">(<b><?php echo $snr ?></b>) Not Recommended</h4></button>		
 										</div>
+										<a class="btn btn-light" href="../export/todoc.php?s=<?php echo $sr['sid'] ?>" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 28px;">archive</i></span> <h4 class="display-4" style="font-size: 18px;">Save</h4></a>
 					  				</form>
 					  				<?php
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2018 at 07:01 AM
+-- Generation Time: Mar 17, 2018 at 06:33 AM
 -- Server version: 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -51,14 +51,14 @@ CREATE TABLE `cpu` (
 --
 
 INSERT INTO `cpu` (`cpuid`, `cpuname`, `pdid`, `performance`, `single`, `intg`, `intgocl`, `ppw`, `value`, `cpuscore`, `cpuprice`, `cpuview`, `s1`, `s2`, `s3`, `s4`, `s5`) VALUES
-(1, 'Intel Core i7 5930k', 1, 10, 8.7, 0, 0, 6.2, 5.2, 6.2, 640, 279, 0, 0, 0, 0, 0),
+(1, 'Intel Core i7 5930k', 1, 10, 8.7, 0, 0, 6.2, 5.2, 6.2, 640, 301, 0, 0, 0, 0, 0),
 (2, 'Intel Core i7 5820K', 1, 9.6, 8.3, 0, 0, 6.1, 5.5, 6.1, 439, 4, 0, 0, 0, 0, 0),
-(3, 'AMD FX 8370', 2, 6.8, 6, 0, 0, 5.7, 6, 5.5, 169, 44, 0, 0, 0, 0, 0),
+(3, 'AMD FX 8370', 2, 6.8, 6, 0, 0, 5.7, 6, 5.5, 169, 46, 0, 0, 0, 0, 0),
 (4, 'Intel Core i3 4370', 1, 7.4, 10, 0, 7.2, 9.9, 6.5, 8.7, 179, 7, 0, 0, 0, 0, 0),
 (5, 'AMD FX 8370E', 2, 7.2, 5.2, 0, 0, 6.1, 5.8, 5.5, 249, 0, 0, 0, 0, 0, 0),
 (6, 'AMD FX 8320E', 2, 6.8, 5.7, 0, 0, 6.1, 6.6, 5.8, 109, 0, 0, 0, 0, 0, 0),
 (7, 'Intel Core i7 5960X', 1, 9.4, 8.5, 0, 0, 6.1, 5, 6, 1110, 1, 0, 0, 0, 0, 0),
-(8, 'Intel Core i7 4790K', 1, 9.4, 10, 6.7, 6.6, 10, 6.6, 9.7, 399, 10, 0, 0, 0, 0, 0),
+(8, 'Intel Core i7 4790K', 1, 9.4, 10, 6.7, 6.6, 10, 6.6, 9.7, 399, 11, 0, 0, 0, 0, 0),
 (9, 'Intel Pentium G3470', 1, 6.2, 9.5, 0, 0, 9.7, 8.5, 9, 89, 0, 0, 0, 0, 0, 0),
 (10, 'Intel Core i5 4690K', 1, 7.8, 9.2, 6.2, 6.7, 9.5, 6.7, 9.2, 350, 17, 0, 0, 0, 0, 0),
 (11, 'Intel Core i5 4690', 1, 7.4, 9, 5.9, 6.4, 9.5, 6.8, 9, 325, 2, 0, 0, 0, 0, 0),
@@ -79,7 +79,7 @@ INSERT INTO `cpu` (`cpuid`, `cpuname`, `pdid`, `performance`, `single`, `intg`, 
 (26, 'Intel Core i5 4590T', 1, 7.8, 8.6, 9.2, 0, 6.2, 5, 7.9, 214, 0, 0, 0, 0, 0, 0),
 (27, 'Intel Pentium G3440', 1, 6, 8.4, 0, 6.8, 9, 7.2, 8.2, 82, 0, 0, 0, 0, 0, 0),
 (28, 'AMD A10 7850K', 2, 8.2, 7, 10, 9.9, 9.1, 7.2, 8.9, 155, 0, 0, 0, 0, 0, 0),
-(29, 'AMD A4 7300', 2, 5.3, 6.4, 0, 6.6, 7.2, 10, 8.1, 44, 8, 0, 0, 0, 0, 0),
+(29, 'AMD A4 7300', 2, 5.3, 6.4, 0, 6.6, 7.2, 10, 8.1, 44, 11, 0, 0, 0, 0, 0),
 (30, 'Intel Core i3 4160', 1, 7.1, 9, 6, 6.4, 9, 6.6, 8, 94, 0, 0, 0, 0, 0, 0),
 (31, 'AMD A10 7870K', 2, 5.5, 5.5, 0, 10, 8.8, 8.3, 9.2, 160, 1, 0, 0, 0, 0, 0);
 
@@ -103,7 +103,8 @@ CREATE TABLE `product_comment` (
 INSERT INTO `product_comment` (`resid`, `product_name`, `resuser`, `comment`) VALUES
 (1, 'Intel Core i7 5930k', 'admin', 'Powerful Performance '),
 (2, 'Intel Core i7 5930k', 'admin', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. '),
-(3, 'GeForce GTX 1080', 'admin', 'Great Product');
+(3, 'GeForce GTX 1080', 'admin', 'Great Product'),
+(4, 'Intel 730', 'admin', 'Great Feature');
 
 -- --------------------------------------------------------
 
@@ -140,6 +141,15 @@ CREATE TABLE `product_response` (
   `resuser` varchar(20) NOT NULL,
   `likestatus` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `product_response`
+--
+
+INSERT INTO `product_response` (`resid`, `product_name`, `resuser`, `likestatus`) VALUES
+(1, 'Intel 730', 'admin', 1),
+(2, 'Radeon RX 480', 'admin', 1),
+(3, 'Intel Core i7 5930k', 'admin', 1);
 
 -- --------------------------------------------------------
 
@@ -189,7 +199,8 @@ INSERT INTO `spesification_response` (`resid`, `resuser`, `ressid`, `feedback`) 
 (2, 'admin', 1, 1),
 (3, 'admin', 4, 2),
 (4, 'admin', 3, 1),
-(5, 'dewi', 1, 1);
+(5, 'dewi', 1, 1),
+(6, 'admin', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -222,14 +233,14 @@ CREATE TABLE `ssd` (
 INSERT INTO `ssd` (`ssdid`, `ssdname`, `pdid`, `readp`, `writep`, `realwb`, `bench`, `ssdscore`, `ssdprice`, `ssdview`, `s1`, `s2`, `s3`, `s4`, `s5`) VALUES
 (1, 'Intel 750', 1, 10, 10, 10, 8.7, 9.2, 270, 21, 0, 0, 0, 0, 0),
 (2, 'Toshiba HG6', 0, 6.7, 7.1, 7.5, 6.5, 6.8, 64, 1, 0, 0, 0, 0, 0),
-(3, 'Plextor M6e Black Edition', 0, 6.3, 7, 8.6, 7, 7, 173, 10, 0, 0, 0, 0, 0),
+(3, 'Plextor M6e Black Edition', 0, 6.3, 7, 8.6, 7, 7, 173, 11, 0, 0, 0, 0, 0),
 (4, 'PLextor M6 Pro', 0, 6.4, 6.5, 7.3, 6.5, 6.5, 139, 0, 0, 0, 0, 0, 0),
 (5, 'OCZ Vertex 460', 0, 6.5, 6.7, 7.9, 6.6, 6.7, 169, 1, 0, 0, 0, 0, 0),
 (6, 'Corsair Force LS', 0, 5.8, 6.3, 7.8, 6.3, 6.4, 77, 0, 0, 0, 0, 0, 0),
 (7, 'Crucial BX100', 0, 6.3, 6.5, 8.9, 6.8, 6.9, 92, 0, 0, 0, 0, 0, 0),
 (8, 'Anglebird SSD wrk', 0, 6.3, 6.1, 7.6, 6.4, 6.5, 159, 0, 0, 0, 0, 0, 0),
 (9, 'Crucial MX100', 0, 6, 6.5, 7.4, 6.3, 6.4, 179, 0, 0, 0, 0, 0, 0),
-(10, 'Intel 730', 1, 6.7, 7.1, 8, 6.8, 7, 249, 125, 0, 0, 0, 0, 0),
+(10, 'Intel 730', 1, 6.7, 7.1, 8, 6.8, 7, 249, 330, 0, 0, 0, 0, 0),
 (11, 'Plextor M6S', 0, 5.9, 6.2, 7.3, 6.4, 6.3, 64, 0, 0, 0, 0, 0, 0),
 (12, 'Crucial M550', 0, 6, 6.6, 8.1, 6.5, 6.6, 128, 0, 0, 0, 0, 0, 0),
 (13, 'SanDisk Extreme PRO SSD', 0, 6.3, 6.7, 7.7, 6.5, 6.6, 146, 0, 0, 0, 0, 0, 0),
@@ -240,7 +251,7 @@ INSERT INTO `ssd` (`ssdid`, `ssdname`, `pdid`, `readp`, `writep`, `realwb`, `ben
 (18, 'Toshiba Q300', 0, 6.1, 5.6, 8, 6.3, 6.4, 119, 1, 0, 0, 0, 0, 0),
 (19, 'Crucial MX200', 0, 6.1, 6.5, 8.1, 6.8, 6.7, 299, 0, 0, 0, 0, 0, 0),
 (20, 'Toshiba HK3R2', 0, 6.8, 6.9, 8.1, 6.9, 7, 390, 1, 0, 0, 0, 0, 0),
-(21, 'Plextor M7V', 0, 6.4, 6.5, 8.3, 6.7, 6.8, 129, 0, 0, 0, 0, 0, 0),
+(21, 'Plextor M7V', 0, 6.4, 6.5, 8.3, 6.7, 6.8, 129, 6, 0, 0, 0, 0, 0),
 (22, 'Crucial BX200', 0, 6, 6.3, 8.1, 6.8, 6.7, 229, 0, 0, 0, 0, 0, 0),
 (23, 'Plextor M6V', 0, 6.4, 6.2, 8.1, 6.8, 6.7, 151, 0, 0, 0, 0, 0, 0),
 (24, 'Toshiba Q300 Pro', 0, 6.7, 6.7, 8.2, 6.8, 6.9, 119, 0, 0, 0, 0, 0, 0),
@@ -329,10 +340,10 @@ CREATE TABLE `vga` (
 
 INSERT INTO `vga` (`vgaid`, `vganame`, `pdid`, `gaming`, `graphics`, `computing`, `ppw`, `value`, `nap`, `vgascore`, `vgaprice`, `vgaview`, `s1`, `s2`, `s3`, `s4`, `s5`) VALUES
 (1, 'GeForce GTX 1080', 4, 10, 6.7, 9.7, 8.6, 9.1, 8.6, 9.5, 815, 27, 0, 0, 0, 0, 0),
-(2, 'GeForce GTX 980 Ti', 4, 9.4, 6.8, 9.2, 7.4, 8.5, 7.8, 8.7, 742, 1, 0, 0, 0, 0, 0),
+(2, 'GeForce GTX 980 Ti', 4, 9.4, 6.8, 9.2, 7.4, 8.5, 7.8, 8.7, 742, 2, 0, 0, 0, 0, 0),
 (3, 'GeForce GTX TITAN X', 4, 9.5, 5.4, 8, 6.6, 5.4, 7.8, 7.2, 1365, 0, 0, 0, 0, 0, 0),
 (4, 'GeForce GTX 970', 4, 8.2, 6.6, 7.7, 7.2, 7.9, 7.9, 7.6, 460, 0, 0, 0, 0, 0, 0),
-(5, 'Radeon RX 480', 2, 8.5, 6.6, 8.8, 7.8, 7.7, 7.8, 8.1, 629, 2, 0, 0, 0, 0, 0),
+(5, 'Radeon RX 480', 2, 8.5, 6.6, 8.8, 7.8, 7.7, 7.8, 8.1, 629, 15, 0, 0, 0, 0, 0),
 (6, 'Radeon R9 390', 2, 7.1, 9.1, 9.2, 6.2, 7, 5.5, 8, 525, 0, 0, 0, 0, 0, 0),
 (7, 'GTX TITAN Z', 4, 7, 7.2, 7.7, 5.2, 5.1, 6.4, 6.4, 1483, 0, 0, 0, 0, 0, 0),
 (8, 'Radeon RX 470', 2, 9.1, 6.8, 10, 8.3, 5.1, 7, 8.5, 487, 2, 0, 0, 0, 0, 0),
@@ -425,7 +436,7 @@ ALTER TABLE `cpu`
 -- AUTO_INCREMENT for table `product_comment`
 --
 ALTER TABLE `product_comment`
-  MODIFY `resid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `resid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `product_detail`
 --
@@ -435,7 +446,7 @@ ALTER TABLE `product_detail`
 -- AUTO_INCREMENT for table `product_response`
 --
 ALTER TABLE `product_response`
-  MODIFY `resid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `resid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `spesification`
 --
@@ -445,7 +456,7 @@ ALTER TABLE `spesification`
 -- AUTO_INCREMENT for table `spesification_response`
 --
 ALTER TABLE `spesification_response`
-  MODIFY `resid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `resid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `ssd`
 --
@@ -455,7 +466,7 @@ ALTER TABLE `ssd`
 -- AUTO_INCREMENT for table `store`
 --
 ALTER TABLE `store`
-  MODIFY `storeid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `storeid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `user`
 --

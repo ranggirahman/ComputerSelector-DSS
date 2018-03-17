@@ -2,7 +2,7 @@
 /*************************************************
 * Filename    : product.php
 * Programmer  : Ranggi Rahman
-* Date        : 2018 - 1 - 14
+* Date        : 2018 - 3 - 1
 * Email       : ranggirahman@gmail.com
 * Website     : 1400707.blog.upi.edu
 * Deskripsi   : Product Information Page
