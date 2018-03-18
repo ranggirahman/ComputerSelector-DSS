@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2018 at 06:33 AM
+-- Generation Time: Mar 18, 2018 at 06:23 PM
 -- Server version: 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -51,7 +51,7 @@ CREATE TABLE `cpu` (
 --
 
 INSERT INTO `cpu` (`cpuid`, `cpuname`, `pdid`, `performance`, `single`, `intg`, `intgocl`, `ppw`, `value`, `cpuscore`, `cpuprice`, `cpuview`, `s1`, `s2`, `s3`, `s4`, `s5`) VALUES
-(1, 'Intel Core i7 5930k', 1, 10, 8.7, 0, 0, 6.2, 5.2, 6.2, 640, 301, 0, 0, 0, 0, 0),
+(1, 'Intel Core i7 5930k', 1, 10, 8.7, 0, 0, 6.2, 5.2, 6.2, 640, 302, 0, 0, 0, 0, 0),
 (2, 'Intel Core i7 5820K', 1, 9.6, 8.3, 0, 0, 6.1, 5.5, 6.1, 439, 4, 0, 0, 0, 0, 0),
 (3, 'AMD FX 8370', 2, 6.8, 6, 0, 0, 5.7, 6, 5.5, 169, 46, 0, 0, 0, 0, 0),
 (4, 'Intel Core i3 4370', 1, 7.4, 10, 0, 7.2, 9.9, 6.5, 8.7, 179, 7, 0, 0, 0, 0, 0),
@@ -164,19 +164,20 @@ CREATE TABLE `spesification` (
   `sicon` varchar(100) NOT NULL,
   `psyntax` varchar(300) NOT NULL,
   `vsyntax` varchar(300) NOT NULL,
-  `ssyntax` varchar(300) NOT NULL
+  `ssyntax` varchar(300) NOT NULL,
+  `mram` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `spesification`
 --
 
-INSERT INTO `spesification` (`sid`, `sname`, `description`, `sicon`, `psyntax`, `vsyntax`, `ssyntax`) VALUES
-(1, 'Office Task', '', 'work', 'select *from cpu order by performance asc ', 'select *from vga order by vgascore asc', 'select *from ssd order by readp asc'),
-(2, 'Home Usage', '', 'supervisor_account', 'select *from cpu order by value desc ', 'select *from vga order by value asc', 'select *from ssd order by realwb desc '),
-(3, 'Gaming', '', 'games', 'select *from cpu order by performance desc ', 'select *from vga order by gaming desc ', 'select *from ssd order by readp desc '),
-(4, 'Graphic Rendering', '', 'terrain', 'select *from cpu order by performance desc', 'select *from vga order by graphics desc', 'select *from ssd order by bench desc '),
-(5, 'Computing, Simulation', '', 'gradient', 'select *from cpu order by performance desc', 'select *from vga order by computing desc', 'select *from ssd order by realwb desc');
+INSERT INTO `spesification` (`sid`, `sname`, `description`, `sicon`, `psyntax`, `vsyntax`, `ssyntax`, `mram`) VALUES
+(1, 'Office Task', '', 'work', 'select *from cpu order by performance asc ', 'select *from vga order by vgascore asc', 'select *from ssd order by readp asc', 2),
+(2, 'Home Usage', '', 'supervisor_account', 'select *from cpu order by value desc ', 'select *from vga order by value asc', 'select *from ssd order by realwb desc ', 4),
+(3, 'Gaming', '', 'games', 'select *from cpu order by performance desc ', 'select *from vga order by gaming desc ', 'select *from ssd order by readp desc ', 8),
+(4, 'Graphic Rendering', '', 'terrain', 'select *from cpu order by performance desc', 'select *from vga order by graphics desc', 'select *from ssd order by bench desc ', 16),
+(5, 'Computing, Simulation', '', 'gradient', 'select *from cpu order by performance desc', 'select *from vga order by computing desc', 'select *from ssd order by realwb desc', 32);
 
 -- --------------------------------------------------------
 

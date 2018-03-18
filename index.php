@@ -19,6 +19,9 @@
   	}
 
   	include "db/connection.php";
+
+  	$result = mysqli_query($koneksi,"select *from user where username='".$_SESSION['username']."'");
+	$us = mysqli_fetch_array($result);
 ?>
 
 <!DOCTYPE html>
@@ -61,21 +64,22 @@
 		      	</div>
 		      	<hr>
 		      	<div class="row">
-		      		<div class="col-md-12">
+		      		<div class="col-md-2">
+						<a class="btn btn-success" href="pages/selector.php" role="button" style="width: 185px; margin-top: 8px;"><i class="material-icons" style="font-size: 50px;">touch_app</i><hr style="border-color: white; margin-bottom: 3px;"> Pick Your Computer</a>
+					</div>
+		      		<div class="col-md-10" style="padding-left: 70px;"">
 		      			<p class="lead" align="justify">Sistem pendukung keputusan untuk membantu pengguna melakukan pemilihan spesifikasi hardware komputer dengan metode Utility Additive (UTA) yang digunakan untuk menentukan setiap perangkat khususnya seperti processor, vga, storage dan perangkat pendukung lainnya agar sesuai dengan kebutuhan sehingga keputusan yang diambil pengguna akan tepat.</p>
 		      		</div> 
 		      	</div>
 		      	<div class="row">
-		      		<div class="col-md-4">
-						<a class="btn btn-secondary" href="pages/selector.php" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 20px;">touch_app</i></span> Pick Your Own Computer</a>
-					</div>
+		      		
 		      	</div>
 	    	</div>
 		</div>
 
 		<div class="container">
 	      	<div class="row">
-	        	<div class="col-md-4">
+	        	<div class="col-md-3">
 	        		<div class="card">					  	
 						<div class="card-body">
 							<img src="img/processor.png" style="width: 100px">
@@ -86,7 +90,7 @@
 						 </div>
 					</div>
 	        	</div>
-	        	<div class="col-md-4">
+	        	<div class="col-md-3">
 	        		<div class="card">					  	
 						<div class="card-body">
 							<img src="img/vga.png" style="width: 100px">
@@ -97,7 +101,7 @@
 						 </div>
 					</div>
 	        	</div>
-	        	<div class="col-md-4">
+	        	<div class="col-md-3">
 	        		<div class="card">					  	
 						<div class="card-body">
 							<img src="img/ssd.png" style="width: 100px">
@@ -108,10 +112,20 @@
 						 </div>
 					</div>
 	        	</div>
+	        	<div class="col-md-3">
+	        		<div class="card" style="height: 410px;">					  	
+						<div class="card-body">
+							<img src="img/ram.png" style="width: 100px">
+							<hr>
+							<h5 class="card-title display-4" style="font-size: 22px;">RAM</h5>
+						   	<p class="card-text">Random Access Memory (RAM) yaitu suatu memori tempat penyimpanan data sementara, ketika saat komputer dijalankan dan diakses secara acak</p>						   	
+						 </div>
+					</div>
+	        	</div>
 	     	</div>
 	     	<br>
 	     	<div class="row">	    		
-	    		<div class="col-md-4">
+	    		<div class="col-md-3">
 	    			<div class="card">
  					 	<div class="card-body">   
 			    			<div class="row">
@@ -139,7 +153,7 @@
 			    		</div>
 			    	</div>
 	    		</div>
-	    		<div class="col-md-4">
+	    		<div class="col-md-3">
 	    			<div class="card">
  					 	<div class="card-body">   
 			    			<div class="row">
@@ -167,7 +181,7 @@
 			    		</div>
 			    	</div>
 	    		</div>
-	    		<div class="col-md-4">
+	    		<div class="col-md-3">
 	    			<div class="card">
  					 	<div class="card-body">   
 			    			<div class="row">
@@ -192,6 +206,21 @@
 		    						</table>	    					
 			    				</div>
 			    			</div>
+			    		</div>
+			    	</div>
+	    		</div>
+	    		<div class="col-md-3">
+	    			<div class="card" style="height: 280px;">
+ 					 	<div class="card-body">   
+			    			<div class="row">
+			    				<div class="col-md-12 text-center">
+			    					<div class="display-4" style="font-size: 20px;">Welcome<br><br><img src="user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744" onerror=this.src="../img/default_profile.jpg" class="rounded-circle border border-warning" height="93px" width="93px"/><br><br><?php echo $us['name'] ?></div>		    					
+		    						
+			    				</div>
+			    			</div>
+			    		</div>
+			    		<div class="card-footer text-center">
+			    			<a href="pages/settings.php" role="button" title="Settings"><i class="material-icons">settings_applications</i> User Settings</a>
 			    		</div>
 			    	</div>
 	    		</div>

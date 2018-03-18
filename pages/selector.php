@@ -295,6 +295,14 @@
 
 			    								echo "<tr><td colspan=5><br></td></tr>";
 		    								}
+
+		    								echo "
+		    									<tr class='bg-light'>
+		    										<td width='7%'></td>
+		    										<td width='10%' class='text-center'><img src='../img/ram.png' style='width: 50px'></td>
+		    										<td class='table-center align-middle display-4' width='26%' colspan='3' style='font-size:18px;'>RAM Minimum Recommendation is ".$sr['mram']." GB</td>
+		    									</tr>		    								
+		    									";
 		    							?>
 		    						</table>
 					  			</div>
@@ -331,7 +339,7 @@
 											<button type="submit" name="<?php echo $r ?>" class="btn <?php if($hr == 1){echo 'btn-success';}else{echo 'btn-light';} ?>" style="width: 50%;"><i class="material-icons" style="font-size: 28px;">thumb_up</i><h4 class="display-4" style="font-size: 18px;">(<b><?php echo $str ?></b>) Recommended</h4></button>
 											<button type="submit" name="<?php echo $nr ?>" class="btn <?php if($hnr == 1){echo 'btn-danger';}else{echo 'btn-light';} ?>" style="width: 50%;"><i class="material-icons" style="font-size: 28px;">thumb_down</i><h4 class="display-4" style="font-size: 18px;">(<b><?php echo $snr ?></b>) Not Recommended</h4></button>		
 										</div>
-										<a class="btn btn-light" href="../export/todoc.php?s=<?php echo $sr['sid'] ?>" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 28px;">archive</i></span> <h4 class="display-4" style="font-size: 18px;">Save</h4></a>
+										<a class="btn btn-light" href="../export/todoc.php?s=<?php echo $sr['sid'] ?>" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 28px;">insert_drive_file</i></span> <h4 class="display-4" style="font-size: 18px;">Save</h4></a>
 					  				</form>
 					  				<?php
 

@@ -57,7 +57,6 @@
 		<link rel="icon" href="../img/favicon.ico">	   
 	    <title>Choice of Computer Hardware Specifications</title>
   	</head>
-
 	
 	<body>
 		
@@ -70,7 +69,7 @@
 		<table border="1">
 			<tr>
 				<th width="50px">Rank</th>
-				<th width="80px"></th>
+				<th width="100px"></th>
 				<th width="200px">Processor</th>
 				<th width="200px">VGA</th>
 				<th width="200px">SSD</th>

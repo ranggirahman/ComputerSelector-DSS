@@ -20,7 +20,6 @@
 
   	include "../db/connection.php";
 
-
   	$result = mysqli_query($koneksi,"select *from user where username='".$_SESSION['username']."'");
 	$us = mysqli_fetch_array($result);
 ?>
@@ -976,6 +975,7 @@
 										$sc = "cpusyntax".$sr['sid'];
 										$sv = "vgasyntax".$sr['sid'];
 										$sd = "ssdsyntax".$sr['sid'];
+										$sm = "minram".$sr['sid'];
 								  		$ss = "s".$sr['sid'];
 								?>
 							  	<div class="tab-pane fade <?php if($sf == 0){echo 'show active';} ?>" id="<?php echo $sr['sid'] ?>" role="tabpanel">
@@ -999,14 +999,19 @@
 									      		<table class="table borderless">
 									      			<tr>
 									      				<td width="180px" class="align-middle">Processor Syntax</td>
-									      				<td><input class="form-control" type="text" name="<?php echo $sc ?>" maxlength="300" value="<?php echo $sr['psyntax'] ?>" required></td>
+									      				<td colspan="2"><input class="form-control" type="text" name="<?php echo $sc ?>" maxlength="300" value="<?php echo $sr['psyntax'] ?>" required></td>
 									      			<tr>
 									      				<td width="150px" class="align-middle">VGA Syntax</td>
-									      				<td><input class="form-control" type="text" name="<?php echo $sv ?>" maxlength="300" value="<?php echo $sr['vsyntax'] ?>" required></td>
+									      				<td colspan="2"><input class="form-control" type="text" name="<?php echo $sv ?>" maxlength="300" value="<?php echo $sr['vsyntax'] ?>" required></td>
 									      			</tr>
 									      			<tr>
 									      				<td width="150px" class="align-middle">SSD Syntax</td>
-									      				<td><input class="form-control" type="text" name="<?php echo $sd ?>" maxlength="300" value="<?php echo $sr['ssyntax'] ?>" required></td>
+									      				<td colspan="2"><input class="form-control" type="text" name="<?php echo $sd ?>" maxlength="300" value="<?php echo $sr['ssyntax'] ?>" required></td>
+									      			</tr>
+									      			<tr>
+									      				<td width="150px" class="align-middle">Minimum RAM</td>
+									      				<td width="100px"><input class="form-control" type="number" min="0" step="1" name="<?php echo $sm ?>" maxlength="3" value="<?php echo $sr['mram'] ?>" required></td>
+									      				<td class="align-middle">GB</td>
 									      			</tr>		
 								      			</table>
 							  				</div>		
@@ -1026,8 +1031,9 @@
 										    $psyntax = $_POST[$sc];
 										    $vsyntax = $_POST[$sv];
 										    $ssyntax = $_POST[$sd];
+										    $mram = $_POST[$sm];
 
-										    $result = mysqli_query($koneksi,"update spesification set sname='$sname', description='$sdescription', sicon='$sicon', psyntax='$psyntax', vsyntax='$vsyntax', ssyntax='$ssyntax' where sid='".$sr['sid']."'");
+										    $result = mysqli_query($koneksi,"update spesification set sname='$sname', description='$sdescription', sicon='$sicon', psyntax='$psyntax', vsyntax='$vsyntax', ssyntax='$ssyntax', mram='$mram' where sid='".$sr['sid']."'");
 
 										    $message = "".$sname." Spesification was Edited";
 	        								echo "<script type='text/javascript'>alert('$message');</script>";
