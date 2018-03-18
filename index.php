@@ -71,9 +71,6 @@
 		      			<p class="lead" align="justify">Sistem pendukung keputusan untuk membantu pengguna melakukan pemilihan spesifikasi hardware komputer dengan metode Utility Additive (UTA) yang digunakan untuk menentukan setiap perangkat khususnya seperti processor, vga, storage dan perangkat pendukung lainnya agar sesuai dengan kebutuhan sehingga keputusan yang diambil pengguna akan tepat.</p>
 		      		</div> 
 		      	</div>
-		      	<div class="row">
-		      		
-		      	</div>
 	    	</div>
 		</div>
 
