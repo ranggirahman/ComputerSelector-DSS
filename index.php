@@ -217,7 +217,7 @@
 			    			</div>
 			    		</div>
 			    		<div class="card-footer text-center">
-			    			<a href="pages/settings.php" role="button" title="Settings"><i class="material-icons">settings_applications</i> User Settings</a>
+			    			<a href="pages/settings.php" role="button"><i class="material-icons">settings_applications</i> User Settings</a>
 			    		</div>
 			    	</div>
 	    		</div>

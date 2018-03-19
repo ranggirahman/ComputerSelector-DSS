@@ -102,6 +102,9 @@
 	<?php 
 		}
 	?>
+			<tr>
+				<td colspan="5" align="center"><i>RAM Minimum Recommendation is <?php echo $sr['mram']; ?> GB</i></td>
+			</tr>
 		</table>
 		<br>
 		<hr>
