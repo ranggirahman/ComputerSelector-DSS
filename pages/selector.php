@@ -269,7 +269,7 @@
 		    								$ssd = mysqli_query($koneksi,$issy);
 		    								
 
-		    								for ($i = 0; $i <= 5; $i++) {
+		    								for ($i = 1; $i <= 5; $i++) {
 		    									$rcpu = mysqli_fetch_array($cpu,MYSQLI_BOTH);
 		    									$rvga = mysqli_fetch_array($vga,MYSQLI_BOTH);
 		    									$rssd = mysqli_fetch_array($ssd,MYSQLI_BOTH);
@@ -300,7 +300,7 @@
 		    									<tr class='bg-light'>
 		    										<td width='7%'></td>
 		    										<td width='10%' class='text-center'><img src='../img/ram.png' style='width: 50px'></td>
-		    										<td class='table-center align-middle display-4' width='26%' colspan='3' style='font-size:18px;'>RAM Minimum Recommendation is ".$sr['mram']." GB</td>
+		    										<td class='table-center align-middle' width='26%' colspan='3'>Recommended Minimum Size of RAM is ".$sr['mram']." GB</td>
 		    									</tr>		    								
 		    									";
 		    							?>
