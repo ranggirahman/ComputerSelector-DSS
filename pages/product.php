@@ -350,7 +350,7 @@
 						  		<div class='card-body'>
 									<div class='row'>
 										<div class='col-sm-1'>	
-											<img src='../user/profile/".$key['resuser'].".jpg?dummy=8484744' onerror=this.src='../img/default_profile.jpg' class='rounded-circle float-right' height=62px' width='62px'/>							
+											<img src='../user/profile/".$key['resuser'].".jpg?dummy=8484744' onerror=this.src='../img/default_profile.jpg' class='rounded-circle float-right border border-warning' height=62px' width='62px'/>							
 										</div>
 										<div class='col-sm-10'>	
 											<b>".$resu['name']."</b> ".$resu['organization']."						
@@ -372,7 +372,7 @@
 					  	<div class="card-body">
 					  		<div class="row">
 						  		<div class='col-sm-1'>	
-									<center><img src='../user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744' onerror=this.src='../img/default_profile.jpg' class='rounded-circle float-right' height='62px' width='62px'/></center>									
+									<center><img src='../user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744' onerror=this.src='../img/default_profile.jpg' class='rounded-circle float-right border border-primary' height='62px' width='62px'/></center>									
 								</div>
 								<div class='col-sm-11'>
 									<form action="" method="POST">
