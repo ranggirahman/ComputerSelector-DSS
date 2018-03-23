@@ -245,22 +245,8 @@
 						echo "</div>";
 					}	
 
-					if($found == 0){
-						echo "
-							<div class='row' style='padding: 200px 0px 200px 0px;'>
-						   		<div class='col-md-1'>
-						   		</div>
-						   		<div class='col-md-2'>
-						   			<i class='material-icons' style='font-size: 150px; color:lightgray;'>search</i>
-						   		</div>
-					          	<div class='col-md-8'>
-					            	<h4 class='display-4'>sorry we can't find what you're looking for</h4>
-					            </div>
-					            <div class='col-md-1'>
-						   		</div>
-					        </div>
-						";
-					}
+					// if found then display all content (comment, like etc)
+					if($found == 1){						
 				?>
 				</div>	        	
 	     	</div>
@@ -387,6 +373,27 @@
 					</div>
 				</div>
 			</div>
+
+			<?php
+
+				// if product not found 
+				}else if($found == 0){
+					echo "
+						<div class='row' style='padding: 200px 0px 200px 0px;'>
+					   		<div class='col-md-1'>
+					   		</div>
+					   		<div class='col-md-2'>
+					   			<i class='material-icons' style='font-size: 150px; color:lightgray;'>search</i>
+					   		</div>
+				          	<div class='col-md-8'>
+				            	<h4 class='display-4'>sorry we can't find what you're looking for</h4>
+				            </div>
+				            <div class='col-md-1'>
+					   		</div>
+				        </div>
+					";
+				}
+			?>
 
 
 	      	<hr>

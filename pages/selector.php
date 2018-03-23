@@ -300,7 +300,7 @@
 		    									<tr class='bg-light'>
 		    										<td width='7%'></td>
 		    										<td width='10%' class='text-center'><img src='../img/ram.png' style='width: 50px'></td>
-		    										<td class='table-center align-middle' width='26%' colspan='3'>Recommended Minimum Size of RAM is ".$sr['mram']." GB</td>
+		    										<td class='table-center align-middle' width='26%' colspan='3'>Minimum Size of RAM is ".$sr['mram']." GB</td>
 		    									</tr>		    								
 		    									";
 		    							?>
@@ -358,14 +358,16 @@
 											  	}else if(isset($_POST[$nr])){
 											  		$nr = mysqli_query($koneksi,"update spesification_response set feedback='2' where resuser='".$_SESSION['username']."' and ressid='".$sr['sid']."'");
 											  	}
-											// if not insert
+											// if not do insert
 											}else{
 												if(isset($_POST[$r])){
 												   	$r = mysqli_query($koneksi,"insert into spesification_response(resuser,ressid,feedback) values ('".$_SESSION['username']."','".$sr['sid']."','1')"); 
 											  	}else if(isset($_POST[$nr])){
 											  		$nr = mysqli_query($koneksi,"insert into spesification_response(resuser,ressid,feedback) values ('".$_SESSION['username']."','".$sr['sid']."','2')");
 											  	}
-											}									  	
+											}
+
+											echo "<meta http-equiv='refresh' content='0'>";									  	
 										}
 									?>					  				
 					  			</div>
