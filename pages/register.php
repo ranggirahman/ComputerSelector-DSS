@@ -33,11 +33,7 @@
 
   	<body>
 
-	    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-	      	<div class="container">
-	        	<a href="../index.php" class="navbar-brand"><img src="../img/logo.png" class="img-fluid" style="max-width: 3%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
-	      	</div>
-	    </div>
+	    <?php include "../pages/header-noaccess.php" ?>
 
     	<div class="container" style="padding-top: 60px;">
 			<div class="row">
@@ -97,6 +93,7 @@
 	     	</div>
 	        	
 	      	<?php include "../pages/footer.php" ?>
+	      	
 		</div>
 
 	    <script src="../js/jquery.min.js"></script>

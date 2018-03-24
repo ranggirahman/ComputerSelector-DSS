@@ -42,9 +42,8 @@
   	</head>
 
   	<body>
-	   	<?php include "../pages/header-search.php" ?>
 
-	    
+	   	<?php include "../pages/header-search.php" ?>	    
 
 		<div class="container" style="padding-top: 60px;">
 	      	<div class="row">
@@ -109,8 +108,9 @@
 				?>
 				</div>	        	
 	     	</div>
-	      	<hr>
+
 	      	<?php include "../pages/footer.php" ?>
+
 		</div>
 
 	    <script src="../js/jquery.min.js"></script>

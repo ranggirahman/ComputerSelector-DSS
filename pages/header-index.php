@@ -16,7 +16,7 @@
   	<div class="container">
   		<div class="row">
   			<div class="col-md-8">
-  				<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 5%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
+  				<div class="font-weight-light"><a href="index.php" class="navbar-brand"><img src="img/logo.png"  style="max-width: 5%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a></div>
   			</div>
   			<div class="col-md-4">
   				<table>

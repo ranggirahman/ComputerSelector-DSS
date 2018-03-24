@@ -34,11 +34,8 @@
   	<body>
 
   		<div class="fixed-bg"></div>
-	    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-	      	<div class="container">
-	        	<a href="../index.php" class="navbar-brand"><img src="../img/logo.png" class="img-fluid" style="max-width: 3%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
-	      	</div>
-	    </div>
+
+	    <?php include "../pages/header-noaccess.php" ?>
 
 	    <div class="jumbotron">
 	    	<div class="container">	    	
@@ -71,7 +68,9 @@
 		</div>
 
 		<div class="container">	      	
+
 	      	<?php include "../pages/footer.php" ?>
+	      	
 		</div>
 
 	    <script src="../js/jquery.min.js"></script>

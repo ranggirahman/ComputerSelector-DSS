@@ -44,6 +44,7 @@
   	</head>
 
   	<body>
+
   		<?php $product = $_GET['p']; ?>
 
 	    <?php include "../pages/header.php" ?>	    
@@ -386,6 +387,7 @@
 			?>
 
 	      	<?php include "../pages/footer.php" ?>
+	      	
 		</div>
 
 	    <script src="../js/jquery.min.js"></script>

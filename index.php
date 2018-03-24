@@ -214,7 +214,9 @@
 			    	</div>
 	    		</div>
 	    	</div>
+
 	      	<?php include "pages/footer.php" ?>
+	      	
 		</div>
 
 	   	<!-- Processor Modal -->
