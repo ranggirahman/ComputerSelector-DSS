@@ -13,9 +13,11 @@
 	if( $_SESSION['islogin'] != 1){
 		header("Location: ../pages/login.php");
 	}else if(isset($_POST['logout'])){
-	    session_unset();
-	    session_destroy();
-	    header("Location: ../pages/login.php");
+		if($_GET['logout'] == 1){
+		    session_unset();
+		    session_destroy();
+		    header("Location: ../pages/login.php");
+		}	    
   	}
 
   	include "../db/connection.php";
@@ -39,24 +41,14 @@
   	</head>
 
   	<body>
-	    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-	      	<div class="container">
-	        	<a href="../index.php" class="navbar-brand"><img src="../img/logo.png" class="img-fluid" style="max-width: 5%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
-
-	        	<form class="col-lg-5" action="../pages/search.php" method="POST" class="form-inline">
-				  	<input class="form-control" name="search" placeholder="Product Search">
-				  	<input type="submit" name="searchsubmit" style="display:none"/>
-		        </form>
-	      	</div>
-	    </div>
-
+	    <?php include "../pages/header.php" ?>
 	  	    
 
 		<div class="container" style="padding-top: 60px;">
 			<div class="card">
 				<div class="card-body">
 					<div class="row">
-						<div class="col-md-2" style="padding-top: 4px;">
+						<div class="col-md-2 border-right" style="padding-top: 4px;">
 						  	<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 							  	<a class="nav-link active" data-toggle="pill" href="#tab-profile" role="tab" aria-selected="true"><i class="material-icons">person</i> Profile</a>
 							  	<a class="nav-link" data-toggle="pill" href="#tab-settings" role="tab" aria-selected="false"><i class="material-icons">settings</i> Settings</a>
@@ -216,10 +208,10 @@
 										    <a class="nav-link active" data-toggle="tab" href="#dprocessor" role="tab" aria-selected="true"><img src="../img/processor.png" style="max-width: 22px; and height: 22px;"> Processor</a>
 										</li>
 										<li class="nav-item">
-										    <a class="nav-link" data-toggle="tab" href="#dvga" role="tab" aria-selected="false"><img src="../img/vga.png" style="max-width: 22px; and height: 22px;"> Video Graphic Array</a>
+										    <a class="nav-link" data-toggle="tab" href="#dvga" role="tab" aria-selected="false"><img src="../img/vga.png" style="max-width: 22px; and height: 22px;"> VGA</a>
 										</li>
 										<li class="nav-item">
-										    <a class="nav-link" data-toggle="tab" href="#dssd" role="tab" aria-selected="false"><img src="../img/ssd.png" style="max-width: 22px; and height: 22px;"> Solid State Disk</a>
+										    <a class="nav-link" data-toggle="tab" href="#dssd" role="tab" aria-selected="false"><img src="../img/ssd.png" style="max-width: 22px; and height: 22px;"> SSD</a>
 										</li>							  								  	
 									  	<li class="nav-item">
 									    	<a class="nav-link" data-toggle="tab" href="#pdetail" role="tab" aria-selected="true"><i class="material-icons">note</i> Product Detail</a>
@@ -1091,22 +1083,7 @@
 	     	
 	     	<?php 	}   ?>
 
-	      	<footer>
-	      		<br><hr>
-	      		<div class="row">
-	      			<div class="col-md-10">
-	      				<p class="display-4" style="font-size: 16px; padding: 4px 0px 8px 0px;">&copy; 2018 Ranggi Rahman</p>
-	      			</div>
-	      			<div class="col-md-2">
-	      				<table class="float-right">
-	      					<tr>
-	      						<td><a class="btn btn-light btn-sm" href="../pages/settings.php" role="button" title="Settings"><i class="material-icons">settings_applications</i></a></td>
-	      						<td><form action="" method="post"><button type="submit" class="btn btn-light btn-sm" name="logout" title="Sign Out"><i class="material-icons">exit_to_app</i></button></form></td>
-	      					</tr>
-	      				</table>
-	      			</div>
-	      		</div>	        	
-	      	</footer>
+	      	<?php include "../pages/footer.php" ?>
 		</div>
 
 	    <script src="../js/jquery.min.js"></script>

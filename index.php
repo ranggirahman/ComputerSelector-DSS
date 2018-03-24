@@ -12,10 +12,12 @@
  	session_start();
 	if( $_SESSION['islogin'] != 1){
 		header("Location: pages/login.php");
-	}else if(isset($_POST['logout'])){
-	    session_unset();
-	    session_destroy();
-	    header("Location: pages/login.php");
+	}else if(isset($_GET['logout'])){
+		if($_GET['logout'] == 1){
+		    session_unset();
+		    session_destroy();
+		    header("Location: pages/login.php");
+		}
   	}
 
   	include "db/connection.php";
@@ -40,18 +42,8 @@
 
   	<body>
 
-  		<div class="fixed-bg"></div>
-	    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-	      	<div class="container">
-	        	<a href="index.php" class="navbar-brand"><img src="img/logo.png" class="img-fluid" style="max-width: 5%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
-
-	        	<form  class="col-lg-5" action="pages/search.php" method="POST">
-				  	<input class="form-control" name="search" placeholder="Product Search">
-				  	<input type="submit" name="searchsubmit" style="display:none"/>
-		        </form>
-	      	</div>
-	    </div>
-
+  		<?php include "pages/header-index.php" ?>
+	    
 	    <div class="jumbotron">
 	    	<div class="container">	    	
 			   	<div class="row">
@@ -222,23 +214,7 @@
 			    	</div>
 	    		</div>
 	    	</div>
-	     	<br>
-	      	<hr>
-	      	<footer>
-	      		<div class="row">
-	      			<div class="col-md-10">
-	      				<p class="display-4" style="font-size: 16px; padding: 4px 0px 8px 0px;">&copy; 2018 Ranggi Rahman</p>
-	      			</div>
-	      			<div class="col-md-2">
-	      				<table class="float-right">
-	      					<tr>
-	      						<td><a class="btn btn-light btn-sm" href="pages/settings.php" role="button" title="Settings"><i class="material-icons">settings_applications</i></a></td>
-	      						<td><form action="" method="post"><button type="submit" class="btn btn-light btn-sm" name="logout" title="Sign Out"><i class="material-icons">exit_to_app</i></button></form></td>
-	      					</tr>
-	      				</table>
-	      			</div>
-	      		</div>	        	
-	      	</footer>
+	      	<?php include "pages/footer.php" ?>
 		</div>
 
 	   	<!-- Processor Modal -->
@@ -509,7 +485,3 @@
 
 	</body>
 </html>
-
-<?php
-
-?>

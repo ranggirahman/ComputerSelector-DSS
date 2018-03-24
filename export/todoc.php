@@ -12,11 +12,7 @@
 	session_start();
 	if( $_SESSION['islogin'] != 1){
 		header("Location: ../pages/login.php");
-	}else if(isset($_POST['logout'])){
-	    session_unset();
-	    session_destroy();
-	    header("Location: ../pages/login.php");
-  	}
+	}
 
 	include "../db/connection.php";
 

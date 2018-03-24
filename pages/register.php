@@ -95,19 +95,8 @@
 					</div>
 				</div>	        	
 	     	</div>
-	    </div>
-
-	    <br>
-
-		<div class="container">	      	
-	      	<hr>
-	      	<footer>
-	      		<div class="row">
-	      			<div class="col-md-12">
-	      				<p class="display-4" style="font-size: 16px; padding: 4px 0px 8px 0px;">&copy; 2018 Ranggi Rahman</p>
-	      			</div>	      			
-	      		</div>	        	
-	      	</footer>
+	        	
+	      	<?php include "../pages/footer.php" ?>
 		</div>
 
 	    <script src="../js/jquery.min.js"></script>

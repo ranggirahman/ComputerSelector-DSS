@@ -13,12 +13,18 @@
 	if( $_SESSION['islogin'] != 1){
 		header("Location: ../pages/login.php");
 	}else if(isset($_POST['logout'])){
-	    session_unset();
-	    session_destroy();
-	    header("Location: ../pages/login.php");
+		if($_GET['logout'] == 1){
+		    session_unset();
+		    session_destroy();
+		    header("Location: ../pages/login.php");
+		}	    
   	}
 
   	include "../db/connection.php";
+
+  	if(isset($_POST['search'])){
+		$search = $_POST['search'];
+	}
 ?>
 
 <!DOCTYPE html>
@@ -36,22 +42,7 @@
   	</head>
 
   	<body>
-  		<?php 
-  			if(isset($_POST['search'])){
-  				$search = $_POST['search'];
-  			}
-  		?>
-
-	    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-	      	<div class="container">
-	        	<a href="../index.php" class="navbar-brand"><img src="../img/logo.png" class="img-fluid" style="max-width: 5%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a>
-
-	        	<form class="col-lg-5" action="../pages/search.php" method="POST" class="form-inline">
-				  	<input class="form-control" name="search" placeholder="Product Search" value="<?php if(isset($_POST['search'])){echo $search ;}?>">
-				  	<input type="submit" name="searchsubmit" style="display:none"/>
-		        </form>
-	      	</div>
-	    </div>
+	   	<?php include "../pages/header-search.php" ?>
 
 	    
 
@@ -119,21 +110,7 @@
 				</div>	        	
 	     	</div>
 	      	<hr>
-	      	<footer>
-	      		<div class="row">
-	      			<div class="col-md-10">
-	      				<p class="display-4" style="font-size: 16px; padding: 4px 0px 8px 0px;">&copy; 2018 Ranggi Rahman</p>
-	      			</div>
-	      			<div class="col-md-2">
-	      				<table class="float-right">
-	      					<tr>
-	      						<td><a class="btn btn-light btn-sm" href="../pages/settings.php" role="button" title="Settings"><i class="material-icons">settings_applications</i></a></td>
-	      						<td><form action="" method="post"><button type="submit" class="btn btn-light btn-sm" name="logout" title="Sign Out"><i class="material-icons">exit_to_app</i></button></form></td>
-	      					</tr>
-	      				</table>
-	      			</div>
-	      		</div>	        	
-	      	</footer>
+	      	<?php include "../pages/footer.php" ?>
 		</div>
 
 	    <script src="../js/jquery.min.js"></script>
