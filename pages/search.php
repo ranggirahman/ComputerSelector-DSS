@@ -52,59 +52,63 @@
 	      			$found = 0;
 
 	      			if(isset($_POST['search'])){
-		      			// cpu
-	   					$result = mysqli_query($koneksi,"select *from cpu where cpuname like'%$search%'");
-						while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
-							$found = 1;
-							echo "<div class='card'><div class='card-body'><table border=0>"; 
-								echo "<tr>";
-							    	echo "<td width='50px'><img src='../img/processor.png' style='height='34px' width='34px''></td>";
-							    	echo "<td><a href='../pages/product.php?p=".$row['cpuname']."'>".$row['cpuname']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
-							    echo "</tr>";
-							echo "</table></div></div><br>";						    
-						}
+		      			if($search != ''){
 
-						// vga					
-	   					$result = mysqli_query($koneksi,"select *from vga where vganame like'%$search%'");
-						while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
-							$found = 1;
-							echo "<div class='card'><div class='card-body'><table border=0>"; 
-								echo "<tr>";
-							    	echo "<td width='50px'><img src='../img/vga.png' style='height='34px' width='34px''></td>";
-							    	echo "<td><a href='../pages/product.php?p=".$row['vganame']."'>".$row['vganame']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
-							    echo "</tr>";
-							echo "</table></div></div><br>";						    
-						}
+			      			if(isset($_POST['search'])){
+				      			// cpu
+			   					$result = mysqli_query($koneksi,"select *from cpu where cpuname like'%$search%'");
+								while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
+									$found = 1;
+									echo "<div class='card'><div class='card-body'><table border=0>"; 
+										echo "<tr>";
+									    	echo "<td width='50px'><img src='../img/processor.png' style='height='34px' width='34px''></td>";
+									    	echo "<td><a href='../pages/product.php?p=".$row['cpuname']."'>".$row['cpuname']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
+									    echo "</tr>";
+									echo "</table></div></div><br>";						    
+								}
 
-						// ssd					
-	   					$result = mysqli_query($koneksi,"select *from ssd where ssdname like'%$search%'");
-						while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
-							$found = 1;
-							echo "<div class='card'><div class='card-body'><table border=0>"; 
-								echo "<tr>";
-							    	echo "<td width='50px'><img src='../img/ssd.png' style='height='34px' width='34px''></td>";
-							    	echo "<td colspan='7'><a href='product.php?p=".$row['ssdname']."'>".$row['ssdname']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
-							    echo "</tr>";
-							echo "</table></div></div><br>";						    
-						}
+								// vga					
+			   					$result = mysqli_query($koneksi,"select *from vga where vganame like'%$search%'");
+								while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
+									$found = 1;
+									echo "<div class='card'><div class='card-body'><table border=0>"; 
+										echo "<tr>";
+									    	echo "<td width='50px'><img src='../img/vga.png' style='height='34px' width='34px''></td>";
+									    	echo "<td><a href='../pages/product.php?p=".$row['vganame']."'>".$row['vganame']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
+									    echo "</tr>";
+									echo "</table></div></div><br>";						    
+								}
 
-						if($found == 0){
-							echo "
-								<div class='row' style='padding: 200px 0px 200px 0px;'>
-							   		<div class='col-md-1'>
-							   		</div>
-							   		<div class='col-md-2'>
-							   			<i class='material-icons' style='font-size: 150px; color:lightgray;'>search</i>
-							   		</div>
-						          	<div class='col-md-8'>
-						            	<h4 class='display-4'>sorry we can't find what you're looking for</h4>
-						            </div>
-						            <div class='col-md-1'>
-							   		</div>
-						        </div>
-							";
+								// ssd					
+			   					$result = mysqli_query($koneksi,"select *from ssd where ssdname like'%$search%'");
+								while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
+									$found = 1;
+									echo "<div class='card'><div class='card-body'><table border=0>"; 
+										echo "<tr>";
+									    	echo "<td width='50px'><img src='../img/ssd.png' style='height='34px' width='34px''></td>";
+									    	echo "<td colspan='7'><a href='product.php?p=".$row['ssdname']."'>".$row['ssdname']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
+									    echo "</tr>";
+									echo "</table></div></div><br>";						    
+								}						
+			      			}
 						}
-	      			}
+					}
+					if($found == 0){
+						echo "
+							<div class='row' style='padding: 200px 0px 200px 0px;'>
+						   		<div class='col-md-1'>
+						   		</div>
+						   		<div class='col-md-2'>
+						   			<i class='material-icons' style='font-size: 150px; color:lightgray;'>search</i>
+						   		</div>
+					          	<div class='col-md-8'>
+					            	<h4 class='display-4'>sorry we can't find what you're looking for</h4>
+					            </div>
+					            <div class='col-md-1'>
+						   		</div>
+					        </div>
+						";
+					}
 				?>
 				</div>	        	
 	     	</div>
