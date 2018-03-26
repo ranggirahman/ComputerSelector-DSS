@@ -148,7 +148,7 @@
 							  	<div class="tab-pane fade" id="tab-settings" role="tabpanel">
 					  				<form action="" method="POST">
 							  			<div class="row" style="height: 630px;">
-							  				<div class="col-md-12">
+							  				<div class="col-md-12" style="padding-left: 30px;">
 									      		<table class="table table-sm borderless">
 									      			<tr>
 									      				<td class="align-middle" width="200px">Price Limit for CPU</td>
