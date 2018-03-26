@@ -45,7 +45,7 @@
 
 	   	<?php include "../pages/header-search.php" ?>	    
 
-		<div class="container" style="padding-top: 60px;">
+		<div class="container" style="padding-top: 40px;">
 	      	<div class="row">
 	      		<div class="col-md-12">
 	      		<?php  					

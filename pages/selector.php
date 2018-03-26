@@ -48,7 +48,7 @@
 
 	    <?php include "../pages/header.php" ?>	    
 
-		<div class="container" style="padding-top: 60px;">
+		<div class="container" style="padding-top: 40px;">
 	    	<div class="row">
 	    		<div class="col-md-12"><h5 class="display-4" style="font-size: 24px;"><i class="material-icons" style="font-size: 32px; color: grey;">assessment</i> Top 5 Best Total Score</h5></div>	    		
 	    	</div>
@@ -209,7 +209,7 @@
 						  	</div>
 						  	<div class="card-footer text-muted">
 						  		<div class="row">
-						  			<div class="col-md-4"><a class="btn btn-light" href="../pages/settings.php" role="button" style="color: grey;"><i class="material-icons" style="font-size: 16px;">settings</i> Price Filtered by Budget Settings</a></div>
+						  			<div class="col-md-4"><a class="btn btn-light" href="../pages/settings.php" role="button" style="color: grey;"><i class="material-icons" style="font-size: 16px;">settings</i> Price Limit by Settings</a></div>
 						  			<div class="col-md-8 text-right"><button type="button" class="btn btn-primary" id="find">Find</button></div>
 						  		</div>						  		
 						  	</div>

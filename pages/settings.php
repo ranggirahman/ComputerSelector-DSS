@@ -44,14 +44,15 @@
 
 	    <?php include "../pages/header.php" ?>	  	    
 
-		<div class="container" style="padding-top: 60px;">
-			<div class="card">
+		<div class="container" style="padding-top: 40px;">
+			<div class="card" style="height:790px;">
+				<div class="card-header"><i class="material-icons">settings</i> Settings</div>
 				<div class="card-body">
 					<div class="row">
-						<div class="col-md-2 border-right" style="padding-top: 4px;">
+						<div class="col-md-2 border-right" style="padding-top: 4px; height:700px;">
 						  	<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 							  	<a class="nav-link active" data-toggle="pill" href="#tab-profile" role="tab" aria-selected="true"><i class="material-icons">person</i> Profile</a>
-							  	<a class="nav-link" data-toggle="pill" href="#tab-settings" role="tab" aria-selected="false"><i class="material-icons">settings</i> Settings</a>
+							  	<a class="nav-link" data-toggle="pill" href="#tab-settings" role="tab" aria-selected="false"><i class="material-icons">desktop_windows</i> Result</a>
 
 							  	<?php if($us['usertype'] == '2'){// admin access only ?>	     							
 
@@ -67,22 +68,23 @@
 							<div class="tab-content" id="v-pills-tabContent">
 							  	<div class="tab-pane fade show active" id="tab-profile" role="tabpanel">
 							  		<form enctype="multipart/form-data" action="" method="POST">
-							  			<div class="row">
+							  			<div class="row" style="height: 630px;">
 							  				<div class="col-md-12">
 							  					<table class="table table-sm borderless">
 							  						<tr>
 							  							<td width="10%" rowspan="4">
 							  								<div class="card">
-							  									<div class="card-body" style="width: 140px;">
-							  										<img src="../user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744" onerror=this.src="../img/default_profile.jpg" class="rounded-circle" height="90px" width="90px"/>
+							  									<div class="card-body text-center" style="width: 140px;">
+							  										<img src="../user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744" onerror=this.src="../img/default_profile.jpg" class="rounded-circle" height="80px" width="80px"/>
 							  										<input class="btn btn-sm" type="file" name="uploaded_file" style="width: 100%">
 							  									</div>
 							  								</div>
 							  							</td>
 							  							<td width="20px" rowspan="4"></td>
-							  							<td class="align-middle">Username</td>
+							  							<td width="130px" class="align-middle">Username</td>
 								  						<td><input class="form-control form-control-sm" type="text" name="username" value="<?php echo($us['username'])?>" disabled></td>
 								  						<td rowspan="3"></td>
+								  						<td width="200px" rowspan="4"></td>
 							  						</tr>
 							  						<tr>
 								  						<td class="align-middle">Name</td>
@@ -145,17 +147,22 @@
 
 							  	<div class="tab-pane fade" id="tab-settings" role="tabpanel">
 					  				<form action="" method="POST">
-							  			<div class="row">
+							  			<div class="row" style="height: 630px;">
 							  				<div class="col-md-12">
 									      		<table class="table table-sm borderless">
 									      			<tr>
-									      				<td class="align-middle" width="150px">Budget for CPU</td>
-									      				<td><input class="form-control form-control-sm" type="number" name="bcpu" value="<?php echo $us['bcpu'] ?>" required></td>
-									      				<td rowspan="2" width="10px"></td>
-									      				<td class="align-middle" width="150px">Budget for VGA</td>
+									      				<td class="align-middle" width="200px">Price Limit for CPU</td>
+									      				<td width="200px"><input class="form-control form-control-sm" type="number" name="bcpu" value="<?php echo $us['bcpu'] ?>" required></td>
+									      				<td rowspan="4"></td>									      				
+									      			</tr>
+									      			<tr>
+									      				<td class="align-middle">Price Limit for VGA</td>
 									      				<td><input class="form-control form-control-sm" type="number" name="bvga" value="<?php echo $us['bvga'] ?>" required></td>
 									      				<td width="10px"></td>
-									      				<td class="align-middle" width="150px">Budget for SSD</td>
+									      				
+									      			</tr>
+									      			<tr>
+									      				<td class="align-middle">Price Limit for SSD</td>
 									      				<td><input class="form-control form-control-sm" type="number" name="bssd" value="<?php echo $us['bssd'] ?>" required></td>
 									      			</tr>
 									      			<tr>
@@ -220,7 +227,7 @@
 									<div class="tab-content">	
 									  	<div class="tab-pane fade show active" id="dprocessor" role="tabpanel">
 									  		<form action="" method="POST">
-									  			<div class="row" style="overflow-y: scroll; height:358px;">
+									  			<div class="row" style="overflow-y: scroll; height:365px;">
 									  				<div class="col-sm-12">
 									  					<table class="table table-sm">
 															<tr class="borderless" style="height: 40px; color: darkslategrey;">
@@ -349,7 +356,7 @@
 									  	</div>
 									  	<div class="tab-pane fade" id="dvga" role="tabpanel">
 									  		<form action="" method="POST">
-									  			<div class="row" style="overflow-y: scroll; height:358px;">
+									  			<div class="row" style="overflow-y: scroll; height:365px;">
 									  				<div class="col-sm-12">
 									  					<table class="table table-sm">
 															<tr class="borderless" style="height: 40px; color: darkslategrey;">
@@ -478,7 +485,7 @@
 									  	</div>
 									  	<div class="tab-pane fade" id="dssd" role="tabpanel">
 									  		<form action="" method="POST">
-									  			<div class="row" style="overflow-y: scroll; height:358px;">
+									  			<div class="row" style="overflow-y: scroll; height:385px;">
 									  				<div class="col-sm-12">
 									  					<table class="table table-sm">
 															<tr class="borderless" style="height: 40px; color: darkslategrey;">
@@ -600,7 +607,7 @@
 									  	<div class="tab-pane fade" id="pdetail" role="tabpanel">							  		
 									  		<form enctype="multipart/form-data" action="" method="POST">
 									  			<form enctype="multipart/form-data" action="" method="POST">
-									  			<div class="row" style="overflow-y: scroll; height:358px;">
+									  			<div class="row" style="overflow-y: scroll; height:580px;">
 									  				<div class="col-sm-12">
 									  					<table class="table table-sm">
 															<tr class="borderless" style="height: 40px; color: darkslategrey;">
@@ -624,8 +631,7 @@
 															<td class="align-middle text-center"><?php echo $key['pdid'] ?></td>
 															<td class="align-middle"><input class="form-control form-control-sm" type="text" name="<?php echo $pn ?>" value="<?php echo $key['pdname'] ?>"></td>
 															<td class="align-middle"><img src="../<?php echo $key['pdimg'] ?>?dummy=8484744" onerror=this.src="../img/product/Other.png" height="25px" width="25px"/><input class="btn btn-sm" type="file" name="<?php echo $pi ?>" style="width: 70%"></td>
-															<td class="align-middle"><input class="form-control form-control-sm" type="text" name="<?php echo $pq ?>" value="<?php echo $key['query'] ?>"></td>
-								      						
+															<td class="align-middle"><input class="form-control form-control-sm" type="text" name="<?php echo $pq ?>" value="<?php echo $key['query'] ?>"></td>								      						
 								      						<td class="align-middle table-center"><button class="btn btn-sm btn-success" type="submit" name="<?php echo $pe ?>" title="Save Changes"><i class="material-icons" style="font-size: 16px;">save</i></button>&nbsp;<button class="btn btn-sm btn-warning" type="submit" name="<?php echo $pt ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
 														</tr>													
 									      					
@@ -675,11 +681,11 @@
 									  				<div class="col-md-12">
 									  					<table class="table table-sm borderless">
 									  						<tr>
-											  					<td width="10px" class="align-middle text-center"><i class="material-icons" style="color: darkslategrey; font-size: 30px;">note_add</i></td>
+											  					<td width="10px" class="text-center"><i class="material-icons" style="color: darkslategrey; font-size: 30px;">note_add</i></td>
 											      				<td width="100px"><input class="form-control form-control-sm" type="text" name="productname" maxlength="20" placeholder="Product Name" required></td>
 											      				<td width="60px"><input class="btn btn-sm" type="file" name="pdimg" style="width: 80%"></td>
 											      				<td width="150px"><input class="form-control form-control-sm" type="text" name="productsyntax" maxlength="200" placeholder="Syntax" required></td>
-											      				<td width="10px" class="align-middle text-center"><input class="btn btn-sm btn-success" type="submit" name="productadd" value="Add"></td>
+											      				<td width="10px" class="text-center"><input class="btn btn-sm btn-success" type="submit" name="productadd" value="Add"></td>
 											      			</tr>
 									  					</table>
 									  				</div>
@@ -728,7 +734,7 @@
 
 							  	<div class="tab-pane fade" id="tab-store" role="tabpanel">							  		
 						  			<div class="row">
-						  				<div class="col-sm-12" style="overflow-y: scroll; height:358px;">
+						  				<div class="col-sm-12" style="overflow-y: scroll; height:620px;">
 						  					<form action="" method="POST">
 							  					<table class="table table-sm">
 													<tr class="borderless" style="height: 40px; color: darkslategrey;">
@@ -835,7 +841,7 @@
 
 							  	<div class="tab-pane fade" id="tab-users" role="tabpanel">
 							  		<form action="" method="POST">
-							  			<div class="row" style="overflow-y: scroll; height:358px;">
+							  			<div class="row" style="overflow-y: scroll; height:620px;">
 							  				<div class="col-sm-12">
 							  					<table class="table table-sm">
 													<tr class="borderless" style="height: 40px; color: darkslategrey;">

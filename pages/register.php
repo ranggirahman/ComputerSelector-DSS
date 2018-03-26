@@ -35,11 +35,11 @@
 
 	    <?php include "../pages/header-noaccess.php" ?>
 
-    	<div class="container" style="padding-top: 60px;">
+    	<div class="container" style="padding-top: 40px;">
 			<div class="row">
 	      		<div class="col-md-12">
 	      			<div class="card">
-					  	<div class="card-header"><i class="material-icons" style="color: grey;">people</i> Register</div>
+					  	<div class="card-header"><i class="material-icons">people</i> Register</div>
 					  	<div class="card-body">
 					     	<form enctype="multipart/form-data" action="" method="POST">
 					  			<div class="row">

@@ -49,7 +49,7 @@
 
 	    <?php include "../pages/header.php" ?>	    
 
-		<div class="container" style="padding-top: 60px;">
+		<div class="container" style="padding-top: 40px;">
 	      	<div class="row">
 	      		<div class="col-md-12">
 	      		<?php  					
@@ -315,6 +315,7 @@
 			<br>
 			<div class="row">
 				<div class="col-md-12">
+					<form action="" method="POST">
 			<?php
 				$result = mysqli_query($koneksi,"select *from product_comment where product_name='$product'");
 
@@ -333,14 +334,33 @@
 											<b>".$resu['name']."</b> ".$resu['organization']."						
 											<p>".$key['comment']."</p>
 										</div>
+										<div class='col-sm-1 text-right'>
+										";
+											if($us['usertype'] >= '1'){// admin access only
+										echo "	
+											<button class='btn btn-sm btn-warning' type='submit' name='".$key['resid']."' title='Delete'><i class='material-icons' style='font-size: 16px;'>delete</i></button>
+										";
+											}
+										echo "						
+										</div>
 									</div>
 								</div>
 							</div>
 							<br>
 							";
+						if(isset($_POST[$key['resid']])){
+						    $dcom = $key['resid'];
+
+						    $result = mysqli_query($koneksi,"delete from product_comment where resid = '$dcom'");
+
+						    $message = "Comment was Deleted";
+							echo "<script type='text/javascript'>alert('$message');</script>";
+						    echo "<meta http-equiv='refresh' content='0'>";
+						}
 					}
 				}
 			?> 
+					</form>
 				</div>
 			</div>	
 			<div class="row">
