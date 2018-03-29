@@ -836,7 +836,102 @@
 							  	</div>
 
 							  	<div class="tab-pane fade" id="tab-spesification" role="tabpanel">
-							  		ON PROGRESS BELOW !!
+							  		<ul class="nav nav-tabs" id="myTab" role="tablist">
+							     		<?php
+							     			$stab = mysqli_query($koneksi,"select *from spesification");
+							     			$sf = 0;
+											while($sr = mysqli_fetch_array($stab,MYSQLI_BOTH)){
+										?>
+									  	<li class="nav-item">
+									    	<a class="nav-link <?php if($sf == 0){echo 'active';} ?>" data-toggle="tab" href="#<?php echo $sr['sid'] ?>" role="tab" aria-selected="true"><i class="material-icons"><?php echo $sr['sicon'] ?></i> <?php echo $sr['sname'] ?></a>
+									  	</li>
+									  	<?php
+									  		$sf = 1;
+									  		}
+									  	?>							  
+									</ul>
+									<div class="tab-content">
+										<?php
+											$scon = mysqli_query($koneksi,"select *from spesification");
+							     			$sf = 0;
+											while($sr = mysqli_fetch_array($scon,MYSQLI_BOTH)){
+												$sn = "sname".$sr['sid'];										
+												$dc = "sdescription".$sr['sid'];
+												$si = "sicon".$sr['sid'];
+												$sc = "cpusyntax".$sr['sid'];
+												$sv = "vgasyntax".$sr['sid'];
+												$sd = "ssdsyntax".$sr['sid'];
+												$sm = "minram".$sr['sid'];
+										  		$ss = "s".$sr['sid'];
+										?>
+									  	<div class="tab-pane fade <?php if($sf == 0){echo 'show active';} ?>" id="<?php echo $sr['sid'] ?>" role="tabpanel">
+									  		<br>
+									  		<form action="" method="POST">
+									  			<div class="row" style="height: 570px;">
+									  				<div class="col-md-12">
+									  					<table class="table table-sm borderless">
+											  				<tr>
+											      				<td width="20px" class="align-middle">Spesification Name</td>
+											      				<td width="250px"><input class="form-control form-control-sm" type="text" name="<?php echo $sn ?>" maxlength="100" value="<?php echo $sr['sname'] ?>" required></td>
+											      				<td width="10px" class="align-middle">Icon <a href="https://material.io/icons/" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
+											      				<td width="100px"><input class="form-control form-control-sm" type="text" name="<?php echo $si ?>" maxlength="100" value="<?php echo $sr['sicon'] ?>" required></td>
+											      			</tr>
+											      			<tr>
+											      				<td class="align-middle">Description</td>
+											      				<td colspan="3"><textarea class="form-control form-control-sm" rows="2" name="<?php echo $dc ?>"><?php echo $sr['description'] ?></textarea></td>
+											      			</tr>
+											      		</table>
+											      		<hr>
+											      		<table class="table table-sm borderless">
+											      			<tr>
+											      				<td width="180px" class="align-middle">Processor Syntax</td>
+											      				<td colspan="2"><input class="form-control form-control-sm" type="text" name="<?php echo $sc ?>" maxlength="300" value="<?php echo $sr['psyntax'] ?>" required></td>
+											      			<tr>
+											      				<td width="150px" class="align-middle">VGA Syntax</td>
+											      				<td colspan="2"><input class="form-control form-control-sm" type="text" name="<?php echo $sv ?>" maxlength="300" value="<?php echo $sr['vsyntax'] ?>" required></td>
+											      			</tr>
+											      			<tr>
+											      				<td width="150px" class="align-middle">SSD Syntax</td>
+											      				<td colspan="2"><input class="form-control form-control-sm" type="text" name="<?php echo $sd ?>" maxlength="300" value="<?php echo $sr['ssyntax'] ?>" required></td>
+											      			</tr>
+											      			<tr>
+											      				<td width="150px" class="align-middle">Minimum RAM</td>
+											      				<td width="80px"><input class="form-control form-control-sm" type="number" min="0" step="1" name="<?php echo $sm ?>" maxlength="3" value="<?php echo $sr['mram'] ?>" required></td>
+											      				<td class="align-middle">GB</td>
+											      			</tr>		
+										      			</table>
+									  				</div>		
+									      		</div>
+									      		<hr>
+									      		<div class="row">
+									      			<div class="col-md-12 text-right">							      				
+									      				<input class="btn btn-sm btn-success" type="submit" name="<?php echo $ss?>" value="Change">
+									      			</div>							      			
+									      		</div>
+										  	</form>
+										  	<?php
+											  	if(isset($_POST[$ss])){
+												    $sname = $_POST[$sn];
+												    $sdescription = mysql_real_escape_string($_POST[$dc]);
+												    $sicon = $_POST[$si];
+												    $psyntax = $_POST[$sc];
+												    $vsyntax = $_POST[$sv];
+												    $ssyntax = $_POST[$sd];
+												    $mram = $_POST[$sm];
+
+												    $result = mysqli_query($koneksi,"update spesification set sname='$sname', description='$sdescription', sicon='$sicon', psyntax='$psyntax', vsyntax='$vsyntax', ssyntax='$ssyntax', mram='$mram' where sid='".$sr['sid']."'");
+
+												    $message = "".$sname." Spesification was Edited";
+			        								echo "<script type='text/javascript'>alert('$message');</script>";
+												    echo "<meta http-equiv='refresh' content='0'>";
+												}
+											?>
+									  	</div>
+									  	<?php
+									  		$sf = 1;
+									  		}
+									  	?>
+									</div>
 							  	</div>
 
 							  	<div class="tab-pane fade" id="tab-users" role="tabpanel">
@@ -974,120 +1069,6 @@
 					</div>
 				</div>
 			</div>			
-
-
-	     	<?php if($us['usertype'] == '2'){
-	     	?>
-	     	
-	      	<br><br>
-
-	      	<div class="row">
-	      		<div class="col-md-12">
-	      			<div class="card">
-					  	<div class="card-header"><i class="material-icons" style="color: grey;">edit</i> Edit Spesification</div>
-					  	<div class="card-body">
-					     	<ul class="nav nav-tabs" id="myTab" role="tablist">
-					     		<?php
-					     			$stab = mysqli_query($koneksi,"select *from spesification");
-					     			$sf = 0;
-									while($sr = mysqli_fetch_array($stab,MYSQLI_BOTH)){
-								?>
-							  	<li class="nav-item">
-							    	<a class="nav-link <?php if($sf == 0){echo 'active';} ?>" data-toggle="tab" href="#<?php echo $sr['sid'] ?>" role="tab" aria-selected="true"><i class="material-icons"><?php echo $sr['sicon'] ?></i> <?php echo $sr['sname'] ?></a>
-							  	</li>
-							  	<?php
-							  		$sf = 1;
-							  		}
-							  	?>							  
-							</ul>
-							<div class="tab-content">
-								<?php
-									$scon = mysqli_query($koneksi,"select *from spesification");
-					     			$sf = 0;
-									while($sr = mysqli_fetch_array($scon,MYSQLI_BOTH)){
-										$sn = "sname".$sr['sid'];										
-										$dc = "sdescription".$sr['sid'];
-										$si = "sicon".$sr['sid'];
-										$sc = "cpusyntax".$sr['sid'];
-										$sv = "vgasyntax".$sr['sid'];
-										$sd = "ssdsyntax".$sr['sid'];
-										$sm = "minram".$sr['sid'];
-								  		$ss = "s".$sr['sid'];
-								?>
-							  	<div class="tab-pane fade <?php if($sf == 0){echo 'show active';} ?>" id="<?php echo $sr['sid'] ?>" role="tabpanel">
-							  		<form action="" method="POST">
-							  			<div class="row">
-							  				<div class="col-md-12">
-							  					<br>
-							  					<table class="table borderless">
-									  				<tr>
-									      				<td width="180px" class="align-middle">Spesification Name</td>
-									      				<td width="55%"><input class="form-control form-control-sm" type="text" name="<?php echo $sn ?>" maxlength="100" value="<?php echo $sr['sname'] ?>" required></td>
-									      				<td class="align-middle">Icon <a href="https://material.io/icons/" target="_blank" role="button"><span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
-									      				<td><input class="form-control form-control-sm" type="text" name="<?php echo $si ?>" maxlength="100" value="<?php echo $sr['sicon'] ?>" required></td>
-									      			</tr>
-									      			<tr>
-									      				<td width="180px" class="align-middle">Description</td>
-									      				<td width="55%" colspan="3"><textarea class="form-control form-control-sm" rows="2" name="<?php echo $dc ?>"><?php echo $sr['description'] ?></textarea></td>
-									      			</tr>
-									      		</table>
-									      		<hr>
-									      		<table class="table borderless">
-									      			<tr>
-									      				<td width="180px" class="align-middle">Processor Syntax</td>
-									      				<td colspan="2"><input class="form-control form-control-sm" type="text" name="<?php echo $sc ?>" maxlength="300" value="<?php echo $sr['psyntax'] ?>" required></td>
-									      			<tr>
-									      				<td width="150px" class="align-middle">VGA Syntax</td>
-									      				<td colspan="2"><input class="form-control form-control-sm" type="text" name="<?php echo $sv ?>" maxlength="300" value="<?php echo $sr['vsyntax'] ?>" required></td>
-									      			</tr>
-									      			<tr>
-									      				<td width="150px" class="align-middle">SSD Syntax</td>
-									      				<td colspan="2"><input class="form-control form-control-sm" type="text" name="<?php echo $sd ?>" maxlength="300" value="<?php echo $sr['ssyntax'] ?>" required></td>
-									      			</tr>
-									      			<tr>
-									      				<td width="150px" class="align-middle">Minimum RAM</td>
-									      				<td width="100px"><input class="form-control form-control-sm" type="number" min="0" step="1" name="<?php echo $sm ?>" maxlength="3" value="<?php echo $sr['mram'] ?>" required></td>
-									      				<td class="align-middle">GB</td>
-									      			</tr>		
-								      			</table>
-							  				</div>		
-							      		</div>
-							      		<hr>
-							      		<div class="row">
-							      			<div class="col-md-12 text-right">							      				
-							      				<input class="btn btn-sm btn-success" type="submit" name="<?php echo $ss?>" value="Change">
-							      			</div>							      			
-							      		</div>
-								  	</form>
-								  	<?php
-									  	if(isset($_POST[$ss])){
-										    $sname = $_POST[$sn];
-										    $sdescription = mysql_real_escape_string($_POST[$dc]);
-										    $sicon = $_POST[$si];
-										    $psyntax = $_POST[$sc];
-										    $vsyntax = $_POST[$sv];
-										    $ssyntax = $_POST[$sd];
-										    $mram = $_POST[$sm];
-
-										    $result = mysqli_query($koneksi,"update spesification set sname='$sname', description='$sdescription', sicon='$sicon', psyntax='$psyntax', vsyntax='$vsyntax', ssyntax='$ssyntax', mram='$mram' where sid='".$sr['sid']."'");
-
-										    $message = "".$sname." Spesification was Edited";
-	        								echo "<script type='text/javascript'>alert('$message');</script>";
-										    echo "<meta http-equiv='refresh' content='0'>";
-										}
-									?>
-							  	</div>
-							  	<?php
-							  		$sf = 1;
-							  		}
-							  	?>
-							</div>
-					  	</div>
-					</div>
-				</div>	        	
-	     	</div>
-	     	
-	     	<?php 	}   ?>
 
 	      	<?php include "../pages/footer.php" ?>
 	      	
