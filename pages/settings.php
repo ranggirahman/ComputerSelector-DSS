@@ -227,7 +227,7 @@
 									<div class="tab-content">	
 									  	<div class="tab-pane fade show active" id="dprocessor" role="tabpanel">
 									  		<form action="" method="POST">
-									  			<div class="row" style="overflow-y: scroll; height:365px;">
+									  			<div class="row" style="overflow-y: scroll; height:340px;">
 									  				<div class="col-sm-12">
 									  					<table class="table table-sm">
 															<tr class="borderless" style="height: 40px; color: darkslategrey;">
@@ -292,25 +292,18 @@
 											      			</tr>
 											      		</table>
 											      		<table class="table table-sm borderless">
+											      			<hr>
 											      			<tr>
-											      				<td width="150px">Performance</td>
-											      				<td><input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="performance" maxlength="5" required></td>
-											      				<td>Single-Core Performance</td>
-											      				<td><input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="single" maxlength="5" required></td>	
-											      				<td>Integrated Graphics</td>
-											      				<td><input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="intg" maxlength="5" required></td>
-											      				<td>Integrated Graphic (OpenCL)</td>
-											      				<td><input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="intgocl" maxlength="5" required></td>
+											      				<td>Performance<input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="performance" maxlength="5" required></td>
+											      				<td>Single-Core Performance<input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="single" maxlength="5" required></td>	
+											      				<td>Integrated Graphics<input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="intg" maxlength="5" required></td>
+											      				<td>Integrated Graphic (OpenCL)<input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="intgocl" maxlength="5" required></td>
 											      				</tr>
 											      			<tr>
-											      				<td>Performance Per Watt</td>
-											      				<td><input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="ppw" maxlength="5" required></td>
-											      				<td>Value (Pay)</td>
-											      				<td><input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="value" maxlength="5" required></td>
-											      				<td>Total Score</td>
-											      				<td><input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="cpuscore" maxlength="5" required></td>
-											      				<td>Price ($)</td>
-											      				<td><input class="form-control form-control-sm" type="number" name="cpuprice" required></td>			
+											      				<td>Performance Per Watt<input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="ppw" maxlength="5" required></td>
+											      				<td>Value (Pay)<input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="value" maxlength="5" required></td>
+											      				<td>Total Score<input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="cpuscore" maxlength="5" required></td>
+											      				<td>Price ($)<input class="form-control form-control-sm" type="number" name="cpuprice" required></td>			
 											      			</tr>	
 										      			</table>
 									  				</div>						  												  										      			
@@ -356,7 +349,7 @@
 									  	</div>
 									  	<div class="tab-pane fade" id="dvga" role="tabpanel">
 									  		<form action="" method="POST">
-									  			<div class="row" style="overflow-y: scroll; height:365px;">
+									  			<div class="row" style="overflow-y: scroll; height:340px;">
 									  				<div class="col-sm-12">
 									  					<table class="table table-sm">
 															<tr class="borderless" style="height: 40px; color: darkslategrey;">
@@ -421,25 +414,18 @@
 										      			</tr>
 										      		</table>
 										      		<table class="table table-sm borderless">
+										      			<hr>
 										      			<tr>
-										      				<td width="150px">Gaming</td>
-										      				<td><input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="gaming" maxlength="5" required></td>
-										      				<td>Graphic</td>
-										      				<td><input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="graphics" maxlength="5" required></td>	
-										      				<td>Computing</td>
-										      				<td><input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="computing" maxlength="5" required></td>
-										      				<td>Performance Per Watt</td>
-										      				<td><input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="ppw" maxlength="5" required></td>
+										      				<td>Gaming<input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="gaming" maxlength="5" required></td>
+										      				<td>Graphic<input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="graphics" maxlength="5" required></td>	
+										      				<td>Computing<input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="computing" maxlength="5" required></td>
+										      				<td>Performance Per Watt<input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="ppw" maxlength="5" required></td>
 										      			</tr>
 										      			<tr>
-										      				<td>Value (Pay)</td>
-										      				<td><input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="value" maxlength="5" required></td>
-										      				<td>Noise and Power</td>
-										      				<td><input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="nap" maxlength="5" required></td>
-										      				<td>Total Score</td>
-										      				<td><input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="vgascore" maxlength="5" required></td>
-										      				<td>Price ($)</td>
-										      				<td><input class="form-control form-control-sm" type="number" name="vgaprice" required></td>		
+										      				<td>Value (Pay)<input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="value" maxlength="5" required></td>
+										      				<td>Noise and Power<input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="nap" maxlength="5" required></td>
+										      				<td>Total Score<input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="vgascore" maxlength="5" required></td>
+										      				<td>Price ($)<input class="form-control form-control-sm" type="number" name="vgaprice" required></td>		
 										      			</tr>	
 									      			</table>
 								  				</div>		
@@ -485,7 +471,7 @@
 									  	</div>
 									  	<div class="tab-pane fade" id="dssd" role="tabpanel">
 									  		<form action="" method="POST">
-									  			<div class="row" style="overflow-y: scroll; height:385px;">
+									  			<div class="row" style="overflow-y: scroll; height:340px;">
 									  				<div class="col-sm-12">
 									  					<table class="table table-sm">
 															<tr class="borderless" style="height: 40px; color: darkslategrey;">
@@ -549,20 +535,15 @@
 										      			</tr>
 										      		</table>
 										      		<table class="table table-sm borderless">
+										      			<hr>
 										      			<tr>
-										      				<td width="150px">Read Performance</td>
-										      				<td><input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="readp" maxlength="5" required></td>
-										      				<td>Write Performance</td>
-										      				<td><input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="writep" maxlength="5" required></td>	
-										      				<td>Real World Benchmarks</td>
-										      				<td><input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="realwb" maxlength="5" required></td>
-										      				<td>Benchmarks</td>
-										      				<td><input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="bench" maxlength="5" required></td>
+										      				<td>Read Performance<input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="readp" maxlength="5" required></td>
+										      				<td>Write Performance<input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="writep" maxlength="5" required></td>
+										      				<td>Real World Benchmarks<input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="realwb" maxlength="5" required></td>
+										      				<td>Benchmarks<input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="bench" maxlength="5" required></td>
 										      			<tr>
-										      				<td>Total Score</td>
-										      				<td><input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="ssdscore" maxlength="5" required></td>
-										      				<td>Price ($)</td>
-										      				<td><input class="form-control form-control-sm" type="number" name="ssdprice" required></td>	
+										      				<td>Total Score<input class="form-control form-control-sm" type="number" min="0" max="10" step="0.1" name="ssdscore" maxlength="5" required></td>
+										      				<td>Price ($)<input class="form-control form-control-sm" type="number" name="ssdprice" required></td>	
 										      			</tr>	
 									      			</table>
 								  				</div>		
@@ -867,7 +848,7 @@
 									  	<div class="tab-pane fade <?php if($sf == 0){echo 'show active';} ?>" id="<?php echo $sr['sid'] ?>" role="tabpanel">
 									  		<br>
 									  		<form action="" method="POST">
-									  			<div class="row" style="height: 570px;">
+									  			<div class="row" style="height: 560px;">
 									  				<div class="col-md-12">
 									  					<table class="table table-sm borderless">
 											  				<tr>
@@ -884,9 +865,13 @@
 											      		<hr>
 											      		<table class="table table-sm borderless">
 											      			<tr>
-											      				<td width="180px" class="align-middle">Processor Syntax</td>
-											      				<td colspan="2"><input class="form-control form-control-sm" type="text" name="<?php echo $sc ?>" maxlength="300" value="<?php echo $sr['psyntax'] ?>" required></td>
+											      				<td width="180px" class="align-middle">Processor</td>
+											      				<td>Performance<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="" maxlength="3" required></td>
+											      			</tr>											      				
 											      			<tr>
+											      				<td width="180px" class="align-middle">Syntax</td>
+											      				<td colspan="2"><input class="form-control form-control-sm" type="text" name="<?php echo $sc ?>" maxlength="300" value="<?php echo $sr['psyntax'] ?>" required></td>
+											      			</tr>
 											      				<td width="150px" class="align-middle">VGA Syntax</td>
 											      				<td colspan="2"><input class="form-control form-control-sm" type="text" name="<?php echo $sv ?>" maxlength="300" value="<?php echo $sr['vsyntax'] ?>" required></td>
 											      			</tr>
