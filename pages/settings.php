@@ -836,14 +836,41 @@
 											$scon = mysqli_query($koneksi,"select *from spesification");
 							     			$sf = 0;
 											while($sr = mysqli_fetch_array($scon,MYSQLI_BOTH)){
-												$sn = "sname".$sr['sid'];										
+												// spesification information
+												$sn = "sname".$sr['sid'];			
 												$dc = "sdescription".$sr['sid'];
-												$si = "sicon".$sr['sid'];
-												$sc = "cpusyntax".$sr['sid'];
-												$sv = "vgasyntax".$sr['sid'];
-												$sd = "ssdsyntax".$sr['sid'];
-												$sm = "minram".$sr['sid'];
+												$si = "sicon".$sr['sid'];	
 										  		$ss = "s".$sr['sid'];
+
+										  		// calculating variable
+										  		// cpu
+										  		$spcp = "spcp".$sr['sid'];
+										  		$spcs = "spcs".$sr['sid'];
+										  		$spci = "spci".$sr['sid'];
+										  		$spco = "spco".$sr['sid'];
+										  		$spcw = "spcw".$sr['sid'];
+										  		$spcv = "spcv".$sr['sid'];
+										  		$spcg = "spcg".$sr['sid'];
+										  		$sc = "cpusyntax".$sr['sid'];
+
+										  		// vga
+										  		$spvg = "spvg".$sr['sid'];
+										  		$spvr = "spvr".$sr['sid'];
+										  		$spvc = "spvc".$sr['sid'];
+										  		$spvw = "spvw".$sr['sid'];
+										  		$spvv = "spvv".$sr['sid'];
+										  		$spvn = "spvn".$sr['sid'];
+												$sv = "vgasyntax".$sr['sid'];
+
+												// ssd
+												$spsr = "spsr".$sr['sid'];
+												$spsw = "spsw".$sr['sid'];
+												$spse = "spse".$sr['sid'];
+												$spsb = "spsb".$sr['sid'];
+												$sd = "ssdsyntax".$sr['sid'];
+
+												// ram
+												$sm = "minram".$sr['sid'];
 										?>
 									  	<div class="tab-pane fade <?php if($sf == 0){echo 'show active';} ?>" id="<?php echo $sr['sid'] ?>" role="tabpanel">
 									  		<br>
@@ -866,18 +893,41 @@
 											      		<table class="table table-sm borderless">
 											      			<tr>
 											      				<td width="180px" class="align-middle">Processor</td>
-											      				<td>Performance<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="" maxlength="3" required></td>
+											      				<td>Performance All Cores<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spcp ?>" value="<?php echo $sr['pcperformance'] ?>" maxlength="3" required></td>
+											      				<td>Single-Core Performance<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spcs ?>" value="<?php echo $sr['pcsingle'] ?>" maxlength="3" required></td>
+											      				<td>Integrated Graphic<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spc ?>" value="<?php echo $sr['pcintg'] ?>" maxlength="3" required></td>
+											      				<td>Integrated Graphic (OpenCL)<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spco ?>" value="<?php echo $sr['pcintgocl'] ?>" maxlength="3" required></td>
+											      				<td>Performance Per Watt<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spcw ?>" value="<?php echo $sr['pcppw'] ?>" maxlength="3" required></td>
+											      				<td>Value (Paying for)<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spcv ?>" value="<?php echo $sr['pcvalue'] ?>" maxlength="3" required></td>
 											      			</tr>											      				
 											      			<tr>
-											      				<td width="180px" class="align-middle">Syntax</td>
-											      				<td colspan="2"><input class="form-control form-control-sm" type="text" name="<?php echo $sc ?>" maxlength="300" value="<?php echo $sr['psyntax'] ?>" required></td>
-											      			</tr>
-											      				<td width="150px" class="align-middle">VGA Syntax</td>
-											      				<td colspan="2"><input class="form-control form-control-sm" type="text" name="<?php echo $sv ?>" maxlength="300" value="<?php echo $sr['vsyntax'] ?>" required></td>
+											      				<td class="align-middle">Syntax</td>
+											      				<td colspan="6"><input class="form-control form-control-sm" type="text" name="<?php echo $sc ?>" maxlength="300" value="<?php echo $sr['psyntax'] ?>" required></td>
 											      			</tr>
 											      			<tr>
-											      				<td width="150px" class="align-middle">SSD Syntax</td>
-											      				<td colspan="2"><input class="form-control form-control-sm" type="text" name="<?php echo $sd ?>" maxlength="300" value="<?php echo $sr['ssyntax'] ?>" required></td>
+											      				<td width="180px" class="align-middle">VGA</td>
+											      				<td>Gaming Performance<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spvg ?>" value="<?php echo $sr['pvgaming'] ?>" maxlength="3" required></td>
+											      				<td>Graphic Performance<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spvr ?>" value="<?php echo $sr['pvgraphics'] ?>" maxlength="3" required></td>
+											      				<td>Computing Perfomance<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spvc ?>" value="<?php echo $sr['pvcomputing'] ?>" maxlength="3" required></td>
+											      				<td>Performance Per Watt<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spvw ?>" value="<?php echo $sr['pvppw'] ?>" maxlength="3" required></td>
+											      				<td>Value (Paying for)<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spvv ?>" value="<?php echo $sr['pvvalue'] ?>" maxlength="3" required></td>
+											      				<td>Noise and Power<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spvn ?>" value="<?php echo $sr['pvnap'] ?>" maxlength="3" required></td>
+											      			</tr>
+											      			<tr>
+											      				<td class="align-middle">Syntax</td>
+											      				<td colspan="6"><input class="form-control form-control-sm" type="text" name="<?php echo $sv ?>" maxlength="300" value="<?php echo $sr['vsyntax'] ?>" required></td>
+											      			</tr>
+											      			<tr>
+											      				<td width="180px" class="align-middle">SSD</td>
+											      				<td>Read Performance<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spsr ?>" value="<?php echo $sr['psreadp'] ?>" maxlength="3" required></td>
+											      				<td>Write Performance<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spsw ?>" value="<?php echo $sr['pswritep'] ?>" maxlength="3" required></td>
+											      				<td>Real World Benchmarks<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spse ?>" value="<?php echo $sr['psrealwb'] ?>" maxlength="3" required></td>
+											      				<td>Common Benchmarks<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spsb ?>" value="<?php echo $sr['psbench'] ?>" maxlength="3" required></td>
+											      			</tr>
+											      			</tr>
+											      			<tr>
+											      				<td class="align-middle">Syntax</td>
+											      				<td colspan="6"><input class="form-control form-control-sm" type="text" name="<?php echo $sd ?>" maxlength="300" value="<?php echo $sr['ssyntax'] ?>" required></td>
 											      			</tr>
 											      			<tr>
 											      				<td width="150px" class="align-middle">Minimum RAM</td>
@@ -904,7 +954,26 @@
 												    $ssyntax = $_POST[$sd];
 												    $mram = $_POST[$sm];
 
-												    $result = mysqli_query($koneksi,"update spesification set sname='$sname', description='$sdescription', sicon='$sicon', psyntax='$psyntax', vsyntax='$vsyntax', ssyntax='$ssyntax', mram='$mram' where sid='".$sr['sid']."'");
+												    $pcperformance = $_POST[$spcp];
+												    $pcsingle = $_POST[$spcs];
+												    $pcintg = $_POST[$spci];
+												    $pcintgocl = $_POST[$spco];
+												    $pcppw = $_POST[$spcw];
+												    $pcvalue = $_POST[$spcv];
+
+												    $pvgaming = $_POST[$spvg];
+												    $pvgraphics = $_POST[$spvr];
+												    $pvcomputing = $_POST[$spvc];
+												    $pvppw = $_POST[$spvw];
+												    $pvvalue = $_POST[$spvv];
+												    $pvnap = $_POST[$spvn];
+
+												    $psreadp = $_POST[$spsr];
+												    $pswritep = $_POST[$spsw];
+												    $psrealwb = $_POST[$spse];
+												    $psbench = $_POST[$spsb];
+
+												    $result = mysqli_query($koneksi,"update spesification set sname='$sname', description='$sdescription', sicon='$sicon', psyntax='$psyntax', vsyntax='$vsyntax', ssyntax='$ssyntax', mram='$mram' , pcperformance='$pcperformance', pcsingle='$pcsingle', pcintg='$pcintg', pcintgocl='$pcintgocl', pcppw='$pcppw', pcvalue='$pcvalue', pvgaming='$pvgaming', pvgraphics='$pvgraphics', pvcomputing='$pvcomputing', pvppw='$pvppw', pvvalue='$pvvalue', pvnap='$pvnap', psreadp='$psreadp', pswritep='$pswritep', psrealwb='$psrealwb', psbench='$psbench' where sid='".$sr['sid']."'");
 
 												    $message = "".$sname." Spesification was Edited";
 			        								echo "<script type='text/javascript'>alert('$message');</script>";
