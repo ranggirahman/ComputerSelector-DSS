@@ -74,7 +74,7 @@
 							<img src="img/processor.png" style="width: 100px">
 							<hr>
 							<h5 class="card-title display-4" style="font-size: 22px;">Processor</h5>
-						   	<p class="card-text"> Fungsi utama dari CPU adalah melakukan operasi aritmetika dan logika terhadap data yang diambil dari memori atau dari informasi yang dimasukkan</p>
+						   	<p class="card-text">Fungsi utama dari CPU adalah melakukan operasi aritmetika dan logika terhadap data yang diambil dari memori atau dari informasi yang dimasukkan</p>
 						   	<div class="btn btn-primary" data-toggle="modal" data-target="#processormodal"><i class="material-icons" style="font-size: 20px;">format_list_bulleted</i> Processor List</div>
 						 </div>
 					</div>

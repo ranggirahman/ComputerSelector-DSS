@@ -892,10 +892,10 @@
 											      		<hr>
 											      		<table class="table table-sm borderless">
 											      			<tr>
-											      				<td width="180px" class="align-middle">Processor</td>
+											      				<td width="180px" class="align-middle">Weighting Criteria Processor (%)</td>
 											      				<td>Performance All Cores<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spcp ?>" value="<?php echo $sr['pcperformance'] ?>" maxlength="3" required></td>
 											      				<td>Single-Core Performance<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spcs ?>" value="<?php echo $sr['pcsingle'] ?>" maxlength="3" required></td>
-											      				<td>Integrated Graphic<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spc ?>" value="<?php echo $sr['pcintg'] ?>" maxlength="3" required></td>
+											      				<td>Integrated Graphic<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spci ?>" value="<?php echo $sr['pcintg'] ?>" maxlength="3" required></td>
 											      				<td>Integrated Graphic (OpenCL)<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spco ?>" value="<?php echo $sr['pcintgocl'] ?>" maxlength="3" required></td>
 											      				<td>Performance Per Watt<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spcw ?>" value="<?php echo $sr['pcppw'] ?>" maxlength="3" required></td>
 											      				<td>Value (Paying for)<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spcv ?>" value="<?php echo $sr['pcvalue'] ?>" maxlength="3" required></td>
@@ -905,7 +905,7 @@
 											      				<td colspan="6"><input class="form-control form-control-sm" type="text" name="<?php echo $sc ?>" maxlength="300" value="<?php echo $sr['psyntax'] ?>" required></td>
 											      			</tr>
 											      			<tr>
-											      				<td width="180px" class="align-middle">VGA</td>
+											      				<td width="180px" class="align-middle">Weighting Criteria VGA (%)</td>
 											      				<td>Gaming Performance<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spvg ?>" value="<?php echo $sr['pvgaming'] ?>" maxlength="3" required></td>
 											      				<td>Graphic Performance<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spvr ?>" value="<?php echo $sr['pvgraphics'] ?>" maxlength="3" required></td>
 											      				<td>Computing Perfomance<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spvc ?>" value="<?php echo $sr['pvcomputing'] ?>" maxlength="3" required></td>
@@ -918,7 +918,7 @@
 											      				<td colspan="6"><input class="form-control form-control-sm" type="text" name="<?php echo $sv ?>" maxlength="300" value="<?php echo $sr['vsyntax'] ?>" required></td>
 											      			</tr>
 											      			<tr>
-											      				<td width="180px" class="align-middle">SSD</td>
+											      				<td width="180px" class="align-middle">Weighting Criteria SSD (%)</td>
 											      				<td>Read Performance<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spsr ?>" value="<?php echo $sr['psreadp'] ?>" maxlength="3" required></td>
 											      				<td>Write Performance<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spsw ?>" value="<?php echo $sr['pswritep'] ?>" maxlength="3" required></td>
 											      				<td>Real World Benchmarks<input class="form-control form-control-sm" type="number" min="0" max="100" step="1" name="<?php echo $spse ?>" value="<?php echo $sr['psrealwb'] ?>" maxlength="3" required></td>
@@ -974,6 +974,33 @@
 												    $psbench = $_POST[$spsb];
 
 												    $result = mysqli_query($koneksi,"update spesification set sname='$sname', description='$sdescription', sicon='$sicon', psyntax='$psyntax', vsyntax='$vsyntax', ssyntax='$ssyntax', mram='$mram' , pcperformance='$pcperformance', pcsingle='$pcsingle', pcintg='$pcintg', pcintgocl='$pcintgocl', pcppw='$pcppw', pcvalue='$pcvalue', pvgaming='$pvgaming', pvgraphics='$pvgraphics', pvcomputing='$pvcomputing', pvppw='$pvppw', pvvalue='$pvvalue', pvnap='$pvnap', psreadp='$psreadp', pswritep='$pswritep', psrealwb='$psrealwb', psbench='$psbench' where sid='".$sr['sid']."'");
+
+												    // processor calculating
+												    $cpu = mysqli_query($koneksi,"select *from cpu");
+								      				while($ckey = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
+								      					$ccal = ((($ckey['performance'] * $pcperformance) / 100 ) + (($ckey['single'] * $pcsingle) / 100 ) + (($ckey['intg'] * $pcintg) / 100 ) + (($ckey['intgocl'] * $pcintgocl) / 100 ) + (($ckey['ppw'] * $pcppw) / 100 ) + (($ckey['value'] * $pcvalue) / 100 ) ) / 6;
+
+								      					$cs = "s".$sr['sid'];
+								      					$result = mysqli_query($koneksi,"update cpu set $cs=$ccal where cpuid='".$ckey['cpuid']."'");
+								      				}
+
+								      				// vga calculating
+												    $vga = mysqli_query($koneksi,"select *from vga");
+								      				while($vkey = mysqli_fetch_array($vga,MYSQLI_BOTH)){
+								      					$vcal = ((($vkey['gaming'] * $pvgaming) / 100 ) + (($vkey['graphics'] * $pvgraphics) / 100 ) + (($vkey['computing'] * $pvcomputing) / 100 ) + (($vkey['ppw'] * $pvppw) / 100 ) + (($vkey['value'] * $pvvalue) / 100 ) + (($vkey['nap'] * $pvnap)/ 100 )) / 6;
+
+								      					$vs = "s".$sr['sid'];
+								      					$result = mysqli_query($koneksi,"update vga set $vs=$vcal where vgaid='".$vkey['vgaid']."'");
+								      				}
+
+								      				// ssdcalculating
+												    $ssd = mysqli_query($koneksi,"select *from ssd");
+								      				while($skey = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
+								      					$scal = ((($skey['readp'] * $psreadp) / 100 ) + (($skey['writep'] * $pswritep) / 100 ) + (($skey['realwb'] * $psrealwb) / 100 ) + (($skey['bench'] * $psbench) / 100 )) / 4;
+
+								      					$ds = "s".$sr['sid'];
+								      					$result = mysqli_query($koneksi,"update ssd set $ds=$scal where ssdid='".$skey['ssdid']."'");
+								      				}
 
 												    $message = "".$sname." Spesification was Edited";
 			        								echo "<script type='text/javascript'>alert('$message');</script>";

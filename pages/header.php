@@ -29,7 +29,7 @@
 			      			<ul class="nav navbar-nav ml-auto">
 					            <li class="nav-item dropdown">
 								    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false"><img src="../user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744" onerror=this.src="../img/default_profile.jpg" class="rounded-circle" height="28px" width="28px" /></a>
-								    <div class="dropdown-menu">
+								    <div class="dropdown-menu" style="margin-left: -100px;">
 								    	<a class="dropdown-item disabled">Hi, <?php echo $_SESSION['username']; ?></a>
 								    	<div class="dropdown-divider"></div>
 								      	<a class="dropdown-item" href="../pages/settings.php">Settings</a>

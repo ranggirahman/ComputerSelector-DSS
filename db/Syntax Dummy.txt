@@ -1,0 +1,24 @@
+Office Task Syntax :
+select *from cpu order by performance asc
+select *from vga order by vgascore asc
+select *from ssd order by readp asc
+
+Home Usage Sytax :
+select *from cpu order by value desc
+select *from vga order by value asc
+select *from ssd order by realwb desc 
+
+Gaming Sytax :
+select *from cpu order by performance desc
+select *from vga order by gaming desc
+select *from ssd order by readp desc 
+
+Graphic Rendering Syntax :
+select *from cpu order by performance desc
+select *from vga order by graphics desc
+select *from ssd order by bench desc 
+
+Computing, Simulating Syntax :
+select *from cpu order by performance desc
+select *from vga order by computing desc
+select *from ssd order by realwb desc
