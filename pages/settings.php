@@ -978,7 +978,7 @@
 												    // processor calculating
 												    $cpu = mysqli_query($koneksi,"select *from cpu");
 								      				while($ckey = mysqli_fetch_array($cpu,MYSQLI_BOTH)){
-								      					$ccal = ((($ckey['performance'] * $pcperformance) / 100 ) + (($ckey['single'] * $pcsingle) / 100 ) + (($ckey['intg'] * $pcintg) / 100 ) + (($ckey['intgocl'] * $pcintgocl) / 100 ) + (($ckey['ppw'] * $pcppw) / 100 ) + (($ckey['value'] * $pcvalue) / 100 ) ) / 6;
+								      					$ccal = ((($ckey['performance'] * $pcperformance) / 100 ) + (($ckey['single'] * $pcsingle) / 100 ) + (($ckey['intg'] * $pcintg) / 100 ) + (($ckey['intgocl'] * $pcintgocl) / 100 ) + (($ckey['ppw'] * $pcppw) / 100 ) + (($ckey['value'] * $pcvalue) / 100 ));
 
 								      					$cs = "s".$sr['sid'];
 								      					$result = mysqli_query($koneksi,"update cpu set $cs=$ccal where cpuid='".$ckey['cpuid']."'");
@@ -987,7 +987,7 @@
 								      				// vga calculating
 												    $vga = mysqli_query($koneksi,"select *from vga");
 								      				while($vkey = mysqli_fetch_array($vga,MYSQLI_BOTH)){
-								      					$vcal = ((($vkey['gaming'] * $pvgaming) / 100 ) + (($vkey['graphics'] * $pvgraphics) / 100 ) + (($vkey['computing'] * $pvcomputing) / 100 ) + (($vkey['ppw'] * $pvppw) / 100 ) + (($vkey['value'] * $pvvalue) / 100 ) + (($vkey['nap'] * $pvnap)/ 100 )) / 6;
+								      					$vcal = ((($vkey['gaming'] * $pvgaming) / 100 ) + (($vkey['graphics'] * $pvgraphics) / 100 ) + (($vkey['computing'] * $pvcomputing) / 100 ) + (($vkey['ppw'] * $pvppw) / 100 ) + (($vkey['value'] * $pvvalue) / 100 ) + (($vkey['nap'] * $pvnap)/ 100 ));
 
 								      					$vs = "s".$sr['sid'];
 								      					$result = mysqli_query($koneksi,"update vga set $vs=$vcal where vgaid='".$vkey['vgaid']."'");
@@ -996,7 +996,7 @@
 								      				// ssdcalculating
 												    $ssd = mysqli_query($koneksi,"select *from ssd");
 								      				while($skey = mysqli_fetch_array($ssd,MYSQLI_BOTH)){
-								      					$scal = ((($skey['readp'] * $psreadp) / 100 ) + (($skey['writep'] * $pswritep) / 100 ) + (($skey['realwb'] * $psrealwb) / 100 ) + (($skey['bench'] * $psbench) / 100 )) / 4;
+								      					$scal = ((($skey['readp'] * $psreadp) / 100 ) + (($skey['writep'] * $pswritep) / 100 ) + (($skey['realwb'] * $psrealwb) / 100 ) + (($skey['bench'] * $psbench) / 100 ));
 
 								      					$ds = "s".$sr['sid'];
 								      					$result = mysqli_query($koneksi,"update ssd set $ds=$scal where ssdid='".$skey['ssdid']."'");
@@ -1126,7 +1126,7 @@
 										    if( $ci == 0 ){
 										    	if($password1 == $password2){
 										    		$password = md5($password1);
-										    		$result = mysqli_query($koneksi,"insert into user(username,password,name,organization,bcpu,bvga,bssd,storeid) values ('$username','$password','$name','$organization','1000','1000','1000','1')");
+										    		$result = mysqli_query($koneksi,"insert into user(username,password,name,organization,bcpu,bvga,bssd,storeid) values ('$username','$password','$name','$organization','500','400','300','1')");
 
 										    		$message = "User ".$username." was Added";
 			        								echo "<script type='text/javascript'>alert('$message');</script>";

@@ -120,7 +120,7 @@
 	    if( $ci == 0 ){
 	    	if($password1 == $password2){
 	    		$password = md5($password1);
-	    		$result = mysqli_query($koneksi,"insert into user(username,password,name,organization,bcpu,bvga,bssd,storeid) values ('$username','$password','$name','$organization','1000','1000','1000','1')");
+	    		$result = mysqli_query($koneksi,"insert into user(username,password,name,organization,bcpu,bvga,bssd,storeid) values ('$username','$password','$name','$organization','500','400','300','1')");
 
 	    		header("Location: ../pages/login.php");
 	    	}else{
