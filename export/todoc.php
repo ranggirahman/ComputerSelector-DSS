@@ -69,12 +69,14 @@
 				<th width="200px">Processor</th>
 				<th width="200px">VGA</th>
 				<th width="200px">SSD</th>
+				<th width="200px">Total Price</th>
 			</tr>
 	<?php
 		for ($i = 1; $i <= 5; $i++) {
 			$rcpu = mysqli_fetch_array($cpu,MYSQLI_BOTH);
 			$rvga = mysqli_fetch_array($vga,MYSQLI_BOTH);
 			$rssd = mysqli_fetch_array($ssd,MYSQLI_BOTH);
+			$total = $rcpu['cpuprice'] + $rvga['vgaprice'] + $rssd['ssdprice'];
 	?>
 			<tr>
 				<td rowspan="3" align="center"><?php echo $i ?></td>
@@ -82,6 +84,7 @@
 				<td><i><?php echo $rcpu['cpuname'] ?></i></td>
 				<td><i><?php echo $rvga['vganame'] ?></i></td>
 				<td><i><?php echo $rssd['ssdname'] ?></i></td>
+				<td rowspan="3" align="center">$ <?php echo $total ?></td>
 			</tr>
 			<tr>
 				<td>Score</td>
@@ -99,7 +102,7 @@
 		}
 	?>
 			<tr>
-				<td colspan="5" align="center"><i>Recommended Minimum Size of RAM is <?php echo $sr['mram']; ?> GB</i></td>
+				<td colspan="6" align="center"><i>Recommended Minimum Size of RAM is <?php echo $sr['mram']; ?> GB</i></td>
 			</tr>
 		</table>
 		<br>

@@ -236,13 +236,15 @@
 		    								echo "
 		    									<tr class='bg-light'>
 		    										<td width='7%'></td>
-		    										<td width='10%'></td>
-		    										<td class='table-center' width='26%'><img src='../img/processor.png' style='width: 50px'><br>Processor</td>
-		    										<td class='table-center' width='26%'><img src='../img/vga.png' style='width: 50px'><br>VGA</td>
-		    										<td class='table-center' width='26%'><img src='../img/ssd.png' style='width: 50px'><br>SSD</td>
+		    										<td width='8%'></td>
+		    										<td class='table-center' width='24%'><img src='../img/processor.png' style='width: 50px'><br>Processor</td>
+		    										<td class='table-center' width='24%'><img src='../img/vga.png' style='width: 50px'><br>VGA</td>
+		    										<td class='table-center' width='24%'><img src='../img/ssd.png' style='width: 50px'><br>SSD</td>
+		    										<td class='table-center' width='10%'><i class='material-icons' style='font-size:40px; color:grey; padding-top:6px; padding-bottom:5px;'>attach_money</i><br>Total Price</td>
+
 
 		    									</tr>
-		    									<tr><td colspan=5><br></td></tr>
+		    									<tr><td colspan=6><br></td></tr>
 		    								";
 
 		    								$epsy = explode(" ", $sr['psyntax']);
@@ -265,34 +267,37 @@
 		    									$rcpu = mysqli_fetch_array($cpu,MYSQLI_BOTH);
 		    									$rvga = mysqli_fetch_array($vga,MYSQLI_BOTH);
 		    									$rssd = mysqli_fetch_array($ssd,MYSQLI_BOTH);
+		    									$total = $rcpu['cpuprice'] + $rvga['vgaprice'] + $rssd['ssdprice'];
 		    									echo "<tr>";
 			    								echo "<td rowspan=3 class='align-middle bg-light table-center'><h1 class=display-4>$i<h1></td>";
-			    								echo "<td style='padding-left: 30px;'>Name</td>";
+			    								echo "<td style='padding-left: 20px;'>Name</td>";
 			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><b>".$rcpu['cpuname']."</b> <a href='../pages/product.php?p=".$rcpu['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
 			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><b>".$rvga['vganame']."</b> <a href='../pages/product.php?p=".$rvga['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
 			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><b>".$rssd['ssdname']."</b> <a href='../pages/product.php?p=".$rssd ['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
+			    								// total price
+			    								echo "<td rowspan=3 class='align-middle bg-light table-center'><h1 class=display-4 style='font-size:25px;'>$ $total<h1></td>";
 			    								echo "</tr>";
 			    								echo "<tr>";
-			    								echo "<td style='padding-left: 30px;'>Score</td>";
+			    								echo "<td style='padding-left: 20px;'>Score</td>";
 			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><div class='progress' style='height: 25px;''><div class='progress-bar' role='progressbar' style='width: ".$rcpu['cpuscore']*10 ."%;' aria-valuenow='".$rcpu['cpuscore']."' aria-valuemin='0' aria-valuemax='10'>".$rcpu['cpuscore']."</div></div></td>";
 			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><div class='progress' style='height: 25px;''><div class='progress-bar' role='progressbar' style='width: ".$rvga['vgascore']*10 ."%;' aria-valuenow='".$rvga['vgascore']."' aria-valuemin='0' aria-valuemax='10'>".$rvga['vgascore']."</div></div></td>";
 			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><div class='progress' style='height: 25px;''><div class='progress-bar' role='progressbar' style='width: ".$rssd['ssdscore']*10 ."%;' aria-valuenow='".$rssd['ssdscore']."' aria-valuemin='0' aria-valuemax='10'>".$rssd['ssdscore']."</div></div></td>";
 			    								echo "</tr>";
 			    								echo "<tr>";
-			    								echo "<td style='padding-left: 30px;'>Price</td>";
+			    								echo "<td style='padding-left: 20px;'>Price</td>";
 			    								echo "<td style='padding-right: 20px; padding-left: 20px;'>$".$rcpu['cpuprice']." <a href='".$st['query']."".$rcpu['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>shopping_cart</i></span></a></td>";
 			    								echo "<td style='padding-right: 20px; padding-left: 20px;'>$".$rvga['vgaprice']." <a href='".$st['query']."".$rvga['vganame']."'  role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>shopping_cart</i></span></a></td>";
 			    								echo "<td style='padding-right: 20px; padding-left: 20px;'>$".$rssd['ssdprice']." <a href='".$st['query']."".$rssd['ssdname']."'  role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>shopping_cart</i></span></a></td>";
 			    								echo "</tr>";
 
-			    								echo "<tr><td colspan=5><br></td></tr>";
+			    								echo "<tr><td colspan=6><br></td></tr>";
 		    								}
 
 		    								echo "
 		    									<tr class='bg-light'>
 		    										<td width='7%'></td>
 		    										<td width='10%' class='text-center'><img src='../img/ram.png' style='width: 50px'></td>
-		    										<td class='table-center align-middle' width='26%' colspan='3'>Minimum Size of RAM is ".$sr['mram']." GB</td>
+		    										<td class='table-center align-middle' width='26%' colspan='4'>Minimum Size of RAM is ".$sr['mram']." GB</td>
 		    									</tr>		    								
 		    									";
 		    							?>
