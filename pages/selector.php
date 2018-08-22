@@ -239,10 +239,7 @@
 		    										<td width='8%'></td>
 		    										<td class='table-center' width='24%'><img src='../img/processor.png' style='width: 50px'><br>Processor</td>
 		    										<td class='table-center' width='24%'><img src='../img/vga.png' style='width: 50px'><br>VGA</td>
-		    										<td class='table-center' width='24%'><img src='../img/ssd.png' style='width: 50px'><br>SSD</td>
-		    										<td class='table-center' width='10%'><i class='material-icons' style='font-size:40px; color:grey; padding-top:6px; padding-bottom:5px;'>attach_money</i><br>Total Price</td>
-
-
+		    										<td class='table-center' width='24%'><img src='../img/ssd.png' style='width: 50px'><br>SSD</td>	
 		    									</tr>
 		    									<tr><td colspan=6><br></td></tr>
 		    								";
@@ -274,8 +271,6 @@
 			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><b>".$rcpu['cpuname']."</b> <a href='../pages/product.php?p=".$rcpu['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
 			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><b>".$rvga['vganame']."</b> <a href='../pages/product.php?p=".$rvga['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
 			    								echo "<td style='padding-right: 20px; padding-left: 20px;'><b>".$rssd['ssdname']."</b> <a href='../pages/product.php?p=".$rssd ['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
-			    								// total price
-			    								echo "<td rowspan=3 class='align-middle bg-light table-center'><h1 class=display-4 style='font-size:25px;'>$ $total<h1></td>";
 			    								echo "</tr>";
 			    								echo "<tr>";
 			    								echo "<td style='padding-left: 20px;'>Score</td>";

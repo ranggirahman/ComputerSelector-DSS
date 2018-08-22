@@ -644,7 +644,9 @@
 																	}
 
 										      						if(isset($_POST[$pt])){								      							
-																	    $result = mysqli_query($koneksi,"delete from product_detail where pdid='$epd'");
+																	    $result = mysqli_query($koneksi,"delete from product_detail where pdname='$pdname'");
+
+																	    unlink('../img/product/'.$pdname.'.png');
 
 																	    $message = "Product Name ".$pdname." was Deleted";
 				        												echo "<script type='text/javascript'>alert('$message');</script>";
@@ -657,6 +659,8 @@
 														</table>
 									  				</div>						  												  										      			
 									      		</div>
+									      	</form>
+									      		<form action="" method="POST">
 									  			<hr>
 									  			<div class="row">
 									  				<div class="col-md-12">
@@ -671,7 +675,7 @@
 									  					</table>
 									  				</div>
 									  			</div>
-											</form>
+												</form>
 											<?php
 												if(isset($_POST['productadd'])){
 
@@ -719,8 +723,9 @@
 						  					<form action="" method="POST">
 							  					<table class="table table-sm">
 													<tr class="borderless" style="height: 40px; color: darkslategrey;">
-														<th width="40px" class="align-middle text-center">Store Id</th>
-														<th width="130px" class="align-middle">Store Name</th>
+														<th width="45px" class="align-middle text-center">Store Id</th>
+														<th width="10px" class="align-middle"></th>
+														<th width="100px" class="align-middle">Store Name</th>
 														<th width="250px" class="align-middle">Syntax</th>
 														<th width="50px"></th>
 													</tr>
@@ -736,9 +741,9 @@
 											?>	
 												<tr>
 													<td class="align-middle text-center"><?php echo $key['storeid'] ?></td>
+													<td class="align-right"><img src="../img/store/<?php echo $key['name'] ?>.png?dummy=8484744" onerror=this.src="../img/store/Other.png" height="25px" width="25px"/></td>
 													<td class="align-middle"><input class="form-control form-control-sm" type="text" name="<?php echo $stn ?>" value="<?php echo $key['name'] ?>"></td>
-													<td class="align-middle"><input class="form-control form-control-sm" type="text" name="<?php echo $sts ?>" value="<?php echo $key['query'] ?>"></td>
-						      						
+													<td class="align-middle"><input class="form-control form-control-sm" type="text" name="<?php echo $sts ?>" value="<?php echo $key['query'] ?>"></td>						      						
 						      						<td class="align-middle table-center"><button class="btn btn-sm btn-success" type="submit" name="<?php echo $ste ?>" title="Save Changes"><i class="material-icons" style="font-size: 16px;">save</i></button>&nbsp;<button class="btn btn-sm btn-warning" type="submit" name="<?php echo $std ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
 												</tr>	
 				      						<?php
@@ -752,6 +757,12 @@
 
 														    $result = mysqli_query($koneksi,"update store set name='$stname', query='$stsyntax' where storeid='$est'");
 
+														    $parse = parse_url($stsyntax);
+														    $domain = "https://".$parse['host']."/favicon.ico";
+														    $favdir = "../img/store/".$stname.".png";
+
+														    copy( $domain, $favdir );
+															
 														    $message = "Store ".$stname." was Edited";
 	        												echo "<script type='text/javascript'>alert('$message');</script>";
 														    echo "<meta http-equiv='refresh' content='0'>";
@@ -759,7 +770,8 @@
 
 							      						if(isset($_POST[$std])){
 							      							
-														    $result = mysqli_query($koneksi,"delete from store where storeid='$est'");
+														    $result = mysqli_query($koneksi,"delete from store where name='$stname'");
+														    unlink('../img/store/'.$stname.'.png');
 
 														    $message = "Store ".$stname." was Deleted";
 	        												echo "<script type='text/javascript'>alert('$message');</script>";
@@ -795,13 +807,18 @@
 												    $storename = $_POST['storename'];
 												    $storesyntax = $_POST['storesyntax'];
 
-												    $c = mysqli_query($koneksi,"select count(name) from store where name='$storename'");
-
+												    $c = mysqli_query($koneksi,"select count(name) from store where name='$storename'");			
 												    $cr = mysqli_fetch_array($c);
 												    $ci = $cr['count(name)'];
 
 												    if( $ci == 0 ){		
 													    $result = mysqli_query($koneksi,"insert into store(name,query) values ('$storename','$storesyntax')");
+
+													    $parse = parse_url($storesyntax);
+													    $domain = "https://".$parse['host']."/favicon.ico";
+													    $favdir = "../img/store/".$storename.".png";
+
+													    copy( $domain, $favdir );
 
 													    $message = "Store Name ".$storename." was Added";
 				        								echo "<script type='text/javascript'>alert('$message');</script>";

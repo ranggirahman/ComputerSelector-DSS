@@ -50,8 +50,7 @@
 	    <?php include "../pages/header.php" ?>	    
 
 		<div class="container" style="padding-top: 40px;">
-	      	<div class="row">
-	      		<div class="col-md-12">
+	      	<div class="row">	      		
 	      		<?php  					
 	      			$found = 0;
 
@@ -64,47 +63,42 @@
 						$tpd = mysqli_query($koneksi,"select *from product_detail where pdid='".$row['pdid']."'");	
 						$pd = mysqli_fetch_array($tpd,MYSQLI_BOTH);
 						$view = $row['cpuview'];						 
+						echo "<div class='col-md-9'>";
 						echo "<div class='card'>";
 						echo "<div class='card-body'>";
 							echo "<div class='row'>";
 							echo "<div class='col-md-1'><img src='../img/processor.png' height='55px' width='55px'></div>";
-							echo "<div class='col-md-10'><h5 class='display-4' style='font-size: 40px;'>".$row['cpuname']." </h5></div>";
-							echo "<div class='col-md-1'><img src='../".$pd['pdimg']."' height='55px' width='55px'></div>";
+							echo "<div class='col-md-9'><h5 class='display-4' style='font-size: 40px;'>".$row['cpuname']." </h5></div>";
+							echo "<div class='col-md-2'><img class='float-right'  src='../".$pd['pdimg']."' height='55px' width='55px'></div>";
 						    echo "</div>"; 	
 						   	echo "<hr>";
 						    echo "<div class='row'>";
-						    	echo "<div class='col-md-1'></div>";
-						    	echo "<div class='col-md-3' style='font-size: 18px;'>Perfomance</div>";		
-						    	echo "<div class='col-md-3' style='font-size: 18px;'>Single-Core Perfomance</div>";		
-						    	echo "<div class='col-md-3' style='font-size: 18px;'>Integrated Graphic</div>";		
+						    	echo "<div class='col-md-4' style='font-size: 18px;'>Perfomance</div>";		
+						    	echo "<div class='col-md-4' style='font-size: 18px;'>Single-Core Perfomance</div>";		
+						    	echo "<div class='col-md-4' style='font-size: 18px;'>Integrated Graphic</div>";		
 						    echo "</div>";
 						    echo "<div class='row'>";
-						    	echo "<div class='col-md-1'></div>";
-						    	echo "<div class='col-md-3'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['performance']*10 ."%;' aria-valuenow='".$row['performance']."' aria-valuemin='0' aria-valuemax='10'>".$row['performance']."</div></div></div>";
-						    	echo "<div class='col-md-3'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['single']*10 ."%;' aria-valuenow='".$row['single']."' aria-valuemin='0' aria-valuemax='10'>".$row['single']."</div></div></div>";
-						    	echo "<div class='col-md-3'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['intg']*10 ."%;' aria-valuenow='".$row['intg']."' aria-valuemin='0' aria-valuemax='10'>".$row['intg']."</div></div></div>";
+						    	echo "<div class='col-md-4'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['performance']*10 ."%;' aria-valuenow='".$row['performance']."' aria-valuemin='0' aria-valuemax='10'>".$row['performance']."</div></div></div>";
+						    	echo "<div class='col-md-4'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['single']*10 ."%;' aria-valuenow='".$row['single']."' aria-valuemin='0' aria-valuemax='10'>".$row['single']."</div></div></div>";
+						    	echo "<div class='col-md-4'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['intg']*10 ."%;' aria-valuenow='".$row['intg']."' aria-valuemin='0' aria-valuemax='10'>".$row['intg']."</div></div></div>";
 						    echo "</div>";
 						    echo "<br>";
 						    echo "<div class='row'>";
-						    	echo "<div class='col-md-1'></div>";
-						    	echo "<div class='col-md-3' style='font-size: 18px;'>Integrated G. (OpenCL)</div>";		
-						    	echo "<div class='col-md-3' style='font-size: 18px;'>Performance Per Watt</div>";		
-						    	echo "<div class='col-md-3' style='font-size: 18px;'>Value (Pay)</div>";		
+						    	echo "<div class='col-md-4' style='font-size: 18px;'>Integrated G. (OpenCL)</div>";		
+						    	echo "<div class='col-md-4' style='font-size: 18px;'>Performance Per Watt</div>";		
+						    	echo "<div class='col-md-4' style='font-size: 18px;'>Value (Pay)</div>";		
 						    echo "</div>";
 						    echo "<div class='row'>";
-						    	echo "<div class='col-md-1'></div>";
-						    	echo "<div class='col-md-3'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['intgocl']*10 ."%;' aria-valuenow='".$row['intgocl']."' aria-valuemin='0' aria-valuemax='10'>".$row['intgocl']."</div></div></div>";
-						    	echo "<div class='col-md-3'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['ppw']*10 ."%;' aria-valuenow='".$row['ppw']."' aria-valuemin='0' aria-valuemax='10'>".$row['ppw']."</div></div></div>";
-						    	echo "<div class='col-md-3'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['value']*10 ."%;' aria-valuenow='".$row['value']."' aria-valuemin='0' aria-valuemax='10'>".$row['value']."</div></div></div>";
+						    	echo "<div class='col-md-4'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['intgocl']*10 ."%;' aria-valuenow='".$row['intgocl']."' aria-valuemin='0' aria-valuemax='10'>".$row['intgocl']."</div></div></div>";
+						    	echo "<div class='col-md-4'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['ppw']*10 ."%;' aria-valuenow='".$row['ppw']."' aria-valuemin='0' aria-valuemax='10'>".$row['ppw']."</div></div></div>";
+						    	echo "<div class='col-md-4'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['value']*10 ."%;' aria-valuenow='".$row['value']."' aria-valuemin='0' aria-valuemax='10'>".$row['value']."</div></div></div>";
 						    echo "</div>";
 						    echo "<br><hr>";
 						    echo "<div class='row'>";
-						    	echo "<div class='col-md-1'></div>";
-						    	echo "<div class='col-md-9' style='font-size: 18px;'>Total Scores</div>";
+						    	echo "<div class='col-md-12' style='font-size: 18px;'>Total Scores</div>";
 						    echo "</div>";
 						    echo "<div class='row'>";
-						    	echo "<div class='col-md-1'></div>";
-						    	echo "<div class='col-md-9'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['cpuscore']*10 ."%;' aria-valuenow='".$row['cpuscore']."' aria-valuemin='0' aria-valuemax='10'>".$row['cpuscore']."</div></div></div>";
+						    	echo "<div class='col-md-12'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['cpuscore']*10 ."%;' aria-valuenow='".$row['cpuscore']."' aria-valuemin='0' aria-valuemax='10'>".$row['cpuscore']."</div></div></div>";
 						    echo "</div>";
 						    echo "<br>";
 						echo "</div>";
@@ -112,6 +106,44 @@
 							 echo "<div class='row'>";
 						    	echo "<div class='col-md-12 text-right'><div class='pull-right'><a class='btn btn-sm btn-light' href='".$pd['query']."".$row['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> View Specifications</a>&nbsp;<a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a>&nbsp;<a class='btn btn-sm btn-light' href='".$st['query']."".$row['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a></div></div>";
 						    echo "</div>";
+						echo "</div>";
+						echo "</div>";
+						echo "</div>";
+
+						// related cpu 
+						echo "<div class='col-md-3'>";
+						echo "<div class='card'>";
+						echo "<div class='card-header'>";
+						echo "<h5 class='display-4' style='margin-bottom:-3px; font-size: 18px;'><i class='material-icons'>info</i> Related Product</h5>";
+						echo "</div>";
+						echo "<div class='card-body' style='height: 416px;'>";
+							$rcpu = mysqli_query($koneksi,"select *from cpu where cpuscore between '".$row['cpuscore']."'-1 and '".$row['cpuscore']."' and cpuname != '".$row['cpuname']."' order by cpuprice asc limit 3");
+
+				      		while($key = mysqli_fetch_array($rcpu,MYSQLI_BOTH)){
+				      			$rtpd = mysqli_query($koneksi,"select *from product_detail where pdid='".$key['pdid']."'");	
+								$rpd = mysqli_fetch_array($rtpd,MYSQLI_BOTH);
+				      			?>
+				      			<div class="card">
+									<div class="card-body" style="margin-top: -8px; margin-bottom: -8px;">
+										<div class="row">
+										<div class="col-md-5">
+								<?php
+									if( $key['pdid'] == 0){
+										echo "<img src='../img/cpu.png' height='50px' width='50px'>";
+									}else{
+										echo "<img src='../".$rpd['pdimg']."' height='50px' width='50px'>";
+									}
+								?>		
+										</div>
+										<div style="border-left:1px solid lightgray;height:auto;"></div>		      					
+										<div class="col-md-6"><a href="../pages/product.php?p=<?php echo $key['cpuname'] ?>" role="button"><?php echo $key['cpuname']; ?></a></div>
+										</div>
+									</div>	      				
+								</div>
+								<br>		
+				      		<?php
+				      		}
+						echo "</div>";
 						echo "</div>";
 						echo "</div>";
 					}
@@ -125,55 +157,88 @@
 						$vp = mysqli_query($koneksi,"update vga set vgaview=vgaview+1 where vganame='$product'"); 
 						$tpd = mysqli_query($koneksi,"select *from product_detail where pdid='".$row['pdid']."'");	
 						$pd = mysqli_fetch_array($tpd,MYSQLI_BOTH);
-						$view = $row['vgaview'];						
+						$view = $row['vgaview'];
+						echo "<div class='col-md-9'>";						
 						echo "<div class='card'>";
 						echo "<div class='card-body'>";
 							echo "<div class='row'>";
 							echo "<div class='col-md-1'><img src='../img/vga.png' height='55px' width='55px'></div>";
-							echo "<div class='col-md-10'><h5 class='display-4' style='font-size: 40px;'>".$row['vganame']."</h5></div>";
-							echo "<div class='col-md-1'><img src='../".$pd['pdimg']."' height='55px' width='55px'></div>";
+							echo "<div class='col-md-9'><h5 class='display-4' style='font-size: 40px;'>".$row['vganame']."</h5></div>";
+							echo "<div class='col-md-2'><img class='float-right' src='../".$pd['pdimg']."' height='55px' width='55px'></div>";
 						    echo "</div>"; 	
 						   	echo "<hr>";
 						    echo "<div class='row'>";
-						    	echo "<div class='col-md-1'></div>";
-						    	echo "<div class='col-md-3' style='font-size: 18px;'>Gaming</div>";		
-						    	echo "<div class='col-md-3' style='font-size: 18px;'>Graphic</div>";		
-						    	echo "<div class='col-md-3' style='font-size: 18px;'>Computing</div>";		
+						    	echo "<div class='col-md-4' style='font-size: 18px;'>Gaming</div>";		
+						    	echo "<div class='col-md-4' style='font-size: 18px;'>Graphic</div>";		
+						    	echo "<div class='col-md-4' style='font-size: 18px;'>Computing</div>";		
 						    echo "</div>";
 						    echo "<div class='row'>";
-						    	echo "<div class='col-md-1'></div>";
-						    	echo "<div class='col-md-3'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['gaming']*10 ."%;' aria-valuenow='".$row['gaming']."' aria-valuemin='0' aria-valuemax='10'>".$row['gaming']."</div></div></div>";
-						    	echo "<div class='col-md-3'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['graphics']*10 ."%;' aria-valuenow='".$row['graphics']."' aria-valuemin='0' aria-valuemax='10'>".$row['graphics']."</div></div></div>";
-						    	echo "<div class='col-md-3'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['computing']*10 ."%;' aria-valuenow='".$row['computing']."' aria-valuemin='0' aria-valuemax='10'>".$row['computing']."</div></div></div>";
+						    	echo "<div class='col-md-4'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['gaming']*10 ."%;' aria-valuenow='".$row['gaming']."' aria-valuemin='0' aria-valuemax='10'>".$row['gaming']."</div></div></div>";
+						    	echo "<div class='col-md-4'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['graphics']*10 ."%;' aria-valuenow='".$row['graphics']."' aria-valuemin='0' aria-valuemax='10'>".$row['graphics']."</div></div></div>";
+						    	echo "<div class='col-md-4'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['computing']*10 ."%;' aria-valuenow='".$row['computing']."' aria-valuemin='0' aria-valuemax='10'>".$row['computing']."</div></div></div>";
 						    echo "</div>";
 						    echo "<br>";
 						    echo "<div class='row'>";
-						    	echo "<div class='col-md-1'></div>";
-						    	echo "<div class='col-md-3' style='font-size: 18px;'>Performance Per Watt</div>";		
-						    	echo "<div class='col-md-3' style='font-size: 18px;'>Value (Pay)</div>";		
-						    	echo "<div class='col-md-3' style='font-size: 18px;'>Noise and Power</div>";		
+						    	echo "<div class='col-md-4' style='font-size: 18px;'>Performance Per Watt</div>";		
+						    	echo "<div class='col-md-4' style='font-size: 18px;'>Value (Pay)</div>";		
+						    	echo "<div class='col-md-4' style='font-size: 18px;'>Noise and Power</div>";		
 						    echo "</div>";
 						    echo "<div class='row'>";
-						    	echo "<div class='col-md-1'></div>";
-						    	echo "<div class='col-md-3'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['ppw']*10 ."%;' aria-valuenow='".$row['ppw']."' aria-valuemin='0' aria-valuemax='10'>".$row['ppw']."</div></div></div>";
-						    	echo "<div class='col-md-3'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['value']*10 ."%;' aria-valuenow='".$row['value']."' aria-valuemin='0' aria-valuemax='10'>".$row['value']."</div></div></div>";
-						    	echo "<div class='col-md-3'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['nap']*10 ."%;' aria-valuenow='".$row['nap']."' aria-valuemin='0' aria-valuemax='10'>".$row['nap']."</div></div></div>";
+						    	echo "<div class='col-md-4'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['ppw']*10 ."%;' aria-valuenow='".$row['ppw']."' aria-valuemin='0' aria-valuemax='10'>".$row['ppw']."</div></div></div>";
+						    	echo "<div class='col-md-4'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['value']*10 ."%;' aria-valuenow='".$row['value']."' aria-valuemin='0' aria-valuemax='10'>".$row['value']."</div></div></div>";
+						    	echo "<div class='col-md-4'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['nap']*10 ."%;' aria-valuenow='".$row['nap']."' aria-valuemin='0' aria-valuemax='10'>".$row['nap']."</div></div></div>";
 						    echo "</div>";
 						    echo "<br><hr>";
 						    echo "<div class='row'>";
-						    	echo "<div class='col-md-1'></div>";
-						    	echo "<div class='col-md-9' style='font-size: 18px;'>Total Scores</div>";
+						    	echo "<div class='col-md-12' style='font-size: 18px;'>Total Scores</div>";
 						    echo "</div>";
 						    echo "<div class='row'>";
-						    	echo "<div class='col-md-1'></div>";
-						    	echo "<div class='col-md-9'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['vgascore']*10 ."%;' aria-valuenow='".$row['vgascore']."' aria-valuemin='0' aria-valuemax='10'>".$row['vgascore']."</div></div></div>";
+						    	echo "<div class='col-md-12'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['vgascore']*10 ."%;' aria-valuenow='".$row['vgascore']."' aria-valuemin='0' aria-valuemax='10'>".$row['vgascore']."</div></div></div>";
 						    echo "</div>";
 						    echo "<br>";
 						echo "</div>";
 						echo "<div class='card-footer'>";
 						echo "<div class='row'>";
-					    	echo "<div class='col-md-12 text-right'><div class='pull-right'><a class='btn btn-sm btn-light' href='".$pd['query']."".$row['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> View Specifications</a>&nbsp;<a class='btn btn-sm btn-light' href='".$st['query']."".$row['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a>&nbsp;<a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a></div></div>";
+					    	echo "<div class='col-md-12 text-right'><div class='pull-right'><a class='btn btn-sm btn-light' href='".$pd['query']."".$row['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> View Specifications</a>&nbsp;<a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a>&nbsp;<a class='btn btn-sm btn-light' href='".$st['query']."".$row['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a></div></div>";
 						    echo "</div>";
+						echo "</div>";
+						echo "</div>";
+						echo "</div>";
+
+						// related vga
+						echo "<div class='col-md-3'>";
+						echo "<div class='card'>";
+						echo "<div class='card-header'>";
+						echo "<h5 class='display-4' style='margin-bottom:-3px; font-size: 18px;'><i class='material-icons'>info</i> Related Product</h5>";
+						echo "</div>";
+						echo "<div class='card-body' style='height: 416px;'>";
+							$rvga = mysqli_query($koneksi,"select *from vga where vgascore between '".$row['vgascore']."'-1 and '".$row['vgascore']."' and vganame != '".$row['vganame']."' order by vgaprice asc limit 3");
+
+				      		while($key = mysqli_fetch_array($rvga,MYSQLI_BOTH)){
+				      			$rtpd = mysqli_query($koneksi,"select *from product_detail where pdid='".$key['pdid']."'");	
+								$rpd = mysqli_fetch_array($rtpd,MYSQLI_BOTH);
+				      			?>
+				      			<div class="card">
+									<div class="card-body" style="margin-top: -8px; margin-bottom: -8px;">
+										<div class="row">
+										<div class="col-md-5">
+								<?php
+									if( $key['pdid'] == 0){
+										echo "<img src='../img/vga.png' height='50px' width='50px'>";
+									}else{
+										echo "<img src='../".$rpd['pdimg']."' height='50px' width='50px'>";
+									}
+								?>		
+										</div>
+										<div style="border-left:1px solid lightgray;height:auto;"></div>		      					
+										<div class="col-md-6"><a href="../pages/product.php?p=<?php echo $key['vganame'] ?>" role="button"><?php echo $key['vganame']; ?></a></div>
+										</div>
+									</div>	      				
+								</div>
+								<br>		
+							<?php
+							}
+						echo "</div>";
 						echo "</div>";
 						echo "</div>";
 					}
@@ -188,58 +253,90 @@
 						$tpd = mysqli_query($koneksi,"select *from product_detail where pdid='".$row['pdid']."'");	
 						$pd = mysqli_fetch_array($tpd,MYSQLI_BOTH);
 						$view = $row['ssdview'];
+						echo "<div class='col-md-9'>";
 						echo "<div class='card'>";
 						echo "<div class='card-body'>";
 							echo "<div class='row'>";
 							echo "<div class='col-md-1'><img src='../img/ssd.png' height='55px' width='55px'></div>";
-							echo "<div class='col-md-10'><h5 class='display-4' style='font-size: 40px;'>".$row['ssdname']."</h5></div>";
-							echo "<div class='col-md-1'><img src='../".$pd['pdimg']."' height='55px' width='55px'></div>";
+							echo "<div class='col-md-9'><h5 class='display-4' style='font-size: 40px;'>".$row['ssdname']."</h5></div>";
+							echo "<div class='col-md-2'><img class='float-right' src='../".$pd['pdimg']."' height='55px' width='55px'></div>";
 						    echo "</div>"; 	
 						   	echo "<hr>";
 						    echo "<div class='row'>";
-						    	echo "<div class='col-md-1'></div>";
-						    	echo "<div class='col-md-3' style='font-size: 18px;'>Read Perfomance</div>";		
-						    	echo "<div class='col-md-3' style='font-size: 18px;'>Write Perfomance</div>";		
-						    	echo "<div class='col-md-3' style='font-size: 18px;'>Real World Benchmarks</div>";		
+						    	echo "<div class='col-md-4' style='font-size: 18px;'>Read Perfomance</div>";		
+						    	echo "<div class='col-md-4' style='font-size: 18px;'>Write Perfomance</div>";		
+						    	echo "<div class='col-md-4' style='font-size: 18px;'>Real World Benchmarks</div>";		
 						    echo "</div>";
 						    echo "<div class='row'>";
-						    	echo "<div class='col-md-1'></div>";
-						    	echo "<div class='col-md-3'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['readp']*10 ."%;' aria-valuenow='".$row['readp']."' aria-valuemin='0' aria-valuemax='10'>".$row['readp']."</div></div></div>";
-						    	echo "<div class='col-md-3'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['writep']*10 ."%;' aria-valuenow='".$row['writep']."' aria-valuemin='0' aria-valuemax='10'>".$row['writep']."</div></div></div>";
-						    	echo "<div class='col-md-3'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['realwb']*10 ."%;' aria-valuenow='".$row['realwb']."' aria-valuemin='0' aria-valuemax='10'>".$row['realwb']."</div></div></div>";
+						    	echo "<div class='col-md-4'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['readp']*10 ."%;' aria-valuenow='".$row['readp']."' aria-valuemin='0' aria-valuemax='10'>".$row['readp']."</div></div></div>";
+						    	echo "<div class='col-md-4'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['writep']*10 ."%;' aria-valuenow='".$row['writep']."' aria-valuemin='0' aria-valuemax='10'>".$row['writep']."</div></div></div>";
+						    	echo "<div class='col-md-4'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['realwb']*10 ."%;' aria-valuenow='".$row['realwb']."' aria-valuemin='0' aria-valuemax='10'>".$row['realwb']."</div></div></div>";
 						    echo "</div>";
 						    echo "<br>";
 						    echo "<div class='row'>";
-						    	echo "<div class='col-md-1'></div>";
-						    	echo "<div class='col-md-3' style='font-size: 18px;'>Benchmarks</div>";			
+						    	echo "<div class='col-md-4' style='font-size: 18px;'>Benchmarks</div>";			
 						    echo "</div>";
 						    echo "<div class='row'>";
-						    	echo "<div class='col-md-1'></div>";
-						    	echo "<div class='col-md-3'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['bench']*10 ."%;' aria-valuenow='".$row['bench']."' aria-valuemin='0' aria-valuemax='10'>".$row['bench']."</div></div></div>";
+						    	echo "<div class='col-md-4'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['bench']*10 ."%;' aria-valuenow='".$row['bench']."' aria-valuemin='0' aria-valuemax='10'>".$row['bench']."</div></div></div>";
 						    echo "</div>";
 						    echo "<br><hr>";
 						    echo "<div class='row'>";
-						    	echo "<div class='col-md-1'></div>";
-						    	echo "<div class='col-md-9' style='font-size: 18px;'>Total Scores</div>";
+						    	echo "<div class='col-md-12' style='font-size: 18px;'>Total Scores</div>";
 						    echo "</div>";
 						    echo "<div class='row'>";
-						    	echo "<div class='col-md-1'></div>";
-						    	echo "<div class='col-md-9'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['ssdscore']*10 ."%;' aria-valuenow='".$row['ssdscore']."' aria-valuemin='0' aria-valuemax='10'>".$row['ssdscore']."</div></div></div>";
+						    	echo "<div class='col-md-12'><div class='progress' style='height: 30px;''><div class='progress-bar' role='progressbar' style='width: ".$row['ssdscore']*10 ."%;' aria-valuenow='".$row['ssdscore']."' aria-valuemin='0' aria-valuemax='10'>".$row['ssdscore']."</div></div></div>";
 						    echo "</div>";
 						    echo "<br>";
 						echo "</div>";
 						echo "<div class='card-footer'>";
 							 echo "<div class='row'>";
-						    	echo "<div class='col-md-12 text-right'><div class='pull-right'><a class='btn btn-sm btn-light' href='".$pd['query']."".$row['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> View Specifications</a>&nbsp;<a class='btn btn-sm btn-light' href='".$st['query']."".$row['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a>&nbsp;<a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a></div></div>";
+						    	echo "<div class='col-md-12 text-right'><div class='pull-right'><a class='btn btn-sm btn-light' href='".$pd['query']."".$row['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> View Specifications</a>&nbsp;<a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a>&nbsp;<a class='btn btn-sm btn-light' href='".$st['query']."".$row['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a></div></div>";
 						    echo "</div>";
+						echo "</div>";
+						echo "</div>";
+						echo "</div>";
+
+						// related ssd
+						echo "<div class='col-md-3'>";
+						echo "<div class='card'>";
+						echo "<div class='card-header'>";
+						echo "<h5 class='display-4' style='margin-bottom:-3px; font-size: 18px;'><i class='material-icons'>info</i> Related Product</h5>";
+						echo "</div>";
+						echo "<div class='card-body' style='height: 416px;'>";
+							$rssd = mysqli_query($koneksi,"select *from ssd where ssdscore between '".$row['ssdscore']."'-3 and '".$row['ssdscore']."' and ssdname != '".$row['ssdname']."' order by ssdprice asc limit 3");
+
+				      		while($key = mysqli_fetch_array($rssd,MYSQLI_BOTH)){
+				      			$rtpd = mysqli_query($koneksi,"select *from product_detail where pdid='".$key['pdid']."'");	
+								$rpd = mysqli_fetch_array($rtpd,MYSQLI_BOTH);
+				      			?>
+				      			<div class="card">
+				      				<div class="card-body" style="margin-top: -8px; margin-bottom: -8px;">
+				      					<div class="row">
+				      					<div class="col-md-5">
+				      			<?php
+					      			if( $key['pdid'] == 0){
+					      				echo "<img src='../img/ssd.png' height='50px' width='50px'>";
+					      			}else{
+					      				echo "<img src='../".$rpd['pdimg']."' height='50px' width='50px'>";
+					      			}
+				      			?>		
+				      					</div>
+				      					<div style="border-left:1px solid lightgray;height:auto;"></div>		      					
+					      				<div class="col-md-6"><a href="../pages/product.php?p=<?php echo $key['ssdname'] ?>" role="button"><?php echo $key['ssdname']; ?></a></div>
+				      					</div>
+				      				</div>	      				
+				      			</div>
+				      			<br>		
+				      		<?php
+				      		}
+						echo "</div>";
 						echo "</div>";
 						echo "</div>";
 					}	
 
 					// if found then display all content (comment, like etc)
 					if($found == 1){						
-				?>
-				</div>	        	
+				?>       	
 	     	</div>
 
 	     	<br>
@@ -265,19 +362,19 @@
 				}
 			?>
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-9">
 					<div class="card">
 						<div class="card-body bg-light">
 							<div class="row" style="margin-bottom: -10px;">
 								<div class="col-sm-1">
 								</div>
-								<div class="col-sm-2">
+								<div class="col-sm-3">
 									<h5 style="font-size: 15px;"><i class="material-icons" style="font-size: 20px;">comment</i> <?php echo "$replycount"; ?> Comments</h5>
 								</div>										
-								<div class="col-sm-2">
+								<div class="col-sm-3">
 									<h5 style="font-size: 15px;"><i class="material-icons" style="font-size: 20px;">remove_red_eye</i> <?php echo "$view"; ?> Views</h5>
 								</div>
-								<div class="col-sm-7 text-right">
+								<div class="col-sm-5 text-right">
 									<form action="" method="POST">
 										<button class="btn btn-sm btn-less <?php if($lstt['likestatus'] == 1){echo 'btn-outline-dark';}else{echo 'btn-outline-danger';} ?>" type="submit" name="<?php echo $lst ?>"><h5 style="font-size: 15px;"><i class="material-icons" style="font-size: 15px;">thumb_up</i> <?php echo "$likecount"; ?> Like</h5></button>
 									</form>
@@ -314,7 +411,7 @@
 			</div>
 			<br>
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-9">
 					<form action="" method="POST">
 			<?php
 				$result = mysqli_query($koneksi,"select *from product_comment where product_name='$product'");
@@ -328,7 +425,7 @@
 						  		<div class='card-body'>
 									<div class='row'>
 										<div class='col-sm-1'>	
-											<img src='../user/profile/".$key['resuser'].".jpg?dummy=8484744' onerror=this.src='../img/default_profile.jpg' class='rounded-circle float-right border border-warning' height=62px' width='62px'/>							
+											<img src='../user/profile/".$key['resuser'].".jpg?dummy=8484744' onerror=this.src='../img/default_profile.jpg' class='rounded-circle border border-warning' height=50px' width='50px'/>							
 										</div>
 										<div class='col-sm-10'>	
 											<b>".$resu['name']."</b> ".$resu['organization']."						
@@ -364,12 +461,12 @@
 				</div>
 			</div>	
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-9">
 					<div class="card">
 					  	<div class="card-body">
 					  		<div class="row">
 						  		<div class='col-sm-1'>	
-									<center><img src='../user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744' onerror=this.src='../img/default_profile.jpg' class='rounded-circle float-right border border-primary' height='62px' width='62px'/></center>									
+									<center><img src='../user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744' onerror=this.src='../img/default_profile.jpg' class='rounded-circle border border-primary' height='50px' width='50px'/></center>									
 								</div>
 								<div class='col-sm-11'>
 									<form action="" method="POST">
