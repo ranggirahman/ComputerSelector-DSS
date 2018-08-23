@@ -117,7 +117,7 @@
 						echo "<h5 class='display-4' style='margin-bottom:-3px; font-size: 18px;'><i class='material-icons'>info</i> Related Product</h5>";
 						echo "</div>";
 						echo "<div class='card-body' style='height: 416px;'>";
-							$rcpu = mysqli_query($koneksi,"select *from cpu where cpuscore between '".$row['cpuscore']."'-1 and '".$row['cpuscore']."' and cpuname != '".$row['cpuname']."' order by cpuprice asc limit 3");
+							$rcpu = mysqli_query($koneksi,"select *from cpu where cpuscore between '".$row['cpuscore']."'-1 and '".$row['cpuscore']."'+1 and cpuname != '".$row['cpuname']."' order by cpuprice asc limit 3");
 
 				      		while($key = mysqli_fetch_array($rcpu,MYSQLI_BOTH)){
 				      			$rtpd = mysqli_query($koneksi,"select *from product_detail where pdid='".$key['pdid']."'");	
@@ -212,7 +212,7 @@
 						echo "<h5 class='display-4' style='margin-bottom:-3px; font-size: 18px;'><i class='material-icons'>info</i> Related Product</h5>";
 						echo "</div>";
 						echo "<div class='card-body' style='height: 416px;'>";
-							$rvga = mysqli_query($koneksi,"select *from vga where vgascore between '".$row['vgascore']."'-1 and '".$row['vgascore']."' and vganame != '".$row['vganame']."' order by vgaprice asc limit 3");
+							$rvga = mysqli_query($koneksi,"select *from vga where vgascore between '".$row['vgascore']."'-1 and '".$row['vgascore']."'+1 and vganame != '".$row['vganame']."' order by vgaprice asc limit 3");
 
 				      		while($key = mysqli_fetch_array($rvga,MYSQLI_BOTH)){
 				      			$rtpd = mysqli_query($koneksi,"select *from product_detail where pdid='".$key['pdid']."'");	
@@ -303,7 +303,7 @@
 						echo "<h5 class='display-4' style='margin-bottom:-3px; font-size: 18px;'><i class='material-icons'>info</i> Related Product</h5>";
 						echo "</div>";
 						echo "<div class='card-body' style='height: 416px;'>";
-							$rssd = mysqli_query($koneksi,"select *from ssd where ssdscore between '".$row['ssdscore']."'-3 and '".$row['ssdscore']."' and ssdname != '".$row['ssdname']."' order by ssdprice asc limit 3");
+							$rssd = mysqli_query($koneksi,"select *from ssd where ssdscore between '".$row['ssdscore']."'-3 and '".$row['ssdscore']."'+1 and ssdname != '".$row['ssdname']."' order by ssdprice asc limit 3");
 
 				      		while($key = mysqli_fetch_array($rssd,MYSQLI_BOTH)){
 				      			$rtpd = mysqli_query($koneksi,"select *from product_detail where pdid='".$key['pdid']."'");	

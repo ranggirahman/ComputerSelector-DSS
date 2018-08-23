@@ -1,6 +1,7 @@
-- product detail delete = delete img
-- store detail delete = delete img
 - store dropdown
 - link to tab
 - compare page
 - buy store dropdown
+- spesification conf error handling when no 100%
+- spesification image
+- forgot password

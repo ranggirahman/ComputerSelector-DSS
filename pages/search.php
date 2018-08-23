@@ -47,7 +47,7 @@
 
 		<div class="container" style="padding-top: 40px;">
 	      	<div class="row">
-	      		<div class="col-md-12">
+	      		<div class="col-md-8">
 	      		<?php  					
 	      			$found = 0;
 
@@ -59,46 +59,47 @@
 			   					$result = mysqli_query($koneksi,"select *from cpu where cpuname like'%$search%'");
 								while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
 									$found = 1;
-									echo "<div class='card'><div class='card-body'><table border=0>"; 
-										echo "<tr>";
-									    	echo "<td width='50px'><img src='../img/processor.png' style='height='34px' width='34px''></td>";
-									    	echo "<td><a href='../pages/product.php?p=".$row['cpuname']."'>".$row['cpuname']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
-									    echo "</tr>";
-									echo "</table></div></div><br>";						    
+									echo "<div class='card'><div class='card-body'><div class='row'>"; 
+									    	echo "<div class='col-md-1'><img src='../img/processor.png' style='height='34px' width='34px''></div>";
+									    	echo "<div style='border-left:1px solid lightgray;height:auto;'></div>";
+									    	echo "<div class='col-md-7' style='padding-top: 4px;'><a href='../pages/product.php?p=".$row['cpuname']."'>".$row['cpuname']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></div>";
+									    	echo "<div style='border-left:1px solid lightgray;height:auto;'></div>";
+									    	echo "<div class='col-md-2' style='padding-top: 4px;'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>attach_money</i></span>".$row['cpuprice']."</div>";
+									echo "</div></div></div><br>";						    
 								}
 
 								// vga					
 			   					$result = mysqli_query($koneksi,"select *from vga where vganame like'%$search%'");
 								while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
 									$found = 1;
-									echo "<div class='card'><div class='card-body'><table border=0>"; 
-										echo "<tr>";
-									    	echo "<td width='50px'><img src='../img/vga.png' style='height='34px' width='34px''></td>";
-									    	echo "<td><a href='../pages/product.php?p=".$row['vganame']."'>".$row['vganame']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
-									    echo "</tr>";
-									echo "</table></div></div><br>";						    
+									echo "<div class='card'><div class='card-body'><div class='row'>"; 
+									    	echo "<div class='col-md-1'><img src='../img/vga.png' style='height='34px' width='34px''></div>";
+									    	echo "<div style='border-left:1px solid lightgray;height:auto;'></div>";
+									    	echo "<div class='col-md-7' style='padding-top: 4px;'><a href='../pages/product.php?p=".$row['vganame']."'>".$row['vganame']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></div>";
+									    	echo "<div style='border-left:1px solid lightgray;height:auto;'></div>";
+									    	echo "<div class='col-md-2' style='padding-top: 4px;'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>attach_money</i></span>".$row['vgaprice']."</div>";
+									echo "</div></div></div><br>";							    
 								}
 
 								// ssd					
 			   					$result = mysqli_query($koneksi,"select *from ssd where ssdname like'%$search%'");
 								while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
 									$found = 1;
-									echo "<div class='card'><div class='card-body'><table border=0>"; 
-										echo "<tr>";
-									    	echo "<td width='50px'><img src='../img/ssd.png' style='height='34px' width='34px''></td>";
-									    	echo "<td colspan='7'><a href='product.php?p=".$row['ssdname']."'>".$row['ssdname']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></td>";
-									    echo "</tr>";
-									echo "</table></div></div><br>";						    
+									echo "<div class='card'><div class='card-body'><div class='row'>"; 
+									    	echo "<div class='col-md-1'><img src='../img/ssd.png' style='height='34px' width='34px''></div>";
+									    	echo "<div style='border-left:1px solid lightgray;height:auto;'></div>";
+									    	echo "<div class='col-md-7' style='padding-top: 4px;'><a href='../pages/product.php?p=".$row['ssdname']."'>".$row['ssdname']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></div>";
+									    	echo "<div style='border-left:1px solid lightgray;height:auto;'></div>";
+									    	echo "<div class='col-md-2' style='padding-top: 4px;'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>attach_money</i></span>".$row['ssdprice']."</div>";
+									echo "</div></div></div><br>";							    
 								}						
 			      			}
 						}
 					}
 					if($found == 0){
 						echo "
-							<div class='row' style='padding: 200px 0px 200px 0px;'>
-						   		<div class='col-md-1'>
-						   		</div>
-						   		<div class='col-md-2'>
+							<div class='row' style='padding: 200px 0px 200px 0px;'>						   		
+						   		<div class='col-md-3'>
 						   			<i class='material-icons' style='font-size: 150px; color:lightgray;'>search</i>
 						   		</div>
 					          	<div class='col-md-8'>
