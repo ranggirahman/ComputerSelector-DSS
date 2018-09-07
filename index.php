@@ -258,7 +258,7 @@
 										?>
 										<tr>
 											<td class="align-middle table-center" width="50px"><?php echo $i ?></td>
-						      				<td class="align-middle"><a href="pages/product.php?p=<?php echo $key['cpuname'] ?>" role="button"><?php echo $key['cpuname'] ?> <span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
+						      				<td class="align-middle"><a href="pages/product.php?p=<?php echo $key['cpuname'] ?>" role="button"><?php echo $key['cpuname'] ?></a></td>
 						      				<td class="table-center">
 						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['performance']*10 ?>%;" aria-valuenow="<?php echo $key['performance'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['performance'] ?></div>
@@ -344,7 +344,7 @@
 										?>
 										<tr>
 											<td class="align-middle table-center" width="50px"><?php echo $i ?></td>
-						      				<td class="align-middle"><a href="pages/product.php?p=<?php echo $key['vganame'] ?>" role="button"><span aria-hidden="true"><?php echo $key['vganame'] ?> <i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
+						      				<td class="align-middle"><a href="pages/product.php?p=<?php echo $key['vganame'] ?>" role="button"><?php echo $key['vganame'] ?></a></td>
 						      				<td class="table-center">
 						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['gaming']*10 ?>%;" aria-valuenow="<?php echo $key['gaming'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['gaming'] ?></div>
@@ -435,7 +435,7 @@
 										?>
 										<tr>
 											<td class="align-middle table-center" width="50px"><?php echo $i ?></td>
-						      				<td class="align-middle"><a href="pages/product.php?p=<?php echo $key['ssdname'] ?>" role="button"><?php echo $key['ssdname'] ?> <span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
+						      				<td class="align-middle"><a href="pages/product.php?p=<?php echo $key['ssdname'] ?>" role="button"><?php echo $key['ssdname'] ?></a></td>
 						      				<td class="table-center">
 						      					<div class="progress" style="height: 33px;">
 											  		<div class="progress-bar" role="progressbar" style="width: <?php echo $key['readp']*10 ?>%;" aria-valuenow="<?php echo $key['readp'] ?>" aria-valuemin="0" aria-valuemax="10"><?php echo $key['readp'] ?></div>

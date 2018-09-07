@@ -1,7 +1,10 @@
 - store dropdown
 - link to tab
-- compare page
 - buy store dropdown
 - spesification conf error handling when no 100%
 - spesification image
 - forgot password
+
+page :
+- compare page
+- redirecting to other page (buy, view spesification)

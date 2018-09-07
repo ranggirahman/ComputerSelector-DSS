@@ -66,6 +66,8 @@
 						</div>
 						<div class="col-md-10">
 							<div class="tab-content" id="v-pills-tabContent">
+
+								<!-- Profile Settings Tab -->
 							  	<div class="tab-pane fade show active" id="tab-profile" role="tabpanel">
 							  		<form enctype="multipart/form-data" action="" method="POST">
 							  			<div class="row" style="height: 630px;">
@@ -145,6 +147,7 @@
 									?>
 							  	</div>
 
+							  	<!-- Result Settings Tab -->
 							  	<div class="tab-pane fade" id="tab-settings" role="tabpanel">
 					  				<form action="" method="POST">
 							  			<div class="row" style="height: 630px;">
@@ -209,6 +212,7 @@
 
 							  	<?php if($us['usertype'] == '2'){// admin access only ?>
 
+ 								<!-- Product Tab -->
 							  	<div class="tab-pane fade" id="tab-product" role="tabpanel">
 							  		<ul class="nav nav-tabs" id="myTab" role="tablist">
 									  	<li class="nav-item">
@@ -717,6 +721,7 @@
 									</div>
 							  	</div>
 
+							  	<!-- Store Tab -->
 							  	<div class="tab-pane fade" id="tab-store" role="tabpanel">							  		
 						  			<div class="row">
 						  				<div class="col-sm-12" style="overflow-y: scroll; height:620px;">
@@ -741,7 +746,7 @@
 											?>	
 												<tr>
 													<td class="align-middle text-center"><?php echo $key['storeid'] ?></td>
-													<td class="align-right"><img src="../img/store/<?php echo $key['name'] ?>.png?dummy=8484744" onerror=this.src="../img/store/Other.png" height="25px" width="25px"/></td>
+													<td class="align-right"><img src="../img/store/<?php echo $key['name'] ?>.ico?dummy=8484744" onerror=this.src="../img/store/Other.png" height="25px" width="25px"/></td>
 													<td class="align-middle"><input class="form-control form-control-sm" type="text" name="<?php echo $stn ?>" value="<?php echo $key['name'] ?>"></td>
 													<td class="align-middle"><input class="form-control form-control-sm" type="text" name="<?php echo $sts ?>" value="<?php echo $key['query'] ?>"></td>						      						
 						      						<td class="align-middle table-center"><button class="btn btn-sm btn-success" type="submit" name="<?php echo $ste ?>" title="Save Changes"><i class="material-icons" style="font-size: 16px;">save</i></button>&nbsp;<button class="btn btn-sm btn-warning" type="submit" name="<?php echo $std ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
@@ -759,7 +764,7 @@
 
 														    $parse = parse_url($stsyntax);
 														    $domain = "https://".$parse['host']."/favicon.ico";
-														    $favdir = "../img/store/".$stname.".png";
+														    $favdir = "../img/store/".$stname.".ico";
 
 														    copy( $domain, $favdir );
 															
@@ -816,7 +821,7 @@
 
 													    $parse = parse_url($storesyntax);
 													    $domain = "https://".$parse['host']."/favicon.ico";
-													    $favdir = "../img/store/".$storename.".png";
+													    $favdir = "../img/store/".$storename.".ico";
 
 													    copy( $domain, $favdir );
 
@@ -833,6 +838,7 @@
 									</div>
 							  	</div>
 
+							  	<!-- Spesification Tab -->
 							  	<div class="tab-pane fade" id="tab-spesification" role="tabpanel">
 							  		<ul class="nav nav-tabs" id="myTab" role="tablist">
 							     		<?php
@@ -1032,6 +1038,7 @@
 									</div>
 							  	</div>
 
+							  	<!-- Users Management Tab -->
 							  	<div class="tab-pane fade" id="tab-users" role="tabpanel">
 							  		<form action="" method="POST">
 							  			<div class="row" style="overflow-y: scroll; height:620px;">
