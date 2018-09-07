@@ -203,7 +203,7 @@
  					 	<div class="card-body">   
 			    			<div class="row">
 			    				<div class="col-md-12 text-center">
-			    					<div class="display-4" style="font-size: 20px;">Welcome<br><br><img src="user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle border border-warning" height="93px" width="93px"/><br><br><?php echo $us['name'] ?></div>		    					
+			    					<div class="display-4" style="font-size: 20px;">Welcome<br><br><img src="user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle" height="93px" width="93px"/><br><br><?php echo $us['name'] ?></div>		    					
 		    						
 			    				</div>
 			    			</div>

@@ -435,7 +435,7 @@
 										";
 											if($us['usertype'] >= '1'){// admin access only
 										echo "	
-											<button class='btn btn-sm btn-warning' type='submit' name='".$key['resid']."' title='Delete'><i class='material-icons' style='font-size: 16px;'>delete</i></button>
+											<button class='btn btn-sm btn-light' type='submit' name='".$key['resid']."' title='Delete'><i class='material-icons' style='font-size: 16px;'>delete</i></button>
 										";
 											}
 										echo "						
