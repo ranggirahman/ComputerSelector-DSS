@@ -62,9 +62,9 @@
 									echo "<div class='card'><div class='card-body'><div class='row'>"; 
 									    	echo "<div class='col-md-1'><img src='../img/processor.png' style='height='34px' width='34px''></div>";
 									    	echo "<div style='border-left:1px solid lightgray;height:auto;'></div>";
-									    	echo "<div class='col-md-7' style='padding-top: 4px;'><a href='../pages/product.php?p=".$row['cpuname']."'>".$row['cpuname']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></div>";
+									    	echo "<div class='col-md-8' style='padding-top: 4px;'><a href='../pages/product.php?p=".$row['cpuname']."'>".$row['cpuname']."</a></div>";
 									    	echo "<div style='border-left:1px solid lightgray;height:auto;'></div>";
-									    	echo "<div class='col-md-2' style='padding-top: 4px;'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>attach_money</i></span>".$row['cpuprice']."</div>";
+									    	echo "<div class='col-md-2 text-center' style='padding-top: 4px;'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>attach_money</i></span>".$row['cpuprice']."</div>";
 									echo "</div></div></div><br>";						    
 								}
 
@@ -75,9 +75,9 @@
 									echo "<div class='card'><div class='card-body'><div class='row'>"; 
 									    	echo "<div class='col-md-1'><img src='../img/vga.png' style='height='34px' width='34px''></div>";
 									    	echo "<div style='border-left:1px solid lightgray;height:auto;'></div>";
-									    	echo "<div class='col-md-7' style='padding-top: 4px;'><a href='../pages/product.php?p=".$row['vganame']."'>".$row['vganame']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></div>";
+									    	echo "<div class='col-md-8' style='padding-top: 4px;'><a href='../pages/product.php?p=".$row['vganame']."'>".$row['vganame']."</a></div>";
 									    	echo "<div style='border-left:1px solid lightgray;height:auto;'></div>";
-									    	echo "<div class='col-md-2' style='padding-top: 4px;'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>attach_money</i></span>".$row['vgaprice']."</div>";
+									    	echo "<div class='col-md-2 text-center' style='padding-top: 4px;'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>attach_money</i></span>".$row['vgaprice']."</div>";
 									echo "</div></div></div><br>";							    
 								}
 
@@ -88,9 +88,9 @@
 									echo "<div class='card'><div class='card-body'><div class='row'>"; 
 									    	echo "<div class='col-md-1'><img src='../img/ssd.png' style='height='34px' width='34px''></div>";
 									    	echo "<div style='border-left:1px solid lightgray;height:auto;'></div>";
-									    	echo "<div class='col-md-7' style='padding-top: 4px;'><a href='../pages/product.php?p=".$row['ssdname']."'>".$row['ssdname']." <span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>open_in_new</i></span></a></div>";
+									    	echo "<div class='col-md-8' style='padding-top: 4px;'><a href='../pages/product.php?p=".$row['ssdname']."'>".$row['ssdname']."</a></div>";
 									    	echo "<div style='border-left:1px solid lightgray;height:auto;'></div>";
-									    	echo "<div class='col-md-2' style='padding-top: 4px;'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>attach_money</i></span>".$row['ssdprice']."</div>";
+									    	echo "<div class='col-md-2 text-center' style='padding-top: 4px;'><span aria-hidden='true'><i class='material-icons' style='font-size: 16px;'>attach_money</i></span>".$row['ssdprice']."</div>";
 									echo "</div></div></div><br>";							    
 								}						
 			      			}

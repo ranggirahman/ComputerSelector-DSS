@@ -228,6 +228,7 @@
 									    	<a class="nav-link" data-toggle="tab" href="#pdetail" role="tab" aria-selected="true"><i class="material-icons">note</i> Product Detail</a>
 									  	</li>						  
 									</ul>
+									<!-- Product Tab - CPU -->
 									<div class="tab-content">	
 									  	<div class="tab-pane fade show active" id="dprocessor" role="tabpanel">
 									  		<form action="" method="POST">
@@ -249,8 +250,8 @@
 													?>	
 														<tr>
 															<td class="align-middle table-center"><?php echo $i ?></td>
-								      						<td><a href="../pages/product.php?p=<?php echo $key['cpuname'] ?>" role="button"><?php echo $key['cpuname'] ?> <span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
-								      						<td class="align-middle table-center"><button class="btn btn-sm btn-warning" type="submit" name="<?php echo $key['cpuname'] ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
+								      						<td><a href="../pages/product.php?p=<?php echo $key['cpuname'] ?>" role="button"><?php echo $key['cpuname'] ?></a></td>
+								      						<td class="align-middle table-center"><button class="btn btn-sm btn-light" type="submit" name="<?php echo $key['cpuname'] ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
 														</tr>													
 									      					
 								      				<?php
@@ -351,6 +352,8 @@
 											  	}
 											?>						  	
 									  	</div>
+
+									  	<!-- Product Tab - VGA -->
 									  	<div class="tab-pane fade" id="dvga" role="tabpanel">
 									  		<form action="" method="POST">
 									  			<div class="row" style="overflow-y: scroll; height:340px;">
@@ -371,8 +374,8 @@
 													?>	
 														<tr>
 															<td class="align-middle table-center"><?php echo $i ?></td>
-								      						<td><a href="../pages/product.php?p=<?php echo $key['vganame'] ?>" role="button"><?php echo $key['vganame'] ?> <span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
-								      						<td class="align-middle table-center"><button class="btn btn-sm btn-warning" type="submit" name="<?php echo $key['vganame'] ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
+								      						<td><a href="../pages/product.php?p=<?php echo $key['vganame'] ?>" role="button"><?php echo $key['vganame'] ?></a></td>
+								      						<td class="align-middle table-center"><button class="btn btn-sm btn-light" type="submit" name="<?php echo $key['vganame'] ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
 														</tr>													
 									      					
 								      				<?php
@@ -473,6 +476,8 @@
 										  	}
 										?>	
 									  	</div>
+
+									  	<!-- Product Tab - SSD -->
 									  	<div class="tab-pane fade" id="dssd" role="tabpanel">
 									  		<form action="" method="POST">
 									  			<div class="row" style="overflow-y: scroll; height:340px;">
@@ -493,8 +498,8 @@
 													?>	
 														<tr>
 															<td class="align-middle table-center"><?php echo $i ?></td>
-								      						<td><a href="../pages/product.php?p=<?php echo $key['ssdname'] ?>" role="button"><?php echo $key['ssdname'] ?> <span aria-hidden="true"><i class="material-icons" style="font-size: 16px;">open_in_new</i></span></a></td>
-								      						<td class="align-middle table-center"><button class="btn btn-sm btn-warning" type="submit" name="<?php echo $key['ssdname'] ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
+								      						<td><a href="../pages/product.php?p=<?php echo $key['ssdname'] ?>" role="button"><?php echo $key['ssdname'] ?></a></td>
+								      						<td class="align-middle table-center"><button class="btn btn-sm btn-light" type="submit" name="<?php echo $key['ssdname'] ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
 														</tr>													
 									      					
 								      				<?php
@@ -589,6 +594,8 @@
 										  	}
 										?>
 									  	</div>
+
+									  	<!-- Product Tab - Product Detail -->
 									  	<div class="tab-pane fade" id="pdetail" role="tabpanel">							  		
 									  		<form enctype="multipart/form-data" action="" method="POST">
 									  			<form enctype="multipart/form-data" action="" method="POST">
@@ -617,7 +624,7 @@
 															<td class="align-middle"><input class="form-control form-control-sm" type="text" name="<?php echo $pn ?>" value="<?php echo $key['pdname'] ?>"></td>
 															<td class="align-middle"><img src="../<?php echo $key['pdimg'] ?>?dummy=8484744" onerror=this.src="../img/product/Other.png" height="25px" width="25px"/><input class="btn btn-sm" type="file" name="<?php echo $pi ?>" style="width: 70%"></td>
 															<td class="align-middle"><input class="form-control form-control-sm" type="text" name="<?php echo $pq ?>" value="<?php echo $key['query'] ?>"></td>								      						
-								      						<td class="align-middle table-center"><button class="btn btn-sm btn-success" type="submit" name="<?php echo $pe ?>" title="Save Changes"><i class="material-icons" style="font-size: 16px;">save</i></button>&nbsp;<button class="btn btn-sm btn-warning" type="submit" name="<?php echo $pt ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
+								      						<td class="align-middle table-center"><button class="btn btn-sm btn-light" type="submit" name="<?php echo $pe ?>" title="Save Changes"><i class="material-icons" style="font-size: 16px;">save</i></button>&nbsp;<button class="btn btn-sm btn-light" type="submit" name="<?php echo $pt ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
 														</tr>													
 									      					
 								      				<?php
@@ -749,7 +756,7 @@
 													<td class="align-right"><img src="../img/store/<?php echo $key['name'] ?>.ico?dummy=8484744" onerror=this.src="../img/store/Other.png" height="25px" width="25px"/></td>
 													<td class="align-middle"><input class="form-control form-control-sm" type="text" name="<?php echo $stn ?>" value="<?php echo $key['name'] ?>"></td>
 													<td class="align-middle"><input class="form-control form-control-sm" type="text" name="<?php echo $sts ?>" value="<?php echo $key['query'] ?>"></td>						      						
-						      						<td class="align-middle table-center"><button class="btn btn-sm btn-success" type="submit" name="<?php echo $ste ?>" title="Save Changes"><i class="material-icons" style="font-size: 16px;">save</i></button>&nbsp;<button class="btn btn-sm btn-warning" type="submit" name="<?php echo $std ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
+						      						<td class="align-middle table-center"><button class="btn btn-sm btn-light" type="submit" name="<?php echo $ste ?>" title="Save Changes"><i class="material-icons" style="font-size: 16px;">save</i></button>&nbsp;<button class="btn btn-sm btn-light" type="submit" name="<?php echo $std ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
 												</tr>	
 				      						<?php
 					      							if(isset($_POST[$ste]) || isset($_POST[$std])){
@@ -1079,7 +1086,7 @@
 													<td class="align-middle"><?php echo $key['name'] ?></td>
 													<td class="align-middle"><?php echo $key['organization'] ?></td>
 						      						
-						      						<td class="align-middle table-center"><button class="btn btn-sm btn-success" type="submit" name="<?php echo $key['userid'] ?>" title="Save Changes"><i class="material-icons" style="font-size: 16px;">save</i></button>&nbsp;<button class="btn btn-sm btn-warning" type="submit" name="<?php echo $key['username'] ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
+						      						<td class="align-middle table-center"><button class="btn btn-sm btn-light" type="submit" name="<?php echo $key['userid'] ?>" title="Save Changes"><i class="material-icons" style="font-size: 16px;">save</i></button>&nbsp;<button class="btn btn-sm btn-light" type="submit" name="<?php echo $key['username'] ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
 												</tr>													
 							      					
 						      				<?php

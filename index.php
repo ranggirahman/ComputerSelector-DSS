@@ -200,19 +200,39 @@
 	    		</div>
 	    		<div class="col-md-3">
 	    			<div class="card" style="height: 280px;">
- 					 	<div class="card-body">   
+ 					 	<div class="card-body text-center">
+ 					 		<div class="display-4" style="font-size: 20px; padding-bottom: 4px;">Product Compare </div>
+ 					 		<hr>
+ 					 		<form action='' method='POST'>   
 			    			<div class="row">
-			    				<div class="col-md-12 text-center">
-			    					<div class="display-4" style="font-size: 20px;">Welcome<br><br><img src="user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744" onerror=this.src="img/default_profile.jpg" class="rounded-circle" height="93px" width="93px"/><br><br><?php echo $us['name'] ?></div>		    					
-		    						
+			    				<div class="col-md-12">
+		    						<input type='text' class='form-control' placeholder='Product 1' name='s' required>
+		    					</div>
+		    				</div>
+		    				<div class="row">
+		    					<div class="col-md-12 text-center">
+		    						<i class="material-icons text-muted" style="font-size: 30px; padding-top: 5px; padding-bottom: 5px; ">compare_arrows</i>
+		    					</div>
+		    				</div>
+		    				<div class="row">
+		    					<div class="col-md-12">	
+		    						<input type='text' class='form-control' placeholder='Product 2' name='s2' required>	
 			    				</div>
-			    			</div>
+			    			</div>			    			
 			    		</div>
 			    		<div class="card-footer text-center">
-			    			<a href="pages/settings.php" role="button"><i class="material-icons">settings_applications</i> User Settings</a>
+			    			<button class='btn btn-success' type='submit' name='cs'><i class="material-icons">flip</i> Compare</button>
 			    		</div>
+			    		</form>
 			    	</div>
 	    		</div>
+	    		<?php 
+		    		if(isset($_POST['cs'])){
+						$s = $_POST['s'];
+						$s2 = $_POST['s2'];
+						echo "<meta http-equiv='refresh' content='0; url=pages/compare.php?&p=0&p2=0&s=".$s."&s2=".$s2."&st=0&st2=0'/>";
+					}
+				?>
 	    	</div>
 
 	      	<?php include "pages/footer.php" ?>
