@@ -1,5 +1,4 @@
-- store dropdown
-- link to tab
+- link to tab settings
 - buy store dropdown
 - spesification conf error handling when no 100%
 - spesification image

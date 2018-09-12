@@ -82,7 +82,7 @@
 								echo "<div class='row'>";
 									echo "<div class='col-md-12'>";
 									echo "<form action='' method='POST'><div class='input-group mb-3'>
-									  <input type='text' class='form-control' value='".$sp."' placeholder='Product Name' aria-label='cs' aria-describedby='button-addon2' name='s'>
+									  <input type='text' class='form-control' value='".$sp."' placeholder='Product 1' aria-label='cs' aria-describedby='button-addon2' name='s'>
 									  <div class='input-group-append'>
 									    <button class='btn' type='submit' id='button-addon2' name='cs'>Search</button>
 									  </div>
@@ -100,7 +100,6 @@
 					        			if($st == '0' || $st == '1'){
 					        				$result = mysqli_query($koneksi,"select *from cpu where cpuname like'%$s%'");
 											while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
-												$found = 1;
 												echo "<div class='row'>"; 
 												    	echo "<div class='col-md-1'><img src='../img/processor.png' style='height='34px' width='34px''></div>";	
 												    	echo "<div class='col-md-11' style='padding-top: 4px;'><a href='../pages/compare.php?&p=".$row['cpuname']."&p2=".$product2."&s=".$s."&s2=".$s2."&st=1&st2=1'>".$row['cpuname']."</a></div>";
@@ -112,7 +111,6 @@
 										if($st == '0' || $st == '2'){
 											$result = mysqli_query($koneksi,"select *from vga where vganame like'%$s%'");
 											while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
-												$found = 1;
 												echo "<div class='row'>"; 
 												    	echo "<div class='col-md-1'><img src='../img/vga.png' style='height='34px' width='34px''></div>";	
 												    	echo "<div class='col-md-11' style='padding-top: 4px;'><a href='../pages/compare.php?&p=".$row['vganame']."&p2=".$product2."&s=".$s."&s2=".$s2."&st=2&st2=2'>".$row['vganame']."</a></div>";
@@ -124,7 +122,6 @@
 										if($st == '0' || $st == '3'){
 											$result = mysqli_query($koneksi,"select *from ssd where ssdname like'%$s%'");
 											while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
-												$found = 1;
 												echo "<div class='row'>"; 
 												    	echo "<div class='col-md-1'><img src='../img/ssd.png' style='height='34px' width='34px''></div>";	
 												    	echo "<div class='col-md-11' style='padding-top: 4px;'><a href='../pages/compare.php?&p=".$row['ssdname']."&p2=".$product2."&s=".$s."&s2=".$s2."&st=3&&st2=3'>".$row['ssdname']."</a></div>";
@@ -325,7 +322,7 @@
 						}
 						echo "<div class='card-footer'>";
 							echo "<div class='row'>";
-						    	echo "<div class='col-md-12 text-right'><div class='text-center'><a class='btn btn-sm btn-light' href='../pages/compare.php?&p=0&p2=".$product2."&s=0&s2=".$s2."&st=0&st2=".$st2."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> Compare Another Product</a></div></div>";
+						    	echo "<div class='col-md-12 text-center'><a class='btn btn-sm btn-light' href='../pages/product.php?&p=".$product."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>pageview</i></span> View Product</a><a class='btn btn-sm btn-light' href='../pages/compare.php?&p=0&p2=".$product2."&s=0&s2=".$s2."&st=0&st2=".$st2."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>autorenew</i></span> Compare Another Product</a></div>";
 						    echo "</div>";
 						echo "</div>";
 						echo "</div>";
@@ -345,7 +342,7 @@
 								echo "<div class='row'>";
 									echo "<div class='col-md-12'>";
 									echo "<form action='' method='POST'><div class='input-group mb-3'>
-									  <input type='text' class='form-control' value='".$sp2."' placeholder='Product Name' aria-label='cs2' aria-describedby='button-addon2' name='s2'>
+									  <input type='text' class='form-control' value='".$sp2."' placeholder='Product 2' aria-label='cs2' aria-describedby='button-addon2' name='s2'>
 									  <div class='input-group-append'>
 									    <button class='btn' type='submit' id='button-addon2' name='cs2'>Search</button>
 									  </div>
@@ -363,7 +360,6 @@
 					        			if($st2 == '0' || $st2 == '1'){
 					        				$result = mysqli_query($koneksi,"select *from cpu where cpuname like'%$s2%'");
 											while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
-												$found = 1;
 												echo "<div class='row'>"; 
 												    	echo "<div class='col-md-1'><img src='../img/processor.png' style='height='34px' width='34px''></div>";	
 												    	echo "<div class='col-md-11' style='padding-top: 4px;'><a href='../pages/compare.php?&p=".$product."&p2=".$row['cpuname']."&s=".$s."&s2=".$s2."&st=1&st2=1'>".$row['cpuname']."</a></div>";
@@ -375,7 +371,6 @@
 										if($st2 == '0' || $st2 == '2'){
 											$result = mysqli_query($koneksi,"select *from vga where vganame like'%$s2%'");
 											while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
-												$found = 1;
 												echo "<div class='row'>"; 
 												    	echo "<div class='col-md-1'><img src='../img/vga.png' style='height='34px' width='34px''></div>";	
 												    	echo "<div class='col-md-11' style='padding-top: 4px;'><a href='../pages/compare.php?&p=".$product."&p2=".$row['vganame']."&s=".$s."&s2=".$s2."&st=2&st2=2'>".$row['vganame']."</a></div>";
@@ -387,7 +382,6 @@
 										if($st2 == '0' || $st2 == '3'){
 											$result = mysqli_query($koneksi,"select *from ssd where ssdname like'%$s2%'");
 											while($row = mysqli_fetch_array($result,MYSQLI_BOTH)){
-												$found = 1;
 												echo "<div class='row'>"; 
 												    	echo "<div class='col-md-1'><img src='../img/ssd.png' style='height='34px' width='34px''></div>";	
 												    	echo "<div class='col-md-11' style='padding-top: 4px;'><a href='../pages/compare.php?&p=".$product."&p2=".$row['ssdname']."&s=".$s."&s2=".$s2."&st=3&&st2=3'>".$row['ssdname']."</a></div>";
@@ -588,7 +582,7 @@
 						}
 						echo "<div class='card-footer'>";
 							echo "<div class='row'>";
-						    	echo "<div class='col-md-12 text-right'><div class='text-center'><a class='btn btn-sm btn-light' href='../pages/compare.php?&p=".$product."&p2=0&s=".$s."&s2=0&st=".$st."&st2=0' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> Compare Another Product</a></div></div>";
+						    	echo "<div class='col-md-12 text-center'><a class='btn btn-sm btn-light' href='../pages/product.php?&p=".$product2."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>pageview</i></span> View Product</a><a class='btn btn-sm btn-light' href='../pages/compare.php?&p=".$product."&p2=0&s=".$s."&s2=0&st=".$st."&st2=0' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>autorenew</i></span> Compare Another Product</a></div>";
 						    echo "</div>";
 						echo "</div>";
 						echo "</div>";

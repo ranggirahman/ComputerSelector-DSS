@@ -8,6 +8,13 @@
 * Deskripsi   : Header of Search Page
 *
 **************************************************/
+	
+	// back reset
+	if(isset($search)){
+	}else{
+		$search ='';
+	}
+
 ?>
 
 <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
