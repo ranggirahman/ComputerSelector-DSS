@@ -27,6 +27,8 @@
 
 	$result = mysqli_query($koneksi,"select *from store where storeid='".$us['storeid']."'");
 	$st = mysqli_fetch_array($result);
+
+	$product = $_GET['p']; 
 ?>
 
 <!DOCTYPE html>
@@ -40,12 +42,10 @@
 	    <link rel="stylesheet" href="../css/modification.css">
 	    <link href="../css/jumbotron.css" rel="stylesheet">
 	    <link rel="icon" href="../img/favicon.ico">	   
-	    <title>Choice of Computer Hardware Specifications</title>
+	    <title><?php echo $product; ?></title>
   	</head>
 
   	<body>
-
-  		<?php $product = $_GET['p']; ?>
 
 	    <?php include "../pages/header.php" ?>	    
 
@@ -104,7 +104,7 @@
 						echo "</div>";
 						echo "<div class='card-footer'>";
 							 echo "<div class='row'>";
-						    	echo "<div class='col-md-12 text-right'><a class='btn btn-sm btn-light' href='../pages/compare.php?&p=".$row['cpuname']."&p2=0&s=0&s2=0&st=1&st2=1' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>flip</i></span> Compare</a>&nbsp;<a class='btn btn-sm btn-light' href='".$pd['query']."".$row['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> View Specifications</a>&nbsp;<a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a>&nbsp;<a class='btn btn-sm btn-light' href='".$st['query']."".$row['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a></div>";
+						    	echo "<div class='col-md-12 text-right'><a class='btn btn-sm btn-light' href='../pages/compare.php?&p=".$row['cpuname']."&p2=0&s=0&s2=0&st=1&st2=1' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>flip</i></span> Compare</a>&nbsp;<a class='btn btn-sm btn-light' href='".$pd['query']."".$row['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> Specifications</a>&nbsp;<a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a>&nbsp;<a class='btn btn-sm btn-light' href='".$st['query']."".$row['cpuname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a></div>";
 						    echo "</div>";
 						echo "</div>";
 						echo "</div>";
@@ -199,7 +199,7 @@
 						echo "</div>";
 						echo "<div class='card-footer'>";
 						echo "<div class='row'>";
-					    	echo "<div class='col-md-12 text-right'><a class='btn btn-sm btn-light' href='../pages/compare.php?&p=".$row['vganame']."&p2=0&s=0&s2=0&st=2&st2=2' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>flip</i></span> Compare</a>&nbsp;<a class='btn btn-sm btn-light' href='".$pd['query']."".$row['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> View Specifications</a>&nbsp;<a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a>&nbsp;<a class='btn btn-sm btn-light' href='".$st['query']."".$row['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a></div>";
+					    	echo "<div class='col-md-12 text-right'><a class='btn btn-sm btn-light' href='../pages/compare.php?&p=".$row['vganame']."&p2=0&s=0&s2=0&st=2&st2=2' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>flip</i></span> Compare</a>&nbsp;<a class='btn btn-sm btn-light' href='".$pd['query']."".$row['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> Specifications</a>&nbsp;<a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a>&nbsp;<a class='btn btn-sm btn-light' href='".$st['query']."".$row['vganame']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a></div>";
 						    echo "</div>";
 						echo "</div>";
 						echo "</div>";
@@ -290,7 +290,7 @@
 						echo "</div>";
 						echo "<div class='card-footer'>";
 							 echo "<div class='row'>";
-						    	echo "<div class='col-md-12 text-right'><a class='btn btn-sm btn-light' href='../pages/compare.php?&p=".$row['ssdname']."&p2=0&s=0&s2=0&st=3&st2=3' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>flip</i></span> Compare</a>&nbsp;<a class='btn btn-sm btn-light' href='".$pd['query']."".$row['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> View Specifications</a>&nbsp;<a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a>&nbsp;<a class='btn btn-sm btn-light' href='".$st['query']."".$row['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a></div>";
+						    	echo "<div class='col-md-12 text-right'><a class='btn btn-sm btn-light' href='../pages/compare.php?&p=".$row['ssdname']."&p2=0&s=0&s2=0&st=3&st2=3' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>flip</i></span> Compare</a>&nbsp;<a class='btn btn-sm btn-light' href='".$pd['query']."".$row['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>library_books</i></span> Specifications</a>&nbsp;<a class='btn btn-sm btn-light' href='http://www.google.com/search?q=".$row['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>search</i></span>Search in Google</a>&nbsp;<a class='btn btn-sm btn-light' href='".$st['query']."".$row['ssdname']."' role='button'><span aria-hidden='true'><i class='material-icons' style='font-size: 20px;'>shopping_cart</i></span>Buy</a></div>";
 						    echo "</div>";
 						echo "</div>";
 						echo "</div>";

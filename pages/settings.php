@@ -37,7 +37,7 @@
 	    <link rel="stylesheet" href="../css/modification.css">
 	    <link href="../css/jumbotron.css" rel="stylesheet">
 	    <link rel="icon" href="../img/favicon.ico">	   
-	    <title>Choice of Computer Hardware Specifications</title>
+	    <title>Settings</title>
   	</head>
 
   	<body>

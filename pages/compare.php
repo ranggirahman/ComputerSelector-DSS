@@ -27,6 +27,26 @@
 
 	$result = mysqli_query($koneksi,"select *from store where storeid='".$us['storeid']."'");
 	$st = mysqli_fetch_array($result);
+
+	$product = $_GET['p'];
+	$product2 = $_GET['p2'];
+	$s = $_GET['s']; 
+	$s2 = $_GET['s2']; 
+	$st = $_GET['st']; 
+	$st2 = $_GET['st2'];
+
+	if($s == '0'){
+		$sp = '';
+	}else{
+		$sp = $s;
+	}
+
+	if($s2 == '0'){
+		$sp2 = '';
+	}else{
+		$sp2 = $s2;
+	}
+
 ?>
 
 <!DOCTYPE html>
@@ -40,33 +60,10 @@
 	    <link rel="stylesheet" href="../css/modification.css">
 	    <link href="../css/jumbotron.css" rel="stylesheet">
 	    <link rel="icon" href="../img/favicon.ico">	   
-	    <title>Choice of Computer Hardware Specifications</title>
+	    <title><?php if( isset($product) && isset($product2) ){ echo $product. " vs " .$product2; }else{ echo "Products Compare"; } ?></title>
   	</head>
 
-  	<body>
-
-  		<?php 
-  			$product = $_GET['p'];
-  			$product2 = $_GET['p2'];
-  			$s = $_GET['s']; 
-  			$s2 = $_GET['s2']; 
-  			$st = $_GET['st']; 
-  			$st2 = $_GET['st2'];
-
-  			if($s == '0'){
-  				$sp = '';
-  			}else{
-  				$sp = $s;
-  			}
-
-  			if($s2 == '0'){
-  				$sp2 = '';
-  			}else{
-  				$sp2 = $s2;
-  			}
-
-  		?>
-
+  	<body>		
 
 	    <?php include "../pages/header.php" ?>	    
 
@@ -84,7 +81,7 @@
 									echo "<form action='' method='POST'><div class='input-group mb-3'>
 									  <input type='text' class='form-control' value='".$sp."' placeholder='Product 1' aria-label='cs' aria-describedby='button-addon2' name='s'>
 									  <div class='input-group-append'>
-									    <button class='btn' type='submit' id='button-addon2' name='cs'>Search</button>
+									    <button class='btn' type='submit' id='button-addon2' name='cs'><i class='material-icons'>search</i></button>
 									  </div>
 									</div></form><hr>";
 					        		if(isset($_POST['cs'])){
@@ -344,7 +341,7 @@
 									echo "<form action='' method='POST'><div class='input-group mb-3'>
 									  <input type='text' class='form-control' value='".$sp2."' placeholder='Product 2' aria-label='cs2' aria-describedby='button-addon2' name='s2'>
 									  <div class='input-group-append'>
-									    <button class='btn' type='submit' id='button-addon2' name='cs2'>Search</button>
+									    <button class='btn' type='submit' id='button-addon2' name='cs2'><i class='material-icons'>search</i></button>
 									  </div>
 									</div></form><hr>";
 					        		if(isset($_POST['cs2'])){

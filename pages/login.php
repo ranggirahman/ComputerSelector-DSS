@@ -28,7 +28,7 @@
 	    <link rel="stylesheet" href="../css/modification.css">
 	    <link href="../css/jumbotron.css" rel="stylesheet">
 	    <link rel="icon" href="../img/favicon.ico">	   
-	    <title>Choice of Computer Hardware Specifications</title>
+	    <title>Login</title>
   	</head>
 
   	<body>
@@ -45,14 +45,17 @@
 		            </div>
 		            <div class="col-md-1"></div>
 		            <div class="col-md-1" style="border-left:1px solid lightgray;height:auto;"></div>
-	            	<div class="col-md-3" style="padding-top: 15px;">            
+	            	<div class="col-md-3">            
 		            	<form action="" method="POST">
-		              	<table>
+		              	<table class="mb-3">
 		                	<tr height="50px">
 		                    	<td><input class="form-control" type="user" name="username" placeholder="Username" maxlength="40" size="40" required></td>
 		               		</tr>
 		               		<tr height="50px">
 		                    	<td><input class="form-control" type="password" name="password" placeholder="Password" maxlength="20" size="40" required></td>
+		                	</tr>
+		                	<tr>
+		                    	<td><a href="../pages/forget.php" class="text-muted">Forget Password ?</a></td>
 		                	</tr>
 		                </table>
 		                <table>
