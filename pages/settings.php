@@ -84,7 +84,7 @@
 							  							</td>
 							  							<td width="20px" rowspan="4"></td>
 							  							<td width="130px" class="align-middle">Username</td>
-								  						<td><input class="form-control form-control-sm" type="text" name="username" value="<?php echo($us['username'])?>" disabled></td>
+								  						<td><input class="form-control form-control-sm" type="email" name="username" value="<?php echo($us['username'])?>" disabled></td>
 								  						<td rowspan="3"></td>
 								  						<td width="200px" rowspan="4"></td>
 							  						</tr>
@@ -99,7 +99,7 @@
 								  					<tr>
 								  						<td class="align-middle">Password</td>
 								  						<td><input class="form-control form-control-sm" type="password" name="password1" placeholder="Not Change"></td>
-								  						<td><input class="form-control form-control-sm" type="password" name="password2" placeholder="Not Change"></td>
+								  						<td><input class="form-control form-control-sm" type="password" name="password2" placeholder="Confirm Password"></td>
 								  					</tr>
 							  					</table>
 							  				</div>

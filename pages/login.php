@@ -35,7 +35,7 @@
 
   		<div class="fixed-bg"></div>
 
-	    <?php include "../pages/header-noaccess.php" ?>
+	    <?php include "../pages/header.php" ?>
 
 	    <div class="jumbotron">
 	    	<div class="container">	    	
@@ -48,18 +48,18 @@
 	            	<div class="col-md-3">            
 		            	<form action="" method="POST">
 		              	<table class="mb-3">
-		                	<tr height="50px">
-		                    	<td><input class="form-control" type="user" name="username" placeholder="Username" maxlength="40" size="40" required></td>
+		                	<tr height="50">
+		                    	<td><input class="form-control" type="email" name="username" placeholder="Email" maxlength="40" size="40" required></td>
 		               		</tr>
-		               		<tr height="50px">
+		               		<tr height="50">
 		                    	<td><input class="form-control" type="password" name="password" placeholder="Password" maxlength="20" size="40" required></td>
 		                	</tr>
 		                	<tr>
-		                    	<td><a href="../pages/forget.php" class="text-muted">Forget Password ?</a></td>
+		                    	<td><a href="../pages/forget.php" class="text-muted" style="font-size: 14px;">Forget Password ?</a></td>
 		                	</tr>
 		                </table>
 		                <table>
-		                	<tr height="50px">
+		                	<tr height="50">
 		                  		<td><input class="btn btn-success" type="submit" name="login" value="Login"></td>
 		                  		<td><a class='btn btn-info' href='../pages/register.php' role='button'>Register</a></td>		                		
 		                	</tr>                        
@@ -100,11 +100,9 @@
 	        $_SESSION['username']= $username;
 	        $_SESSION['islogin']= 1;
 
-	        var_dump($_SESSION);
-
 	        header("Location: ../index.php");
 	    }else{
-	    	$message = "Invalid Username or Password";
+	    	$message = "Invalid Email or Password";
 	        echo "<script type='text/javascript'>alert('$message');</script>";
 	    }
 

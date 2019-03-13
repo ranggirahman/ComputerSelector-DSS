@@ -8,39 +8,57 @@
 * Deskripsi   : Header of Page
 *
 **************************************************/
+
+    // get uri
+    $uri_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    $uri_segments = explode('/', $uri_path);
+
+    if($uri_segments[2] == "index.php"){
+        $dir_link = "";
+    }else{
+        $dir_link = "../";
+    }
+
+    // back reset
+    if(isset($search)){
+    }else{
+        $search ='';
+    }
+
 ?>
 
 <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-  	<div class="container">
-  		<div class="row">
-  			<div class="col-md-8">
-  				<div class="font-weight-light"><a href="../index.php" class="navbar-brand"><img src="../img/logo.png"  style="max-width: 5%; and height: auto">&nbsp; Choice of Computer Hardware Specifications</a></div>
-  			</div>
-  			<div class="col-md-4">
-  				<table>
-  					<tr>
-  						<td width="288px" style="padding-right: 10px;">
-  							<form action="../pages/search.php" method="POST">
-							  	<input class="form-control" name="search" placeholder="Product Search">
-							  	<input type="submit" name="searchsubmit" style="display:none"/>
-					        </form>	
-  						</td>
-  						<td>
-			      			<ul class="nav navbar-nav ml-auto">
-					            <li class="nav-item dropdown">
-								    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false"><img src="../user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744" onerror=this.src="../img/default_profile.jpg" class="rounded-circle" height="28px" width="28px" /></a>
-								    <div class="dropdown-menu" style="margin-left: -100px;">
-								    	<a class="dropdown-item disabled">Hi, <?php echo $_SESSION['username']; ?></a>
-								    	<div class="dropdown-divider"></div>
-								      	<a class="dropdown-item" href="../pages/settings.php">Settings</a>
-								      	<a class="dropdown-item" href="../index.php?logout=1">Logout</a>
-								    </div>
-								</li>
-					        </ul>
-  						</td>
-  					</tr>
-  				</table>
-  			</div>
-  		</div>   
-  	</div>
+  	<div class="container d-flex justify-content-between">
+        <div class="font-weight-light"><a href="<?php echo $dir_link; ?>index.php" class="navbar-brand"><img src="<?php echo $dir_link; ?>img/logo.png" class="mr-2" style="object-fit:cover; height: 20px; width: 20px;">CoCHS</a>
+        </div>
+        <?php 
+            if( isset($_SESSION['islogin']) ){
+                if($_SESSION['islogin'] == 1){
+        ?>
+            <div class="w-50">
+                <form action="<?php echo $dir_link; ?>pages/search.php" method="POST">
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control border-0" name="search" placeholder="Product Search" value="<?php echo $search ?>">
+                        <div class="input-group-append">
+                            <button class="btn bg-white" type="submit" name="searchsubmit"><i class="material-icons text-muted">search</i></button>
+                        </div>
+                    </div>
+                </form>  
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false"><img src="<?php echo $dir_link; ?>user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744" onerror=this.src="<?php echo $dir_link; ?>img/default_profile.jpg" class="rounded-circle" style="object-fit:cover; height: 25px; width: 25px;" /></a>
+                        <div class="dropdown-menu" style="margin-left: -100px;">
+                            <a class="dropdown-item disabled">Hi, <?php echo $_SESSION['username']; ?></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="<?php echo $dir_link; ?>pages/settings.php">Settings</a>
+                            <a class="dropdown-item" href="<?php echo $dir_link; ?>index.php?logout=1">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        <?php   }
+            } ?>
+    </div>  
 </div>

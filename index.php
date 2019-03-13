@@ -42,7 +42,7 @@
 
   	<body>
 
-  		<?php include "pages/header-index.php" ?>
+  		<?php include "pages/header.php" ?>
 	    
 	    <div class="jumbotron">
 	    	<div class="container">	    	

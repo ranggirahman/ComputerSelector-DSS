@@ -425,10 +425,10 @@
 						  		<div class='card-body'>
 									<div class='row'>
 										<div class='col-sm-1'>	
-											<img src='../user/profile/".$key['resuser'].".jpg?dummy=8484744' onerror=this.src='../img/default_profile.jpg' class='rounded-circle border border-warning' height=50px' width='50px'/>							
+											<img src='../user/profile/".$key['resuser'].".jpg' onerror=this.src='../img/default_profile.jpg' class='rounded-circle border border-warning' style='object-fit:cover; height: 50px; width: 50px;'/>							
 										</div>
 										<div class='col-sm-10'>	
-											<b>".$resu['name']."</b> ".$resu['organization']."						
+											<b>".$resu['name']."</b> <span class='text-muted'>(".$resu['organization'].")</span>						
 											<p>".$key['comment']."</p>
 										</div>
 										<div class='col-sm-1 text-right'>
@@ -466,7 +466,7 @@
 					  	<div class="card-body">
 					  		<div class="row">
 						  		<div class='col-sm-1'>	
-									<center><img src='../user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744' onerror=this.src='../img/default_profile.jpg' class='rounded-circle border border-primary' height='50px' width='50px'/></center>									
+									<center><img src='../user/profile/<?php echo $_SESSION['username'] ?>.jpg' onerror=this.src='../img/default_profile.jpg' class='rounded-circle border border-primary' style='object-fit:cover; height: 50px; width: 50px;'/></center>									
 								</div>
 								<div class='col-sm-11'>
 									<form action="" method="POST">

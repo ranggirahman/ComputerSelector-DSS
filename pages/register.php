@@ -33,7 +33,7 @@
 
   	<body>
 
-	    <?php include "../pages/header-noaccess.php" ?>
+	    <?php include "../pages/header.php" ?>
 
     	<div class="container" style="padding-top: 40px;">
 			<div class="row">
@@ -47,8 +47,8 @@
 					  				<div class="col-md-10">
 					  					<table class="table table-responsive borderless">
 					  						<tr>
-					  							<td class="align-middle" width="150px">Username</td>
-						  						<td width="250px"><input class="form-control" type="text" name="username" required></td>
+					  							<td class="align-middle" width="150px">Email</td>
+						  						<td width="250px"><input class="form-control" type="email" name="username" required></td>
 						  						<td></td>
 						  						<td width="200px" rowspan="4"></td>
 					  						</tr>
@@ -70,7 +70,7 @@
 						  					<tr>
 						  						<td class="align-middle">Secret Question</td>
 						  						<td colspan="2">
-						  							<select class="form-control" name="sca" required>
+						  							<select class="form-control" name="scq" required>
 						  								<option value="1">In what city were you born ?</option>
 						  								<option value="2">What is your favorite movie ?</option>
 						  								<option value="3">What is your favorite color ?</option>
@@ -78,7 +78,7 @@
 						  								<option value="5">What is the name of your favorite pet ?</option>
 						  							</select>
 						  						</td>
-						  						<td width="250px"><input class="form-control" type="text" name="scq" placeholder="Secret Answer" required></td>
+						  						<td width="250px"><input class="form-control" type="text" name="sca" placeholder="Secret Answer" required></td>
 						  					</tr>
 						  					<tr>
 						  						<td></td>
@@ -122,8 +122,8 @@
 		$username = $_POST['username'];		
 		$name = $_POST['name'];
 	    $organization = $_POST['organization'];	    
-	    $scq = $_POST['scq'];  
-	    $sca = $_POST['sca'];  
+	    $scqt = $_POST['scq'];  
+	    $scat = $_POST['sca'];  
 	    $password1 = $_POST['password1'];
 	    $password2 = $_POST['password2'];
 
@@ -134,7 +134,11 @@
 
 	    if( $ci == 0 ){
 	    	if($password1 == $password2){
+	    		// md5 encrypted
 	    		$password = md5($password1);
+	    		$scq = md5($scqt);  
+	    		$sca = md5($scat);  
+	    		
 	    		$result = mysqli_query($koneksi,"insert into user(username,password,name,organization,scq,sca,bcpu,bvga,bssd,storeid) values ('$username','$password','$name','$organization','$scq','$sca','500','400','300','1')");
 
 	    		header("Location: ../pages/login.php");
@@ -143,7 +147,7 @@
 				echo "<script type='text/javascript'>alert('$msg');</script>";
 			}		        
 	    }else{
-	    	$message = "Username Already Taken";
+	    	$message = "Email Already Registered";
 	        echo "<script type='text/javascript'>alert('$message');</script>";
 	    }
 

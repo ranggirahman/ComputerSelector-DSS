@@ -43,7 +43,7 @@
 
   	<body>
 
-	   	<?php include "../pages/header-search.php" ?>	    
+	   	<?php include "../pages/header.php" ?>	    
 
 		<div class="container" style="padding-top: 40px;">
 	      	<div class="row">
@@ -111,6 +111,7 @@
 						";
 					}
 				?>
+				
 				</div>	        	
 	     	</div>
 
