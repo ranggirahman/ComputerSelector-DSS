@@ -57,9 +57,9 @@
 		      	<hr>
 		      	<div class="row">
 		      		<div class="col-md-2">
-						<a class="btn btn-success" href="pages/selector.php" role="button" style="width: 185px; margin-top: 8px;"><i class="material-icons" style="font-size: 50px;">touch_app</i><hr style="border-color: white; margin-bottom: 3px;"> Pick Your Computer</a>
+						<a class="btn btn-secondary" href="pages/selector.php" role="button" style="width: 185px; margin-top: 8px;"><i class="material-icons" style="font-size: 50px;">touch_app</i><hr style="border-color: white; margin-bottom: 3px;"> Pick Your Computer</a>
 					</div>
-		      		<div class="col-md-10" style="padding-left: 70px;"">
+		      		<div class="col-md-10" style="padding-left: 70px;">
 		      			<p class="lead" align="justify">Sistem pendukung keputusan untuk membantu pengguna melakukan pemilihan spesifikasi hardware komputer dengan metode Utility Additive (UTA) yang digunakan untuk menentukan setiap perangkat khususnya seperti processor, vga, storage dan perangkat pendukung lainnya agar sesuai dengan kebutuhan sehingga keputusan yang diambil pengguna akan tepat.</p>
 		      		</div> 
 		      	</div>
@@ -259,15 +259,15 @@
 			        	<table class="table table-sm table-hover table-bordered">
 			        		<thead class="thead-light">
 				      			<tr>
-				      				<th class="table-center"><button type="button" class="btn btn-light btn-sm">No</button></th>
-				      				<th class="table-center" width="15%"><button type="button" class="btn btn-light btn-sm">Processor Name</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Benchmark Performance Using All Cores" data-placement="bottom" data-content="PCMark Accelerated, PassMark, Geekbench Multi-Core">Performance</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Individual Core Benchmark Performance" data-placement="bottom" data-content="PassMark Single-Core, Geekbench Single-Core, AES Single-Core">Single-Core</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Integrated GPU Performance for Graphics" data-placement="bottom" data-content="Sky Driver, Cloud Gate">Graphics</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Integrated GPU Performance for Parallel Computing" data-placement="bottom" data-content="Bitcoin Minning, Face Detection, Ocean Simulation, CompuBench T-Rex, Video Composition">G. OpenCL</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Performance Per Watt" data-placement="bottom" data-content="Sky Driver, Cloud Gate, CompuBench, PCMark, PassMark, Geekbench, TDP">Perf / Watt</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Paying for Performance" data-placement="bottom" data-content="Sky Driver, Cloud Gate, CompuBench, PCMark, PassMark, Geekbench, TDP">Value (Pay)</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Combination of All Six Facets" data-placement="bottom" data-content="Performance, Single-Core Performance, Integrated Graphics, Performance Per Watt, Value">Total Score</button></th>
+				      				<th class="table-center"><button type="button" class="btn bg-transparent btn-sm">No</button></th>
+				      				<th class="table-center" width="15%"><button type="button" class="btn bg-transparent btn-sm">Processor Name</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" data-trigger="focus" title="Benchmark Performance Using All Cores" data-placement="bottom" data-content="PCMark Accelerated, PassMark, Geekbench Multi-Core">Performance</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" data-trigger="focus" title="Individual Core Benchmark Performance" data-placement="bottom" data-content="PassMark Single-Core, Geekbench Single-Core, AES Single-Core">Single-Core</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" data-trigger="focus" title="Integrated GPU Performance for Graphics" data-placement="bottom" data-content="Sky Driver, Cloud Gate">Graphics</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" data-trigger="focus" title="Integrated GPU Performance for Parallel Computing" data-placement="bottom" data-content="Bitcoin Minning, Face Detection, Ocean Simulation, CompuBench T-Rex, Video Composition">G. OpenCL</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" data-trigger="focus" title="Performance Per Watt" data-placement="bottom" data-content="Sky Driver, Cloud Gate, CompuBench, PCMark, PassMark, Geekbench, TDP">Perf / Watt</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" data-trigger="focus" title="Paying for Performance" data-placement="bottom" data-content="Sky Driver, Cloud Gate, CompuBench, PCMark, PassMark, Geekbench, TDP">Value (Pay)</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" data-trigger="focus" title="Combination of All Six Facets" data-placement="bottom" data-content="Performance, Single-Core Performance, Integrated Graphics, Performance Per Watt, Value">Total Score</button></th>
 				      			</tr>
 			      			</thead>
 			      			<?php			      							      				
@@ -345,15 +345,15 @@
 			        	<table class="table table-sm table-hover table-bordered ">
 			        		<thead class="thead-light">
 				      			<tr>
-				      				<th class="table-center"><button type="button" class="btn btn-light btn-sm">No</button></th>
-				      				<th class="table-center" width="20%"><button type="button" class="btn btn-light btn-sm">VGA Name</button></th>				      				
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Gaming Performance Benchmark" data-placement="bottom" data-content="Battlefield 4, Bioshock Infinite, Crysis 3, Dirt 3, Farcry 3, CSGO, Diablo III, Fifa 16, GTA 5, The Witcher 3">Gaming</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Graphic Benchmark" data-placement="bottom" data-content="T-Rex, Manhattan, Gate Factor">Graphics</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Computing Performance" data-placement="bottom" data-content="Face Detection, Ocean Surface Simulation, Particle Simulation, Video Composition, Bitcoin Minning">Computing</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Performance Per Watt" data-placement="bottom" data-content="Battlefield 4, Bioshock Infinite, Crysis 3, Dirt 3, Farcry 3, CSGO, Diablo III, Fifa 16, GTA 5, The Witcher 3, T-Rex, Manhattan, Gate Factor, Face Detection, Ocean Surface Simulation, Particle Simulation, Video Composition, Bitcoin Minning">Perf / Watt</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Paying for Performance" data-placement="bottom" data-content="Battlefield 4, Bioshock Infinite, Crysis 3, Dirt 3, Farcry 3, CSGO, Diablo III, Fifa 16, GTA 5, The Witcher 3, T-Rex, Manhattan, Gate Factor, Face Detection, Ocean Surface Simulation, Particle Simulation, Video Composition, Bitcoin Minning">Value (Pay)</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Noise and Power" data-placement="bottom" data-content="TDP, Idle Power Consumtion, Load Power Consumtion, Idle Noise Level, Load Noise Level">Noise Power</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" title="Combination of All Six Facets" data-placement="bottom" data-content="Gaming, Graphic, Computing, Performance Per Watt, Value, Noise and Power">Total Score</button></th>
+				      				<th class="table-center"><button type="button" class="btn bg-transparent btn-sm">No</button></th>
+				      				<th class="table-center" width="20%"><button type="button" class="btn bg-transparent btn-sm">VGA Name</button></th>				      				
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" data-trigger="focus" title="Gaming Performance Benchmark" data-placement="bottom" data-content="Battlefield 4, Bioshock Infinite, Crysis 3, Dirt 3, Farcry 3, CSGO, Diablo III, Fifa 16, GTA 5, The Witcher 3">Gaming</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" data-trigger="focus" title="Graphic Benchmark" data-placement="bottom" data-content="T-Rex, Manhattan, Gate Factor">Graphics</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" data-trigger="focus" title="Computing Performance" data-placement="bottom" data-content="Face Detection, Ocean Surface Simulation, Particle Simulation, Video Composition, Bitcoin Minning">Computing</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" data-trigger="focus" title="Performance Per Watt" data-placement="bottom" data-content="Battlefield 4, Bioshock Infinite, Crysis 3, Dirt 3, Farcry 3, CSGO, Diablo III, Fifa 16, GTA 5, The Witcher 3, T-Rex, Manhattan, Gate Factor, Face Detection, Ocean Surface Simulation, Particle Simulation, Video Composition, Bitcoin Minning">Perf / Watt</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" data-trigger="focus" title="Paying for Performance" data-placement="bottom" data-content="Battlefield 4, Bioshock Infinite, Crysis 3, Dirt 3, Farcry 3, CSGO, Diablo III, Fifa 16, GTA 5, The Witcher 3, T-Rex, Manhattan, Gate Factor, Face Detection, Ocean Surface Simulation, Particle Simulation, Video Composition, Bitcoin Minning">Value (Pay)</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" data-trigger="focus" title="Noise and Power" data-placement="bottom" data-content="TDP, Idle Power Consumtion, Load Power Consumtion, Idle Noise Level, Load Noise Level">Noise Power</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-wrap btn-info btn-sm" data-container="body" data-toggle="popover" data-trigger="focus" title="Combination of All Six Facets" data-placement="bottom" data-content="Gaming, Graphic, Computing, Performance Per Watt, Value, Noise and Power">Total Score</button></th>
 				      			</tr>
 			      			</thead>
 			      			<?php		      				
@@ -432,13 +432,13 @@
 			        	<table class="table table-sm table-hover table-bordered">
 			        		<thead class="thead-light">
 				      			<tr>
-				      				<th class="table-center"><button type="button" class="btn btn-sm btn-light">No</button></th>
-				      				<th class="table-center" width="20%"><button type="button" class="btn btn-sm btn-light">SSD Name</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-sm btn-wrap btn-info" data-container="body" data-toggle="popover" title="How Quickly Data Is Read From The Drive" data-placement="bottom" data-content="4K Random Read, 4K Random Read Access Time, 512K Squential Read">Read Perf</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-sm btn-wrap btn-info" data-container="body" data-toggle="popover" title="How Quickly Data Is Written To The Drive" data-placement="bottom" data-content="4K Random Write, 4K Random Write Access Time, 512K Squential Write">Write Perf</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-sm btn-wrap btn-info" data-container="body" data-toggle="popover" title="Real World Benchmarks, How Well The Drive Performs Common Task" data-placement="bottom" data-content="Photoshop Lens Filter, AS SSD ISO Copy">Real World</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-sm btn-wrap btn-info" data-container="body" data-toggle="popover" title="How Well The Drive Performs On Common Benchmarks" data-placement="bottom" data-content="PCMark Vantage, AS SSD Score">Benchmarks</button></th>
-				      				<th class="table-center"><button type="button" class="btn btn-sm btn-wrap btn-info" data-container="body" data-toggle="popover" title="Combination of All Four Facets" data-placement="bottom" data-content="Read Performance, Write Performance, Real World Benchmarks, Benchmarks">Total Score</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-sm bg-transparent">No</button></th>
+				      				<th class="table-center" width="20%"><button type="button" class="btn btn-sm bg-transparent">SSD Name</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-sm btn-wrap btn-info" data-container="body" data-toggle="popover" data-trigger="focus" title="How Quickly Data Is Read From The Drive" data-placement="bottom" data-content="4K Random Read, 4K Random Read Access Time, 512K Squential Read">Read Perf</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-sm btn-wrap btn-info" data-container="body" data-toggle="popover" data-trigger="focus" title="How Quickly Data Is Written To The Drive" data-placement="bottom" data-content="4K Random Write, 4K Random Write Access Time, 512K Squential Write">Write Perf</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-sm btn-wrap btn-info" data-container="body" data-toggle="popover" data-trigger="focus" title="Real World Benchmarks, How Well The Drive Performs Common Task" data-placement="bottom" data-content="Photoshop Lens Filter, AS SSD ISO Copy">Real World</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-sm btn-wrap btn-info" data-container="body" data-toggle="popover" data-trigger="focus" title="How Well The Drive Performs On Common Benchmarks" data-placement="bottom" data-content="PCMark Vantage, AS SSD Score">Benchmarks</button></th>
+				      				<th class="table-center"><button type="button" class="btn btn-sm btn-wrap btn-info" data-container="body" data-toggle="popover" data-trigger="focus" title="Combination of All Four Facets" data-placement="bottom" data-content="Read Performance, Write Performance, Real World Benchmarks, Benchmarks">Total Score</button></th>
 				      			</tr>
 			      			</thead>
 			      			<?php		      				

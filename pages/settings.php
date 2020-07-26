@@ -49,7 +49,7 @@
 				<div class="card-header"><i class="material-icons">settings</i> Settings</div>
 				<div class="card-body">
 					<div class="row">
-						<div class="col-md-2 border-right" style="padding-top: 4px; height:700px;">
+						<div class="col-md-2 pl-0 pr-1 border-right" style="padding-top: 4px; height:700px;">
 						  	<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 							  	<a class="nav-link active" data-toggle="pill" href="#tab-profile" role="tab" aria-selected="true"><i class="material-icons">person</i> Profile</a>
 							  	<a class="nav-link" data-toggle="pill" href="#tab-settings" role="tab" aria-selected="false"><i class="material-icons">desktop_windows</i> Result</a>
@@ -225,7 +225,7 @@
 										    <a class="nav-link" data-toggle="tab" href="#dssd" role="tab" aria-selected="false"><img src="../img/ssd.png" style="max-width: 22px; and height: 22px;"> SSD</a>
 										</li>							  								  	
 									  	<li class="nav-item">
-									    	<a class="nav-link" data-toggle="tab" href="#pdetail" role="tab" aria-selected="true"><i class="material-icons">note</i> Product Detail</a>
+									    	<a class="nav-link" data-toggle="tab" href="#pdetail" role="tab" aria-selected="true"><i class="material-icons text-muted">description</i> Product Detail</a>
 									  	</li>						  
 									</ul>
 									<!-- Product Tab - CPU -->
@@ -1086,7 +1086,14 @@
 													<td class="align-middle"><?php echo $key['name'] ?></td>
 													<td class="align-middle"><?php echo $key['organization'] ?></td>
 						      						
-						      						<td class="align-middle table-center"><button class="btn btn-sm btn-light" type="submit" name="<?php echo $key['userid'] ?>" title="Save Changes"><i class="material-icons" style="font-size: 16px;">save</i></button>&nbsp;<button class="btn btn-sm btn-light" type="submit" name="<?php echo $key['username'] ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button></td>
+						      						<td class="align-middle table-center">
+						      							<button class="btn btn-sm btn-light mr-1" type="submit" name="<?php echo $key['userid'] ?>" title="Save Changes"><i class="material-icons" style="font-size: 16px;">save</i></button>
+						      							<?php if( $key['usertype'] != 2 && $key['username'] != $us['username'] ){ ?>
+						      								<button class="btn btn-sm btn-light" type="submit" name="<?php echo $key['username'] ?>" title="Delete"><i class="material-icons" style="font-size: 16px;">delete</i></button>
+						      							<?php }else{ ?>
+						      								<button class="btn btn-sm btn-light disabled" title="Can't Delete Yourself or Admin"><i class="material-icons" style="font-size: 16px;">delete</i></button>
+						      							<?php } ?>
+						      						</td>
 												</tr>													
 							      					
 						      				<?php
@@ -1099,7 +1106,6 @@
 
 														    $message = "User ".$key['username']." was Edited";
 	        												echo "<script type='text/javascript'>alert('$message');</script>";
-
 														    echo "<meta http-equiv='refresh' content='0'>";
 														}
 
