@@ -40,12 +40,10 @@
 	    <div class="jumbotron">
 	    	<div class="container">	    	
 			   	<div class="row">
-		          	<div class="col-md-7">
-		          		<img class="mb-5" src="../img/desktop.png" style="max-width: 120px; and height: auto">
+		          	<div class="col-md-7 my-auto">
 		            	<h1 class="display-4" style="font-size: 64px;">Choice of Computer Hardware Specifications</h1>
 		            </div>
-	            	<div class="offset-md-2 col-md-3 my-auto">
-	            		<div class="h5 mb-3">Login</div>            
+	            	<div class="offset-md-2 col-md-3 my-auto">         
 		            	<form action="" method="POST">
 		            		<input class="form-control mb-2" type="email" name="username" placeholder="Email" maxlength="40" size="40" required>
 		            		<input class="form-control mb-2" type="password" name="password" placeholder="Password" maxlength="20" size="40" required>
