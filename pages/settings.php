@@ -76,9 +76,9 @@
 							  						<tr>
 							  							<td width="10%" rowspan="4">
 							  								<div class="card">
-							  									<div class="card-body text-center" style="width: 140px;">
+							  									<div class="card-body text-center" style="width: 145px;">
 							  										<img src="../user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744" onerror=this.src="../img/default_profile.jpg" class="rounded-circle" height="80px" width="80px"/>
-							  										<input class="btn btn-sm" type="file" name="uploaded_file" style="width: 100%">
+							  										<input class="btn btn-sm" type="file" name="uploaded_file" style="width: 105px">
 							  									</div>
 							  								</div>
 							  							</td>

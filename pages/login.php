@@ -41,29 +41,18 @@
 	    	<div class="container">	    	
 			   	<div class="row">
 		          	<div class="col-md-7">
+		          		<img class="mb-5" src="../img/desktop.png" style="max-width: 120px; and height: auto">
 		            	<h1 class="display-4" style="font-size: 64px;">Choice of Computer Hardware Specifications</h1>
 		            </div>
-		            <div class="col-md-1"></div>
-		            <div class="col-md-1" style="border-left:1px solid lightgray;height:auto;"></div>
-	            	<div class="col-md-3">            
+	            	<div class="offset-md-2 col-md-3 my-auto">
+	            		<div class="h5 mb-3">Login</div>            
 		            	<form action="" method="POST">
-		              	<table class="mb-3">
-		                	<tr height="50">
-		                    	<td><input class="form-control" type="email" name="username" placeholder="Email" maxlength="40" size="40" required></td>
-		               		</tr>
-		               		<tr height="50">
-		                    	<td><input class="form-control" type="password" name="password" placeholder="Password" maxlength="20" size="40" required></td>
-		                	</tr>
-		                	<tr>
-		                    	<td><a href="../pages/forget.php" class="text-muted" style="font-size: 14px;">Forget Password ?</a></td>
-		                	</tr>
-		                </table>
-		                <table>
-		                	<tr height="50">
-		                  		<td><input class="btn btn-success" type="submit" name="login" value="Login"></td>
-		                  		<td><a class='btn btn-info' href='../pages/register.php' role='button'>Register</a></td>		                		
-		                	</tr>                        
-		              	</table>
+		            		<input class="form-control mb-2" type="email" name="username" placeholder="Email" maxlength="40" size="40" required>
+		            		<input class="form-control mb-2" type="password" name="password" placeholder="Password" maxlength="20" size="40" required>
+		            		<input class="btn btn-primary w-100 mb-2" type="submit" name="login" value="Login">
+		            		<div class="text-center"><a href="../pages/forget.php" class="text-muted text" style="font-size: 14px;">Forget Password ?</a></div>
+		            		<hr>
+		            		<a class='btn btn-info w-100' href='../pages/register.php' role='button'>Register</a>
 		            	</form>
 		          	</div>
 		      	</div>
