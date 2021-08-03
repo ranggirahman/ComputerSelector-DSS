@@ -50,10 +50,10 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false"><img src="<?php echo $dir_link; ?>user/profile/<?php echo $_SESSION['username'] ?>.jpg?dummy=8484744" onerror=this.src="<?php echo $dir_link; ?>img/default_profile.jpg" class="rounded-circle" style="object-fit:cover; height: 25px; width: 25px;" /></a>
                         <div class="dropdown-menu" style="margin-left: -100px;">
-                            <a class="dropdown-item disabled">Hi, <?php echo $_SESSION['username']; ?></a>
+                            <a class="dropdown-item disabled">Hi, <b><?php echo $_SESSION['name']; ?></b></a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="<?php echo $dir_link; ?>pages/settings.php">Settings</a>
-                            <a class="dropdown-item" href="<?php echo $dir_link; ?>index.php?logout=1">Logout</a>
+                            <a class="dropdown-item" href="<?php echo $dir_link; ?>pages/settings.php"><i class="material-icons text-muted mr-2">settings</i>Settings</a>
+                            <a class="dropdown-item" href="<?php echo $dir_link; ?>index.php?logout=1"><i class="material-icons text-muted mr-2">logout</i>Logout</a>
                         </div>
                     </li>
                 </ul>

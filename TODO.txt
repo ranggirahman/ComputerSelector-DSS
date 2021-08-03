@@ -5,6 +5,7 @@
 - forgot password
 - remember login
 - edit product
+- head on every page meta move to header
 
 page :
 - user profile
